@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://u23oeknsgl8y"]
+
+[ext_resource type="Script" path="res://Script/tela_creditos.gd" id="1_xbbeh"]
+[ext_resource type="Texture2D" uid="uid://b4jympk0rqtl1" path="res://Asset/SetaBack__.png" id="2_02i5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqhi3"]
+
+[node name="TelaCreditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbbeh")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Creditos" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.5
+offset_top = -233.0
+offset_right = 458.5
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Centro" type="VBoxContainer" parent="Creditos"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Creditos/Centro"]
+layout_mode = 2
+text = "Label 1"
+
+[node name="Label2" type="Label" parent="Creditos/Centro"]
+layout_mode = 2
+text = "Label 2"
+
+[node name="Back" type="Button" parent="." groups=["button"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_bottom = 53.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sqhi3")
+icon = ExtResource("2_02i5g")
+flat = true
