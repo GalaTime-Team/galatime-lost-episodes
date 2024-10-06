@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=8 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/GalatimeLostEpisodes.png" id="2_l0iwc"]
+[ext_resource type="AudioStream" uid="uid://btpubdq4y7gr4" path="res://Asset/Menu_Click_Sound.mp3" id="3_dgtn5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -57,7 +58,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="Play" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Play" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["Menu_click", "button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -65,7 +66,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
 text = "Play"
 flat = true
 
-[node name="Settings" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Settings" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["Menu_click", "button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -73,7 +74,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
 text = "Settings"
 flat = true
 
-[node name="Credits" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Credits" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["Menu_click", "button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -81,10 +82,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
 text = "Credits"
 flat = true
 
-[node name="Leave" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Leave" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["Menu_click", "button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "Leave"
 flat = true
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="." groups=["Menu_click"]]
+stream = ExtResource("3_dgtn5")
