@@ -91,9 +91,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "Leave"
 flat = true
 
-[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_dgtn5")
-
 [node name="Settings" parent="." instance=ExtResource("4_g0s4g")]
 visible = false
 layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 332.0
+
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dgtn5")

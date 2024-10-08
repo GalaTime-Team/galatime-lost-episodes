@@ -24,84 +24,29 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Screen" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -69.0
-offset_right = 200.0
-offset_bottom = 69.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
+[node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="Name" type="VBoxContainer" parent="Screen/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="FullScreenLabel" type="Label" parent="Screen/HBoxContainer/Name"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "FullScreen"
-horizontal_alignment = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Screen/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="FullScreen" type="CheckBox" parent="Screen/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen"]
-layout_mode = 2
-
-[node name="Master" type="Label" parent="Screen/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 31
-text = "Master Volume"
-horizontal_alignment = 2
-
-[node name="MasterVolume" type="HSlider" parent="Screen/VBoxContainer"]
-layout_mode = 2
-value = 50.0
-
-[node name="Music" type="Label" parent="Screen/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 31
-text = "Music Volume"
-horizontal_alignment = 2
-
-[node name="MusicVolume" type="HSlider" parent="Screen/VBoxContainer"]
-layout_mode = 2
-value = 50.0
-
-[node name="Back" type="Button" parent="." groups=["button"]]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -89.0
-offset_bottom = 53.0
-grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlru")
 icon = ExtResource("2_mjaba")
 flat = true
 
-[connection signal="toggled" from="Screen/HBoxContainer/VBoxContainer2/FullScreen" to="." method="_on_full_screen_toggled"]
-[connection signal="value_changed" from="Screen/VBoxContainer/MasterVolume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Screen/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[node name="Screen" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
