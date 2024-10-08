@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Menu_Click_Sound.mp3-e856f6f93f05265102032dfc
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
