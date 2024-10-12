@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=8 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/GalatimeLostEpisodes.png" id="2_l0iwc"]
-[ext_resource type="AudioStream" uid="uid://btpubdq4y7gr4" path="res://Asset/Menu_Click_Sound.mp3" id="3_dgtn5"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="4_g0s4g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
@@ -33,33 +32,39 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="MenuContainer" type="VBoxContainer" parent="."]
+[node name="Settings" parent="." instance=ExtResource("4_g0s4g")]
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 49.0
-offset_top = -299.0
-offset_right = 688.0
-offset_bottom = 275.0
+offset_top = -297.0
+offset_right = 683.0
+offset_bottom = 297.0
 grow_vertical = 2
 
-[node name="TituloImagem" type="TextureRect" parent="MenuContainer"]
+[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TituloImagem" type="TextureRect" parent="MarginContainer/MenuContainer"]
 layout_mode = 2
 texture = ExtResource("2_l0iwc")
 expand_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MenuContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="Play" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Play" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -67,7 +72,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
 text = "Play"
 flat = true
 
-[node name="Settings" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Settings" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -75,7 +80,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
 text = "Settings"
 flat = true
 
-[node name="Credits" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Credits" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -83,7 +88,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
 text = "Credits"
 flat = true
 
-[node name="Leave" type="Button" parent="MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
+[node name="Leave" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
@@ -91,14 +96,4 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "Leave"
 flat = true
 
-[node name="Settings" parent="." instance=ExtResource("4_g0s4g")]
-visible = false
-layout_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 332.0
-
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_dgtn5")

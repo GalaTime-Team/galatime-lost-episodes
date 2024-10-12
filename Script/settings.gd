@@ -1,7 +1,7 @@
 class_name Settings
 extends Control
 
-@onready var back_button: Button = $Back
+@onready var back_button = $MarginContainer/Back as Button
 
 signal back_setting_menu
 
