@@ -46,6 +46,33 @@ text = "Opitons"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 120
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/WindowMode"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Window Mode"
+
+[node name="Window_button" type="OptionButton" parent="MarginContainer/VBoxContainer/WindowMode"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ResolutionMode"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Resolution Mode"
+
+[node name="Res_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ResolutionMode"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
 [node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 8

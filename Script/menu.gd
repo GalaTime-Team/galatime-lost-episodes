@@ -22,14 +22,14 @@ func on_settings_pressed() -> void:
 	settings.visible = true
 
 func handle_connecting_signal() -> void:
-	settings.back_setting_menu.connect(on_back_setting_menu)
+	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings
 # Função para mudar de cena
 func on_button_pressed(button: Button) -> void:
 	match button.name:
 		"Play":
 			var _game: bool = get_tree().change_scene_to_file("res://Interface/play1.tscn")
 		"Settings":
-			on_settings_pressed()
+			on_settings_pressed() #mostrar os settings atraves do settings.set_process(true)
 		"Credits":
 			var _credits: bool = get_tree().change_scene_to_file("res://Interface/tela_creditos.tscn")
 		"Leave":
