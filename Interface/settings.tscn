@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://qw8mhcsihprh"]
+[gd_scene load_steps=5 format=3 uid="uid://qw8mhcsihprh"]
 
 [ext_resource type="Script" path="res://Script/settings.gd" id="1_eglf2"]
 [ext_resource type="Texture2D" uid="uid://b4jympk0rqtl1" path="res://Asset/SetaBack__.png" id="2_mjaba"]
+[ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_l6lt5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
 
@@ -42,7 +43,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Opitons"
+text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -82,3 +83,8 @@ theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlru")
 icon = ExtResource("2_mjaba")
 flat = true
+
+[node name="b_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l6lt5")
+volume_db = -1.0
+bus = &"Sfx"

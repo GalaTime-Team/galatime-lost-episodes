@@ -5,6 +5,7 @@ extends Control
 @onready var back_button = $MarginContainer/Back as Button
 @onready var window_button = $MarginContainer/VBoxContainer/WindowMode/Window_button as OptionButton
 @onready var res_button = $MarginContainer/VBoxContainer/ResolutionMode/Res_button as OptionButton
+@onready var b_menu_click = $b_menu_click as AudioStreamPlayer
 
 const RESOLUTION_MODE_DICTIONARY : Dictionary  = {
 	"1920 x 1080" : Vector2i(1920, 1080),
@@ -40,6 +41,7 @@ func _ready() -> void:
 
 func on_back_pressed() -> void: #func do processo que ira ser feito no menu
 	back_setting_menu.emit()
+	b_menu_click.play()
 	set_process(false)
 
 func add_window_mode_items() -> void: #fazer um loop for pra analizar o array e ver o window mod correto

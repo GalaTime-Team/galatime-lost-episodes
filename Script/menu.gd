@@ -29,7 +29,9 @@ func on_button_pressed(button: Button) -> void:
 		"Play":
 			var _game: bool = get_tree().change_scene_to_file("res://Interface/play1.tscn")
 		"Settings":
+			menuclick_sound.play()
 			on_settings_pressed() #mostrar os settings atraves do settings.set_process(true)
 		"Credits":
-			var _credits: bool = get_tree().change_scene_to_file("res://Interface/tela_creditos.tscn") #Subestituir por uma func		"Leave":
+			var _credits: bool = get_tree().change_scene_to_file("res://Interface/tela_creditos.tscn") #Subestituir por uma func		
+		"Leave":
 			get_tree().quit()
