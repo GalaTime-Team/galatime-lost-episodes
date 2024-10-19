@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://qw8mhcsihprh"]
+[gd_scene load_steps=6 format=3 uid="uid://qw8mhcsihprh"]
 
 [ext_resource type="Script" path="res://Script/settings.gd" id="1_eglf2"]
+[ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Volume_controler.tscn" id="2_lb28q"]
 [ext_resource type="Texture2D" uid="uid://b4jympk0rqtl1" path="res://Asset/SetaBack__.png" id="2_mjaba"]
 [ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_l6lt5"]
 
@@ -39,6 +40,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -73,6 +75,22 @@ text = "Resolution Mode"
 [node name="Res_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ResolutionMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_lb28q")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Control2" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_lb28q")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="Control3" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_lb28q")]
+layout_mode = 2
+bus_name = "Sfx"
 
 [node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
