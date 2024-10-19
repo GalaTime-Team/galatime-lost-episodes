@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=9 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/GalatimeLostEpisodes.png" id="2_l0iwc"]
+[ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="4_g0s4g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
@@ -97,3 +98,7 @@ text = "Leave"
 flat = true
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+
+[node name="TelaCreditos" parent="." instance=ExtResource("4_51dv1")]
+visible = false
+layout_mode = 1
