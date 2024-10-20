@@ -24,3 +24,7 @@ Global="*res://Script/global.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/initial_position_type=2
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Asset/Linguas/translate_gtle.en.translation", "res://Asset/Linguas/translate_gtle.ja.translation", "res://Asset/Linguas/translate_gtle.pt_PT.translation")
