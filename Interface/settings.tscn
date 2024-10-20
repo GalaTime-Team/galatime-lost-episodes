@@ -92,6 +92,24 @@ bus_name = "Music"
 layout_mode = 2
 bus_name = "Sfx"
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Languages"
+
+[node name="HBoxLinguas" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxLinguas"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Language"
+
+[node name="language_button" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxLinguas"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
 [node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 8

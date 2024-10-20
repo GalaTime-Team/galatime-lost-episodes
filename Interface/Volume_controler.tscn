@@ -12,6 +12,9 @@ grow_vertical = 2
 script = ExtResource("1_fyeai")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 561.0
+offset_bottom = 38.0
 theme_override_constants/separation = 30
 
 [node name="Audio_Name" type="Label" parent="HBoxContainer"]
