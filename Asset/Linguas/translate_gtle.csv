@@ -3,3 +3,13 @@ button_menu_play,Jogar,Play,遊ぶ
 button_menu_settings,Opções,Options,オプション
 button_menu_credits,Créditos,Credits,クレジット
 button_menu_leave,Sair,Exit,出口
+title_settings,Menu de Opções,Menu Options,メニューオプション
+title_settings_screen_resolution,Resolução da Tela,Screen Resolution,画面解像度
+lable_settings_window_mode,Modo da Janela,Window Mode,ウィンドウモード
+lable_settings_resolution_mode,Resolução,Resolution Mode,解像度モード
+title_settings_volume,Volume,Volume,音量
+lable_settings_master_volume,Geral,Master,マスター
+lable_settings_music_volume,Música,Music,音楽
+lable_settings_sound_effects,Efeitos Sonoros,Sound Effects,効果音
+title_settings_language,Idioma,Language,言語
+lable_settings_language,Idioma Selecionado,Selected Language,選択された言語
