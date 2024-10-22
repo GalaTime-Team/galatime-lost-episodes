@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=11 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/GalatimeLostEpisodes.png" id="2_l0iwc"]
 [ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
 [ext_resource type="AudioStream" uid="uid://btpubdq4y7gr4" path="res://Asset/Menu_Click_Sound.mp3" id="4_enfvr"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="4_g0s4g"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/forgotten futurist bd.otf" id="4_ldhuy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -69,6 +70,7 @@ theme_override_constants/separation = 20
 [node name="Play" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_fonts/font = ExtResource("4_ldhuy")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
 text = "button_menu_play"
@@ -77,6 +79,7 @@ flat = true
 [node name="Settings" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_fonts/font = ExtResource("4_ldhuy")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
 text = "button_menu_settings"
@@ -85,6 +88,7 @@ flat = true
 [node name="Credits" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_fonts/font = ExtResource("4_ldhuy")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
 text = "button_menu_credits"
@@ -93,6 +97,7 @@ flat = true
 [node name="Leave" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_fonts/font = ExtResource("4_ldhuy")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "button_menu_leave"
@@ -106,13 +111,14 @@ bus = &"Sfx"
 visible = false
 layout_mode = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="License" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -28.0
+offset_top = -19.0
 offset_right = 560.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_ldhuy")
+theme_override_font_sizes/font_size = 15
 text = "© 2025 / GT Team / This work is openly licensed via CC BY-NC 4.0"

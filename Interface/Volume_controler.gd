@@ -8,6 +8,12 @@ extends Control
 
 var bus_index : int = 0
 
+var bus_labels = {
+	"Master": "label_settings_master_volume",
+	"Music": "label_settings_music_volume",
+	"Sfx": "label_settings_sound_effects"
+}
+
 func _ready() -> void:
 	h_slider.value_changed.connect(on_value_changed) #mudar o valor do volume
 	get_bus_name_by_index() #pegar o nome da bus pelo index 
@@ -23,7 +29,7 @@ func set_slider_value() -> void: # ira mudar no valor do audioserver pro hslider
 	set_num_label()
 
 func set_name_label() -> void: #func para verificar qual bus_volume esta sendo usado
-	audio_name.text = str(bus_name) + " Volume" 
+	audio_name.text = bus_labels.get(bus_name, "label_settings_sound_effects")
 
 func set_num_label() ->void: #func para pegar o valor do hslider
 	audio_num.text = str(h_slider.value * 100)

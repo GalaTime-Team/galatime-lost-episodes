@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://qw8mhcsihprh"]
+[gd_scene load_steps=8 format=3 uid="uid://qw8mhcsihprh"]
 
 [ext_resource type="Script" path="res://Script/settings.gd" id="1_eglf2"]
+[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/forgotten futurist rg.otf" id="2_4e826"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/forgotten futurist bd.otf" id="2_4ms76"]
 [ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Volume_controler.tscn" id="2_lb28q"]
 [ext_resource type="Texture2D" uid="uid://b4jympk0rqtl1" path="res://Asset/SetaBack__.png" id="2_mjaba"]
 [ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_l6lt5"]
@@ -42,71 +44,119 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4ms76")
 theme_override_font_sizes/font_size = 32
-text = "Options"
+text = "title_settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScreenRes" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_font_sizes/font_size = 40
+text = "title_settings_screen_resolution"
+
+[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScreenRes"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 120
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/WindowMode"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes/WindowMode"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
-text = "Window Mode"
+text = "label_settings_window_mode"
 
-[node name="Window_button" type="OptionButton" parent="MarginContainer/VBoxContainer/WindowMode"]
+[node name="Window_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenRes/WindowMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScreenRes"]
 layout_mode = 2
 theme_override_constants/separation = 90
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ResolutionMode"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes/ResolutionMode"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
-text = "Resolution Mode"
+text = "label_settings_resolution_mode"
 
-[node name="Res_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ResolutionMode"]
+[node name="Res_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenRes/ResolutionMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VolumeV" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Control" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_lb28q")]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VolumeV"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_font_sizes/font_size = 40
+text = "title_settings_volume"
+
+[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+layout_mode = 2
+
+[node name="Control" parent="MarginContainer/VBoxContainer/VolumeV/MasterVolume" instance=ExtResource("2_lb28q")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="Control2" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_lb28q")]
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+layout_mode = 2
+
+[node name="Control2" parent="MarginContainer/VBoxContainer/VolumeV/MusicVolume" instance=ExtResource("2_lb28q")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="Control3" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_lb28q")]
+[node name="EffectsVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+layout_mode = 2
+
+[node name="Control3" parent="MarginContainer/VBoxContainer/VolumeV/EffectsVolume" instance=ExtResource("2_lb28q")]
 layout_mode = 2
 bus_name = "Sfx"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="SPACE" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Languages"
+theme_override_constants/separation = 0
 
-[node name="HBoxLinguas" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LanguageV" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/LanguageV"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_font_sizes/font_size = 40
+text = "title_settings_language"
+
+[node name="Language" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LanguageV"]
 layout_mode = 2
 theme_override_constants/separation = 120
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxLinguas"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LanguageV/Language"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
-text = "Language"
+text = "label_settings_language"
 
-[node name="language_button" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxLinguas"]
+[node name="language_button" type="OptionButton" parent="MarginContainer/VBoxContainer/LanguageV/Language"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
