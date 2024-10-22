@@ -71,6 +71,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = 120
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes/WindowMode"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
@@ -85,6 +86,7 @@ layout_mode = 2
 theme_override_constants/separation = 90
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes/ResolutionMode"]
+custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
@@ -151,6 +153,7 @@ layout_mode = 2
 theme_override_constants/separation = 120
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LanguageV/Language"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
@@ -174,3 +177,15 @@ flat = true
 stream = ExtResource("3_l6lt5")
 volume_db = -1.0
 bus = &"Sfx"
+
+[node name="License" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 560.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_font_sizes/font_size = 15
+text = "© 2025 / GT Team / This work is openly licensed via CC BY-NC 4.0"
