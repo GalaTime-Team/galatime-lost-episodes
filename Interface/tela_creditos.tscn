@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://u23oeknsgl8y"]
+[gd_scene load_steps=5 format=3 uid="uid://u23oeknsgl8y"]
 
 [ext_resource type="Script" path="res://Script/tela_creditos.gd" id="1_xbbeh"]
 [ext_resource type="Texture2D" uid="uid://b4jympk0rqtl1" path="res://Asset/SetaBack__.png" id="2_02i5g"]
+[ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_alc3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqhi3"]
 
@@ -24,42 +25,198 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Creditos" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -458.5
-offset_top = -233.0
-offset_right = 458.5
-offset_bottom = 233.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Centro" type="VBoxContainer" parent="Creditos"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Creditos/Centro"]
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Label 1"
+theme_override_font_sizes/font_size = 75
+text = "Creditos"
 
-[node name="Label2" type="Label" parent="Creditos/Centro"]
+[node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
-text = "Label 2"
-
-[node name="Back" type="Button" parent="." groups=["button"]]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -89.0
-offset_bottom = 53.0
-grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sqhi3")
 icon = ExtResource("2_02i5g")
 flat = true
+
+[node name="Creditos" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Coluna1" type="VBoxContainer" parent="MarginContainer/Creditos"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Desenv_jogo" type="VBoxContainer" parent="MarginContainer/Creditos/Coluna1"]
+layout_mode = 2
+
+[node name="Titulo_jogo" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Desenvolvimento do Jogo:
+"
+
+[node name="Sub_Titulo1" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Desenvolvedor Principal: 
+"
+
+[node name="Label" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel, Artur Bazavlyak"
+
+[node name="Sub_Titulo2" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Designer de Mecânicas de Jogo:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel, Artur Bazavlyak"
+
+[node name="Sub_Titulo3" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Programador: "
+
+[node name="Label3" type="Label" parent="MarginContainer/Creditos/Coluna1/Desenv_jogo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Artur Bazavlyak, Matheus Abreu "
+
+[node name="Arte" type="VBoxContainer" parent="MarginContainer/Creditos/Coluna1"]
+layout_mode = 2
+
+[node name="Titulo_Arte" type="Label" parent="MarginContainer/Creditos/Coluna1/Arte"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Design e Arte:"
+
+[node name="Sub_Titulo1" type="Label" parent="MarginContainer/Creditos/Coluna1/Arte"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Direção de Arte: 
+"
+
+[node name="Label1" type="Label" parent="MarginContainer/Creditos/Coluna1/Arte"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel"
+
+[node name="Sub_Titulo2" type="Label" parent="MarginContainer/Creditos/Coluna1/Arte"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Design de Cenários: "
+
+[node name="Label2" type="Label" parent="MarginContainer/Creditos/Coluna1/Arte"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel"
+
+[node name="Musica" type="VBoxContainer" parent="MarginContainer/Creditos/Coluna1"]
+layout_mode = 2
+
+[node name="Titulo_Musica" type="Label" parent="MarginContainer/Creditos/Coluna1/Musica"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Música e Som:"
+
+[node name="Sub_Titulo1" type="Label" parent="MarginContainer/Creditos/Coluna1/Musica"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Compositor: "
+
+[node name="Label1" type="Label" parent="MarginContainer/Creditos/Coluna1/Musica"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel"
+
+[node name="Sub_Titulo2" type="Label" parent="MarginContainer/Creditos/Coluna1/Musica"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Produtor:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Creditos/Coluna1/Musica"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel"
+
+[node name="Coluna2" type="VBoxContainer" parent="MarginContainer/Creditos"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Narrativa" type="VBoxContainer" parent="MarginContainer/Creditos/Coluna2"]
+layout_mode = 2
+
+[node name="Titulo_Narrativa" type="Label" parent="MarginContainer/Creditos/Coluna2/Narrativa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Narrativa:"
+
+[node name="Sub_Titulo1" type="Label" parent="MarginContainer/Creditos/Coluna2/Narrativa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Roteirista: 
+"
+
+[node name="Label1" type="Label" parent="MarginContainer/Creditos/Coluna2/Narrativa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Sérgio Gabriel, Artur Bazavlyak"
+
+[node name="Sub_Titulo2" type="Label" parent="MarginContainer/Creditos/Coluna2/Narrativa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Diálogos:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Creditos/Coluna2/Narrativa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = " Sérgio Gabriel, Artur Bazavlyak"
+
+[node name="Testers" type="VBoxContainer" parent="MarginContainer/Creditos/Coluna2"]
+layout_mode = 2
+
+[node name="Titulo_teste" type="Label" parent="MarginContainer/Creditos/Coluna2/Testers"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Testes e Feedback:"
+
+[node name="Label5" type="Label" parent="MarginContainer/Creditos/Coluna2/Testers"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Randola"
+
+[node name="Licenca" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "Jogo desenvolvido por GT Team, licenciado sob a licença Creative Commons Atribuição 4.0 Internacional (CC BY-NC 4.0)"
+
+[node name="b_credits_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_alc3i")
