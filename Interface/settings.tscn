@@ -61,6 +61,7 @@ theme_override_constants/separation = 20
 
 [node name="Settings" type="VBoxContainer" parent="MarginContainer/Conteudo"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
 [node name="ScreenRes" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
