@@ -3,9 +3,9 @@ extends Control
 
 #Criaçaõ de variaveis para butões e etc
 @onready var back_button = $MarginContainer/Back as Button
-@onready var window_button = $MarginContainer/VBoxContainer/ScreenRes/WindowMode/Window_button as OptionButton
-@onready var res_button = $MarginContainer/VBoxContainer/ScreenRes/ResolutionMode/Res_button as OptionButton
-@onready var language_button = $MarginContainer/VBoxContainer/LanguageV/Language/language_button as OptionButton
+@onready var window_button = $MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button as OptionButton
+@onready var res_button = $MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button as OptionButton
+@onready var language_button = $MarginContainer/Conteudo/Settings/LanguageV/Language/language_button as OptionButton
 @onready var b_menu_click = $b_menu_click as AudioStreamPlayer
 @onready var current_language = TranslationServer.get_locale() #traduzir atravez do Excel
 

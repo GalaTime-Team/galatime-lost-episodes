@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://qw8mhcsihprh"]
+[gd_scene load_steps=7 format=3 uid="uid://qw8mhcsihprh"]
 
 [ext_resource type="Script" path="res://Script/settings.gd" id="1_eglf2"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/forgotten futurist rg.otf" id="2_4e826"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/forgotten futurist bd.otf" id="2_4ms76"]
 [ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Volume_controler.tscn" id="2_lb28q"]
-[ext_resource type="Texture2D" uid="uid://b4jympk0rqtl1" path="res://Asset/SetaBack__.png" id="2_mjaba"]
 [ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_l6lt5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
@@ -35,131 +34,144 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Conteudo" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 40
 
-[node name="SettingsTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="BoxTitulo" type="VBoxContainer" parent="MarginContainer/Conteudo"]
+layout_mode = 2
+
+[node name="SettingsTitle" type="Label" parent="MarginContainer/Conteudo/BoxTitulo"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4ms76")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 40
 text = "title_settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="ScreenRes" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/Conteudo/BoxTitulo"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes"]
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/Conteudo"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScreenRes" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4ms76")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_screen_resolution"
 
-[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScreenRes"]
+[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 120
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes/WindowMode"]
+[node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes/WindowMode"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_window_mode"
 
-[node name="Window_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenRes/WindowMode"]
+[node name="Window_button" type="OptionButton" parent="MarginContainer/Conteudo/Settings/ScreenRes/WindowMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScreenRes"]
+[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
 layout_mode = 2
 theme_override_constants/separation = 90
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenRes/ResolutionMode"]
+[node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_resolution_mode"
 
-[node name="Res_button" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenRes/ResolutionMode"]
+[node name="Res_button" type="OptionButton" parent="MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Conteudo/Settings"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="VolumeV" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VolumeV" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VolumeV"]
+[node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/VolumeV"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4ms76")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_volume"
 
-[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
 layout_mode = 2
 
-[node name="Control" parent="MarginContainer/VBoxContainer/VolumeV/MasterVolume" instance=ExtResource("2_lb28q")]
+[node name="Control" parent="MarginContainer/Conteudo/Settings/VolumeV/MasterVolume" instance=ExtResource("2_lb28q")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
 layout_mode = 2
 
-[node name="Control2" parent="MarginContainer/VBoxContainer/VolumeV/MusicVolume" instance=ExtResource("2_lb28q")]
+[node name="Control2" parent="MarginContainer/Conteudo/Settings/VolumeV/MusicVolume" instance=ExtResource("2_lb28q")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="EffectsVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+[node name="EffectsVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
 layout_mode = 2
 
-[node name="Control3" parent="MarginContainer/VBoxContainer/VolumeV/EffectsVolume" instance=ExtResource("2_lb28q")]
+[node name="Control3" parent="MarginContainer/Conteudo/Settings/VolumeV/EffectsVolume" instance=ExtResource("2_lb28q")]
 layout_mode = 2
 bus_name = "Sfx"
 
-[node name="SPACE" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeV"]
+[node name="SPACE" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Conteudo/Settings"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="LanguageV" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="LanguageV" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 20
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/LanguageV"]
+[node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/LanguageV"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4ms76")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_language"
 
-[node name="Language" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LanguageV"]
+[node name="Language" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/LanguageV"]
 layout_mode = 2
 theme_override_constants/separation = 120
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LanguageV/Language"]
+[node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/LanguageV/Language"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4e826")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_language"
 
-[node name="language_button" type="OptionButton" parent="MarginContainer/VBoxContainer/LanguageV/Language"]
+[node name="language_button" type="OptionButton" parent="MarginContainer/Conteudo/Settings/LanguageV/Language"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
@@ -167,25 +179,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_font_sizes/font_size = 31
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.67451, 0.67451, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlru")
-icon = ExtResource("2_mjaba")
+text = "button_menu_back"
 flat = true
 
 [node name="b_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_l6lt5")
 volume_db = -1.0
 bus = &"Sfx"
-
-[node name="License" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -19.0
-offset_right = 560.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_4ms76")
-theme_override_font_sizes/font_size = 15
-text = "© 2025 / GT Team / This work is openly licensed via CC BY-NC 4.0"
