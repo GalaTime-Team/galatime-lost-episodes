@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GalaTime Lost Episodes"
 run/main_scene="res://Interface/menu.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -24,3 +24,7 @@ Global="*res://Script/global.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/initial_position_type=2
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Asset/Linguas/translate_gtle.en.translation", "res://Asset/Linguas/translate_gtle.ja.translation", "res://Asset/Linguas/translate_gtle.pt_PT.translation")
