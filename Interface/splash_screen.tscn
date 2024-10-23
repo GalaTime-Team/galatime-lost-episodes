@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Script/splash_screen.gd" id="1_uk6ju"]
 [ext_resource type="PackedScene" uid="uid://cjeyypwuli88j" path="res://Interface/menu.tscn" id="2_qwd8x"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("splash_screen", "splash1", "splash2")]
+[node name="Control" type="Control" node_paths=PackedStringArray("splash_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_uk6ju")
 load_scene = ExtResource("2_qwd8x")
 splash_screen = NodePath("ColorRect/CR_on_logo")
-splash1 = NodePath("ColorRect")
-splash2 = NodePath("ColorRect/CenterContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
