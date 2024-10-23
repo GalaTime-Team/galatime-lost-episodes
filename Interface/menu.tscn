@@ -72,6 +72,7 @@ theme_override_constants/separation = 20
 [node name="Play" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
 theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
@@ -81,6 +82,7 @@ flat = true
 [node name="Settings" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
 theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
@@ -90,6 +92,7 @@ flat = true
 [node name="Credits" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
 theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
@@ -99,6 +102,7 @@ flat = true
 [node name="Leave" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
+theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
 theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
