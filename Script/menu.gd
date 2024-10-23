@@ -1,9 +1,9 @@
 class_name Menu
 extends Control
 
-@onready var settings = $Settings as Settings
-@onready var margin_container = $MarginContainer as MarginContainer
-@onready var tela_creditos = $TelaCreditos as TelaCreditos
+@onready var settings: Settings = $Settings
+@onready var margin_container: MarginContainer = $MarginContainer
+@onready var tela_creditos: TelaCreditos = $TelaCreditos
 
 # Importar Sons
 @onready var s_menu_click: AudioStreamPlayer = $s_menu_click

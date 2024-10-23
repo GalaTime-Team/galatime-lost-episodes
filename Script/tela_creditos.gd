@@ -1,12 +1,13 @@
 class_name TelaCreditos
 extends Control
 
-signal back_credits_menu 
-@onready var back  =  $MarginContainer/Back as Button
+@onready var back: Button =  $MarginContainer/Back
 
 # Importar sons
 @onready var s_menu_click: AudioStreamPlayer = $s_menu_click
 @onready var s_menu_hover: AudioStreamPlayer = $s_menu_hover
+
+signal back_credits_menu 
 
 func _ready():
 	set_process(false)

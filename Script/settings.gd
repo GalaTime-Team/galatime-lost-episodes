@@ -2,10 +2,10 @@ class_name Settings
 extends Control
 
 #Criaçaõ de variaveis para butões e etc
-@onready var back_button = $MarginContainer/Back as Button
-@onready var window_button = $MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button as OptionButton
-@onready var res_button = $MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button as OptionButton
-@onready var language_button = $MarginContainer/Conteudo/Settings/LanguageV/Language/language_button as OptionButton
+@onready var back_button: Button = $MarginContainer/Back
+@onready var window_button: OptionButton = $MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button
+@onready var res_button: OptionButton = $MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button
+@onready var language_button: OptionButton = $MarginContainer/Conteudo/Settings/LanguageV/Language/language_button
 @onready var current_language = TranslationServer.get_locale()
 
 # Importar sons
@@ -38,7 +38,6 @@ const LANGUAGE_ARRAY : Array[String] = [
 	"日本語"
 ]
 signal back_setting_menu
-
 
 func _ready() -> void:
 	# Res items
