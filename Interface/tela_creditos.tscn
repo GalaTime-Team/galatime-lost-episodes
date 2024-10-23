@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://u23oeknsgl8y"]
+[gd_scene load_steps=9 format=3 uid="uid://u23oeknsgl8y"]
 
 [ext_resource type="Script" path="res://Script/tela_creditos.gd" id="1_xbbeh"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_vt8n1"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_xgtk2"]
+[ext_resource type="Texture2D" uid="uid://dw536in5jcsvv" path="res://Asset/Images/GT_Team_Logo.png" id="4_olnnv"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="5_b72m2"]
+[ext_resource type="Texture2D" uid="uid://6l0od6l5exdb" path="res://Asset/Images/Godot_Logo.png" id="5_o57i0"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="6_e0jku"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqhi3"]
@@ -38,6 +40,7 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
+metadata/_edit_use_anchors_ = true
 
 [node name="Conteudo" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -247,6 +250,21 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 15
 text = "label_credits_license"
+
+[node name="Teams" type="HBoxContainer" parent="MarginContainer/Conteudo"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="GT Team" type="TextureRect" parent="MarginContainer/Conteudo/Teams"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_olnnv")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Conteudo/Teams"]
+layout_mode = 2
+texture = ExtResource("5_o57i0")
 
 [node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
