@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsvummpxgnc7o"
-path="res://.godot/imported/GalaTime_game_logo_bg_logo.png-8d187d99bd706677fde6f124f982abe3.ctex"
+uid="uid://8w5bqc0572te"
+path="res://.godot/imported/GalatimeLostEpisodes.png-3d8970467716465bb4fd727a439ba467.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/GalaTime_game_logo_bg_logo.png"
-dest_files=["res://.godot/imported/GalaTime_game_logo_bg_logo.png-8d187d99bd706677fde6f124f982abe3.ctex"]
+source_file="res://Asset/Images/GalatimeLostEpisodes.png"
+dest_files=["res://.godot/imported/GalatimeLostEpisodes.png-3d8970467716465bb4fd727a439ba467.ctex"]
 
 [params]
 

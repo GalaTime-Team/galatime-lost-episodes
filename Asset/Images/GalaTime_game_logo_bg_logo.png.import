@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t1iqef0xpq74"
-path="res://.godot/imported/Splash_Screen_GT_TeamDiminuido.png-f967bfc3c9ec54b0127af2e893fa04d1.ctex"
+uid="uid://dsvummpxgnc7o"
+path="res://.godot/imported/GalaTime_game_logo_bg_logo.png-0475ec74fc865b602b280f2bf83c2bb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Splash_Screen_GT_TeamDiminuido.png"
-dest_files=["res://.godot/imported/Splash_Screen_GT_TeamDiminuido.png-f967bfc3c9ec54b0127af2e893fa04d1.ctex"]
+source_file="res://Asset/Images/GalaTime_game_logo_bg_logo.png"
+dest_files=["res://.godot/imported/GalaTime_game_logo_bg_logo.png-0475ec74fc865b602b280f2bf83c2bb4.ctex"]
 
 [params]
 

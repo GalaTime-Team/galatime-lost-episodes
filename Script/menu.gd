@@ -2,16 +2,19 @@ class_name Menu
 extends Control
 
 @onready var settings = $Settings as Settings
-@onready var menuclick_sound = $s_menu_click as AudioStreamPlayer
 @onready var margin_container = $MarginContainer as MarginContainer
 @onready var tela_creditos = $TelaCreditos as TelaCreditos
 
+# Importar Sons
+@onready var s_menu_click: AudioStreamPlayer = $s_menu_click
+@onready var s_menu_hover: AudioStreamPlayer = $s_menu_hover
+
 func _ready() -> void:
 	handle_connecting_signal() #ao inciar o programa o programa ira ter o sinal com os settings
-	# Configuração dos botões no grupo button
-	for button in get_tree().get_nodes_in_group("button"):
-		if button is Button:
-			button.pressed.connect(on_button_pressed.bind(button))
+
+#####
+# Back Pressed
+#####
 
 func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
 	margin_container.visible = true
@@ -21,30 +24,55 @@ func on_back_credits_menu()-> void:
 	margin_container.visible = true
 	tela_creditos.visible = false
 
-func on_credits_pressed()-> void:
+#####
+# Back Signals
+#####
+
+func handle_connecting_signal() -> void:
+	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
+	tela_creditos.back_credits_menu.connect(on_back_credits_menu)
+
+#####
+# Pressed Handeling
+#####
+
+func _on_play_pressed() -> void:
+	var _game: bool = get_tree().change_scene_to_file("res://Interface/play1.tscn")
+
+
+func _on_settings_pressed() -> void:
+	# Som
+	s_menu_click.play()
+	# Visualizar
+	margin_container.visible = false
+	settings.set_process(true)
+	settings.visible = true
+
+
+func _on_credits_pressed() -> void:
+	# Som
+	s_menu_click.play()
+	# Visualizar
 	margin_container.visible = false
 	tela_creditos.set_process(true)
 	tela_creditos.visible = true
 
 
-func on_settings_pressed() -> void: #a margem fica invisivel e os settings.set_process(true) fica a True para poder entrar nos settings
-	margin_container.visible = false
-	settings.set_process(true)
-	settings.visible = true
+func _on_leave_pressed() -> void:
+	get_tree().quit()
 
-func handle_connecting_signal() -> void:
-	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
-	tela_creditos.back_credits_menu.connect(on_back_credits_menu)
-# Função para mudar de cena
-func on_button_pressed(button: Button) -> void:
-	match button.name:
-		"Play":
-			var _game: bool = get_tree().change_scene_to_file("res://Interface/play1.tscn")
-		"Settings":
-			menuclick_sound.play()
-			on_settings_pressed() #mostrar os settings atraves do settings.set_process(true)
-		"Credits":
-			menuclick_sound.play()
-			on_credits_pressed()
-		"Leave":
-			get_tree().quit()
+#####
+# Hover Handeling
+#####
+
+func _on_play_mouse_entered() -> void:
+	s_menu_hover.play()
+
+func _on_settings_mouse_entered() -> void:
+	s_menu_hover.play()
+
+func _on_credits_mouse_entered() -> void:
+	s_menu_hover.play()
+
+func _on_leave_mouse_entered() -> void:
+	s_menu_hover.play()

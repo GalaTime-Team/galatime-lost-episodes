@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://u23oeknsgl8y"]
+[gd_scene load_steps=7 format=3 uid="uid://u23oeknsgl8y"]
 
 [ext_resource type="Script" path="res://Script/tela_creditos.gd" id="1_xbbeh"]
-[ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_alc3i"]
-[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/forgotten futurist bd.otf" id="3_ff55r"]
-[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/forgotten futurist rg.otf" id="4_l66iy"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_vt8n1"]
+[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_xgtk2"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="5_b72m2"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="6_e0jku"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqhi3"]
 
@@ -50,7 +51,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 40
 text = "title_credits"
 
@@ -75,43 +76,43 @@ layout_mode = 2
 
 [node name="Titulo_jogo" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 40
 text = "title_credits_gamedev"
 
 [node name="Sub_Titulo1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_gamedev_main"
 
 [node name="Label" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_gamedev_main"
 
 [node name="Sub_Titulo2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_gamedev_mechanics"
 
 [node name="Label2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_gamedev_mechanics"
 
 [node name="Sub_Titulo3" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_gamedev_dev"
 
 [node name="Label3" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Desenv_jogo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_gamedev_dev"
 
@@ -120,31 +121,31 @@ layout_mode = 2
 
 [node name="Titulo_Arte" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Arte"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 40
 text = "title_credits_design"
 
 [node name="Sub_Titulo1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Arte"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_design_art"
 
 [node name="Label1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Arte"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_design_art"
 
 [node name="Sub_Titulo2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Arte"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_design_scenario"
 
 [node name="Label2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Arte"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_design_scenario"
 
@@ -153,31 +154,31 @@ layout_mode = 2
 
 [node name="Titulo_Musica" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Musica"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 40
 text = "title_credits_music"
 
 [node name="Sub_Titulo1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Musica"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_music_composer"
 
 [node name="Label1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Musica"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_music_composer"
 
 [node name="Sub_Titulo2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Musica"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_music_producer"
 
 [node name="Label2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna1/Musica"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_music_producer"
 
@@ -190,31 +191,31 @@ layout_mode = 2
 
 [node name="Titulo_Narrativa" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Narrativa"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 40
 text = "title_credits_narrative"
 
 [node name="Sub_Titulo1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Narrativa"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_narrative_screenwriter"
 
 [node name="Label1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Narrativa"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_narrative_screenwriter"
 
 [node name="Sub_Titulo2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Narrativa"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_narrative_dialogues"
 
 [node name="Label2" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Narrativa"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_narrative_dialogues"
 
@@ -223,19 +224,19 @@ layout_mode = 2
 
 [node name="Titulo_teste" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Testers"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 40
 text = "title_credits_tests"
 
 [node name="Sub_Titulo1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Testers"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 text = "subtitle_credits_tests_testers"
 
 [node name="Label1" type="Label" parent="MarginContainer/Conteudo/Creditos/Coluna2/Testers"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 20
 text = "label_credits_tests_testers"
 
@@ -243,7 +244,7 @@ text = "label_credits_tests_testers"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("4_l66iy")
+theme_override_fonts/font = ExtResource("3_xgtk2")
 theme_override_font_sizes/font_size = 15
 text = "label_credits_license"
 
@@ -253,11 +254,20 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.67451, 0.67451, 0.67451, 1)
-theme_override_fonts/font = ExtResource("3_ff55r")
+theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sqhi3")
 text = "button_menu_back"
 flat = true
 
-[node name="b_credits_click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_alc3i")
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b72m2")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_e0jku")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

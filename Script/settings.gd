@@ -1,4 +1,4 @@
-class_name Settings #nome do script/class
+class_name Settings
 extends Control
 
 #Criaçaõ de variaveis para butões e etc
@@ -6,9 +6,13 @@ extends Control
 @onready var window_button = $MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button as OptionButton
 @onready var res_button = $MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button as OptionButton
 @onready var language_button = $MarginContainer/Conteudo/Settings/LanguageV/Language/language_button as OptionButton
-@onready var b_menu_click = $b_menu_click as AudioStreamPlayer
-@onready var current_language = TranslationServer.get_locale() #traduzir atravez do Excel
+@onready var current_language = TranslationServer.get_locale()
 
+# Importar sons
+@onready var s_menu_click: AudioStreamPlayer = $s_menu_click
+@onready var s_menu_hover: AudioStreamPlayer = $s_menu_hover
+
+# Variaveis
 const RESOLUTION_MODE_DICTIONARY : Dictionary  = {
 	"1920 x 1080" : Vector2i(1920, 1080),
 	"1680 x 1050" : Vector2i(1680, 1050),
@@ -23,37 +27,37 @@ const RESOLUTION_MODE_DICTIONARY : Dictionary  = {
 	"640 x 360" : Vector2i(640, 360),
 	"320 x 240" : Vector2i(320, 240)
 }
-
 const WINDOW_MODE_ARRAY : Array[String] = [
 	"Window Mode",
 	"Full-Screen",
 	"Borderless Window",
 ]
-
 const LANGUAGE_ARRAY : Array[String] = [
 	"Português",
 	"English",
 	"日本語"
 ]
-
 signal back_setting_menu
 
-# Função chamada quando a cena entra pela primeira vez
+
 func _ready() -> void:
-	add_window_mode_items() #os windows mods para conseguirem ser alterados
-	add_res_mode_items() #as resulotions mods para conseguirem ser alteradas
-	add_language_items() #a language para conseguir ser alterada
+	# Res items
+	add_window_mode_items()
+	add_res_mode_items()
+	# Lan items
+	add_language_items()
+	
 	res_button.item_selected.connect(on_res_mode_selected)
 	window_button.item_selected.connect(on_window_mode_selected)
 	language_button.item_selected.connect(on_language_select)
-	back_button.button_down.connect(on_back_pressed)
+	
 	set_process(false) #processo feito para cosneguir voltar ao menu e ter as informações
 
-func on_back_pressed() -> void: #func do processo que ira ser feito no menu
-	back_setting_menu.emit()
-	b_menu_click.play()
-	set_process(false)
+#####
+# Screen Resolution
+#####
 
+# ADD ITEMS
 func add_window_mode_items() -> void: #fazer um loop for pra analizar o array e ver o window mod correto
 	for window_mode in WINDOW_MODE_ARRAY:
 		window_button.add_item(window_mode)
@@ -62,10 +66,13 @@ func add_res_mode_items() -> void: #fazer um loop for para analizar todas as res
 	for resolution_size_text in RESOLUTION_MODE_DICTIONARY:
 		res_button.add_item(resolution_size_text)
 
+# CARREGAR
 func on_res_mode_selected(index : int) -> void: #para alterar a resulotion mod
+	s_menu_click.play()
 	DisplayServer.window_set_size(RESOLUTION_MODE_DICTIONARY.values()[index])
 
 func on_window_mode_selected(index : int) -> void: #para alterar os windows mods
+	s_menu_click.play()
 	match  index:
 		0: #Window Mode
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -77,11 +84,18 @@ func on_window_mode_selected(index : int) -> void: #para alterar os windows mods
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
+#####
+# Language
+#####
+
+# ADD ITEMS
 func add_language_items() -> void:
 	for language in LANGUAGE_ARRAY:
 		language_button.add_item(language)
 
+# CARREGAR
 func on_language_select(index : int) -> void:
+	s_menu_click.play()
 	match index:
 		0: #Português
 			TranslationServer.set_locale("pt_PT")
@@ -92,3 +106,17 @@ func on_language_select(index : int) -> void:
 		2: #日本語
 			TranslationServer.set_locale("ja")
 			current_language = "ja"
+
+#####
+# Back Button
+#####
+
+# PRESSED
+func _on_back_pressed() -> void:
+	back_setting_menu.emit()
+	s_menu_click.play()
+	set_process(false)
+
+# HOVER
+func _on_back_mouse_entered() -> void:
+	s_menu_hover.play()

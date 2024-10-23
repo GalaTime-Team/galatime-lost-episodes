@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=13 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
-[ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/GalatimeLostEpisodes.png" id="2_l0iwc"]
+[ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="2_kjhsv"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="3_uxaxx"]
 [ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
-[ext_resource type="AudioStream" uid="uid://btpubdq4y7gr4" path="res://Asset/Menu_Click_Sound.mp3" id="4_enfvr"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="4_g0s4g"]
-[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/forgotten futurist bd.otf" id="4_ldhuy"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_ykdxo"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_tdjq1"]
+[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="7_v1tmb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -54,7 +56,7 @@ layout_mode = 2
 
 [node name="TituloImagem" type="TextureRect" parent="MarginContainer/MenuContainer"]
 layout_mode = 2
-texture = ExtResource("2_l0iwc")
+texture = ExtResource("2_kjhsv")
 expand_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MenuContainer"]
@@ -70,7 +72,7 @@ theme_override_constants/separation = 20
 [node name="Play" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_fonts/font = ExtResource("4_ldhuy")
+theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
 text = "button_menu_play"
@@ -79,7 +81,7 @@ flat = true
 [node name="Settings" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_fonts/font = ExtResource("4_ldhuy")
+theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
 text = "button_menu_settings"
@@ -88,7 +90,7 @@ flat = true
 [node name="Credits" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_fonts/font = ExtResource("4_ldhuy")
+theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
 text = "button_menu_credits"
@@ -97,15 +99,11 @@ flat = true
 [node name="Leave" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_fonts/font = ExtResource("4_ldhuy")
+theme_override_fonts/font = ExtResource("3_uxaxx")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "button_menu_leave"
 flat = true
-
-[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_enfvr")
-bus = &"Sfx"
 
 [node name="Settings" parent="." instance=ExtResource("4_g0s4g")]
 visible = false
@@ -124,6 +122,24 @@ anchor_bottom = 1.0
 offset_top = -19.0
 offset_right = 560.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ldhuy")
+theme_override_fonts/font = ExtResource("7_v1tmb")
 theme_override_font_sizes/font_size = 15
 text = "© 2025 / GT Team / This work is openly licensed via CC BY-NC 4.0"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tdjq1")
+volume_db = -12.0
+bus = &"Sfx"
+
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ykdxo")
+bus = &"Sfx"
+
+[connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave" to="." method="_on_leave_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]

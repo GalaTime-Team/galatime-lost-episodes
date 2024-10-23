@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://qw8mhcsihprh"]
+[gd_scene load_steps=8 format=3 uid="uid://qw8mhcsihprh"]
 
 [ext_resource type="Script" path="res://Script/settings.gd" id="1_eglf2"]
-[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/forgotten futurist rg.otf" id="2_4e826"]
-[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/forgotten futurist bd.otf" id="2_4ms76"]
-[ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Volume_controler.tscn" id="2_lb28q"]
-[ext_resource type="AudioStream" uid="uid://sg3ioxwg07s2" path="res://Asset/Menu_Back_Sound.mp3" id="3_l6lt5"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_f87aa"]
+[ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/volume_controler.tscn" id="2_lb28q"]
+[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_pg6ly"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="5_1pkso"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="6_hx6oi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
 
@@ -48,7 +49,7 @@ layout_mode = 2
 
 [node name="SettingsTitle" type="Label" parent="MarginContainer/Conteudo/BoxTitulo"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings"
 horizontal_alignment = 1
@@ -70,7 +71,7 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_screen_resolution"
 
@@ -82,7 +83,7 @@ theme_override_constants/separation = 120
 [node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes/WindowMode"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4e826")
+theme_override_fonts/font = ExtResource("3_pg6ly")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_window_mode"
 
@@ -97,7 +98,7 @@ theme_override_constants/separation = 90
 [node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4e826")
+theme_override_fonts/font = ExtResource("3_pg6ly")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_resolution_mode"
 
@@ -116,7 +117,7 @@ theme_override_constants/separation = 50
 
 [node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/VolumeV"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_volume"
 
@@ -157,7 +158,7 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/LanguageV"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_language"
 
@@ -168,7 +169,7 @@ theme_override_constants/separation = 120
 [node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/LanguageV/Language"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4e826")
+theme_override_fonts/font = ExtResource("3_pg6ly")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_language"
 
@@ -182,13 +183,20 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.67451, 0.67451, 0.67451, 1)
-theme_override_fonts/font = ExtResource("2_4ms76")
+theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlru")
 text = "button_menu_back"
 flat = true
 
-[node name="b_menu_click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_l6lt5")
-volume_db = -1.0
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1pkso")
 bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hx6oi")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
