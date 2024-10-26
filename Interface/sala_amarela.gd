@@ -2,6 +2,7 @@ extends Control
 
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var intro_monologue: IntroMonologue = $IntroMonologue
+@onready var pause_menu: Control = $CanvasLayer/PauseMenu
 
 signal back_dialog
 
@@ -25,3 +26,6 @@ func fade() -> void:
 	tween.tween_property(intro_monologue, "modulate:a", 0.0, 2.0)
 	await tween.finished
 	intro_monologue.visible = false  # Change visibility after tween finishes
+
+func _on_button_settings_pressed() -> void:
+	pause_menu.visible = true
