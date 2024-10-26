@@ -37,8 +37,35 @@ func handle_connecting_signal() -> void:
 #####
 
 func _on_play_pressed() -> void:
-	var _game: bool = get_tree().change_scene_to_file("res://Interface/Sala_Amarela.tscn")
+	#Disabilitar os butões para não acessar durante o fade
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings.disabled = true
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits.disabled = true
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave.disabled = true
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play.disabled = true
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play.mouse_entered.disconnect(_on_play_mouse_entered)
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings.mouse_entered.disconnect(_on_settings_mouse_entered)
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits.mouse_entered.disconnect(_on_credits_mouse_entered)
+	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave.mouse_entered.disconnect(_on_leave_mouse_entered)
+	
+	var tween = self.create_tween()
+	# Hide Settings button
+	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings, "modulate:a", 0.0 ,0.5)
+	await tween.tween_interval(1.0)
 
+	# Hide Credits button
+	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits,  "modulate:a", 0.0 ,0.5)
+	await tween.tween_interval(1.0)
+
+	# Hide Leave button
+	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave,  "modulate:a", 0.0 ,0.5)
+	await tween.tween_interval(1.0)
+
+	# Hide Play button
+	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play,  "modulate:a", 0.0 ,0.5)
+	await tween.tween_interval(1.0)
+
+	await tween.finished
+	var _game: bool = get_tree().change_scene_to_file("res://Interface/Sala_Amarela.tscn")
 
 func _on_settings_pressed() -> void:
 	# Som
