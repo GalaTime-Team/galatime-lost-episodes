@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvt7jwu5k1gth"]
+
+[ext_resource type="Script" path="res://Interface/sala_amarela.gd" id="1_qot6o"]
+[ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qot6o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.945098, 0.815686, 0.572549, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="IntroMonologue" parent="." instance=ExtResource("2_1v5dy")]
+layout_mode = 1

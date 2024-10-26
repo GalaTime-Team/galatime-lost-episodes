@@ -1,4 +1,4 @@
-main_character: monologue_intro_otherworld_1 
+main_character: monologue_intro_otherworld_1
 main_character: monologue_intro_otherworld_2
 main_character: [lspeed=0.06]monologue_intro_otherworld_3[lspeed=0.025]
 main_character: monologue_intro_otherworld_4
@@ -20,3 +20,4 @@ main_character: monologue_intro_room_1
 main_character: monologue_intro_room_2
 main_character: [lspeed=0.20]monologue_intro_room_3[lspeed=0.025]
 main_character: [lspeed=0.04]monologue_intro_room_4[lspeed=0.025]
+[signal arg="end_of_dialogue"]

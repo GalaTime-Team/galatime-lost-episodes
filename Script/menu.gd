@@ -37,7 +37,7 @@ func handle_connecting_signal() -> void:
 #####
 
 func _on_play_pressed() -> void:
-	var _game: bool = get_tree().change_scene_to_file("res://Interface/intro_monologue.tscn")
+	var _game: bool = get_tree().change_scene_to_file("res://Interface/Sala_Amarela.tscn")
 
 
 func _on_settings_pressed() -> void:
