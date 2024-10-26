@@ -22,7 +22,5 @@ func fade() -> void:
 	var tween = self.create_tween()
 	tween.tween_interval(1.0) #intervalo
 	tween.tween_property(intro_monologue, "modulate:a", 0.0, 2.0)
-	print("suka")
 	await tween.finished
 	intro_monologue.visible = false  # Change visibility after tween finishes
-	
