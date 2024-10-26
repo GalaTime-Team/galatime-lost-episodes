@@ -6,6 +6,7 @@ extends Control
 signal back_dialog
 
 func _ready() -> void:
+	intro_monologue.visible = true
 	handle_connecting_signal()
 
 func on_intro_monologue() -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvt7jwu5k1gth"]
+[gd_scene load_steps=4 format=3 uid="uid://dvt7jwu5k1gth"]
 
 [ext_resource type="Script" path="res://Interface/sala_amarela.gd" id="1_qot6o"]
 [ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="3_nhrv0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -26,4 +27,17 @@ color = Color(0.945098, 0.815686, 0.572549, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="IntroMonologue" parent="." instance=ExtResource("2_1v5dy")]
+visible = false
 layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -95.0
+offset_bottom = 97.0
+grow_horizontal = 0
+size_flags_stretch_ratio = 2.25
+texture = ExtResource("3_nhrv0")
+expand_mode = 4
