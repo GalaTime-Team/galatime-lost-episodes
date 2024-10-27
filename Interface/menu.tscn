@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=16 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
+[ext_resource type="VideoStream" path="res://Asset/Video Menu/videoplayback.ogv" id="2_6s2v7"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="2_kjhsv"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="3_uxaxx"]
 [ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
@@ -38,6 +39,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_6s2v7")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
