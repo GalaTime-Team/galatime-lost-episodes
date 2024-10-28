@@ -4,6 +4,8 @@ button_menu_settings,Opções,Options,オプション
 button_menu_credits,Créditos,Credits,クレジット
 button_menu_leave,Sair,Exit,出口
 button_menu_back,Voltar,Back,戻る
+button_menu_resume,Retomar,Resume,再開する
+title_menu,Menu,Menu,メニュー
 title_settings,Menu de Opções,Options Menu,オプション
 title_settings_screen_resolution,Resolução da Tela,Screen Resolution,画面解像度
 label_settings_window_mode,Modo da Janela,Window Mode,ウィンドウモード
