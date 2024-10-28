@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=9 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Script" path="res://Script/pause_menu.gd" id="1_kg1ct"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="3_ywhc4"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="4_172yk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uskwq"]
 shader = ExtResource("1_2yy5q")
@@ -90,6 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -137,6 +139,15 @@ libraries = {
 "": SubResource("AnimationLibrary_xwwwp")
 }
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_172yk")
+
 [connection signal="pressed" from="PanelContainer/Pause_Options_Container/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/Pause_Options_Container/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PanelContainer/Pause_Options_Container/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
