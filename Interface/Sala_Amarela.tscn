@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvt7jwu5k1gth"]
 
-[ext_resource type="Script" path="res://Interface/sala_amarela.gd" id="1_qot6o"]
+[ext_resource type="Script" path="res://Script/sala_amarela.gd" id="1_qot6o"]
 [ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
 [ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="3_nhrv0"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_rawdv"]
@@ -31,6 +31,12 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 1
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_rawdv")]
+visible = false
+size_flags_horizontal = 4
+
 [node name="image_settings" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -52,11 +58,5 @@ anchor_right = 1.0
 offset_left = -96.0
 offset_bottom = 100.0
 grow_horizontal = 0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_rawdv")]
-visible = false
-size_flags_horizontal = 4
 
 [connection signal="pressed" from="image_settings/Button_settings" to="." method="_on_button_settings_pressed"]
