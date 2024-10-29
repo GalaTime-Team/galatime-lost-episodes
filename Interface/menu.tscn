@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=16 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
+[ext_resource type="VideoStream" path="res://Asset/Video Menu/videoplayback.ogv" id="2_6s2v7"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="2_kjhsv"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="3_uxaxx"]
 [ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
@@ -8,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_ykdxo"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_tdjq1"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="7_v1tmb"]
+[ext_resource type="AudioStream" uid="uid://crx8a2g6l2nlj" path="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3" id="9_7pvxc"]
+[ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="10_o1ie5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -36,6 +39,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_6s2v7")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -143,6 +159,15 @@ bus = &"Sfx"
 stream = ExtResource("4_ykdxo")
 bus = &"Sfx"
 
+[node name="BG_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7pvxc")
+autoplay = true
+bus = &"Music"
+script = ExtResource("10_o1ie5")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]
@@ -151,3 +176,4 @@ bus = &"Sfx"
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave" to="." method="_on_leave_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="finished" from="BG_music" to="BG_music" method="_on_finished"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crx8a2g6l2nlj"
+path="res://.godot/imported/GalaTime Lost Episodes Theme.mp3-b3c2106b0d4212bdd736b160362957ed.mp3str"
+
+[deps]
+
+source_file="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3"
+dest_files=["res://.godot/imported/GalaTime Lost Episodes Theme.mp3-b3c2106b0d4212bdd736b160362957ed.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
