@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/settings.gd" id="1_eglf2"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_f87aa"]
-[ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Volume_controler.tscn" id="2_lb28q"]
+[ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/volume_controler.tscn" id="2_lb28q"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_pg6ly"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="5_1pkso"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="6_hx6oi"]

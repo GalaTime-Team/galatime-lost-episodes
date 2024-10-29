@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=13 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Script" path="res://Script/pause_menu.gd" id="1_kg1ct"]
 [ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://Dialogue/VisualNovelTextbox/vn_textbox_default_panel.tres" id="3_cywrt"]
 [ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="4_172yk"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="4_sex7x"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="6_7bnbr"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_mr6f7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uskwq"]
 shader = ExtResource("1_2yy5q")
@@ -118,6 +120,7 @@ texture_normal = ExtResource("4_172yk")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
+clip_contents = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,54 +183,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_leave"
 flat = true
 
-[node name="Options_Container" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="PanelContainer/Options_Container"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_sex7x")
-theme_override_font_sizes/font_size = 25
-text = "title_settings"
-horizontal_alignment = 1
-
-[node name="Screen Res" type="Button" parent="PanelContainer/Options_Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
-text = "title_settings_screen_resolution"
-flat = true
-
-[node name="Volume" type="Button" parent="PanelContainer/Options_Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
-text = "title_settings_volume"
-flat = true
-
-[node name="Language" type="Button" parent="PanelContainer/Options_Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
-text = "title_settings_language"
-flat = true
-
 [node name="Back" type="Button" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -241,8 +196,21 @@ text = "button_menu_back"
 flat = true
 alignment = 2
 
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7bnbr")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mr6f7")
+volume_db = -12.0
+bus = &"Sfx"
+
 [connection signal="pressed" from="MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Back" to="." method="_on_back_pressed"]
