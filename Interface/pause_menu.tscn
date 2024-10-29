@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=14 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Script" path="res://Script/pause_menu.gd" id="1_kg1ct"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="4_sex7x"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="6_7bnbr"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_mr6f7"]
+[ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="8_kb6mg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uskwq"]
 shader = ExtResource("1_2yy5q")
@@ -204,6 +205,10 @@ bus = &"Sfx"
 stream = ExtResource("7_mr6f7")
 volume_db = -12.0
 bus = &"Sfx"
+
+[node name="Settings" parent="." instance=ExtResource("8_kb6mg")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]

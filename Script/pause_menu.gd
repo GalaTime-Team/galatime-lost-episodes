@@ -4,6 +4,7 @@ extends Control
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var pause_menu_container: VBoxContainer = $PanelContainer/Pause_Menu_Container
 @onready var back: Button = $PanelContainer/Back
+@onready var settings: Settings = $Settings
 
 # Importar Sons
 @onready var s_menu_click: AudioStreamPlayer = $s_menu_click
@@ -33,10 +34,11 @@ func testEsc():
 #####
 
 func _ready() -> void:
-
 	initial_values()
 	
 	animation_player.play("RESET")
+	
+	handle_connecting_signal()
 
 func _process(_delta: float):
 	testEsc()
@@ -69,24 +71,20 @@ func resume_game():
 	panel_container.visible = false
 
 func options():
-	pause_menu_container.visible = true
-	
-	back.modulate.a = 0.0
-	
-	var tween = self.create_tween()
-	tween.tween_property(pause_menu_container, "modulate:a", 0.0 ,0.2)
-	
-	pause_menu_container.visible = false
-	back.visible = true
-	
-	tween.tween_property(back, "modulate:a", 1.0 ,0.2)
-	await tween.finished
-	tween.stop()
+	settings.set_process(true)
+	settings.visible = true
 
 #####
 # Buttons Interactions
 #####
 
+#conecção do settings
+
+func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
+	settings.visible = false
+
+func handle_connecting_signal() -> void:
+	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
 # Pressed
 
 func _on_texture_button_pressed() -> void:
