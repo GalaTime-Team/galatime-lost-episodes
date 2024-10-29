@@ -11,6 +11,10 @@ func _ready() -> void:
 	await tween.finished
 	start_monologue()
 
+########
+# monologue
+########
+
 func start_monologue():
 	Dialogic.signal_event.connect(end_of_dialog)
 	Dialogic.start("intromonologue")

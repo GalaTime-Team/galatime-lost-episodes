@@ -184,19 +184,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_leave"
 flat = true
 
-[node name="Back" type="Button" parent="PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
-text = "button_menu_back"
-flat = true
-alignment = 2
-
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7bnbr")
 bus = &"Sfx"
@@ -217,5 +204,3 @@ layout_mode = 1
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_pressed"]
-[connection signal="mouse_entered" from="PanelContainer/Back" to="." method="_on_back_mouse_entered"]
-[connection signal="pressed" from="PanelContainer/Back" to="." method="_on_back_pressed"]

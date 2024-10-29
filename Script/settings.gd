@@ -2,6 +2,7 @@ class_name Settings
 extends Control
 
 #Criaçaõ de variaveis para butões e etc
+@onready var background: ColorRect = $Background
 @onready var back_button: Button = $MarginContainer/Back
 @onready var window_button: OptionButton = $MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button
 @onready var res_button: OptionButton = $MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button
@@ -51,6 +52,16 @@ func _ready() -> void:
 	language_button.item_selected.connect(on_language_select)
 	
 	set_process(false) #processo feito para cosneguir voltar ao menu e ter as informações
+
+######
+# Background
+######
+
+func backgroundvisible() -> void:
+	if background.visible:
+		background.visible = false
+	else:
+		background.visible = true
 
 #####
 # Screen Resolution

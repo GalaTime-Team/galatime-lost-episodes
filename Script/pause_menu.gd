@@ -72,20 +72,23 @@ func resume_game():
 
 func options():
 	settings.set_process(true)
+	settings.backgroundvisible()
 	settings.visible = true
 
-#####
-# Buttons Interactions
-#####
-
+########
 #conecção do settings
+########
 
 func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
+	settings.backgroundvisible()
 	settings.visible = false
 
 func handle_connecting_signal() -> void:
 	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
-# Pressed
+
+#####
+# Buttons Interactions
+#####
 
 func _on_texture_button_pressed() -> void:
 	s_menu_click.play()
@@ -106,19 +109,6 @@ func _on_leave_pressed() -> void:
 	s_menu_click.play()
 	get_tree().quit()
 
-func _on_back_pressed() -> void:
-	s_menu_click.play()
-	
-	var tween = self.create_tween()
-	tween.tween_property(back, "modulate:a", 0.0 ,0.2)
-	
-	pause_menu_container.visible = true
-	back.visible = false
-	
-	tween.tween_property(pause_menu_container, "modulate:a", 1.0 ,0.2)
-	await tween.finished
-	tween.stop()
-
 # Hover Sounds
 
 func _on_resume_mouse_entered() -> void:
@@ -128,7 +118,4 @@ func _on_options_mouse_entered() -> void:
 	s_menu_hover.play()
 
 func _on_leave_mouse_entered() -> void:
-	s_menu_hover.play()
-
-func _on_back_mouse_entered() -> void:
 	s_menu_hover.play()

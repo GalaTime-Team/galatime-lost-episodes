@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Script/splash_screen.gd" id="1_uk6ju"]
 [ext_resource type="PackedScene" uid="uid://cjeyypwuli88j" path="res://Interface/menu.tscn" id="2_qwd8x"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("splash_screen")]
+[node name="Control2" type="Control" node_paths=PackedStringArray("splash_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

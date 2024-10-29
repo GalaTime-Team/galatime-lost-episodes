@@ -1,5 +1,9 @@
 extends Control
 
+########
+# variavel exported
+########
+
 @export var load_scene : PackedScene
 @export var in_time : float = 0.5
 @export var fade_in_time : float = 1.5
@@ -10,6 +14,10 @@ extends Control
 
 func _ready() -> void:
 	fade()
+
+#######
+# fade
+#######
 
 func fade() -> void:
 	splash_screen.modulate.a = 1.0
