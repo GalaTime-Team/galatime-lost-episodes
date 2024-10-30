@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://y1eent0c6lpn"]
+
+[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_0n02o"]
+[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_rmrfp"]
+[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_wdukp"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_2wccy"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.764706, 0.427451, 0.407843, 1)
+
+[node name="left_button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 54.0
+grow_vertical = 2
+texture_normal = ExtResource("1_0n02o")
+stretch_mode = 3
+
+[node name="Right_button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("2_rmrfp")
+stretch_mode = 3
+
+[node name="up_button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+texture_normal = ExtResource("3_wdukp")
+stretch_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_2wccy")]
+size_flags_horizontal = 4

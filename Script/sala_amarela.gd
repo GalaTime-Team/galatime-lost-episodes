@@ -6,7 +6,7 @@ extends Control
 
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var intro_monologue: IntroMonologue = $IntroMonologue
-@onready var pause_menu: Control = $CanvasLayer/PauseMenu
+@export var pause_menu: Control
 
 func _ready() -> void:
 	intro_monologue.visible = true

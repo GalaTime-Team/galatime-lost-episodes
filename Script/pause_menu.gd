@@ -3,7 +3,6 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var pause_menu_container: VBoxContainer = $PanelContainer/Pause_Menu_Container
-@onready var back: Button = $PanelContainer/Back
 @onready var settings: Settings = $Settings
 
 # Importar Sons
@@ -17,8 +16,6 @@ extends Control
 func initial_values():
 	panel_container.visible = false
 	panel_container.modulate.a = 0.0
-	
-	back.modulate.a = 0.0
 	
 	pause_menu_container.visible = true
 	pause_menu_container.modulate.a = 1.0

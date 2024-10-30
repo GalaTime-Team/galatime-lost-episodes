@@ -88,6 +88,7 @@ script = ExtResource("1_kg1ct")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 process_mode = 3
+visible = false
 material = SubResource("ShaderMaterial_uskwq")
 layout_mode = 1
 anchors_preset = 15
