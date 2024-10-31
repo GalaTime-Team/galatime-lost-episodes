@@ -4,9 +4,9 @@ extends Control
 # variavels
 #########
 
-@onready var margin_container: MarginContainer = $MarginContainer
-@onready var intro_monologue: IntroMonologue = $IntroMonologue
-@export var pause_menu: Control
+@export var sala: MarginContainer
+@export var intro_monologue: IntroMonologue
+@export var pause_menu: PauseMenu
 
 func _ready() -> void:
 	intro_monologue.visible = true
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func on_intro_monologue() -> void:
 	# Visualizar
-	margin_container.visible = false
+	sala.visible = false
 	intro_monologue.set_process(true)
 	intro_monologue.visible = true  # Ensure it's visible when starting
 

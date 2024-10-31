@@ -2,16 +2,22 @@ class_name Settings
 extends Control
 
 #Criaçaõ de variaveis para butões e etc
-@onready var background: ColorRect = $Background
-@onready var back_button: Button = $MarginContainer/Back
-@onready var window_button: OptionButton = $MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button
-@onready var res_button: OptionButton = $MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button
-@onready var language_button: OptionButton = $MarginContainer/Conteudo/Settings/LanguageV/Language/language_button
+@export var background: ColorRect
+
+# Botões
+@export_category("Botões")
+@export var back_button: Button
+@export var window_button: OptionButton
+@export var res_button: OptionButton
+@export var language_button: OptionButton
+
+# Language
 @onready var current_language = TranslationServer.get_locale()
 
 # Importar sons
-@onready var s_menu_click: AudioStreamPlayer = $s_menu_click
-@onready var s_menu_hover: AudioStreamPlayer = $s_menu_hover
+@export_category("Efeitos Sonoros")
+@export var menu_click: AudioStreamPlayer
+@export var menu_hover: AudioStreamPlayer
 
 # Variaveis
 const RESOLUTION_MODE_DICTIONARY : Dictionary  = {
@@ -34,8 +40,8 @@ const WINDOW_MODE_ARRAY : Array[String] = [
 	"Borderless Window",
 ]
 const LANGUAGE_ARRAY : Array[String] = [
-	"Português",
 	"English",
+	"Português",
 	"日本語"
 ]
 signal back_setting_menu
@@ -46,6 +52,8 @@ func _ready() -> void:
 	add_res_mode_items()
 	# Lan items
 	add_language_items()
+	
+	on_language_select(0)
 	
 	res_button.item_selected.connect(on_res_mode_selected)
 	window_button.item_selected.connect(on_window_mode_selected)
@@ -78,11 +86,11 @@ func add_res_mode_items() -> void: #fazer um loop for para analizar todas as res
 
 # CARREGAR
 func on_res_mode_selected(index : int) -> void: #para alterar a resulotion mod
-	s_menu_click.play()
+	menu_click.play()
 	DisplayServer.window_set_size(RESOLUTION_MODE_DICTIONARY.values()[index])
 
 func on_window_mode_selected(index : int) -> void: #para alterar os windows mods
-	s_menu_click.play()
+	menu_click.play()
 	match  index:
 		0: #Window Mode
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -105,14 +113,14 @@ func add_language_items() -> void:
 
 # CARREGAR
 func on_language_select(index : int) -> void:
-	s_menu_click.play()
+	menu_click.play()
 	match index:
-		0: #Português
-			TranslationServer.set_locale("pt_PT")
-			current_language = "pt_PT"
-		1: #English
+		0: #English
 			TranslationServer.set_locale("en")
 			current_language = "en"
+		1: #Português
+			TranslationServer.set_locale("pt_PT")
+			current_language = "pt_PT"
 		2: #日本語
 			TranslationServer.set_locale("ja")
 			current_language = "ja"
@@ -124,9 +132,9 @@ func on_language_select(index : int) -> void:
 # PRESSED
 func _on_back_pressed() -> void:
 	back_setting_menu.emit()
-	s_menu_click.play()
+	menu_click.play()
 	set_process(false)
 
 # HOVER
 func _on_back_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()

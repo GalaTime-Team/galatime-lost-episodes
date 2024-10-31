@@ -76,7 +76,7 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eg8fx"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "settings", "panel_container", "menu_click", "menu_hover")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -85,6 +85,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kg1ct")
+blur_animation = NodePath("Blur Animation")
+settings = NodePath("Settings")
+panel_container = NodePath("PanelContainer")
+menu_click = NodePath("s_menu_click")
+menu_hover = NodePath("s_menu_hover")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 process_mode = 3
@@ -97,7 +102,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Blur Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xwwwp")
 }

@@ -1,13 +1,16 @@
+class_name PauseMenu
 extends Control
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var panel_container: PanelContainer = $PanelContainer
-@onready var pause_menu_container: VBoxContainer = $PanelContainer/Pause_Menu_Container
-@onready var settings: Settings = $Settings
+@export var blur_animation: AnimationPlayer
+
+@export_category("Páginas")
+@export var settings: Settings
+@export var panel_container: PanelContainer
 
 # Importar Sons
-@onready var s_menu_click: AudioStreamPlayer = $s_menu_click
-@onready var s_menu_hover: AudioStreamPlayer = $s_menu_hover
+@export_category("Efeitos Sonoros")
+@export var menu_click: AudioStreamPlayer
+@export var menu_hover: AudioStreamPlayer
 
 #####
 # AUX
@@ -16,9 +19,7 @@ extends Control
 func initial_values():
 	panel_container.visible = false
 	panel_container.modulate.a = 0.0
-	
-	pause_menu_container.visible = true
-	pause_menu_container.modulate.a = 1.0
+
 
 func testEsc():
 	if Input.is_action_just_pressed("escape") and panel_container.visible == false:
@@ -33,7 +34,7 @@ func testEsc():
 func _ready() -> void:
 	initial_values()
 	
-	animation_player.play("RESET")
+	blur_animation.play("RESET")
 	
 	handle_connecting_signal()
 
@@ -50,7 +51,7 @@ func open_pause_menu():
 	
 	# Animação
 	var tween = self.create_tween()
-	animation_player.play("blur")
+	blur_animation.play("blur")
 	tween.tween_property(panel_container, "modulate:a", 1.0 ,0.2)
 	await tween.finished
 
@@ -61,7 +62,7 @@ func resume_game():
 	
 	# Animação
 	var tween = self.create_tween()
-	animation_player.play_backwards("blur")
+	blur_animation.play_backwards("blur")
 	tween.tween_property(panel_container, "modulate:a", 0.0 ,0.2)
 	await tween.finished
 	
@@ -88,31 +89,31 @@ func handle_connecting_signal() -> void:
 #####
 
 func _on_texture_button_pressed() -> void:
-	s_menu_click.play()
+	menu_click.play()
 	if panel_container.visible == false:
 		open_pause_menu()
 	elif panel_container.visible == true:
 		resume_game()
 
 func _on_resume_pressed() -> void:
-	s_menu_click.play()
+	menu_click.play()
 	resume_game()
 
 func _on_options_pressed() -> void:
-	s_menu_click.play()
+	menu_click.play()
 	options()
 
 func _on_leave_pressed() -> void:
-	s_menu_click.play()
+	menu_click.play()
 	get_tree().quit()
 
 # Hover Sounds
 
 func _on_resume_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()
 
 func _on_options_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()
 
 func _on_leave_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()

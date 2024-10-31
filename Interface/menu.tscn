@@ -20,7 +20,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw1co"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("settings", "margin_container", "tela_creditos", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +28,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_170gy")
+settings = NodePath("Settings")
+margin_container = NodePath("MarginContainer")
+tela_creditos = NodePath("TelaCreditos")
+menu_click = NodePath("s_menu_click")
+menu_hover = NodePath("s_menu_hover")
 metadata/_edit_use_anchors_ = true
 
 [node name="BackGround" type="ColorRect" parent="."]

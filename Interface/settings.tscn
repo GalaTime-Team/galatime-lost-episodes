@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" node_paths=PackedStringArray("background", "back_button", "window_button", "res_button", "language_button", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eglf2")
+background = NodePath("Background")
+back_button = NodePath("MarginContainer/Back")
+window_button = NodePath("MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button")
+res_button = NodePath("MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button")
+language_button = NodePath("MarginContainer/Conteudo/Settings/LanguageV/Language/language_button")
+menu_click = NodePath("s_menu_click")
+menu_hover = NodePath("s_menu_hover")
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_rawdv"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="5_ajafe"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("sala", "intro_monologue", "pause_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ittwj")
+sala = NodePath("MarginContainer")
+intro_monologue = NodePath("IntroMonologue")
+pause_menu = NodePath("PauseMenu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

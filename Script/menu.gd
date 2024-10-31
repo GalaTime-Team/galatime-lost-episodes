@@ -1,28 +1,56 @@
 class_name Menu
 extends Control
 
-@onready var settings: Settings = $Settings
-@onready var margin_container: MarginContainer = $MarginContainer
-@onready var tela_creditos: TelaCreditos = $TelaCreditos
+@export_category("Páginas")
+@export var settings: Settings
+@export var margin_container: MarginContainer
+@export var tela_creditos: TelaCreditos
 
 # Importar Sons
-@onready var s_menu_click: AudioStreamPlayer = $s_menu_click
-@onready var s_menu_hover: AudioStreamPlayer = $s_menu_hover
+@export_category("Efeitos Sonoros")
+@export var menu_click: AudioStreamPlayer
+@export var menu_hover: AudioStreamPlayer
 
 func _ready() -> void:
-	handle_connecting_signal() #ao inciar o programa o programa ira ter o sinal com os settings
+	handle_connecting_signal()
+	margin_container.modulate.a = 0.0
+	
+	var tween = self.create_tween()
+	
+	tween.tween_property(margin_container, "modulate:a", 1.0 ,1.0)
+	await tween.finished
+	tween.stop()
+
+#####
+# Transição
+#####
+
+func fade(fades_out, fades_in) -> void:
+	fades_out.modulate.a = 1.0
+	fades_in.modulate.a = 0.0
+	
+	var tween = self.create_tween()
+	
+	await tween.tween_property(fades_out, "modulate:a", 0.0 ,0.2)
+	
+	fades_in.visible = true
+	
+	tween.tween_property(fades_in, "modulate:a", 1.0 ,0.2)
+	await tween.finished
+	tween.stop()
+	
+	fades_out.visible = false
+
 
 #####
 # Back Pressed
 #####
 
 func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
-	margin_container.visible = true
-	settings.visible = false
+	fade(settings,margin_container)
 	
 func on_back_credits_menu()-> void:
-	margin_container.visible = true
-	tela_creditos.visible = false
+	fade(tela_creditos,margin_container)
 
 #####
 # Back Signals
@@ -69,20 +97,18 @@ func _on_play_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	# Som
-	s_menu_click.play()
+	menu_click.play()
 	# Visualizar
-	margin_container.visible = false
 	settings.set_process(true)
-	settings.visible = true
+	fade(margin_container,settings)
 
 
 func _on_credits_pressed() -> void:
 	# Som
-	s_menu_click.play()
+	menu_click.play()
 	# Visualizar
-	margin_container.visible = false
 	tela_creditos.set_process(true)
-	tela_creditos.visible = true
+	fade(margin_container,tela_creditos)
 
 
 func _on_leave_pressed() -> void:
@@ -93,13 +119,13 @@ func _on_leave_pressed() -> void:
 #####
 
 func _on_play_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()
 
 func _on_settings_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()
 
 func _on_credits_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()
 
 func _on_leave_mouse_entered() -> void:
-	s_menu_hover.play()
+	menu_hover.play()
