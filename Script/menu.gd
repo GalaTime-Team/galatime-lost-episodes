@@ -31,7 +31,7 @@ func fade(fades_out, fades_in) -> void:
 	
 	var tween = self.create_tween()
 	
-	await tween.tween_property(fades_out, "modulate:a", 0.0 ,0.2)
+	tween.tween_property(fades_out, "modulate:a", 0.0 ,0.2)
 	
 	fades_in.visible = true
 	
@@ -40,7 +40,6 @@ func fade(fades_out, fades_in) -> void:
 	tween.stop()
 	
 	fades_out.visible = false
-
 
 #####
 # Back Pressed
@@ -78,21 +77,22 @@ func _on_play_pressed() -> void:
 	var tween = self.create_tween()
 	# Hide Settings button
 	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings, "modulate:a", 0.0 ,0.5)
-	await tween.tween_interval(1.0)
+	tween.tween_interval(1.0)
 
 	# Hide Credits button
 	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits,  "modulate:a", 0.0 ,0.5)
-	await tween.tween_interval(1.0)
+	tween.tween_interval(1.0)
 
 	# Hide Leave button
 	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave,  "modulate:a", 0.0 ,0.5)
-	await tween.tween_interval(1.0)
+	tween.tween_interval(1.0)
 
 	# Hide Play button
 	tween.tween_property($MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play,  "modulate:a", 0.0 ,0.5)
-	await tween.tween_interval(1.0)
+	tween.tween_interval(1.0)
 
 	await tween.finished
+	tween.stop()
 	var _game: bool = get_tree().change_scene_to_file("res://Interface/Sala_Amarela.tscn")
 
 func _on_settings_pressed() -> void:
@@ -102,14 +102,12 @@ func _on_settings_pressed() -> void:
 	settings.set_process(true)
 	fade(margin_container,settings)
 
-
 func _on_credits_pressed() -> void:
 	# Som
 	menu_click.play()
 	# Visualizar
 	tela_creditos.set_process(true)
 	fade(margin_container,tela_creditos)
-
 
 func _on_leave_pressed() -> void:
 	get_tree().quit()

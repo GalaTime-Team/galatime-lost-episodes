@@ -10,7 +10,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqhi3"]
 
-[node name="TelaCreditos" type="Control" node_paths=PackedStringArray("back")]
+[node name="TelaCreditos" type="Control" node_paths=PackedStringArray("back", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xbbeh")
 back = NodePath("MarginContainer/Back")
+menu_click = NodePath("s_menu_click")
+menu_hover = NodePath("s_menu_hover")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

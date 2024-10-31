@@ -53,7 +53,8 @@ func _ready() -> void:
 	# Lan items
 	add_language_items()
 	
-	on_language_select(0)
+	TranslationServer.set_locale("en")
+	current_language = "en"
 	
 	res_button.item_selected.connect(on_res_mode_selected)
 	window_button.item_selected.connect(on_window_mode_selected)

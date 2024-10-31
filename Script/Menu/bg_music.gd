@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-@onready var timer: Timer = $"../Timer"
+@export var timer: Timer 
 
 
 # Called when the node enters the scene tree for the first time.
