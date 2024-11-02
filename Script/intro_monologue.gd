@@ -6,10 +6,12 @@ extends Control
 signal back_dialog
 
 func _ready() -> void:
+	set_process(false)
 	var tween = self.create_tween()
 	tween.tween_interval(1.0) #intervalo
 	await tween.finished
-	start_monologue()
+	if !Global.monologuecont:
+		start_monologue()
 
 ########
 # monologue
@@ -21,5 +23,5 @@ func start_monologue():
 
 func end_of_dialog(argument : String):
 	if argument == "end_of_dialogue":
-		back_dialog.emit()
 		set_process(false)
+		back_dialog.emit()

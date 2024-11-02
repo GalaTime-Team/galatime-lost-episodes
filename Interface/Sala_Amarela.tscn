@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvt7jwu5k1gth"]
+[gd_scene load_steps=9 format=3 uid="uid://dvt7jwu5k1gth"]
 
 [ext_resource type="Script" path="res://Script/sala_amarela.gd" id="1_ittwj"]
 [ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="4_r1ucr"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_rawdv"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="5_ajafe"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="8_mil3b"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("sala", "intro_monologue", "pause_menu")]
+[node name="Control" type="Control" node_paths=PackedStringArray("sala_amarela", "sala", "intro_monologue", "pause_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ittwj")
+sala_amarela = NodePath(".")
 sala = NodePath("MarginContainer")
 intro_monologue = NodePath("IntroMonologue")
 pause_menu = NodePath("PauseMenu")
@@ -35,7 +37,7 @@ layout_mode = 2
 color = Color(0.945098, 0.815686, 0.572549, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="left_button" type="TextureButton" parent="."]
+[node name="left_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala_amarela")]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -44,6 +46,7 @@ grow_vertical = 2
 texture_normal = ExtResource("3_e1xkg")
 stretch_mode = 3
 script = ExtResource("3_1vtim")
+sala_amarela = NodePath("..")
 
 [node name="Right_button" type="TextureButton" parent="."]
 layout_mode = 1
@@ -61,17 +64,29 @@ stretch_mode = 3
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 100.0
+offset_bottom = 69.0
 grow_horizontal = 2
 texture_normal = ExtResource("5_ajafe")
 stretch_mode = 3
-
-[node name="PauseMenu" parent="." instance=ExtResource("4_rawdv")]
-layout_mode = 1
-size_flags_horizontal = 4
 
 [node name="IntroMonologue" parent="." instance=ExtResource("2_1v5dy")]
 visible = false
 layout_mode = 1
 
+[node name="PauseMenu" parent="." instance=ExtResource("4_rawdv")]
+visible = false
+layout_mode = 1
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1787.0
+offset_top = 43.0
+offset_right = 1882.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("8_mil3b")
+
 [connection signal="pressed" from="left_button" to="left_button" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

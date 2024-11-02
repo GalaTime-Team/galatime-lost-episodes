@@ -3,6 +3,8 @@ extends Node
 var master_volume: float = 0.5  # Volume mestre padrão
 var music_volume: float = 0.5  # Volume da música padrão
 var fullscreen: bool = false  # Fullscreen desativado por padrão
+var monologuecont: bool = false # Monologue cont
+var back_scene: bool = false #back to scene
 
 # Função para salvar configurações
 func save_settings():

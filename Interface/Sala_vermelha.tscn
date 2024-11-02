@@ -1,25 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://y1eent0c6lpn"]
+[gd_scene load_steps=8 format=3 uid="uid://y1eent0c6lpn"]
 
 [ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_0n02o"]
+[ext_resource type="Script" path="res://Script/sala_vermelha.gd" id="1_p7nsk"]
 [ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_rmrfp"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_wdukp"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_2wccy"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="6_egqjg"]
 
-[node name="Control" type="Control"]
+[sub_resource type="GDScript" id="GDScript_83k1c"]
+script/source = "extends TextureButton
+"
+
+[node name="Control" type="Control" node_paths=PackedStringArray("sala_vermelha")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p7nsk")
+sala_vermelha = NodePath(".")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
 color = Color(0.764706, 0.427451, 0.407843, 1)
 
 [node name="left_button" type="TextureButton" parent="."]
@@ -55,4 +66,19 @@ stretch_mode = 3
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_2wccy")]
+visible = false
 size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1787.0
+offset_top = 43.0
+offset_right = 1882.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("6_egqjg")
+script = SubResource("GDScript_83k1c")
+
+[connection signal="pressed" from="Right_button" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

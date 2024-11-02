@@ -12,6 +12,8 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
+signal out_pause_menu
+
 #####
 # AUX
 #####
@@ -19,13 +21,6 @@ extends Control
 func initial_values():
 	panel_container.visible = false
 	panel_container.modulate.a = 0.0
-
-
-func testEsc():
-	if Input.is_action_just_pressed("escape") and panel_container.visible == false:
-		open_pause_menu()
-	elif Input.is_action_just_pressed("escape") and panel_container.visible == true:
-		resume_game()
 
 #####
 # Ready // Process
@@ -37,9 +32,7 @@ func _ready() -> void:
 	blur_animation.play("RESET")
 	
 	handle_connecting_signal()
-
-func _process(_delta: float):
-	testEsc()
+	set_process(false)
 
 #####
 # Main Options
@@ -67,6 +60,7 @@ func resume_game():
 	await tween.finished
 	
 	panel_container.visible = false
+	out_pause_menu.emit()
 
 func options():
 	settings.set_process(true)
@@ -88,16 +82,10 @@ func handle_connecting_signal() -> void:
 # Buttons Interactions
 #####
 
-func _on_texture_button_pressed() -> void:
-	menu_click.play()
-	if panel_container.visible == false:
-		open_pause_menu()
-	elif panel_container.visible == true:
-		resume_game()
-
 func _on_resume_pressed() -> void:
 	menu_click.play()
 	resume_game()
+	set_process(false)
 
 func _on_options_pressed() -> void:
 	menu_click.play()
