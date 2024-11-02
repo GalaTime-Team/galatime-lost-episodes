@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=23 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
 [ext_resource type="Texture2D" uid="uid://783q0723b5hp" path="res://Asset/Video Menu/bg.png" id="2_id1uc"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="7_v1tmb"]
 [ext_resource type="AudioStream" uid="uid://crx8a2g6l2nlj" path="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3" id="9_7pvxc"]
 [ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="10_o1ie5"]
+[ext_resource type="AudioStream" uid="uid://3we3f77ols7q" path="res://Asset/Audio/Effects/space-rumble-29970 (mp3cut.net).mp3" id="16_rx228"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hp1sq"]
 shader = ExtResource("3_lxd5x")
@@ -198,6 +199,11 @@ timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BG_ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_rx228")
+volume_db = -45.807
+autoplay = true
 
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
