@@ -1,16 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=22 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
-[ext_resource type="VideoStream" path="res://Asset/Video Menu/videoplayback.ogv" id="2_6s2v7"]
+[ext_resource type="Texture2D" uid="uid://783q0723b5hp" path="res://Asset/Video Menu/bg.png" id="2_id1uc"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="2_kjhsv"]
+[ext_resource type="Shader" path="res://Interface/estrelas.gdshader" id="3_lxd5x"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="3_uxaxx"]
 [ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="4_g0s4g"]
+[ext_resource type="Texture2D" uid="uid://dbfhmh7pqj7og" path="res://Asset/Video Menu/stars.png" id="4_homoy"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_ykdxo"]
+[ext_resource type="Shader" path="res://Interface/planetas.gdshader" id="5_20nhe"]
+[ext_resource type="Texture2D" uid="uid://qc6cv52a2xg1" path="res://Asset/Video Menu/planets.png" id="6_wgjpj"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_tdjq1"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="7_v1tmb"]
 [ext_resource type="AudioStream" uid="uid://crx8a2g6l2nlj" path="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3" id="9_7pvxc"]
 [ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="10_o1ie5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hp1sq"]
+shader = ExtResource("3_lxd5x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h7cw"]
+shader = ExtResource("5_20nhe")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -45,18 +55,33 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = ExtResource("2_6s2v7")
-volume_db = -80.0
-autoplay = true
-expand = true
-loop = true
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -620.0
+offset_top = -158.0
+offset_right = 2380.0
+offset_bottom = 1282.0
+texture = ExtResource("2_id1uc")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hp1sq")
+layout_mode = 0
+offset_left = -424.0
+offset_top = -200.0
+offset_right = 2576.0
+offset_bottom = 1240.0
+texture = ExtResource("4_homoy")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_2h7cw")
+layout_mode = 0
+offset_left = -6956.0
+offset_top = -244.0
+offset_right = 8044.0
+offset_bottom = 1526.0
+texture = ExtResource("6_wgjpj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
