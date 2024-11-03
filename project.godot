@@ -55,13 +55,13 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 translation/enabled=false
-translation/original_locale="pt_BR"
 translation/file_mode=1
 translation/translation_folder=""
 translation/save_mode=0
 translation/add_separator=false
 text/autopauses={}
 glossary/default_case_sensitive=true
+translation/original_locale="pt_BR"
 
 [display]
 
@@ -94,7 +94,8 @@ escape={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.pt_PT.translation")
+locale/translations=PackedStringArray("res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.csv")
+locale/test="en"
 
 [rendering]
 

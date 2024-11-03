@@ -145,5 +145,6 @@ func _on_back_mouse_entered() -> void:
 func fade() -> void:
 	margin_container.modulate.a = 0.0
 	var tween = self.create_tween()
+	tween.tween_interval(0.2)
 	tween.tween_property(margin_container , "modulate:a", 1.0 , 0.4)
 	await tween.finished

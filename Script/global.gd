@@ -1,12 +1,28 @@
 extends Node
 
-var master_volume: float = 0.5  # Volume mestre padrão
-var music_volume: float = 0.5  # Volume da música padrão
-var fullscreen: bool = false  # Fullscreen desativado por padrão
-var monologuecont: bool = false # Monologue cont
-var back_scene: bool = false #back to scene
+#####
+# Options
+#####
 
-# Função para salvar configurações
+var master_volume: float
+var music_volume: float
+var sfx_volume: float
+var fullscreen: bool
+var res_screen: String
+var language: String
+
+#####
+# AUX
+#####
+var monologuecont: bool = false
+var back_scene: bool = false
+
+
+
+#####
+# Salvar as Configurações
+#####
+
 func save_settings():
 	var config = ConfigFile.new()
 	config.set_value("settings", "master_volume", master_volume)
@@ -14,7 +30,10 @@ func save_settings():
 	config.set_value("settings", "fullscreen", fullscreen)
 	config.save("user://settings.cfg")
 
-# Função para carregar configurações
+#####
+# Carregar as Configurações
+#####
+
 func load_settings():
 	var config = ConfigFile.new()
 	var err = config.load("user://settings.cfg")
