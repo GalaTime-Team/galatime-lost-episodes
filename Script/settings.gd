@@ -3,7 +3,7 @@ extends Control
 
 #Criaçaõ de variaveis para butões e etc
 @export var background: ColorRect
-
+@export var margin_container : MarginContainer
 # Botões
 @export_category("Botões")
 @export var back_button: Button
@@ -52,9 +52,6 @@ func _ready() -> void:
 	add_res_mode_items()
 	# Lan items
 	add_language_items()
-	
-	TranslationServer.set_locale("en")
-	current_language = "en"
 	
 	res_button.item_selected.connect(on_res_mode_selected)
 	window_button.item_selected.connect(on_window_mode_selected)
@@ -125,6 +122,7 @@ func on_language_select(index : int) -> void:
 		2: #日本語
 			TranslationServer.set_locale("ja")
 			current_language = "ja"
+	fade()
 
 #####
 # Back Button
@@ -139,3 +137,13 @@ func _on_back_pressed() -> void:
 # HOVER
 func _on_back_mouse_entered() -> void:
 	menu_hover.play()
+
+######
+# fade
+######
+
+func fade() -> void:
+	margin_container.modulate.a = 0.0
+	var tween = self.create_tween()
+	tween.tween_property(margin_container , "modulate:a", 1.0 , 0.4)
+	await tween.finished
