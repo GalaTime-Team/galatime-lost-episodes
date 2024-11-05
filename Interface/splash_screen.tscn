@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t1iqef0xpq74" path="res://Asset/Images/Splash_Screen_GT_TeamDiminuido.png" id="1_tw2xo"]
 [ext_resource type="Script" path="res://Script/splash_screen.gd" id="1_uk6ju"]
-[ext_resource type="PackedScene" uid="uid://cjeyypwuli88j" path="res://Interface/menu.tscn" id="2_qwd8x"]
+[ext_resource type="PackedScene" uid="uid://cjeyypwuli88j" path="res://Interface/Menu/menu.tscn" id="2_qwd8x"]
 
 [node name="Control2" type="Control" node_paths=PackedStringArray("splash_screen")]
 layout_mode = 3

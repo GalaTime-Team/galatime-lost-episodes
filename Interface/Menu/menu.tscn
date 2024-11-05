@@ -1,27 +1,27 @@
 [gd_scene load_steps=23 format=3 uid="uid://cjeyypwuli88j"]
 
-[ext_resource type="Script" path="res://Script/menu.gd" id="1_170gy"]
-[ext_resource type="Texture2D" uid="uid://783q0723b5hp" path="res://Asset/Video Menu/bg.png" id="2_id1uc"]
-[ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="2_kjhsv"]
-[ext_resource type="Shader" path="res://Interface/estrelas.gdshader" id="3_lxd5x"]
-[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="3_uxaxx"]
-[ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/tela_creditos.tscn" id="4_51dv1"]
-[ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/settings.tscn" id="4_g0s4g"]
-[ext_resource type="Texture2D" uid="uid://dbfhmh7pqj7og" path="res://Asset/Video Menu/stars.png" id="4_homoy"]
-[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_ykdxo"]
-[ext_resource type="Shader" path="res://Interface/planetas.gdshader" id="5_20nhe"]
-[ext_resource type="Texture2D" uid="uid://qc6cv52a2xg1" path="res://Asset/Video Menu/planets.png" id="6_wgjpj"]
-[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_tdjq1"]
-[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="7_v1tmb"]
-[ext_resource type="AudioStream" uid="uid://crx8a2g6l2nlj" path="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3" id="9_7pvxc"]
-[ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="10_o1ie5"]
-[ext_resource type="AudioStream" uid="uid://3we3f77ols7q" path="res://Asset/Audio/Effects/space-rumble-29970 (mp3cut.net).mp3" id="16_rx228"]
+[ext_resource type="Script" path="res://Script/Menu/menu.gd" id="1_3kacm"]
+[ext_resource type="Texture2D" uid="uid://783q0723b5hp" path="res://Asset/Video Menu/bg.png" id="2_k7p1f"]
+[ext_resource type="Shader" path="res://Interface/estrelas.gdshader" id="3_0twq0"]
+[ext_resource type="Texture2D" uid="uid://dbfhmh7pqj7og" path="res://Asset/Video Menu/stars.png" id="4_bkj27"]
+[ext_resource type="Shader" path="res://Interface/planetas.gdshader" id="5_0hc1l"]
+[ext_resource type="Texture2D" uid="uid://qc6cv52a2xg1" path="res://Asset/Video Menu/planets.png" id="6_1862x"]
+[ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="7_bbhfc"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="8_v7njs"]
+[ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/Settings/settings.tscn" id="9_2ghfu"]
+[ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/Credits/tela_creditos.tscn" id="10_e5ugt"]
+[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="11_fyl3r"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="12_jg8fk"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="13_ao1gr"]
+[ext_resource type="AudioStream" uid="uid://crx8a2g6l2nlj" path="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3" id="14_wgl1l"]
+[ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="15_77b42"]
+[ext_resource type="AudioStream" uid="uid://3we3f77ols7q" path="res://Asset/Audio/Effects/space-rumble-29970 (mp3cut.net).mp3" id="16_pm7l6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hp1sq"]
-shader = ExtResource("3_lxd5x")
+shader = ExtResource("3_0twq0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2h7cw"]
-shader = ExtResource("5_20nhe")
+shader = ExtResource("5_0hc1l")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -38,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_170gy")
+script = ExtResource("1_3kacm")
 settings = NodePath("Settings")
 margin_container = NodePath("MarginContainer")
 tela_creditos = NodePath("TelaCreditos")
@@ -56,33 +56,41 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
+[node name="BG Animation" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Space" type="TextureRect" parent="BG Animation"]
+layout_mode = 2
 offset_left = -620.0
 offset_top = -158.0
 offset_right = 2380.0
 offset_bottom = 1282.0
-texture = ExtResource("2_id1uc")
+texture = ExtResource("2_k7p1f")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="TextureRect3" type="TextureRect" parent="BG Animation"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_hp1sq")
-layout_mode = 0
+layout_mode = 2
 offset_left = -424.0
 offset_top = -200.0
 offset_right = 2576.0
 offset_bottom = 1240.0
-texture = ExtResource("4_homoy")
+texture = ExtResource("4_bkj27")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="BG Animation"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_2h7cw")
-layout_mode = 0
+layout_mode = 2
 offset_left = -6956.0
 offset_top = -244.0
 offset_right = 8044.0
 offset_bottom = 1526.0
-texture = ExtResource("6_wgjpj")
+texture = ExtResource("6_1862x")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -103,7 +111,7 @@ layout_mode = 2
 
 [node name="TituloImagem" type="TextureRect" parent="MarginContainer/MenuContainer"]
 layout_mode = 2
-texture = ExtResource("2_kjhsv")
+texture = ExtResource("7_bbhfc")
 expand_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MenuContainer"]
@@ -121,7 +129,7 @@ layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("3_uxaxx")
+theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
 text = "button_menu_play"
@@ -132,7 +140,7 @@ layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("3_uxaxx")
+theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
 text = "button_menu_settings"
@@ -143,7 +151,7 @@ layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("3_uxaxx")
+theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
 text = "button_menu_credits"
@@ -154,17 +162,17 @@ layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
 theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("3_uxaxx")
+theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "button_menu_leave"
 flat = true
 
-[node name="Settings" parent="." instance=ExtResource("4_g0s4g")]
+[node name="Settings" parent="." instance=ExtResource("9_2ghfu")]
 visible = false
 layout_mode = 1
 
-[node name="TelaCreditos" parent="." instance=ExtResource("4_51dv1")]
+[node name="TelaCreditos" parent="." instance=ExtResource("10_e5ugt")]
 visible = false
 layout_mode = 1
 
@@ -177,31 +185,31 @@ anchor_bottom = 1.0
 offset_top = -19.0
 offset_right = 560.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("7_v1tmb")
+theme_override_fonts/font = ExtResource("11_fyl3r")
 theme_override_font_sizes/font_size = 15
 text = "© 2025 / GT Team / This work is openly licensed via CC BY-NC 4.0"
 
 [node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_tdjq1")
+stream = ExtResource("12_jg8fk")
 volume_db = -12.0
 bus = &"Sfx"
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ykdxo")
+stream = ExtResource("13_ao1gr")
 bus = &"Sfx"
 
 [node name="BG_music" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("timer")]
-stream = ExtResource("9_7pvxc")
+stream = ExtResource("14_wgl1l")
 autoplay = true
 bus = &"Music"
-script = ExtResource("10_o1ie5")
+script = ExtResource("15_77b42")
 timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="BG_ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_rx228")
+stream = ExtResource("16_pm7l6")
 volume_db = -45.807
 autoplay = true
 

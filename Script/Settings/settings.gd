@@ -53,11 +53,19 @@ func _ready() -> void:
 	# Lan items
 	add_language_items()
 	
-	res_button.item_selected.connect(on_res_mode_selected)
-	window_button.item_selected.connect(on_window_mode_selected)
-	language_button.item_selected.connect(on_language_select)
+	load_global_values()
 	
 	set_process(false) #processo feito para cosneguir voltar ao menu e ter as informações
+
+func load_global_values() -> void:
+	res_button.select(Global.res_screen)
+	res_mode_choice(Global.res_screen)
+	
+	window_button.select(Global.fullscreen)
+	window_mode_choice(Global.fullscreen)
+	
+	language_button.select(Global.language)
+	language_choice(Global.language)
 
 ######
 # Background
@@ -65,9 +73,9 @@ func _ready() -> void:
 
 func backgroundvisible() -> void:
 	if background.visible:
-		background.visible = false
+		background.hide()
 	else:
-		background.visible = true
+		background.show()
 
 #####
 # Screen Resolution
@@ -85,10 +93,18 @@ func add_res_mode_items() -> void: #fazer um loop for para analizar todas as res
 # CARREGAR
 func on_res_mode_selected(index : int) -> void: #para alterar a resulotion mod
 	menu_click.play()
-	DisplayServer.window_set_size(RESOLUTION_MODE_DICTIONARY.values()[index])
+	res_mode_choice(index)
+	Global.res_screen = index
 
 func on_window_mode_selected(index : int) -> void: #para alterar os windows mods
 	menu_click.play()
+	window_mode_choice(index)
+	Global.fullscreen = index
+
+func res_mode_choice(index: int) -> void:
+	DisplayServer.window_set_size(RESOLUTION_MODE_DICTIONARY.values()[index])
+
+func window_mode_choice(index: int) -> void:
 	match  index:
 		0: #Window Mode
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -112,6 +128,11 @@ func add_language_items() -> void:
 # CARREGAR
 func on_language_select(index : int) -> void:
 	menu_click.play()
+	language_choice(index)
+	Global.language = index
+	fade()
+
+func language_choice(index : int) -> void:
 	match index:
 		0: #English
 			TranslationServer.set_locale("en")
@@ -122,7 +143,6 @@ func on_language_select(index : int) -> void:
 		2: #日本語
 			TranslationServer.set_locale("ja")
 			current_language = "ja"
-	fade()
 
 #####
 # Back Button

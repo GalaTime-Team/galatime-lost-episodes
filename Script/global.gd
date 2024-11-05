@@ -7,9 +7,9 @@ extends Node
 var master_volume: float
 var music_volume: float
 var sfx_volume: float
-var fullscreen: bool
-var res_screen: String
-var language: String
+var fullscreen: int = 0 # windowed
+var res_screen: int = 0 # 1080p
+var language: int = 0 # English
 
 #####
 # AUX

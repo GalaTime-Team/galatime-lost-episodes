@@ -1,8 +1,7 @@
 extends TextureButton
 
 @export var sala_amarela : Control
-
-var scene = load("res://Interface/Sala_vermelha.tscn")
+var esquerda_sala_vermelha = load("res://Interface/Play/sala_vermelha.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,5 +21,5 @@ func fade() -> void:
 	tween.tween_property(sala_amarela , "modulate:a" , 0.0 , 0.2)
 	tween.tween_interval(0.2)
 	await tween.finished
-	get_tree().change_scene_to_packed(scene)
+	get_tree().change_scene_to_packed(esquerda_sala_vermelha)
 	

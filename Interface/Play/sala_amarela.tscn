@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvt7jwu5k1gth"]
 
-[ext_resource type="Script" path="res://Script/sala_amarela.gd" id="1_ittwj"]
+[ext_resource type="Script" path="res://Script/Play/sala_amarela.gd" id="1_ittwj"]
 [ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
-[ext_resource type="Script" path="res://Script/left_button.gd" id="3_1vtim"]
+[ext_resource type="Script" path="res://Script/Play/left_button.gd" id="3_1vtim"]
 [ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="3_e1xkg"]
 [ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="4_r1ucr"]
-[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_rawdv"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_rawdv"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="5_ajafe"]
 [ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="8_mil3b"]
 
@@ -69,15 +69,6 @@ grow_horizontal = 2
 texture_normal = ExtResource("5_ajafe")
 stretch_mode = 3
 
-[node name="IntroMonologue" parent="." instance=ExtResource("2_1v5dy")]
-visible = false
-layout_mode = 1
-
-[node name="PauseMenu" parent="." instance=ExtResource("4_rawdv")]
-visible = false
-layout_mode = 1
-size_flags_horizontal = 4
-
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1787.0
@@ -87,6 +78,15 @@ offset_bottom = 140.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = ExtResource("8_mil3b")
+
+[node name="IntroMonologue" parent="." instance=ExtResource("2_1v5dy")]
+visible = false
+layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_rawdv")]
+visible = false
+layout_mode = 1
+size_flags_horizontal = 4
 
 [connection signal="pressed" from="left_button" to="left_button" method="_on_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

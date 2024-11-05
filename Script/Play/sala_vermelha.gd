@@ -1,7 +1,7 @@
 extends Control
 
 @export var sala_vermelha : Control
-var scene = load("res://Interface/Sala_Amarela.tscn")
+var direita_sala_amarela = load("res://Interface/Play/sala_amarela.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,4 +20,4 @@ func _on_right_button_pressed() -> void:
 	tween.tween_interval(0.2)
 	await tween.finished
 	Global.back_scene = true
-	get_tree().change_scene_to_packed(scene)
+	get_tree().change_scene_to_packed(direita_sala_amarela)

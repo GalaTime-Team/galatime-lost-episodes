@@ -23,17 +23,17 @@ label_credits_gamedev_main,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, 
 subtitle_credits_gamedev_mechanics,Designers de Mecânicas de Jogo,Game Mechanics Designers,"ゲームメカニクスデザイナー "
 label_credits_gamedev_mechanics,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
 subtitle_credits_gamedev_dev,Programadores,Developers,"開発者 "
-label_credits_gamedev_dev,"Artur Bazavlyak, Matheus Abreu","Artur Bazavlyak, Matheus Abreu","Artur Bazavlyak, Matheus Abreu"
+label_credits_gamedev_dev,"Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel"
 title_credits_design,Design & Arte,Design & Art,デザインとアート
 subtitle_credits_design_art,Direção de Arte,Art Director,アートディレクター
 label_credits_design_art,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
 subtitle_credits_design_scenario,Design de Cenários,Scenario Designer,シナリオデザイナー
-label_credits_design_scenario,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
+label_credits_design_scenario,"Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu"
 title_credits_music,Música & Som,Music & Sound,音楽とサウンド
 subtitle_credits_music_composer,Compositor,"Composer ","作曲家 "
-label_credits_music_composer,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
+label_credits_music_composer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ)
 subtitle_credits_music_producer,Produtor,"Producer ","プロデューサー "
-label_credits_music_producer,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
+label_credits_music_producer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ)
 title_credits_narrative,Narrativa,Narrative,ナレーション
 subtitle_credits_narrative_screenwriter,Escritor,"Screenwriter ","脚本家 "
 label_credits_narrative_screenwriter,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
@@ -41,7 +41,7 @@ subtitle_credits_narrative_dialogues,Diálogos,"Dialogues ","セリフ "
 label_credits_narrative_dialogues,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
 title_credits_tests,Testes & Feedback,Testing & Feedback,テストとフィードバック
 subtitle_credits_tests_testers,Testadores,Testers,"テスター "
-label_credits_tests_testers,João Maranhão,João Maranhão,João Maranhão
+label_credits_tests_testers,"João Maranhão, Gonçalo Fonte, Alaska","João Maranhão, Gonçalo Fonte, Alaska","João Maranhão, Gonçalo Fonte, Alaska"
 label_credits_license,"Jogo desenvolvido por GT Team, licenciado sob a licença Creative Commons Atribuição 4.0 Internacional (CC BY-NC 4.0).","Game developed by GT Team, licensed under the Creative Commons Attribution 4.0 International License (CC BY-NC 4.0).",このゲームは GT チームによって開発され、Creative Commons Attribution 4.0 International License (CC BY-NC 4.0) に基づいてライセンスされています。
 monologue_intro_otherworld_1,A noite tem uma forma de engolir tudo.,The night has a way of swallowing everything.,夜はすべてを飲み込むようだ。
 monologue_intro_otherworld_2,"Na sua plenitude, até o vento move-se...","In its stillness, even the wind moves...",静寂の中では、風さえも...

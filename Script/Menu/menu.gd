@@ -11,6 +11,9 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
+
+var start_game = load("res://Interface/Play/sala_amarela.tscn")
+
 func _ready() -> void:
 	handle_connecting_signal()
 	margin_container.modulate.a = 0.0
@@ -65,10 +68,6 @@ func handle_connecting_signal() -> void:
 
 func _on_play_pressed() -> void:
 	#Disabilitar os butões para não acessar durante o fade
-	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings.disabled = true
-	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits.disabled = true
-	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave.disabled = true
-	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play.disabled = true
 	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play.mouse_entered.disconnect(_on_play_mouse_entered)
 	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings.mouse_entered.disconnect(_on_settings_mouse_entered)
 	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits.mouse_entered.disconnect(_on_credits_mouse_entered)
@@ -93,7 +92,7 @@ func _on_play_pressed() -> void:
 
 	await tween.finished
 	tween.stop()
-	var _game: bool = get_tree().change_scene_to_file("res://Interface/Sala_Amarela.tscn")
+	var _game: bool = get_tree().change_scene_to_packed(start_game)
 
 func _on_settings_pressed() -> void:
 	# Som

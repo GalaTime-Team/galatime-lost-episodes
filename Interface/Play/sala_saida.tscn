@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://556ooh352num"]
+[gd_scene load_steps=5 format=3 uid="uid://caqqxp0x3om3i"]
 
-[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_7auva"]
-[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_08410"]
-[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_rtgw1"]
-[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/pause_menu.tscn" id="4_u38rj"]
+[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_3130i"]
+[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_6lkip"]
+[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_5jm6g"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_f0k2i"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.384314, 0.345098, 0.427451, 1)
+color = Color(0.937255, 0.937255, 0.921569, 1)
 
 [node name="left_button" type="TextureButton" parent="."]
 layout_mode = 1
@@ -28,7 +28,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 54.0
 grow_vertical = 2
-texture_normal = ExtResource("1_7auva")
+texture_normal = ExtResource("1_3130i")
 stretch_mode = 3
 
 [node name="Right_button" type="TextureButton" parent="."]
@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 offset_left = -54.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("2_08410")
+texture_normal = ExtResource("2_6lkip")
 stretch_mode = 3
 
 [node name="up_button" type="TextureButton" parent="."]
@@ -49,10 +49,10 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 100.0
 grow_horizontal = 2
-texture_normal = ExtResource("3_rtgw1")
+texture_normal = ExtResource("3_5jm6g")
 stretch_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_u38rj")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_f0k2i")]
 size_flags_horizontal = 4

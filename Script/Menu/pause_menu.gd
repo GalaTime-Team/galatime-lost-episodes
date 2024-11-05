@@ -65,22 +65,34 @@ func resume_game():
 func options():
 	settings.set_process(true)
 	settings.backgroundvisible()
-	settings.visible = true
+	settings.modulate.a = 0.0
+	settings.show()
+	
+	var tween = self.create_tween()
+	tween.tween_property(settings, "modulate:a", 1.0, 0.2)
+	await tween.finished
 
 ########
 #conecção do settings
 ########
 
 func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
+	settings.modulate.a = 1.0
+	
+	var tween = self.create_tween()
+	tween.tween_property(settings, "modulate:a", 0.0, 0.2)
+	await tween.finished
 	settings.backgroundvisible()
-	settings.visible = false
+	settings.hide()
 
 func handle_connecting_signal() -> void:
 	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
 
-#####
+########
 # Buttons Interactions
-#####
+########
+
+# Pressed
 
 func _on_resume_pressed() -> void:
 	menu_click.play()
@@ -94,6 +106,10 @@ func _on_options_pressed() -> void:
 func _on_leave_pressed() -> void:
 	menu_click.play()
 	get_tree().quit()
+
+func _on_texture_button_pressed() -> void:
+	resume_game()
+	set_process(false)
 
 # Hover Sounds
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctqs1dykqquf3"]
 
-[ext_resource type="Script" path="res://Script/volume_controler.gd" id="1_fyeai"]
+[ext_resource type="Script" path="res://Script/Settings/volume_controler.gd" id="1_fyeai"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="2_nwtfv"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="3_iiiy1"]
 
