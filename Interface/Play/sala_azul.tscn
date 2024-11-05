@@ -1,17 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2240hci0ybkv"]
+[gd_scene load_steps=11 format=3 uid="uid://c2240hci0ybkv"]
 
 [ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_2wc2n"]
 [ext_resource type="Script" path="res://Script/Play/sala_azul.gd" id="1_kjc76"]
 [ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_sq77e"]
+[ext_resource type="Script" path="res://Script/Play/left_button.gd" id="3_pgtn6"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_v01s3"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_tm3kh"]
+[ext_resource type="Script" path="res://Script/Play/right_button.gd" id="5_6oxh6"]
 [ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="5_gove6"]
+[ext_resource type="Script" path="res://Script/Play/up_button.gd" id="7_abujf"]
 
 [sub_resource type="GDScript" id="GDScript_056sk"]
 script/source = "extends TextureButton
 "
 
-[node name="Control" type="Control" node_paths=PackedStringArray("sala_azul")]
+[node name="Control" type="Control" node_paths=PackedStringArray("sala_azul", "pause_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjc76")
 sala_azul = NodePath(".")
+pause_menu = NodePath("CanvasLayer/PauseMenu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -33,7 +37,7 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0.67451, 0.831373, 0.839216, 1)
 
-[node name="left_button" type="TextureButton" parent="."]
+[node name="left_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -41,8 +45,10 @@ offset_right = 54.0
 grow_vertical = 2
 texture_normal = ExtResource("1_2wc2n")
 stretch_mode = 3
+script = ExtResource("3_pgtn6")
+sala = NodePath("..")
 
-[node name="Right_button" type="TextureButton" parent="."]
+[node name="right_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -53,8 +59,10 @@ grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("2_sq77e")
 stretch_mode = 3
+script = ExtResource("5_6oxh6")
+sala = NodePath("..")
 
-[node name="up_button" type="TextureButton" parent="."]
+[node name="up_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -62,6 +70,8 @@ offset_bottom = 100.0
 grow_horizontal = 2
 texture_normal = ExtResource("3_v01s3")
 stretch_mode = 3
+script = ExtResource("7_abujf")
+sala = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -80,7 +90,7 @@ size_flags_vertical = 0
 texture_normal = ExtResource("5_gove6")
 script = SubResource("GDScript_056sk")
 
-[connection signal="pressed" from="left_button" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="Right_button" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="up_button" to="." method="_on_up_button_pressed"]
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="left_button" to="left_button" method="_on_pressed"]
+[connection signal="pressed" from="right_button" to="right_button" method="_on_pressed"]
+[connection signal="pressed" from="up_button" to="up_button" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvt7jwu5k1gth"]
+[gd_scene load_steps=11 format=3 uid="uid://dvt7jwu5k1gth"]
 
 [ext_resource type="Script" path="res://Script/Play/sala_amarela.gd" id="1_ittwj"]
 [ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
+[ext_resource type="Script" path="res://Script/Play/left_button.gd" id="3_1vtim"]
 [ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="3_e1xkg"]
 [ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="4_r1ucr"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_rawdv"]
+[ext_resource type="Script" path="res://Script/Play/right_button.gd" id="5_46fk2"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="5_ajafe"]
+[ext_resource type="Script" path="res://Script/Play/up_button.gd" id="7_rfw7i"]
 [ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="8_mil3b"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("sala_amarela", "sala", "intro_monologue", "pause_menu")]
@@ -36,7 +39,7 @@ layout_mode = 2
 color = Color(0.945098, 0.815686, 0.572549, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="left_button" type="TextureButton" parent="."]
+[node name="left_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -44,8 +47,10 @@ offset_right = 54.0
 grow_vertical = 2
 texture_normal = ExtResource("3_e1xkg")
 stretch_mode = 3
+script = ExtResource("3_1vtim")
+sala = NodePath("..")
 
-[node name="Right_button" type="TextureButton" parent="."]
+[node name="Right_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -56,8 +61,10 @@ grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("4_r1ucr")
 stretch_mode = 3
+script = ExtResource("5_46fk2")
+sala = NodePath("..")
 
-[node name="up_button" type="TextureButton" parent="."]
+[node name="up_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -65,6 +72,8 @@ offset_bottom = 69.0
 grow_horizontal = 2
 texture_normal = ExtResource("5_ajafe")
 stretch_mode = 3
+script = ExtResource("7_rfw7i")
+sala = NodePath("..")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -85,7 +94,7 @@ visible = false
 layout_mode = 1
 size_flags_horizontal = 4
 
-[connection signal="pressed" from="left_button" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="Right_button" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="up_button" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="left_button" to="left_button" method="_on_pressed"]
+[connection signal="pressed" from="Right_button" to="Right_button" method="_on_pressed"]
+[connection signal="pressed" from="up_button" to="up_button" method="_on_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
