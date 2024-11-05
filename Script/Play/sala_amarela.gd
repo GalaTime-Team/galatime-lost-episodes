@@ -17,7 +17,8 @@ func _ready() -> void:
 	if !Global.monologuecont:
 		on_intro_monologue()
 	handle_connecting_signal()
-	
+	Global.sala_que_estamos = "amarela"
+
 	#fade para voltar para a sala amarela
 	if Global.back_scene:
 		sala_amarela.modulate.a = 0.0
@@ -90,3 +91,27 @@ func opening_eyes_animation() -> void:
 func testEsc():
 	if Input.is_action_just_pressed("escape"):
 		_on_texture_button_pressed()
+
+func _on_left_button_pressed() -> void:
+	sala_amarela.modulate.a = 1.0
+	var tween = self.create_tween()
+	tween.tween_interval(0.2)
+	tween.tween_property(sala_amarela , "modulate:a" , 0.0 , 0.2)
+	await tween.finished
+	Global.cena_direcao("esquerda")
+
+func _on_right_button_pressed() -> void:
+	sala_amarela.modulate.a = 1.0
+	var tween = self.create_tween()
+	tween.tween_interval(0.2)
+	tween.tween_property(sala_amarela , "modulate:a" , 0.0 , 0.2)
+	await tween.finished
+	Global.cena_direcao("direita")
+
+func _on_up_button_pressed() -> void:
+	sala_amarela.modulate.a = 1.0
+	var tween = self.create_tween()
+	tween.tween_interval(0.2)
+	tween.tween_property(sala_amarela , "modulate:a" , 0.0 , 0.2)
+	await tween.finished
+	Global.cena_direcao("cima")

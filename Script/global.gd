@@ -1,6 +1,25 @@
 extends Node
 
 #####
+# salas
+#####
+
+var parede_amarela = load("res://Interface/Play/sala_amarela.tscn")
+var parede_vermelha = load("res://Interface/Play/sala_vermelha.tscn")
+var parede_azul = load("res://Interface/Play/sala_azul.tscn")
+var parede_roxo = load("res://Interface/Play/sala_roxo.tscn")
+var vazio = load("res://Interface/Play/sala_saida.tscn")
+
+const change_room_dictionary : Dictionary = {
+	"amarela" : ["vermelha" , "azul"],
+	"vermelha" : ["roxo" , "amarela"],
+	"azul" : ["amarela" , "roxo"],
+	"roxo" : ["azul" , "vermelha"]
+}
+
+var sala_que_estamos : String
+
+#####
 # Options
 #####
 
@@ -41,3 +60,26 @@ func load_settings():
 		master_volume = config.get_value("settings", "master_volume", 0.5)
 		music_volume = config.get_value("settings", "music_volume", 0.5)
 		fullscreen = config.get_value("settings", "fullscreen", false)
+
+func cena_direcao(direcao : String) -> void:
+	var proxima_sala : String
+	if direcao == "esquerda":
+		proxima_sala = change_room_dictionary[sala_que_estamos][0]
+	elif direcao == "direita":
+		proxima_sala = change_room_dictionary[sala_que_estamos][1]
+	else:
+		proxima_sala = "vazio"
+	mudar_sala(proxima_sala)
+
+func mudar_sala(sala : String) -> void:
+	match sala:
+		"amarela":
+			get_tree().change_scene_to_packed(parede_amarela)
+		"vermelha":
+			get_tree().change_scene_to_packed(parede_vermelha)
+		"azul":
+			get_tree().change_scene_to_packed(parede_azul)
+		"roxo":
+			get_tree().change_scene_to_packed(parede_roxo)
+		"vazio":
+			get_tree().change_scene_to_packed(vazio)

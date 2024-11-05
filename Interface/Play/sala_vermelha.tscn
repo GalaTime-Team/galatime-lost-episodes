@@ -80,5 +80,7 @@ size_flags_vertical = 0
 texture_normal = ExtResource("6_egqjg")
 script = SubResource("GDScript_83k1c")
 
+[connection signal="pressed" from="left_button" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Right_button" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="up_button" to="." method="_on_up_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

@@ -1,58 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://caqqxp0x3om3i"]
+[gd_scene load_steps=6 format=3 uid="uid://caqqxp0x3om3i"]
 
-[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_3130i"]
-[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_6lkip"]
-[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_5jm6g"]
+[ext_resource type="Script" path="res://Script/Play/sala_saida.gd" id="1_v14re"]
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="4_8ppul"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_f0k2i"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="6_rhwoh"]
 
-[node name="Control" type="Control"]
+[sub_resource type="GDScript" id="GDScript_io4he"]
+script/source = "extends TextureButton
+"
+
+[node name="Control" type="Control" node_paths=PackedStringArray("sala_vazia")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v14re")
+sala_vazia = NodePath(".")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
 color = Color(0.937255, 0.937255, 0.921569, 1)
 
-[node name="left_button" type="TextureButton" parent="."]
+[node name="down_button" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 54.0
-grow_vertical = 2
-texture_normal = ExtResource("1_3130i")
-stretch_mode = 3
-
-[node name="Right_button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -54.0
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("2_6lkip")
-stretch_mode = 3
-
-[node name="up_button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
 grow_horizontal = 2
-texture_normal = ExtResource("3_5jm6g")
+grow_vertical = 0
+texture_normal = ExtResource("4_8ppul")
 stretch_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_f0k2i")]
+visible = false
 size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1787.0
+offset_top = 43.0
+offset_right = 1882.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("6_rhwoh")
+script = SubResource("GDScript_io4he")
+
+[connection signal="pressed" from="down_button" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
