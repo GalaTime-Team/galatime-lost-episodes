@@ -33,8 +33,8 @@ var language: int = 0 # English
 #####
 # AUX
 #####
-var monologuecont: bool = false
-var back_scene: bool = false
+var monologuecont: bool = true #Já apresentou o monologo?
+var back_scene: bool = false #Está a transitar?
 
 
 
