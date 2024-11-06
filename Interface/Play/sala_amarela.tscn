@@ -38,6 +38,7 @@ grow_vertical = 2
 [node name="Background" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
 color = Color(0.945098, 0.815686, 0.572549, 1)
+script = ExtResource("2_0mjqf")
 metadata/_edit_use_anchors_ = true
 
 [node name="Dialogue Box test 1" type="ColorRect" parent="."]
@@ -116,6 +117,7 @@ visible = false
 layout_mode = 1
 size_flags_horizontal = 4
 
+[connection signal="gui_input" from="MarginContainer/Background" to="MarginContainer/Background" method="_on_gui_input" binds= ["sala_amarela"]]
 [connection signal="gui_input" from="Dialogue Box test 1" to="Dialogue Box test 1" method="_on_gui_input" binds= ["caixa_vermelha"]]
 [connection signal="gui_input" from="Dialogue Box test 2" to="Dialogue Box test 2" method="_on_gui_input" binds= ["caixa_branca"]]
 [connection signal="pressed" from="left_button" to="left_button" method="_on_pressed"]

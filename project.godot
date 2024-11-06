@@ -33,7 +33,8 @@ directories/dch_directory={
 directories/dtl_directory={
 "caixa_branca": "res://Dialogue/caixa_branca.dtl",
 "caixa_vermelha": "res://Dialogue/caixa_vermelha.dtl",
-"intromonologue": "res://Dialogue/intromonologue.dtl"
+"intromonologue": "res://Dialogue/intromonologue.dtl",
+"sala_amarela": "res://Dialogue/sala_amarela.dtl"
 }
 layout/style_list=["res://Dialogue/DialogoTemplate.tres"]
 layout/default_style="res://Dialogue/DialogoTemplate.tres"
@@ -64,6 +65,7 @@ translation/add_separator=false
 text/autopauses={}
 glossary/default_case_sensitive=true
 translation/original_locale="pt_BR"
+layout/end_behaviour=0
 
 [display]
 
