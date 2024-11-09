@@ -33,7 +33,7 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0.937255, 0.937255, 0.921569, 1)
 
-[node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala_vazia")]
+[node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -44,7 +44,7 @@ grow_vertical = 0
 texture_normal = ExtResource("4_8ppul")
 stretch_mode = 3
 script = ExtResource("3_6k5u4")
-sala_vazia = NodePath("..")
+sala = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv5tlliig3k4j"]
+
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="1_8uxsv"]
+[ext_resource type="Script" path="res://Script/Play/puzzle_1_sala_vermelha.gd" id="1_e02fr"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="3_cgw0b"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="4_iahil"]
+[ext_resource type="Script" path="res://Script/Play/down_button.gd" id="5_0igre"]
+[ext_resource type="Script" path="res://Script/Play/buttonPlus.gd" id="6_5223y"]
+[ext_resource type="Script" path="res://Script/Play/buttonConfirm.gd" id="7_go0q6"]
+[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="8_or2aw"]
+
+[sub_resource type="GDScript" id="GDScript_apgyt"]
+script/source = "extends TextureButton
+"
+
+[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e02fr")
+pause_menu = NodePath("CanvasLayer/PauseMenu")
+sala = NodePath(".")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.764706, 0.427451, 0.407843, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_cgw0b")]
+visible = false
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1787.0
+offset_top = 43.0
+offset_right = 1882.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("4_iahil")
+script = SubResource("GDScript_apgyt")
+
+[node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("1_8uxsv")
+stretch_mode = 3
+script = ExtResource("5_0igre")
+sala = NodePath("..")
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("b1", "b2", "b3")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 1302.0
+offset_top = 229.0
+offset_right = 1302.0
+offset_bottom = 843.0
+script = ExtResource("6_5223y")
+b1 = NodePath("PanelContainer/HBoxContainer/VBox_codigo1/Button")
+b2 = NodePath("PanelContainer/HBoxContainer/VBox_codigo2/Button")
+b3 = NodePath("PanelContainer/HBoxContainer/VBox_codigo3/Button")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.488542
+anchor_top = 0.5
+anchor_right = 0.488542
+anchor_bottom = 0.5
+offset_left = -952.0
+offset_top = -307.0
+offset_right = 230.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 120
+
+[node name="VBox_codigo1" type="VBoxContainer" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="VBox_codigo2" type="VBoxContainer" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="VBox_codigo3" type="VBoxContainer" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="VBox_codigo4" type="VBoxContainer" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo4" node_paths=PackedStringArray("b1", "b2", "b3", "puzzle_complet")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Button_Confirmar"
+script = ExtResource("7_go0q6")
+b1 = NodePath("../../VBox_codigo1/Button")
+b2 = NodePath("../../VBox_codigo2/Button")
+b3 = NodePath("../../VBox_codigo3/Button")
+puzzle_complet = NodePath("../../../../../s_puzzle_complet")
+
+[node name="s_puzzle_complet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_or2aw")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="down_button" to="down_button" method="_on_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo1/Button" to="Control" method="_on_button1_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo2/Button" to="Control" method="_on_button2_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo3/Button" to="Control" method="_on_button3_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo4/Button" to="Control/PanelContainer/HBoxContainer/VBox_codigo4/Button" method="_on_pressed"]

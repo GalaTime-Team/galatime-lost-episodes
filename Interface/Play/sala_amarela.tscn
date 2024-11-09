@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ittwj")
 sala_amarela = NodePath(".")
-sala = NodePath("MarginContainer")
+sala = NodePath(".")
 intro_monologue = NodePath("IntroMonologue")
 pause_menu = NodePath("PauseMenu")
 

@@ -90,7 +90,15 @@ size_flags_vertical = 0
 texture_normal = ExtResource("6_egqjg")
 script = SubResource("GDScript_83k1c")
 
+[node name="boxButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1238.0
+offset_top = 297.0
+offset_right = 1568.0
+offset_bottom = 443.0
+
 [connection signal="pressed" from="left_button" to="left_button" method="_on_pressed"]
 [connection signal="pressed" from="Right_button" to="Right_button" method="_on_pressed"]
 [connection signal="pressed" from="up_button" to="up_button" method="_on_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="boxButton" to="." method="_on_box_button_pressed"]
