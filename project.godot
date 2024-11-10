@@ -31,6 +31,7 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"Puzzle2": "res://Dialogue/Puzzle2.dtl",
 "caixa_branca": "res://Dialogue/caixa_branca.dtl",
 "caixa_vermelha": "res://Dialogue/caixa_vermelha.dtl",
 "intromonologue": "res://Dialogue/intromonologue.dtl",
