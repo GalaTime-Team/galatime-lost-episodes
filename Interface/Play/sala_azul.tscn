@@ -14,7 +14,7 @@
 script/source = "extends TextureButton
 "
 
-[node name="Control" type="Control" node_paths=PackedStringArray("sala_azul", "pause_menu")]
+[node name="Control2" type="Control" node_paths=PackedStringArray("sala_azul", "pause_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

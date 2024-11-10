@@ -36,21 +36,6 @@ shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw1co"]
 
-[sub_resource type="Animation" id="Animation_jwjup"]
-resource_name = "blur_on"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.143]
-}
-
 [sub_resource type="Animation" id="Animation_bt1uo"]
 length = 0.001
 tracks/0/type = "value"
@@ -79,6 +64,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.143, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jwjup"]
+resource_name = "blur_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.143]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsvk6"]
