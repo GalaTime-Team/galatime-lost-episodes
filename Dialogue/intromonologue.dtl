@@ -11,6 +11,7 @@ main_character: monologue_intro_otherworld_10
 main_character: [lspeed=0.035]monologue_intro_otherworld_11[lspeed=0.025]
 main_character: [n+] [lspeed=0.035]-1[lspeed=0.025]
 main_character: [lspeed=0.10]monologue_intro_otherworld_12[lspeed=0.025]
+[signal arg="fogo"]
 main_character: [lspeed=0.04]monologue_intro_otherworld_13[lspeed=0.025]
 main_character: monologue_intro_otherworld_14
 main_character: monologue_intro_otherworld_15
