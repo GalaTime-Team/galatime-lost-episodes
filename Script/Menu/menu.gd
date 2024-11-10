@@ -5,6 +5,7 @@ extends Control
 @export var settings: Settings
 @export var margin_container: MarginContainer
 @export var tela_creditos: TelaCreditos
+@export var blur_animation: AnimationPlayer
 
 # Importar Sons
 @export_category("Efeitos Sonoros")
@@ -19,6 +20,8 @@ func _ready() -> void:
 	margin_container.modulate.a = 0.0
 	
 	var tween = self.create_tween()
+	
+	blur_animation.play("RESET")
 	
 	tween.tween_property(margin_container, "modulate:a", 1.0 ,1.0)
 	await tween.finished
@@ -49,9 +52,11 @@ func fade(fades_out, fades_in) -> void:
 #####
 
 func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
+	blur_animation.play("blur_off")
 	fade(settings,margin_container)
-	
+
 func on_back_credits_menu()-> void:
+	blur_animation.play("blur_off")
 	fade(tela_creditos,margin_container)
 
 #####
@@ -100,6 +105,8 @@ func _on_settings_pressed() -> void:
 	# Visualizar
 	settings.set_process(true)
 	fade(margin_container,settings)
+	#Blur
+	blur_animation.play("blur_on")
 
 func _on_credits_pressed() -> void:
 	# Som
@@ -107,6 +114,8 @@ func _on_credits_pressed() -> void:
 	# Visualizar
 	tela_creditos.set_process(true)
 	fade(margin_container,tela_creditos)
+	#Blur
+	blur_animation.play("blur_on")
 
 func _on_leave_pressed() -> void:
 	get_tree().quit()
