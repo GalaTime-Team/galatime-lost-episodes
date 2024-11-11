@@ -22,7 +22,6 @@ config/icon="res://Asset/Images/GalaTime_game_logo_bg_logo.png"
 
 Global="*res://Script/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-AnimationFade="*res://Interface/Animation_fade.tscn"
 
 [dialogic]
 
@@ -31,7 +30,6 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"Puzzle2": "res://Dialogue/Puzzle2.dtl",
 "caixa_branca": "res://Dialogue/caixa_branca.dtl",
 "caixa_vermelha": "res://Dialogue/caixa_vermelha.dtl",
 "intromonologue": "res://Dialogue/intromonologue.dtl",
@@ -129,7 +127,7 @@ info={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.csv")
+locale/translations=PackedStringArray("res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.pt_PT.translation")
 locale/test="en"
 
 [rendering]

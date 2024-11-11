@@ -25,7 +25,7 @@ func _on_texture_button_pressed() -> void:
 		await tween.finished
 		tween.stop()
 		pause_menu.hide()
-	elif !pause_menu.visible:
+	elif !pause_menu.visible:	
 		pause_menu.show()
 		pause_menu.open_pause_menu()
 

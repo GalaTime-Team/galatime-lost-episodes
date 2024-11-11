@@ -30,8 +30,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="fogo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gv2dt")
-volume_db = -6.558
+volume_db = -6.0
 
 [node name="chuva" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kgtrs")
-volume_db = -5.622
+volume_db = -5.0
