@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwb0wx765cch8"
+path="res://.godot/imported/Lost Episode.mp3-8022cbb8ccdd4ba1e89933d0aa6c39ad.mp3str"
+
+[deps]
+
+source_file="res://Asset/Audio/Music/Lost Episode.mp3"
+dest_files=["res://.godot/imported/Lost Episode.mp3-8022cbb8ccdd4ba1e89933d0aa6c39ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
