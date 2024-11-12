@@ -34,13 +34,16 @@ color = Color(0, 0, 0, 1)
 [node name="fogo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gv2dt")
 volume_db = -6.0
+bus = &"Sfx"
 
 [node name="chuva" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kgtrs")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="musica de fundo" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("timer")]
 stream = ExtResource("4_3hkdi")
+bus = &"Music"
 script = ExtResource("4_e5ht8")
 timer = NodePath("../Timer")
 
