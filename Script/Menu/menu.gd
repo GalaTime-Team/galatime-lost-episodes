@@ -72,6 +72,9 @@ func handle_connecting_signal() -> void:
 #####
 
 func _on_play_pressed() -> void:
+	# Som
+	menu_click.play()
+	
 	#Disabilitar os butões para não acessar durante o fade
 	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play.mouse_entered.disconnect(_on_play_mouse_entered)
 	$MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings.mouse_entered.disconnect(_on_settings_mouse_entered)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq1unn8f3h8b7"]
+[gd_scene load_steps=5 format=3 uid="uid://cq1unn8f3h8b7"]
 
 [ext_resource type="Script" path="res://Script/intro_monologue.gd" id="1_biojk"]
-[ext_resource type="AudioStream" uid="uid://bq4bo65l70hbl" path="res://Asset/Audio/Effects/fogo.mp3" id="2_gv2dt"]
-[ext_resource type="AudioStream" uid="uid://dm1qgufvc1bug" path="res://Asset/Audio/Effects/chuva.mp3" id="3_kgtrs"]
+[ext_resource type="AudioStream" uid="uid://bq4bo65l70hbl" path="res://Asset/Audio/Effects/BG_Monologue_Fogo.mp3" id="2_gv2dt"]
+[ext_resource type="AudioStream" uid="uid://dm1qgufvc1bug" path="res://Asset/Audio/Effects/BG_Monologue_Chuva.mp3" id="3_kgtrs"]
 [ext_resource type="AudioStream" uid="uid://bwb0wx765cch8" path="res://Asset/Audio/Music/Lost Episode.mp3" id="4_3hkdi"]
-[ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="4_e5ht8"]
 
 [node name="IntroMonologue" type="Control" node_paths=PackedStringArray("fogo", "chuva", "fundo", "margin_container")]
 layout_mode = 3
@@ -41,13 +40,9 @@ stream = ExtResource("3_kgtrs")
 volume_db = -5.0
 bus = &"Sfx"
 
-[node name="musica de fundo" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("timer")]
+[node name="musica de fundo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3hkdi")
 bus = &"Music"
-script = ExtResource("4_e5ht8")
-timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="finished" from="musica de fundo" to="musica de fundo" method="_on_finished"]
