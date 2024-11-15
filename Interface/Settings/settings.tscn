@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://qw8mhcsihprh"]
+[gd_scene load_steps=9 format=3 uid="uid://qw8mhcsihprh"]
 
 [ext_resource type="Script" path="res://Script/Settings/settings.gd" id="1_eglf2"]
+[ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_x5t2p"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_f87aa"]
 [ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Settings/volume_controler.tscn" id="2_lb28q"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_pg6ly"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_x5t2p")
 script = ExtResource("1_eglf2")
 background = NodePath("Background")
 margin_container = NodePath("MarginContainer")
@@ -190,10 +192,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.67451, 0.67451, 0.67451, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlru")
 text = "button_menu_back"

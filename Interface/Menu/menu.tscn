@@ -1,6 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/Menu/menu.gd" id="1_3kacm"]
+[ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_a8m4p"]
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="2_fidap"]
 [ext_resource type="Texture2D" uid="uid://783q0723b5hp" path="res://Asset/Video Menu/bg.png" id="2_k7p1f"]
 [ext_resource type="Shader" path="res://Interface/estrelas.gdshader" id="3_0twq0"]
@@ -8,7 +9,6 @@
 [ext_resource type="Shader" path="res://Interface/planetas.gdshader" id="5_0hc1l"]
 [ext_resource type="Texture2D" uid="uid://qc6cv52a2xg1" path="res://Asset/Video Menu/planets.png" id="6_1862x"]
 [ext_resource type="Texture2D" uid="uid://8w5bqc0572te" path="res://Asset/Images/GalatimeLostEpisodes.png" id="7_bbhfc"]
-[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="8_v7njs"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/Settings/settings.tscn" id="9_2ghfu"]
 [ext_resource type="PackedScene" uid="uid://u23oeknsgl8y" path="res://Interface/Credits/tela_creditos.tscn" id="10_e5ugt"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="11_fyl3r"]
@@ -95,6 +95,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_a8m4p")
 script = ExtResource("1_3kacm")
 settings = NodePath("Settings")
 margin_container = NodePath("MarginContainer")
@@ -193,10 +194,6 @@ theme_override_constants/separation = 20
 
 [node name="Play" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ufpx1")
 text = "button_menu_play"
@@ -204,10 +201,6 @@ flat = true
 
 [node name="Settings" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6yi7m")
 text = "button_menu_settings"
@@ -215,10 +208,6 @@ flat = true
 
 [node name="Credits" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_30obu")
 text = "button_menu_credits"
@@ -226,10 +215,6 @@ flat = true
 
 [node name="Leave" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("8_v7njs")
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw1co")
 text = "button_menu_leave"
@@ -255,6 +240,23 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("11_fyl3r")
 theme_override_font_sizes/font_size = 15
 text = "© 2025 / GT Team / This work is openly licensed via CC BY-NC 4.0"
+
+[node name="Version" type="Label" parent="."]
+modulate = Color(0.674815, 0.674815, 0.674815, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_fyl3r")
+theme_override_font_sizes/font_size = 15
+text = "V. 0.3.0"
+horizontal_alignment = 2
 
 [node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_jg8fk")

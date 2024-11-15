@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://crihnhawawd20"]
+
+[ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4ten3"]
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_oe77v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4ten3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Conteudo" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="BoxTitulo" type="VBoxContainer" parent="MarginContainer/Conteudo"]
+layout_mode = 2
+
+[node name="SettingsTitle" type="Label" parent="MarginContainer/Conteudo/BoxTitulo"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oe77v")
+theme_override_font_sizes/font_size = 40
+text = "title_inventory_items_collected"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/Conteudo/BoxTitulo"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Back" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_68tmn")
+text = "button_menu_back"
+flat = true

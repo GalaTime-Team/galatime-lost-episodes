@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://u23oeknsgl8y"]
+[gd_scene load_steps=10 format=3 uid="uid://u23oeknsgl8y"]
 
+[ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_r8ruj"]
 [ext_resource type="Script" path="res://Script/Credits/tela_creditos.gd" id="1_xbbeh"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_vt8n1"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_xgtk2"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_r8ruj")
 script = ExtResource("1_xbbeh")
 back = NodePath("MarginContainer/Back")
 menu_click = NodePath("s_menu_click")
@@ -274,10 +276,6 @@ texture = ExtResource("5_o57i0")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.67451, 0.67451, 0.67451, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("2_vt8n1")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sqhi3")
 text = "button_menu_back"

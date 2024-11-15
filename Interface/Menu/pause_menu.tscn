@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=14 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
+[ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4w7gp"]
 [ext_resource type="Script" path="res://Script/Menu/pause_menu.gd" id="1_kg1ct"]
 [ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://Dialogue/VisualNovelTextbox/vn_textbox_default_panel.tres" id="3_cywrt"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="4_sex7x"]
@@ -83,6 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_4w7gp")
 script = ExtResource("1_kg1ct")
 blur_animation = NodePath("Blur Animation")
 settings = NodePath("Settings")
@@ -146,9 +148,6 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_resume"
@@ -158,21 +157,23 @@ flat = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_settings"
+flat = true
+
+[node name="Items" type="Button" parent="PanelContainer/Pause_Menu_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 15
+text = "title_inventory"
 flat = true
 
 [node name="Leave" type="Button" parent="PanelContainer/Pause_Menu_Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.54902, 0.54902, 0.54902, 1)
-theme_override_colors/font_pressed_color = Color(0.376471, 0.376471, 0.376471, 1)
-theme_override_fonts/font = ExtResource("4_sex7x")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_leave"
