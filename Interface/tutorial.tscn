@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkxppq23ra6tb"]
+
+[ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_088cl"]
+[ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_n7ogk"]
+[ext_resource type="Texture2D" uid="uid://b832v1v8hv0f" path="res://Asset/Images/left_click.png" id="2_i4ek2"]
+[ext_resource type="Texture2D" uid="uid://c2gvfidwjy2bp" path="res://Asset/Images/right_click.png" id="3_y6pjv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twnmd"]
+shader = ExtResource("1_n7ogk")
+shader_parameter/lod = 0.0
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_088cl")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_twnmd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tutorial O_H" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.5
+offset_top = -126.0
+offset_right = 360.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 100
+
+[node name="Tutorial images" type="HBoxContainer" parent="Tutorial O_H"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Left Click" type="VBoxContainer" parent="Tutorial O_H/Tutorial images"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="i_LC" type="TextureRect" parent="Tutorial O_H/Tutorial images/Left Click"]
+layout_mode = 2
+texture = ExtResource("2_i4ek2")
+stretch_mode = 3
+
+[node name="l_title_LC" type="Label" parent="Tutorial O_H/Tutorial images/Left Click"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "tutorial_intro_buttons_left"
+
+[node name="l_info_LC" type="Label" parent="Tutorial O_H/Tutorial images/Left Click"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "tutorial_intro_buttons_info_left"
+
+[node name="Right Click" type="VBoxContainer" parent="Tutorial O_H/Tutorial images"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="i_RC" type="TextureRect" parent="Tutorial O_H/Tutorial images/Right Click"]
+layout_mode = 2
+texture = ExtResource("3_y6pjv")
+stretch_mode = 3
+
+[node name="l_title_RC" type="Label" parent="Tutorial O_H/Tutorial images/Right Click"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "tutorial_intro_buttons_right"
+
+[node name="l_info_RC" type="Label" parent="Tutorial O_H/Tutorial images/Right Click"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "tutorial_intro_buttons_info_right"

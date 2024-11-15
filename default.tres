@@ -1,0 +1,56 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://brh3ucsekdb0s"]
+
+[ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="1_qnfc3"]
+[ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="2_anrsi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udcrw"]
+bg_color = Color(0.111197, 0.111197, 0.111197, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33o5w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7ug6"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqnfk"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efsux"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("2_anrsi")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.856067, 0.856067, 0.856067, 1)
+Button/colors/font_pressed_color = Color(0.54902, 0.54902, 0.54902, 1)
+Button/font_sizes/font_size = 31
+Button/fonts/font = ExtResource("1_qnfc3")
+Button/styles/hover = SubResource("StyleBoxFlat_udcrw")
+Button/styles/normal = SubResource("StyleBoxFlat_33o5w")
+Button/styles/pressed = SubResource("StyleBoxFlat_u7ug6")
+ItemList/fonts/font = ExtResource("2_anrsi")
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("2_anrsi")
+OptionButton/fonts/font = ExtResource("2_anrsi")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_iqnfk")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_efsux")
