@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=16 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4w7gp"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="6_7bnbr"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_mr6f7"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/Settings/settings.tscn" id="8_kb6mg"]
+[ext_resource type="PackedScene" uid="uid://crihnhawawd20" path="res://Interface/Settings/inventory.tscn" id="9_02hdv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uskwq"]
 shader = ExtResource("1_2yy5q")
@@ -76,7 +77,9 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eg8fx"]
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "settings", "panel_container", "menu_click", "menu_hover")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5rgf"]
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "settings", "inventory", "panel_container", "menu_click", "menu_hover")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -88,6 +91,7 @@ theme = ExtResource("1_4w7gp")
 script = ExtResource("1_kg1ct")
 blur_animation = NodePath("Blur Animation")
 settings = NodePath("Settings")
+inventory = NodePath("Inventory")
 panel_container = NodePath("PanelContainer")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
@@ -167,6 +171,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l5rgf")
 text = "title_inventory"
 flat = true
 
@@ -192,10 +197,15 @@ bus = &"Sfx"
 visible = false
 layout_mode = 1
 
+[node name="Inventory" parent="." instance=ExtResource("9_02hdv")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Items" to="." method="_on_items_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_pressed"]

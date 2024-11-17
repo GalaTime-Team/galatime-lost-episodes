@@ -5,6 +5,7 @@ extends Control
 
 @export_category("Páginas")
 @export var settings: Settings
+@export var inventory: Inventory
 @export var panel_container: PanelContainer
 
 # Importar Sons
@@ -72,6 +73,16 @@ func options():
 	tween.tween_property(settings, "modulate:a", 1.0, 0.2)
 	await tween.finished
 
+func _on_items_pressed() -> void:
+	inventory.set_process(true)
+	inventory.backgroundvisible()
+	inventory.modulate.a = 0.0
+	inventory.show()
+	
+	var tween = self.create_tween()
+	tween.tween_property(inventory, "modulate:a", 1.0, 0.2)
+	await tween.finished
+
 ########
 #conecção do settings
 ########
@@ -85,8 +96,18 @@ func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e 
 	settings.backgroundvisible()
 	settings.hide()
 
+func on_back_inventory() -> void:
+	inventory.modulate.a = 1.0
+	
+	var tween = self.create_tween()
+	tween.tween_property(inventory, "modulate:a", 0.0, 0.2)
+	await tween.finished
+	inventory.backgroundvisible()
+	inventory.hide()
+
 func handle_connecting_signal() -> void:
 	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
+	inventory.inventory_signal.connect(on_back_inventory) #Conectar com a func do inventory e poder guardar as informações
 
 ########
 # Buttons Interactions
