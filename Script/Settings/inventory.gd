@@ -11,9 +11,3 @@ func _ready() -> void:
 func _on_back_pressed() -> void:
 	inventory_signal.emit()
 	set_process(false)
-
-func backgroundvisible() -> void:
-	if background.visible:
-		background.hide()
-	else:
-		background.show()

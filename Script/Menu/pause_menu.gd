@@ -75,7 +75,6 @@ func options():
 
 func _on_items_pressed() -> void:
 	inventory.set_process(true)
-	inventory.backgroundvisible()
 	inventory.modulate.a = 0.0
 	inventory.show()
 	
@@ -102,7 +101,6 @@ func on_back_inventory() -> void:
 	var tween = self.create_tween()
 	tween.tween_property(inventory, "modulate:a", 0.0, 0.2)
 	await tween.finished
-	inventory.backgroundvisible()
 	inventory.hide()
 
 func handle_connecting_signal() -> void:
