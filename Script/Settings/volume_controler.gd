@@ -3,10 +3,10 @@ extends Control
 #######
 # audios variabels
 ########
-@onready var audio_name = $HBoxContainer/Audio_Name as Label
-@onready var audio_num = $HBoxContainer/Audio_Num as Label
-@onready var h_slider = $HBoxContainer/HSlider as HSlider
-@onready var s_menu_click: AudioStreamPlayer = $s_menu_click
+@export var audio_name : Label
+@export var audio_num : Label
+@export var h_slider : HSlider
+@export var s_menu_click: AudioStreamPlayer
 
 # Exported bus names
 @export_enum("Master" , "Music" , "Sfx") var bus_name : String

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=30 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/Menu/menu.gd" id="1_3kacm"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_a8m4p"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://crx8a2g6l2nlj" path="res://Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3" id="14_wgl1l"]
 [ext_resource type="Script" path="res://Script/Menu/bg_music.gd" id="15_77b42"]
 [ext_resource type="AudioStream" uid="uid://3we3f77ols7q" path="res://Asset/Audio/Effects/space-rumble-29970 (mp3cut.net).mp3" id="16_pm7l6"]
+[ext_resource type="PackedScene" uid="uid://c1gpc2r6ydv40" path="res://Interface/warning_popup.tscn" id="18_onvaw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hp1sq"]
 shader = ExtResource("3_0twq0")
@@ -88,7 +89,7 @@ _data = {
 "blur_on": SubResource("Animation_jwjup")
 }
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("settings", "margin_container", "tela_creditos", "blur_animation", "menu_click", "menu_hover")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "leave_button", "settings", "margin_container", "tela_creditos", "blur_animation", "warning_popup", "blur", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,10 +98,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a8m4p")
 script = ExtResource("1_3kacm")
+play_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play")
+settings_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings")
+credits_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits")
+leave_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave")
 settings = NodePath("Settings")
 margin_container = NodePath("MarginContainer")
 tela_creditos = NodePath("TelaCreditos")
 blur_animation = NodePath("blur")
+warning_popup = NodePath("Warning Popup")
+blur = NodePath("Blur")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
 metadata/_edit_use_anchors_ = true
@@ -255,7 +262,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("11_fyl3r")
 theme_override_font_sizes/font_size = 15
-text = "V. 0.3.0"
+text = "V. 0.2.1"
 horizontal_alignment = 2
 
 [node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
@@ -287,6 +294,10 @@ libraries = {
 "": SubResource("AnimationLibrary_fsvk6")
 }
 autoplay = "blur_on"
+
+[node name="Warning Popup" parent="." instance=ExtResource("18_onvaw")]
+visible = false
+layout_mode = 1
 
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

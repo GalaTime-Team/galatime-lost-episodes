@@ -57,6 +57,9 @@ func _ready() -> void:
 	
 	set_process(false) #processo feito para cosneguir voltar ao menu e ter as informações
 
+func _process(_delta: float) -> void:
+	back_button_input()
+
 func load_global_values() -> void:
 	res_button.select(Global.res_screen)
 	res_mode_choice(Global.res_screen)
@@ -168,3 +171,17 @@ func fade() -> void:
 	tween.tween_interval(0.2)
 	tween.tween_property(margin_container , "modulate:a", 1.0 , 0.4)
 	await tween.finished
+
+######
+# gamepad
+######
+
+func back_button_input() -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		if back_button.has_focus():
+			_on_back_pressed()
+		else:
+			back_button.grab_focus()
+
+func entering_settings_menu() -> void:
+	window_button.grab_focus()

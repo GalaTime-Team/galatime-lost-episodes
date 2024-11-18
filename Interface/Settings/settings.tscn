@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Script/Settings/settings.gd" id="1_eglf2"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_x5t2p"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_f87aa"]
-[ext_resource type="PackedScene" uid="uid://ctqs1dykqquf3" path="res://Interface/Settings/volume_controler.tscn" id="2_lb28q"]
 [ext_resource type="FontFile" uid="uid://bgt0oqvnflx1s" path="res://Asset/Fonts/forgotten futurist rg.otf" id="3_pg6ly"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="5_1pkso"]
+[ext_resource type="Script" path="res://Script/Settings/volume_controler.gd" id="5_fuvsd"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="6_hx6oi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
@@ -22,9 +22,9 @@ script = ExtResource("1_eglf2")
 background = NodePath("Background")
 margin_container = NodePath("MarginContainer")
 back_button = NodePath("MarginContainer/Back")
-window_button = NodePath("MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button")
-res_button = NodePath("MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button")
-language_button = NodePath("MarginContainer/Conteudo/Settings/LanguageV/Language/language_button")
+window_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button")
+res_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode/Res_button")
+language_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
 
@@ -71,127 +71,278 @@ modulate = Color(0.313726, 0.313726, 0.313726, 1)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Settings" type="VBoxContainer" parent="MarginContainer/Conteudo"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Conteudo"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="ScreenRes" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
+[node name="ScreenRes" type="VBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
+[node name="Title" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_screen_resolution"
 
-[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
+[node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 120
+theme_override_constants/separation = 100
 
-[node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes/WindowMode"]
+[node name="Label" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pg6ly")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_window_mode"
 
-[node name="Window_button" type="OptionButton" parent="MarginContainer/Conteudo/Settings/ScreenRes/WindowMode"]
+[node name="Spacer" type="Control" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Window_button" type="OptionButton" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../../../../Back")
+focus_neighbor_bottom = NodePath("../../ResolutionMode/Res_button")
+focus_next = NodePath("../../ResolutionMode/Res_button")
+focus_previous = NodePath("../../../../../../Back")
 
-[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/ScreenRes"]
+[node name="ResolutionMode" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes"]
 layout_mode = 2
 theme_override_constants/separation = 90
 
-[node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode"]
+[node name="Label" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pg6ly")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_resolution_mode"
 
-[node name="Res_button" type="OptionButton" parent="MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode"]
+[node name="Spacer" type="Control" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Res_button" type="OptionButton" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+focus_neighbor_top = NodePath("../../WindowMode/Window_button")
+focus_neighbor_bottom = NodePath("../../../VolumeV/MasterVolume/Audio_Val/HSlider")
+focus_next = NodePath("../../../VolumeV/MasterVolume/Audio_Val/HSlider")
+focus_previous = NodePath("../../WindowMode/Window_button")
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Conteudo/Settings"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Conteudo/ScrollContainer/Settings"]
 modulate = Color(0.313726, 0.313726, 0.313726, 1)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="VolumeV" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
+[node name="VolumeV" type="VBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/VolumeV"]
+[node name="Title" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_volume"
 
-[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
+[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV" node_paths=PackedStringArray("audio_name", "audio_num", "h_slider", "s_menu_click")]
 layout_mode = 2
-
-[node name="Control" parent="MarginContainer/Conteudo/Settings/VolumeV/MasterVolume" instance=ExtResource("2_lb28q")]
-layout_mode = 2
+script = ExtResource("5_fuvsd")
+audio_name = NodePath("Audio_Name")
+audio_num = NodePath("Audio_Val/PanelContainer/Audio_Num")
+h_slider = NodePath("Audio_Val/HSlider")
+s_menu_click = NodePath("../../../../../../s_menu_click")
 bus_name = "Master"
 
-[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
+[node name="Audio_Name" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_pg6ly")
+theme_override_font_sizes/font_size = 25
+text = "Volume Name
+"
 
-[node name="Control2" parent="MarginContainer/Conteudo/Settings/VolumeV/MusicVolume" instance=ExtResource("2_lb28q")]
+[node name="Audio_Val" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val"]
+custom_minimum_size = Vector2(270, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Audio_Num" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_pg6ly")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV" node_paths=PackedStringArray("audio_name", "audio_num", "h_slider", "s_menu_click")]
+layout_mode = 2
+script = ExtResource("5_fuvsd")
+audio_name = NodePath("Audio_Name")
+audio_num = NodePath("Audio_Val/PanelContainer/Audio_Num")
+h_slider = NodePath("Audio_Val/HSlider")
+s_menu_click = NodePath("../../../../../../s_menu_click")
 bus_name = "Music"
 
-[node name="EffectsVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
+[node name="Audio_Name" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_pg6ly")
+theme_override_font_sizes/font_size = 25
+text = "Volume Name
+"
 
-[node name="Control3" parent="MarginContainer/Conteudo/Settings/VolumeV/EffectsVolume" instance=ExtResource("2_lb28q")]
+[node name="Audio_Val" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val"]
+custom_minimum_size = Vector2(270, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Audio_Num" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_pg6ly")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="EffectsVolume" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV" node_paths=PackedStringArray("audio_name", "audio_num", "h_slider", "s_menu_click")]
+layout_mode = 2
+script = ExtResource("5_fuvsd")
+audio_name = NodePath("Audio_Name")
+audio_num = NodePath("Audio_Val/PanelContainer/Audio_Num")
+h_slider = NodePath("Audio_Val/HSlider")
+s_menu_click = NodePath("../../../../../../s_menu_click")
 bus_name = "Sfx"
 
-[node name="SPACE" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/VolumeV"]
+[node name="Audio_Name" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_pg6ly")
+theme_override_font_sizes/font_size = 25
+text = "Volume Name
+"
+
+[node name="Audio_Val" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val"]
+custom_minimum_size = Vector2(270, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Audio_Num" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_pg6ly")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="SPACE" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/Conteudo/Settings"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Conteudo/ScrollContainer/Settings"]
 modulate = Color(0.313726, 0.313726, 0.313726, 1)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="LanguageV" type="VBoxContainer" parent="MarginContainer/Conteudo/Settings"]
+[node name="LanguageV" type="VBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 20
 
-[node name="Title" type="Label" parent="MarginContainer/Conteudo/Settings/LanguageV"]
+[node name="Title" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_language"
 
-[node name="Language" type="HBoxContainer" parent="MarginContainer/Conteudo/Settings/LanguageV"]
+[node name="Language" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV"]
 layout_mode = 2
 theme_override_constants/separation = 120
 
-[node name="Label" type="Label" parent="MarginContainer/Conteudo/Settings/LanguageV/Language"]
+[node name="Label" type="Label" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pg6ly")
 theme_override_font_sizes/font_size = 25
 text = "label_settings_language"
 
-[node name="language_button" type="OptionButton" parent="MarginContainer/Conteudo/Settings/LanguageV/Language"]
+[node name="Spacer" type="Control" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="language_button" type="OptionButton" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../../../../../Back")
+focus_next = NodePath("../../../../../../Back")
 
 [node name="Back" type="Button" parent="MarginContainer" groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+focus_neighbor_top = NodePath("../Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button")
+focus_neighbor_bottom = NodePath("../Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button")
+focus_next = NodePath("../Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button")
+focus_previous = NodePath("../Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlru")
 text = "button_menu_back"
@@ -206,8 +357,11 @@ stream = ExtResource("6_hx6oi")
 volume_db = -12.0
 bus = &"Sfx"
 
-[connection signal="item_selected" from="MarginContainer/Conteudo/Settings/ScreenRes/WindowMode/Window_button" to="." method="on_window_mode_selected"]
-[connection signal="item_selected" from="MarginContainer/Conteudo/Settings/ScreenRes/ResolutionMode/Res_button" to="." method="on_res_mode_selected"]
-[connection signal="item_selected" from="MarginContainer/Conteudo/Settings/LanguageV/Language/language_button" to="." method="on_language_select"]
+[connection signal="item_selected" from="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button" to="." method="on_window_mode_selected"]
+[connection signal="item_selected" from="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode/Res_button" to="." method="on_res_mode_selected"]
+[connection signal="drag_ended" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val/HSlider" to="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume" method="_on_h_slider_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val/HSlider" to="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume" method="_on_h_slider_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val/HSlider" to="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume" method="_on_h_slider_drag_ended"]
+[connection signal="item_selected" from="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button" to="." method="on_language_select"]
 [connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

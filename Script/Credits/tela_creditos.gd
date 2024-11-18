@@ -1,7 +1,7 @@
 class_name TelaCreditos
 extends Control
 
-@export var back: Button
+@export var back_button: Button
 
 # Importar sons
 @export_category("Efeitos Sonoros")
@@ -12,6 +12,9 @@ signal back_credits_menu
 
 func _ready():
 	set_process(false)
+
+func _process(_delta: float) -> void:
+	back_button_input()
 
 ######
 # Buttons pressed
@@ -24,3 +27,10 @@ func _on_back_pressed() -> void:
 
 func _on_back_mouse_entered() -> void:
 	menu_hover.play()
+
+func back_button_input() -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_back_pressed()
+
+func entered_credits_menu():
+	back_button.grab_focus()
