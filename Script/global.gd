@@ -45,8 +45,12 @@ const puzzle1_valores : Array = [
 	5 , 
 	1
 	]
-
-
+var puzzle2_complete: bool = false #Foi Compleot?
+const puzzle2_valores : Array = [
+	6 , 
+	1 , 
+	0
+	]
 #####
 # Salvar as Configurações
 #####

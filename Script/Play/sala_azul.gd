@@ -2,12 +2,13 @@ extends Control
 
 @export var sala_azul : Control
 @export var pause_menu : PauseMenu
+var puzzle2 = load("res://Interface/Play/puzzle2-Sala_azul.tscn")
 
 func _ready() -> void:
 	handle_connecting_signal()
+	Global.sala_que_estamos = "azul"
 	if Global.back_scene:
 		sala_azul.modulate.a = 0.0
-		Global.sala_que_estamos = "azul"
 		var tween = self.create_tween()
 		tween.tween_interval(0.2)
 		tween.tween_property(sala_azul , "modulate:a" , 1.0 , 0.2)
@@ -38,3 +39,12 @@ func handle_connecting_signal() -> void:
 func testEsc():
 	if Input.is_action_just_pressed("escape"):
 		_on_texture_button_pressed()
+
+func _on_button_pressed() -> void:
+	sala_azul.modulate.a = 1.0
+	var tween = self.create_tween()
+	tween.tween_interval(0.2)
+	tween.tween_property(sala_azul , "modulate:a" , 0.0 , 0.2)
+	await tween.finished
+	Global.back_scene = true
+	get_tree().change_scene_to_packed(puzzle2)

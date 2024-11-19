@@ -6,9 +6,9 @@ var puzzle1 = load("res://Interface/Play/puzzle1-Sala_vermelha.tscn")
 
 func _ready() -> void:
 	handle_connecting_signal()
+	Global.sala_que_estamos = "vermelha"
 	if Global.back_scene:
 		sala_vermelha.modulate.a = 0.0
-		Global.sala_que_estamos = "vermelha"
 		var tween = self.create_tween()
 		tween.tween_interval(0.2)
 		tween.tween_property(sala_vermelha , "modulate:a" , 1.0 , 0.2)

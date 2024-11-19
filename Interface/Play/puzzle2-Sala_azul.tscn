@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv5tlliig3k4j"]
+[gd_scene load_steps=9 format=3 uid="uid://dt470qm1pwj78"]
 
-[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="1_8uxsv"]
-[ext_resource type="Script" path="res://Script/Play/puzzle_1_sala_vermelha.gd" id="1_e02fr"]
-[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="3_cgw0b"]
-[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="4_iahil"]
-[ext_resource type="Script" path="res://Script/Play/down_button.gd" id="5_0igre"]
-[ext_resource type="Script" path="res://Script/Play/buttonPlus.gd" id="6_5223y"]
-[ext_resource type="Script" path="res://Script/Play/buttonConfirm.gd" id="7_go0q6"]
-[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="8_or2aw"]
+[ext_resource type="Script" path="res://Script/Play/puzzle_2_sala_azul.gd" id="1_4mu7a"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="1_xfby6"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="2_wnpu7"]
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="3_howfc"]
+[ext_resource type="Script" path="res://Script/Play/down_button.gd" id="4_in8eg"]
+[ext_resource type="Script" path="res://Script/Play/Puzzle2.gd" id="6_8e4kf"]
+[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="7_cecyx"]
+[ext_resource type="Script" path="res://script/Play/confirmPuzzle2.gd" id="7_v3ime"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala")]
 layout_mode = 3
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e02fr")
+script = ExtResource("1_4mu7a")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 sala = NodePath(".")
 
@@ -30,11 +30,11 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
-color = Color(0.764706, 0.427451, 0.407843, 1)
+color = Color(0.67451, 0.831373, 0.839216, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_cgw0b")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_xfby6")]
 visible = false
 size_flags_horizontal = 4
 
@@ -46,7 +46,7 @@ offset_right = 1882.0
 offset_bottom = 140.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource("4_iahil")
+texture_normal = ExtResource("2_wnpu7")
 
 [node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
@@ -57,19 +57,19 @@ anchor_bottom = 1.0
 offset_top = -54.0
 grow_horizontal = 2
 grow_vertical = 0
-texture_normal = ExtResource("1_8uxsv")
+texture_normal = ExtResource("3_howfc")
 stretch_mode = 3
-script = ExtResource("5_0igre")
+script = ExtResource("4_in8eg")
 sala = NodePath("..")
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("b1", "b2", "b3")]
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_left = 1302.0
 offset_top = 229.0
 offset_right = 1302.0
 offset_bottom = 843.0
-script = ExtResource("6_5223y")
+script = ExtResource("6_8e4kf")
 b1 = NodePath("PanelContainer/HBoxContainer/VBox_codigo1/Button")
 b2 = NodePath("PanelContainer/HBoxContainer/VBox_codigo2/Button")
 b3 = NodePath("PanelContainer/HBoxContainer/VBox_codigo3/Button")
@@ -137,14 +137,14 @@ theme_override_constants/separation = 100
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Button_Confirmar"
-script = ExtResource("7_go0q6")
+script = ExtResource("7_v3ime")
 b1 = NodePath("../../VBox_codigo1/Button")
 b2 = NodePath("../../VBox_codigo2/Button")
 b3 = NodePath("../../VBox_codigo3/Button")
 puzzle_complet = NodePath("../../../../../s_puzzle_complet")
 
 [node name="s_puzzle_complet" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_or2aw")
+stream = ExtResource("7_cecyx")
 bus = &"Sfx"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
