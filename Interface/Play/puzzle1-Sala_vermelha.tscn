@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv5tlliig3k4j"]
 
-[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="1_8uxsv"]
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="1_8uxsv"]
 [ext_resource type="Script" path="res://Script/Play/puzzle_1_sala_vermelha.gd" id="1_e02fr"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="3_cgw0b"]
-[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="4_iahil"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="4_iahil"]
 [ext_resource type="Script" path="res://Script/Play/down_button.gd" id="5_0igre"]
 [ext_resource type="Script" path="res://Script/Play/buttonPlus.gd" id="6_5223y"]
 [ext_resource type="Script" path="res://Script/Play/buttonConfirm.gd" id="7_go0q6"]

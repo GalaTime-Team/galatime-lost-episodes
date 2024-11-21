@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Script/Play/puzzle_2_sala_azul.gd" id="1_4mu7a"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="1_xfby6"]
-[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/settings button.png" id="2_wnpu7"]
-[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="3_howfc"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="2_wnpu7"]
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="3_howfc"]
 [ext_resource type="Script" path="res://Script/Play/down_button.gd" id="4_in8eg"]
 [ext_resource type="Script" path="res://Script/Play/Puzzle2.gd" id="6_8e4kf"]
 [ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="7_cecyx"]

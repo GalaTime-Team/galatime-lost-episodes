@@ -1,0 +1,192 @@
+[gd_scene load_steps=23 format=3 uid="uid://caqqxp0x3om3i"]
+
+[ext_resource type="Script" path="res://Script/Play/parede_vazio.gd" id="1_v14re"]
+[ext_resource type="Texture2D" uid="uid://cjmfgs1ilsdh7" path="res://Asset/Images/Rooms/vazio.png" id="2_bg8k0"]
+[ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_18ulh"]
+[ext_resource type="Script" path="res://Script/Play/buttons_ui.gd" id="3_iaf6r"]
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="4_8ppul"]
+[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Buttons/Left/left_buttton.png" id="4_36i3e"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_f0k2i"]
+[ext_resource type="Texture2D" uid="uid://nvy7vswb4nlv" path="res://Asset/Images/Buttons/Left/left_buttton_pressed.png" id="5_ovv0n"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="6_rhwoh"]
+[ext_resource type="Texture2D" uid="uid://nptenjqy6sec" path="res://Asset/Images/Buttons/Left/left_buttton_hover.png" id="6_yntra"]
+[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/Buttons/Right/right_button.png" id="7_inwpj"]
+[ext_resource type="Texture2D" uid="uid://b6eyqkdbrivjh" path="res://Asset/Images/Buttons/Right/right_button_pressed.png" id="8_iw3my"]
+[ext_resource type="Texture2D" uid="uid://ce0yf13hjuy21" path="res://Asset/Images/Buttons/Right/right_button_hover.png" id="9_hu8hw"]
+[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/Buttons/Up/up_button.png" id="10_wjkku"]
+[ext_resource type="Texture2D" uid="uid://d3vqtuhyq8im2" path="res://Asset/Images/Buttons/Up/up_button_pressed.png" id="11_813s6"]
+[ext_resource type="Texture2D" uid="uid://6lvaa1symvbp" path="res://Asset/Images/Buttons/Up/up_button_hover.png" id="12_a6jkn"]
+[ext_resource type="Texture2D" uid="uid://mnkr0it3uu7" path="res://Asset/Images/Buttons/Down/down_button_pressed.png" id="14_25e4d"]
+[ext_resource type="Texture2D" uid="uid://dkg4xq1n4p871" path="res://Asset/Images/Buttons/Down/down_button_hover.png" id="15_m5bh8"]
+[ext_resource type="Texture2D" uid="uid://bimjqy7ador4j" path="res://Asset/Images/Buttons/Settings/settings_button_pressed.png" id="17_bxfjm"]
+[ext_resource type="Texture2D" uid="uid://coetpa8lufxrr" path="res://Asset/Images/Buttons/Settings/settings_button_hover.png" id="18_rhoj1"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_1jmn3"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_43lxm"]
+
+[node name="ParedeVazio" type="Control" node_paths=PackedStringArray("parede_vazio", "pause_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v14re")
+parede_vazio = NodePath(".")
+pause_menu = NodePath("PauseMenu")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_bg8k0")
+
+[node name="Blocos de Ação" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_18ulh")
+
+[node name="A_P_Vazio" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 3.0
+offset_right = 1885.0
+offset_bottom = 1033.0
+color = Color(1, 1, 1, 0)
+
+[node name="A_Porta" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -400.0
+offset_right = 219.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="A_Exit_Sign" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 48.0
+offset_right = 86.0
+offset_bottom = 121.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Botões UI" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button", "up_button", "down_button", "pause_menu", "sala", "menu_click", "menu_hover")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_iaf6r")
+left_button = NodePath("Left_button")
+right_button = NodePath("Right_button")
+up_button = NodePath("Up_button")
+down_button = NodePath("Down_button")
+pause_menu = NodePath("../PauseMenu")
+sala = NodePath("..")
+menu_click = NodePath("../s_menu_click")
+menu_hover = NodePath("../s_menu_hover")
+
+[node name="Left_button" type="TextureButton" parent="Botões UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("4_36i3e")
+texture_pressed = ExtResource("5_ovv0n")
+texture_hover = ExtResource("6_yntra")
+stretch_mode = 3
+
+[node name="Right_button" type="TextureButton" parent="Botões UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("7_inwpj")
+texture_pressed = ExtResource("8_iw3my")
+texture_hover = ExtResource("9_hu8hw")
+stretch_mode = 3
+
+[node name="Up_button" type="TextureButton" parent="Botões UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture_normal = ExtResource("10_wjkku")
+texture_pressed = ExtResource("11_813s6")
+texture_hover = ExtResource("12_a6jkn")
+stretch_mode = 3
+
+[node name="Down_button" type="TextureButton" parent="Botões UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_8ppul")
+texture_pressed = ExtResource("14_25e4d")
+texture_hover = ExtResource("15_m5bh8")
+stretch_mode = 3
+
+[node name="Settings_button" type="TextureButton" parent="Botões UI"]
+layout_mode = 0
+offset_left = 1787.0
+offset_top = 43.0
+offset_right = 1882.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("6_rhwoh")
+texture_pressed = ExtResource("17_bxfjm")
+texture_hover = ExtResource("18_rhoj1")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_f0k2i")]
+visible = false
+layout_mode = 1
+size_flags_horizontal = 4
+
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_43lxm")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_1jmn3")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="gui_input" from="Blocos de Ação/A_P_Vazio" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_vazio"]]
+[connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
+[connection signal="gui_input" from="Blocos de Ação/A_Exit_Sign" to="Blocos de Ação" method="_on_gui_input" binds= ["sinal_exit"]]
+[connection signal="pressed" from="Botões UI/Left_button" to="Botões UI" method="_on_pressed" binds= ["esquerda"]]
+[connection signal="pressed" from="Botões UI/Right_button" to="Botões UI" method="_on_pressed" binds= ["direita"]]
+[connection signal="pressed" from="Botões UI/Up_button" to="Botões UI" method="_on_pressed" binds= ["cima"]]
+[connection signal="pressed" from="Botões UI/Down_button" to="Botões UI" method="_on_pressed" binds= ["baixo"]]
+[connection signal="pressed" from="Botões UI/Settings_button" to="Botões UI" method="_on_settings_button_pressed"]

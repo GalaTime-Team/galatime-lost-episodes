@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=17 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4w7gp"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_mr6f7"]
 [ext_resource type="PackedScene" uid="uid://qw8mhcsihprh" path="res://Interface/Settings/settings.tscn" id="8_kb6mg"]
 [ext_resource type="PackedScene" uid="uid://crihnhawawd20" path="res://Interface/Settings/inventory.tscn" id="9_02hdv"]
+[ext_resource type="PackedScene" uid="uid://c1gpc2r6ydv40" path="res://Interface/warning_popup.tscn" id="10_d4qfe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uskwq"]
 shader = ExtResource("1_2yy5q")
@@ -79,7 +80,7 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5rgf"]
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "settings", "inventory", "panel_container", "menu_click", "menu_hover")]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "settings", "inventory", "panel_container", "warning_popup", "menu_click", "menu_hover")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -93,6 +94,7 @@ blur_animation = NodePath("Blur Animation")
 settings = NodePath("Settings")
 inventory = NodePath("Inventory")
 panel_container = NodePath("PanelContainer")
+warning_popup = NodePath("Warning Popup")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
 
@@ -141,7 +143,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="PanelContainer/Pause_Menu_Container"]
+[node name="Title" type="Label" parent="PanelContainer/Pause_Menu_Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_sex7x")
 theme_override_font_sizes/font_size = 25
@@ -201,11 +203,16 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Warning Popup" parent="." instance=ExtResource("10_d4qfe")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Items" to="." method="_on_items_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Items" to="." method="_on_items_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_pressed"]

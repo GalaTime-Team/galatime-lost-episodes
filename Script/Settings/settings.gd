@@ -70,16 +70,6 @@ func load_global_values() -> void:
 	language_button.select(Global.language)
 	language_choice(Global.language)
 
-######
-# Background
-######
-
-func backgroundvisible() -> void:
-	if background.visible:
-		background.hide()
-	else:
-		background.show()
-
 #####
 # Screen Resolution
 #####
@@ -173,7 +163,7 @@ func fade() -> void:
 	await tween.finished
 
 ######
-# gamepad
+# Gamepad
 ######
 
 func back_button_input() -> void:

@@ -4,17 +4,17 @@ extends Node
 # salas
 #####
 
-var parede_amarela = load("res://Interface/Play/sala_amarela.tscn")
-var parede_vermelha = load("res://Interface/Play/sala_vermelha.tscn")
-var parede_azul = load("res://Interface/Play/sala_azul.tscn")
-var parede_roxo = load("res://Interface/Play/sala_roxo.tscn")
-var vazio = load("res://Interface/Play/sala_saida.tscn")
+var parede_amarela = load("res://Interface/Play/parede_amarela.tscn")
+var parede_vermelha = load("res://Interface/Play/parede_vermelha.tscn")
+var parede_ciano = load("res://Interface/Play/parede_ciano.tscn")
+var parede_roxo = load("res://Interface/Play/parede_roxo.tscn")
+var vazio = load("res://Interface/Play/parede_vazio.tscn")
 
 const change_room_dictionary : Dictionary = {
-	"amarela" : ["vermelha" , "azul"],
+	"amarela" : ["vermelha" , "ciano"],
 	"vermelha" : ["roxo" , "amarela"],
-	"azul" : ["amarela" , "roxo"],
-	"roxo" : ["azul" , "vermelha"]
+	"ciano" : ["amarela" , "roxo"],
+	"roxo" : ["ciano" , "vermelha"]
 }
 
 var sala_que_estamos : String
@@ -90,8 +90,8 @@ func mudar_sala(sala : String) -> void:
 			get_tree().change_scene_to_packed(parede_amarela)
 		"vermelha":
 			get_tree().change_scene_to_packed(parede_vermelha)
-		"azul":
-			get_tree().change_scene_to_packed(parede_azul)
+		"ciano":
+			get_tree().change_scene_to_packed(parede_ciano)
 		"roxo":
 			get_tree().change_scene_to_packed(parede_roxo)
 		"vazio":

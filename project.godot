@@ -30,10 +30,14 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"caixa_branca": "res://Dialogue/caixa_branca.dtl",
-"caixa_vermelha": "res://Dialogue/caixa_vermelha.dtl",
 "intromonologue": "res://Dialogue/intromonologue.dtl",
-"sala_amarela": "res://Dialogue/sala_amarela.dtl"
+"parede_amarela": "res://Dialogue/parede_amarela.dtl",
+"parede_ciano": "res://Dialogue/parede_ciano.dtl",
+"parede_roxo": "res://Dialogue/parede_roxo.dtl",
+"parede_vazio": "res://Dialogue/parede_vazio.dtl",
+"parede_vermelha": "res://Dialogue/parede_vermelha.dtl",
+"porta": "res://Dialogue/porta.dtl",
+"sinal_exit": "res://Dialogue/sinal_exit.dtl"
 }
 layout/style_list=["res://Dialogue/DialogoTemplate.tres"]
 layout/default_style="res://Dialogue/DialogoTemplate.tres"
@@ -124,7 +128,7 @@ direita={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
-aproximar={
+cima={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":true,"script":null)

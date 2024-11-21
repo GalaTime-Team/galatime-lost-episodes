@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkxppq23ra6tb"]
+[gd_scene load_steps=15 format=3 uid="uid://dkxppq23ra6tb"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_088cl"]
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_n7ogk"]
 [ext_resource type="Texture2D" uid="uid://b832v1v8hv0f" path="res://Asset/Images/left_click.png" id="2_i4ek2"]
 [ext_resource type="Script" path="res://Script/tutorial.gd" id="2_x2mqq"]
 [ext_resource type="Texture2D" uid="uid://c2gvfidwjy2bp" path="res://Asset/Images/right_click.png" id="3_y6pjv"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="6_huvnj"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_esy3x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twnmd"]
 shader = ExtResource("1_n7ogk")
@@ -72,7 +74,7 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5p86f"]
 
-[node name="Tutorial" type="Control" node_paths=PackedStringArray("tutorial", "blur")]
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("tutorial", "blur", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,6 +85,8 @@ theme = ExtResource("1_088cl")
 script = ExtResource("2_x2mqq")
 tutorial = NodePath(".")
 blur = NodePath("blur")
+menu_click = NodePath("s_menu_click")
+menu_hover = NodePath("s_menu_hover")
 
 [node name="Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_twnmd")
@@ -173,8 +177,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxTexture_5p86f")
-text = "Confirm
-"
+text = "tutorial_intro_confirm"
 flat = true
 
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_huvnj")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_esy3x")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="mouse_entered" from="PanelContainer/Tutorial O_H/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/Tutorial O_H/VBoxContainer/Button" to="." method="_on_button_pressed"]

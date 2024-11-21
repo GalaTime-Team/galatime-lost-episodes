@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://crihnhawawd20"]
+[gd_scene load_steps=7 format=3 uid="uid://crihnhawawd20"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4ten3"]
 [ext_resource type="Script" path="res://Script/Settings/inventory.gd" id="2_emxd4"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_oe77v"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_3r02v"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_8jqwh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("background")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +18,8 @@ grow_vertical = 2
 theme = ExtResource("1_4ten3")
 script = ExtResource("2_emxd4")
 background = NodePath("background")
+menu_click = NodePath("s_menu_click")
+menu_hover = NodePath("s_menu_hover")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -67,4 +71,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_68tmn")
 text = "button_menu_back"
 flat = true
 
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3r02v")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8jqwh")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

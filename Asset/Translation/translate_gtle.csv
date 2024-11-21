@@ -75,5 +75,6 @@ tutorial_intro_buttons_left,Botão Esquerdo,Left Mouse Button,マウスの左ボ
 tutorial_intro_buttons_right,Botão Direito,Right Mouse Button,マウスの右ボタン
 tutorial_intro_buttons_info_left,Interagir com objetos,Interact with objects,オブジェクトを操作する
 tutorial_intro_buttons_info_right,Obter informação,Get information,情報を取得する
-title_inventory,Itens,Items,
-title_inventory_items_collected,Itens Coletados,Items Collected,
+tutorial_intro_confirm,Confirmar,Confirm,確認する
+title_inventory,Itens,Items,アイテム
+title_inventory_items_collected,Itens Coletados,Items Collected,収集アイテム

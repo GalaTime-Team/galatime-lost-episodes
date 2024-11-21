@@ -1,0 +1,188 @@
+[gd_scene load_steps=24 format=3 uid="uid://y1eent0c6lpn"]
+
+[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Buttons/Left/left_buttton.png" id="1_0n02o"]
+[ext_resource type="Script" path="res://Script/Play/parede_vermelha.gd" id="1_p7nsk"]
+[ext_resource type="Texture2D" uid="uid://33abaxiafk1n" path="res://Asset/Images/Rooms/vermelha.png" id="2_g5q26"]
+[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/Buttons/Right/right_button.png" id="2_rmrfp"]
+[ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_8sfge"]
+[ext_resource type="Script" path="res://Script/Play/buttons_ui.gd" id="3_crron"]
+[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/Buttons/Up/up_button.png" id="3_wdukp"]
+[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_2wccy"]
+[ext_resource type="Texture2D" uid="uid://nvy7vswb4nlv" path="res://Asset/Images/Buttons/Left/left_buttton_pressed.png" id="5_lvmmx"]
+[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="6_egqjg"]
+[ext_resource type="Texture2D" uid="uid://nptenjqy6sec" path="res://Asset/Images/Buttons/Left/left_buttton_hover.png" id="6_swhsn"]
+[ext_resource type="Texture2D" uid="uid://b6eyqkdbrivjh" path="res://Asset/Images/Buttons/Right/right_button_pressed.png" id="8_expt5"]
+[ext_resource type="Texture2D" uid="uid://ce0yf13hjuy21" path="res://Asset/Images/Buttons/Right/right_button_hover.png" id="9_hdml7"]
+[ext_resource type="Script" path="res://Script/Play/button_resultado.gd" id="10_6u36w"]
+[ext_resource type="Texture2D" uid="uid://d3vqtuhyq8im2" path="res://Asset/Images/Buttons/Up/up_button_pressed.png" id="11_huj3b"]
+[ext_resource type="Texture2D" uid="uid://6lvaa1symvbp" path="res://Asset/Images/Buttons/Up/up_button_hover.png" id="12_057ra"]
+[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="13_l80wh"]
+[ext_resource type="Texture2D" uid="uid://mnkr0it3uu7" path="res://Asset/Images/Buttons/Down/down_button_pressed.png" id="14_1snow"]
+[ext_resource type="Texture2D" uid="uid://dkg4xq1n4p871" path="res://Asset/Images/Buttons/Down/down_button_hover.png" id="15_25uk7"]
+[ext_resource type="Texture2D" uid="uid://bimjqy7ador4j" path="res://Asset/Images/Buttons/Settings/settings_button_pressed.png" id="17_30ark"]
+[ext_resource type="Texture2D" uid="uid://coetpa8lufxrr" path="res://Asset/Images/Buttons/Settings/settings_button_hover.png" id="18_o4pld"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="22_ihhro"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="23_x0s6f"]
+
+[node name="ParedeVermelha" type="Control" node_paths=PackedStringArray("parede_vermelha", "pause_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7nsk")
+parede_vermelha = NodePath(".")
+pause_menu = NodePath("PauseMenu")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_g5q26")
+
+[node name="Blocos de Ação" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_8sfge")
+
+[node name="A_P_Amarela" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 3.0
+offset_right = 1885.0
+offset_bottom = 958.0
+color = Color(1, 1, 1, 0)
+
+[node name="A_Porta" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 144.0
+offset_right = 675.0
+offset_bottom = 963.0
+color = Color(1, 1, 1, 0)
+
+[node name="Button_Puzzle1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1238.0
+offset_top = 297.0
+offset_right = 1568.0
+offset_bottom = 443.0
+
+[node name="Button_Resultado" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 627.0
+offset_top = 297.0
+offset_right = 903.0
+offset_bottom = 374.0
+script = ExtResource("10_6u36w")
+
+[node name="Botões UI" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button", "up_button", "down_button", "pause_menu", "sala", "menu_click", "menu_hover")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_crron")
+left_button = NodePath("Left_button")
+right_button = NodePath("Right_button")
+up_button = NodePath("Up_button")
+down_button = NodePath("Down_button")
+pause_menu = NodePath("../PauseMenu")
+sala = NodePath("..")
+menu_click = NodePath("../s_menu_click")
+menu_hover = NodePath("../s_menu_hover")
+
+[node name="Left_button" type="TextureButton" parent="Botões UI"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("1_0n02o")
+texture_pressed = ExtResource("5_lvmmx")
+texture_hover = ExtResource("6_swhsn")
+stretch_mode = 3
+
+[node name="Right_button" type="TextureButton" parent="Botões UI"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("2_rmrfp")
+texture_pressed = ExtResource("8_expt5")
+texture_hover = ExtResource("9_hdml7")
+stretch_mode = 3
+
+[node name="Up_button" type="TextureButton" parent="Botões UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture_normal = ExtResource("3_wdukp")
+texture_pressed = ExtResource("11_huj3b")
+texture_hover = ExtResource("12_057ra")
+stretch_mode = 3
+
+[node name="Down_button" type="TextureButton" parent="Botões UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("13_l80wh")
+texture_pressed = ExtResource("14_1snow")
+texture_hover = ExtResource("15_25uk7")
+stretch_mode = 3
+
+[node name="Settings_button" type="TextureButton" parent="Botões UI"]
+layout_mode = 0
+offset_left = 1787.0
+offset_top = 43.0
+offset_right = 1882.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("6_egqjg")
+texture_pressed = ExtResource("17_30ark")
+texture_hover = ExtResource("18_o4pld")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_2wccy")]
+visible = false
+layout_mode = 1
+size_flags_horizontal = 4
+
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_x0s6f")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ihhro")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_vermelha"]]
+[connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
+[connection signal="pressed" from="Button_Puzzle1" to="." method="_on_box_button_pressed"]
+[connection signal="pressed" from="Botões UI/Left_button" to="Botões UI" method="_on_pressed" binds= ["esquerda"]]
+[connection signal="pressed" from="Botões UI/Right_button" to="Botões UI" method="_on_pressed" binds= ["direita"]]
+[connection signal="pressed" from="Botões UI/Up_button" to="Botões UI" method="_on_pressed" binds= ["cima"]]
+[connection signal="pressed" from="Botões UI/Down_button" to="Botões UI" method="_on_pressed" binds= ["baixo"]]
+[connection signal="pressed" from="Botões UI/Settings_button" to="Botões UI" method="_on_settings_button_pressed"]

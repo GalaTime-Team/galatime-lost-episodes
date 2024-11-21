@@ -7,6 +7,7 @@ extends Control
 @export var settings: Settings
 @export var inventory: Inventory
 @export var panel_container: PanelContainer
+@export var warning_popup: Warning_Popup
 
 # Importar Sons
 @export_category("Efeitos Sonoros")
@@ -23,6 +24,23 @@ func initial_values():
 	panel_container.visible = false
 	panel_container.modulate.a = 0.0
 
+func fade(fades_out, fades_in) -> void:
+	fades_out.modulate.a = 1.0
+	fades_in.modulate.a = 0.0
+	
+	var tween = self.create_tween()
+	
+	tween.tween_property(fades_out, "modulate:a", 0.0 ,0.2)
+	
+	fades_in.show()
+	
+	tween.tween_property(fades_in, "modulate:a", 1.0 ,0.2)
+	await tween.finished
+	tween.stop()
+	
+	fades_out.hide()
+
+
 #####
 # Ready // Process
 #####
@@ -38,6 +56,7 @@ func _ready() -> void:
 #####
 # Main Options
 #####
+
 func open_pause_menu():
 	# Correr os valores iniciais de visão e visibilidade
 	initial_values()
@@ -65,47 +84,39 @@ func resume_game():
 
 func options():
 	settings.set_process(true)
-	settings.backgroundvisible()
-	settings.modulate.a = 0.0
-	settings.show()
+	settings.background.show()
 	
-	var tween = self.create_tween()
-	tween.tween_property(settings, "modulate:a", 1.0, 0.2)
-	await tween.finished
+	fade(panel_container, settings)
 
-func _on_items_pressed() -> void:
+func items():
 	inventory.set_process(true)
-	inventory.modulate.a = 0.0
-	inventory.show()
 	
-	var tween = self.create_tween()
-	tween.tween_property(inventory, "modulate:a", 1.0, 0.2)
-	await tween.finished
+	fade(panel_container, inventory)
+
+func warningpopup():
+	warning_popup.set_process(true)
+	
+	fade(panel_container, warning_popup)
+	
+	warning_popup.entering_popup()
 
 ########
-#conecção do settings
+# Voltar ao Pause_Menu
 ########
 
-func on_back_setting_menu() -> void: #ao voltar do menu a margem fica visivel e os settings nao
-	settings.modulate.a = 1.0
-	
-	var tween = self.create_tween()
-	tween.tween_property(settings, "modulate:a", 0.0, 0.2)
-	await tween.finished
-	settings.backgroundvisible()
-	settings.hide()
+func on_back_setting_menu() -> void:
+	fade(settings, panel_container)
 
 func on_back_inventory() -> void:
-	inventory.modulate.a = 1.0
-	
-	var tween = self.create_tween()
-	tween.tween_property(inventory, "modulate:a", 0.0, 0.2)
-	await tween.finished
-	inventory.hide()
+	fade(inventory, panel_container)
+
+func on_back_warningpopup() -> void:
+	fade(warning_popup, panel_container)
 
 func handle_connecting_signal() -> void:
-	settings.back_setting_menu.connect(on_back_setting_menu) #Conectar com a func do settings e poder guardar as informações
-	inventory.inventory_signal.connect(on_back_inventory) #Conectar com a func do inventory e poder guardar as informações
+	settings.back_setting_menu.connect(on_back_setting_menu)
+	inventory.back_inventory_menu.connect(on_back_inventory)
+	warning_popup.back_popup_menu.connect(on_back_warningpopup)
 
 ########
 # Buttons Interactions
@@ -122,13 +133,13 @@ func _on_options_pressed() -> void:
 	menu_click.play()
 	options()
 
+func _on_items_pressed() -> void:
+	menu_click.play()
+	items()
+
 func _on_leave_pressed() -> void:
 	menu_click.play()
-	get_tree().quit()
-
-func _on_texture_button_pressed() -> void:
-	resume_game()
-	set_process(false)
+	warningpopup()
 
 # Hover Sounds
 
@@ -136,6 +147,9 @@ func _on_resume_mouse_entered() -> void:
 	menu_hover.play()
 
 func _on_options_mouse_entered() -> void:
+	menu_hover.play()
+
+func _on_items_mouse_entered() -> void:
 	menu_hover.play()
 
 func _on_leave_mouse_entered() -> void:

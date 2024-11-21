@@ -12,7 +12,7 @@ func _ready() -> void:
 		tween.tween_property(sala , "modulate:a" , 1.0 , 0.2)
 		await tween.finished
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	testEsc()
 
 func on_back_pause_menu() -> void:

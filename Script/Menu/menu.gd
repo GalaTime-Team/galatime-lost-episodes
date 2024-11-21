@@ -21,7 +21,7 @@ extends Control
 @export var menu_hover: AudioStreamPlayer
 
 
-var start_game = load("res://Interface/Play/sala_amarela.tscn")
+var start_game = load("res://Interface/Play/parede_amarela.tscn")
 
 func _ready() -> void:
 	handle_connecting_signal()
@@ -49,13 +49,13 @@ func fade(fades_out, fades_in) -> void:
 	
 	tween.tween_property(fades_out, "modulate:a", 0.0 ,0.2)
 	
-	fades_in.visible = true
+	fades_in.show()
 	
 	tween.tween_property(fades_in, "modulate:a", 1.0 ,0.2)
 	await tween.finished
 	tween.stop()
 	
-	fades_out.visible = false
+	fades_out.hide()
 
 #####
 # Back Pressed
