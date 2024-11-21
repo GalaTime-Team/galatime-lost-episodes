@@ -1,15 +1,78 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkxppq23ra6tb"]
+[gd_scene load_steps=13 format=3 uid="uid://dkxppq23ra6tb"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_088cl"]
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_n7ogk"]
 [ext_resource type="Texture2D" uid="uid://b832v1v8hv0f" path="res://Asset/Images/left_click.png" id="2_i4ek2"]
+[ext_resource type="Script" path="res://Script/tutorial.gd" id="2_x2mqq"]
 [ext_resource type="Texture2D" uid="uid://c2gvfidwjy2bp" path="res://Asset/Images/right_click.png" id="3_y6pjv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twnmd"]
 shader = ExtResource("1_n7ogk")
-shader_parameter/lod = 0.0
+shader_parameter/lod = 1.143
 
-[node name="Tutorial" type="Control"]
+[sub_resource type="Animation" id="Animation_2ckur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.143]
+}
+
+[sub_resource type="Animation" id="Animation_s571n"]
+resource_name = "blur_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.143, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ug0hu"]
+resource_name = "blur_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.143]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tf441"]
+_data = {
+"RESET": SubResource("Animation_2ckur"),
+"blur_off": SubResource("Animation_s571n"),
+"blur_on": SubResource("Animation_ug0hu")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kung"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5p86f"]
+
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("tutorial", "blur")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +80,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_088cl")
+script = ExtResource("2_x2mqq")
+tutorial = NodePath(".")
+blur = NodePath("blur")
 
 [node name="Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_twnmd")
@@ -27,64 +93,88 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Tutorial O_H" type="MarginContainer" parent="."]
+[node name="blur" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tf441")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.5
-offset_top = -126.0
-offset_right = 360.5
-offset_bottom = 126.0
+offset_left = -420.0
+offset_top = -214.0
+offset_right = 421.0
+offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1kung")
+
+[node name="Tutorial O_H" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_bottom = 60
 
-[node name="Tutorial images" type="HBoxContainer" parent="Tutorial O_H"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Tutorial O_H"]
+layout_mode = 2
+
+[node name="Tutorial images" type="HBoxContainer" parent="PanelContainer/Tutorial O_H/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 2
 theme_override_constants/separation = 100
 
-[node name="Left Click" type="VBoxContainer" parent="Tutorial O_H/Tutorial images"]
+[node name="Left Click" type="VBoxContainer" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="i_LC" type="TextureRect" parent="Tutorial O_H/Tutorial images/Left Click"]
+[node name="i_LC" type="TextureRect" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images/Left Click"]
 layout_mode = 2
 texture = ExtResource("2_i4ek2")
 stretch_mode = 3
 
-[node name="l_title_LC" type="Label" parent="Tutorial O_H/Tutorial images/Left Click"]
+[node name="l_title_LC" type="Label" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images/Left Click"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "tutorial_intro_buttons_left"
 
-[node name="l_info_LC" type="Label" parent="Tutorial O_H/Tutorial images/Left Click"]
+[node name="l_info_LC" type="Label" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images/Left Click"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "tutorial_intro_buttons_info_left"
 
-[node name="Right Click" type="VBoxContainer" parent="Tutorial O_H/Tutorial images"]
+[node name="Right Click" type="VBoxContainer" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="i_RC" type="TextureRect" parent="Tutorial O_H/Tutorial images/Right Click"]
+[node name="i_RC" type="TextureRect" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images/Right Click"]
 layout_mode = 2
 texture = ExtResource("3_y6pjv")
 stretch_mode = 3
 
-[node name="l_title_RC" type="Label" parent="Tutorial O_H/Tutorial images/Right Click"]
+[node name="l_title_RC" type="Label" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images/Right Click"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "tutorial_intro_buttons_right"
 
-[node name="l_info_RC" type="Label" parent="Tutorial O_H/Tutorial images/Right Click"]
+[node name="l_info_RC" type="Label" parent="PanelContainer/Tutorial O_H/VBoxContainer/Tutorial images/Right Click"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "tutorial_intro_buttons_info_right"
+
+[node name="Button" type="Button" parent="PanelContainer/Tutorial O_H/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxTexture_5p86f")
+text = "Confirm
+"
+flat = true
+
+[connection signal="pressed" from="PanelContainer/Tutorial O_H/VBoxContainer/Button" to="." method="_on_button_pressed"]

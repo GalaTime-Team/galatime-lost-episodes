@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://556ooh352num"]
+[gd_scene load_steps=11 format=3 uid="uid://556ooh352num"]
 
 [ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Left_buttton.png" id="1_7auva"]
 [ext_resource type="Script" path="res://Script/Play/sala_roxo.gd" id="1_ka46x"]
 [ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/right_button.png" id="2_08410"]
+[ext_resource type="Texture2D" uid="uid://b2wx30hd4knkx" path="res://Asset/Images/Rooms/roxo.png" id="2_akmg3"]
 [ext_resource type="Script" path="res://Script/Play/left_button.gd" id="3_1t5ge"]
 [ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/up_button.png" id="3_rtgw1"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_u38rj"]
@@ -21,6 +22,12 @@ script = ExtResource("1_ka46x")
 sala_roxa = NodePath(".")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_akmg3")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -28,10 +35,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
-color = Color(0.384314, 0.345098, 0.427451, 1)
 
 [node name="left_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1

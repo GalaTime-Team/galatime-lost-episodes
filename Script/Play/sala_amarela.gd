@@ -8,7 +8,7 @@ extends Control
 @export var sala: MarginContainer
 @export var intro_monologue: IntroMonologue
 @export var pause_menu: PauseMenu
-
+@export var tutorial: Tutorial
 #########
 # READY/PROCESS
 #########
@@ -47,7 +47,7 @@ func on_intro_monologue() -> void:
 func handle_connecting_signal() -> void:
 	intro_monologue.back_dialog.connect(end_of_dialogue)
 	pause_menu.out_pause_menu.connect(on_back_pause_menu)
-	
+	tutorial.out_tutorial.connect(end_of_dialogue)
 #######
 # button pause_menu
 #######
@@ -80,9 +80,10 @@ func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
 	var tween = self.create_tween()
 	tween.tween_interval(1.0)
-	tween.tween_property(intro_monologue, "modulate:a", 0.0, 2.0)
+	tween.tween_property(intro_monologue, "modulate:a", 0.0, 1.5)
 	await tween.finished
 	intro_monologue.hide()
+	tutorial.fade_in()
 
 #######
 # Game Controls

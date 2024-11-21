@@ -262,7 +262,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("11_fyl3r")
 theme_override_font_sizes/font_size = 15
-text = "V. 0.2.1"
+text = "V. 0.3.0"
 horizontal_alignment = 2
 
 [node name="s_menu_hover" type="AudioStreamPlayer" parent="."]

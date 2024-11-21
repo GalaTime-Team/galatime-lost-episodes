@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://caqqxp0x3om3i"]
+[gd_scene load_steps=8 format=3 uid="uid://caqqxp0x3om3i"]
 
 [ext_resource type="Script" path="res://Script/Play/sala_saida.gd" id="1_v14re"]
+[ext_resource type="Texture2D" uid="uid://cjmfgs1ilsdh7" path="res://Asset/Images/Rooms/vazio.png" id="2_bg8k0"]
 [ext_resource type="Script" path="res://Script/Play/down_button.gd" id="3_6k5u4"]
 [ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/down_button.png" id="4_8ppul"]
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_f0k2i"]
@@ -21,6 +22,12 @@ script = ExtResource("1_v14re")
 sala_vazia = NodePath(".")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_bg8k0")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -28,10 +35,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
-color = Color(0.937255, 0.937255, 0.921569, 1)
 
 [node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
 layout_mode = 1
