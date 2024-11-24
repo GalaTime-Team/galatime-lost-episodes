@@ -10,7 +10,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
 
-[node name="Settings" type="Control" node_paths=PackedStringArray("background", "margin_container", "back_button", "window_button", "res_button", "language_button", "menu_click", "menu_hover")]
+[node name="Settings" type="Control" node_paths=PackedStringArray("background", "margin_container", "settings", "back_button", "window_button", "res_button", "language_button", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ theme = ExtResource("1_x5t2p")
 script = ExtResource("1_eglf2")
 background = NodePath("Background")
 margin_container = NodePath("MarginContainer")
+settings = NodePath(".")
 back_button = NodePath("MarginContainer/Back")
 window_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button")
 res_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode/Res_button")
@@ -90,6 +91,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_screen_resolution"
+
+[node name="SPACE" type="Control" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes"]
+layout_mode = 2
 
 [node name="WindowMode" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes"]
 layout_mode = 2
@@ -313,6 +317,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_f87aa")
 theme_override_font_sizes/font_size = 40
 text = "title_settings_language"
+
+[node name="SPACE" type="Control" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV"]
+layout_mode = 2
 
 [node name="Language" type="HBoxContainer" parent="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV"]
 layout_mode = 2

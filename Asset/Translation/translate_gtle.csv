@@ -44,6 +44,7 @@ subtitle_credits_tests_testers,Testadores,Testers,"テスター "
 label_credits_tests_testers,"João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV"
 label_credits_license,"Jogo desenvolvido por GT Team, licenciado sob a licença Creative Commons Atribuição 4.0 Internacional (CC BY-NC 4.0).","Game developed by GT Team, licensed under the Creative Commons Attribution 4.0 International License (CC BY-NC 4.0).",このゲームは GT チームによって開発され、Creative Commons Attribution 4.0 International License (CC BY-NC 4.0) に基づいてライセンスされています。
 title_warning_leaving,Pretende sair do jogo?,Do you want to exit the game?,ゲームを終了しますか？
+description_warning,"Todo o progresso não salvo será perdido. ",All unsaved progress will be lost.,保存されていない進行状況は失われます。
 label_warning_leaving_yes,Sim,Yes,はい
 label_warning_leaving_no,Não,No,いいえ
 monologue_intro_otherworld_1,A noite tem uma forma de engolir tudo.,The night has a way of swallowing everything.,夜はすべてを飲み込むようだ。
@@ -78,3 +79,4 @@ tutorial_intro_buttons_info_right,Obter informação,Get information,情報を�
 tutorial_intro_confirm,Confirmar,Confirm,確認する
 title_inventory,Itens,Items,アイテム
 title_inventory_items_collected,Itens Coletados,Items Collected,収集アイテム
+title_warning_restarting_game,Deseja retornar ao menu?,Do you want to return to the menu?,メニューに戻りますか？

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=31 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/Menu/menu.gd" id="1_3kacm"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_a8m4p"]
@@ -89,7 +89,9 @@ _data = {
 "blur_on": SubResource("Animation_jwjup")
 }
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "leave_button", "settings", "margin_container", "tela_creditos", "blur_animation", "warning_popup", "blur", "menu_click", "menu_hover")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6y6fk"]
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("menu", "shield", "play_button", "settings_button", "credits_button", "leave_button", "settings", "margin_container", "tela_creditos", "blur_animation", "warning_popup", "blur", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,6 +100,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a8m4p")
 script = ExtResource("1_3kacm")
+menu = NodePath(".")
+shield = NodePath("SHIELD protetor de todos os males")
 play_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play")
 settings_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings")
 credits_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits")
@@ -235,6 +239,10 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Warning Popup" parent="." instance=ExtResource("18_onvaw")]
+visible = false
+layout_mode = 1
+
 [node name="License" type="Label" parent="."]
 modulate = Color(0.674815, 0.674815, 0.674815, 1)
 layout_mode = 1
@@ -295,9 +303,15 @@ libraries = {
 }
 autoplay = "blur_on"
 
-[node name="Warning Popup" parent="." instance=ExtResource("18_onvaw")]
+[node name="SHIELD protetor de todos os males" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6y6fk")
 
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

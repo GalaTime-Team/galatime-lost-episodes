@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 ######
 
 func _on_back_pressed() -> void:
+	back_button.release_focus()
 	back_credits_menu.emit()
 	menu_click.play()
 	set_process(false)

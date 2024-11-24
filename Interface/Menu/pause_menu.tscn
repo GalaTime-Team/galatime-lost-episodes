@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=18 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4w7gp"]
@@ -80,7 +80,9 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5rgf"]
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "settings", "inventory", "panel_container", "warning_popup", "menu_click", "menu_hover")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1amm0"]
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "shield", "pauseMenu", "settings", "inventory", "panel_container", "warning_popup", "menu_click", "menu_hover")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -91,6 +93,8 @@ grow_vertical = 2
 theme = ExtResource("1_4w7gp")
 script = ExtResource("1_kg1ct")
 blur_animation = NodePath("Blur Animation")
+shield = NodePath("SHIELD protetor de todos os males")
+pauseMenu = NodePath(".")
 settings = NodePath("Settings")
 inventory = NodePath("Inventory")
 panel_container = NodePath("PanelContainer")
@@ -206,6 +210,16 @@ layout_mode = 1
 [node name="Warning Popup" parent="." instance=ExtResource("10_d4qfe")]
 visible = false
 layout_mode = 1
+
+[node name="SHIELD protetor de todos os males" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1amm0")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]

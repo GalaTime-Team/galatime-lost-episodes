@@ -2,6 +2,8 @@ class_name PauseMenu
 extends Control
 
 @export var blur_animation: AnimationPlayer
+@export var shield: PanelContainer
+@export var pauseMenu: PauseMenu
 
 @export_category("Páginas")
 @export var settings: Settings
@@ -14,6 +16,8 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
+@onready var splash_screen : PackedScene = load("res://Interface/splash_screen.tscn")
+
 signal out_pause_menu
 
 #####
@@ -24,7 +28,14 @@ func initial_values():
 	panel_container.visible = false
 	panel_container.modulate.a = 0.0
 
+func remove_buttons_focus() -> void:
+	if pauseMenu.has_focus():
+		pauseMenu.release_focus()
+
 func fade(fades_out, fades_in) -> void:
+	remove_buttons_focus()
+	shield.show()
+	
 	fades_out.modulate.a = 1.0
 	fades_in.modulate.a = 0.0
 	
@@ -39,6 +50,7 @@ func fade(fades_out, fades_in) -> void:
 	tween.stop()
 	
 	fades_out.hide()
+	shield.hide()
 
 
 #####
@@ -67,8 +79,12 @@ func open_pause_menu():
 	blur_animation.play("blur")
 	tween.tween_property(panel_container, "modulate:a", 1.0 ,0.2)
 	await tween.finished
+	shield.hide()
 
 func resume_game():
+	remove_buttons_focus()
+	shield.show()
+	
 	# Garantir Valores
 	panel_container.visible = true
 	panel_container.modulate.a = 1.0
@@ -87,6 +103,10 @@ func options():
 	settings.background.show()
 	
 	fade(panel_container, settings)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	settings.entering_settings_menu()
 
 func items():
 	inventory.set_process(true)
@@ -97,6 +117,8 @@ func warningpopup():
 	warning_popup.set_process(true)
 	
 	fade(panel_container, warning_popup)
+	
+	await get_tree().create_timer(0.5).timeout
 	
 	warning_popup.entering_popup()
 
@@ -110,13 +132,21 @@ func on_back_setting_menu() -> void:
 func on_back_inventory() -> void:
 	fade(inventory, panel_container)
 
-func on_back_warningpopup() -> void:
+func on_back_warningpopup(value) -> void:
+	if value:
+		get_tree().change_scene_to_packed(splash_screen)
+	else:
+		leaving_warning_popup()
+
+func leaving_warning_popup() -> void:
 	fade(warning_popup, panel_container)
+	
+	await get_tree().create_timer(0.5).timeout
 
 func handle_connecting_signal() -> void:
 	settings.back_setting_menu.connect(on_back_setting_menu)
 	inventory.back_inventory_menu.connect(on_back_inventory)
-	warning_popup.back_popup_menu.connect(on_back_warningpopup)
+	warning_popup.option_selected.connect(on_back_warningpopup)
 
 ########
 # Buttons Interactions
@@ -139,6 +169,7 @@ func _on_items_pressed() -> void:
 
 func _on_leave_pressed() -> void:
 	menu_click.play()
+	warning_popup.title("title_warning_restarting_game","description_warning")
 	warningpopup()
 
 # Hover Sounds

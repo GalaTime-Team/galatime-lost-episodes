@@ -4,6 +4,8 @@ extends Control
 #Criaçaõ de variaveis para butões e etc
 @export var background: ColorRect
 @export var margin_container : MarginContainer
+@export var settings: Settings
+
 # Botões
 @export_category("Botões")
 @export var back_button: Button
@@ -46,6 +48,7 @@ const LANGUAGE_ARRAY : Array[String] = [
 ]
 signal back_setting_menu
 
+
 func _ready() -> void:
 	# Res items
 	add_window_mode_items()
@@ -69,6 +72,11 @@ func load_global_values() -> void:
 	
 	language_button.select(Global.language)
 	language_choice(Global.language)
+
+func remove_buttons_focus() -> void:
+	if settings.has_focus():
+		settings.release_focus()
+
 
 #####
 # Screen Resolution
@@ -143,6 +151,7 @@ func language_choice(index : int) -> void:
 
 # PRESSED
 func _on_back_pressed() -> void:
+	remove_buttons_focus()
 	back_setting_menu.emit()
 	menu_click.play()
 	set_process(false)
