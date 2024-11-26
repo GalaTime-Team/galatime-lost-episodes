@@ -169,7 +169,7 @@ func _on_items_pressed() -> void:
 
 func _on_leave_pressed() -> void:
 	menu_click.play()
-	warning_popup.title("title_warning_restarting_game","description_warning")
+	warning_popup.change_title("title_warning_restarting_game","description_warning")
 	warningpopup()
 
 # Hover Sounds

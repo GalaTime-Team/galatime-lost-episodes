@@ -30,7 +30,7 @@ func remove_buttons_focus() -> void:
 # AUX
 ########
 
-func title(title: String, description: String):
+func change_title(title: String, description: String):
 	warning_title.text = title
 	warning_description.text = description
 
