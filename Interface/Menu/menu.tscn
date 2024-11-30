@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cjeyypwuli88j"]
+[gd_scene load_steps=32 format=3 uid="uid://cjeyypwuli88j"]
 
 [ext_resource type="Script" path="res://Script/Menu/menu.gd" id="1_3kacm"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_a8m4p"]
@@ -28,6 +28,8 @@ shader = ExtResource("5_0hc1l")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h43l8"]
 shader = ExtResource("2_fidap")
 shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yptow"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufpx1"]
 
@@ -61,7 +63,7 @@ tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.133333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.143, 0.0]
@@ -91,7 +93,7 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6y6fk"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("menu", "shield", "play_button", "settings_button", "credits_button", "leave_button", "settings", "margin_container", "tela_creditos", "blur_animation", "warning_popup", "blur", "menu_click", "menu_hover")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("menu", "shield", "play_button", "continue_button", "settings_button", "credits_button", "leave_button", "settings", "margin_container", "tela_creditos", "blur_animation", "warning_popup", "blur", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +105,7 @@ script = ExtResource("1_3kacm")
 menu = NodePath(".")
 shield = NodePath("SHIELD protetor de todos os males")
 play_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play")
+continue_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Continue")
 settings_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings")
 credits_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Credits")
 leave_button = NodePath("MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Leave")
@@ -202,6 +205,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 20
+
+[node name="Continue" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yptow")
+text = "button_menu_continue"
+flat = true
 
 [node name="Play" type="Button" parent="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer" groups=["button"]]
 layout_mode = 2
@@ -313,6 +324,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6y6fk")
 
+[connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/MenuContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]

@@ -6,6 +6,7 @@ extends Control
 
 @export_category("Butões")
 @export var play_button: Button
+@export var continue_button: Button
 @export var settings_button: Button
 @export var credits_button: Button
 @export var leave_button: Button
@@ -25,6 +26,7 @@ extends Control
 
 var start_game = load("res://Interface/Play/parede_amarela.tscn")
 
+
 func _ready() -> void:
 	handle_connecting_signal()
 	margin_container.modulate.a = 0.0
@@ -38,6 +40,9 @@ func _ready() -> void:
 	tween.stop()
 	
 	entering_main_menu()
+	
+	if FileAccess.file_exists("user://savegame.data"):
+		continue_button.show()
 
 #####
 # AUX
@@ -118,6 +123,10 @@ func handle_connecting_signal() -> void:
 #####
 # Pressed Handeling
 #####
+
+func _on_continue_pressed() -> void:
+	SaveGame.load_game()
+	Global.mudar_sala(Global.sala_que_estamos)
 
 func _on_play_pressed() -> void:
 	remove_buttons_focus()
