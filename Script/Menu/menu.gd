@@ -195,7 +195,7 @@ func _on_leave_pressed() -> void:
 	#Blur
 	blur_animation.play("blur_on")
 	
-	warning_popup.title("title_warning_leaving","description_warning") # Qualquer dúvida em terminologias, visitar o .CSV
+	warning_popup.change_title("title_warning_leaving","description_warning") # Qualquer dúvida em terminologias, visitar o .CSV
 	warning_popup.entering_popup()
 
 #####
