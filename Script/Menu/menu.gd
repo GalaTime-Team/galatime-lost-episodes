@@ -41,7 +41,7 @@ func _ready() -> void:
 	
 	entering_main_menu()
 	
-	if FileAccess.file_exists("user://savegame.data"):
+	if FileAccess.file_exists("user://savegame.txt"):
 		continue_button.show()
 
 #####

@@ -22,7 +22,7 @@ config/icon="res://Asset/Images/GalaTime_game_logo_bg_logo.png"
 
 Global="*res://Script/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-SaveGame="*res://SaveGame.gd"
+SaveGame="*res://Script/save_game.gd"
 
 [dialogic]
 
