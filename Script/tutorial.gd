@@ -16,16 +16,16 @@ func _on_button_pressed() -> void: #se for clicado no botão ele vai desaparecen
 	menu_click.play()
 	
 	tutorial.modulate.a = 1.0
-	
+	blur.play("blur_off")
 	var tween = self.create_tween()
 	tween.tween_property(tutorial, "modulate:a", 0.0, 0.4)
 	await tween.finished
 	tween.stop()
-	
 	self.hide()
 
 func fade_in() -> void: #func para ao acabr o intro monologo e entrar na sala aparece o tutorial com o fade
 	tutorial.modulate.a = 0.0
+	blur.play("blur_on")
 	var tween = self.create_tween()
 	tween.tween_property(tutorial, "modulate:a", 1.0, 0.5)
 	self.show()

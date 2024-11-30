@@ -76,7 +76,7 @@ func open_pause_menu():
 	
 	# Animação
 	var tween = self.create_tween()
-	blur_animation.play("blur")
+	blur_animation.play("blur_on")
 	tween.tween_property(panel_container, "modulate:a", 1.0 ,0.2)
 	await tween.finished
 	shield.hide()
@@ -91,7 +91,7 @@ func resume_game():
 	
 	# Animação
 	var tween = self.create_tween()
-	blur_animation.play_backwards("blur")
+	blur_animation.play("blur_off")
 	tween.tween_property(panel_container, "modulate:a", 0.0 ,0.2)
 	await tween.finished
 	

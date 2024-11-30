@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh0mxh6j84uyu"]
+[gd_scene load_steps=19 format=3 uid="uid://bh0mxh6j84uyu"]
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4w7gp"]
@@ -15,72 +15,63 @@
 shader = ExtResource("1_2yy5q")
 shader_parameter/lod = 0.0
 
-[sub_resource type="Animation" id="Animation_qug0n"]
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.287]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0ygcc"]
-resource_name = "blur"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.287]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwwwp"]
-_data = {
-"RESET": SubResource("Animation_qug0n"),
-"blur": SubResource("Animation_0ygcc")
-}
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eg8fx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5rgf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1amm0"]
+
+[sub_resource type="Animation" id="Animation_npt0s"]
+resource_name = "blur_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.143]
+}
+
+[sub_resource type="Animation" id="Animation_ccctx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tf8ad"]
+resource_name = "blur_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.143, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qx6fv"]
+_data = {
+"RESET": SubResource("Animation_ccctx"),
+"blur_off": SubResource("Animation_tf8ad"),
+"blur_on": SubResource("Animation_npt0s")
+}
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("blur_animation", "shield", "pauseMenu", "settings", "inventory", "panel_container", "warning_popup", "menu_click", "menu_hover")]
 process_mode = 3
@@ -92,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4w7gp")
 script = ExtResource("1_kg1ct")
-blur_animation = NodePath("Blur Animation")
+blur_animation = NodePath("blur")
 shield = NodePath("SHIELD protetor de todos os males")
 pauseMenu = NodePath(".")
 settings = NodePath("Settings")
@@ -119,11 +110,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Blur Animation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xwwwp")
-}
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -220,6 +206,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1amm0")
+
+[node name="blur" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qx6fv")
+}
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]
