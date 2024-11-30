@@ -22,11 +22,24 @@ config/icon="res://Asset/Images/GalaTime_game_logo_bg_logo.png"
 
 Global="*res://Script/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SaveGame="*res://SaveGame.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"main_character": "res://Dialogue/main_character.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+}
+directories/dtl_directory={
+"intromonologue": "res://Dialogue/intromonologue.dtl",
+"parede_amarela": "res://Dialogue/parede_amarela.dtl",
+"parede_ciano": "res://Dialogue/parede_ciano.dtl",
+"parede_roxo": "res://Dialogue/parede_roxo.dtl",
+"parede_vazio": "res://Dialogue/parede_vazio.dtl",
+"parede_vermelha": "res://Dialogue/parede_vermelha.dtl",
+"porta": "res://Dialogue/porta.dtl",
+"sinal_exit": "res://Dialogue/sinal_exit.dtl"
+}
 layout/style_list=["res://Dialogue/DialogoTemplate.tres"]
 layout/default_style="res://Dialogue/DialogoTemplate.tres"
 variables={}

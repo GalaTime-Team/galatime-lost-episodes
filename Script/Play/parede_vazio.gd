@@ -17,3 +17,7 @@ func on_back_pause_menu() -> void:
 
 func handle_connecting_signal() -> void:
 	pause_menu.out_pause_menu.connect(on_back_pause_menu)
+
+func _on_button_pressed() -> void:
+	SaveGame.load_game()
+	print(Global.sala_que_estamos)

@@ -1,2 +1,11 @@
-extends Resource
-class_name SaveGame
+extends Node
+
+func save_game():
+	var file = FileAccess.open("user://savegame.data", FileAccess.WRITE)
+	file.store_string(Global.sala_que_estamos)
+	file.close()
+
+func load_game():
+	var file = FileAccess.open("user://savegame.data", FileAccess.READ)
+	Global.sala_que_estamos = file.get_as_text()
+	file.close()
