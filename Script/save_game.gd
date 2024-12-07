@@ -1,14 +1,38 @@
 extends Node
 
 func save_game():
-	var file = FileAccess.open("user://savegame.txt", FileAccess.WRITE)
-	file.store_string(Global.sala_que_estamos)
-	file.close()
+	
+	var game = {
+		"monologuecont": Global.monologuecont,
+		"puzzle1_complete": Global.puzzle1_complete,
+		"puzzle2_complete": Global.puzzle2_complete,
+		"sala_que_estamos": Global.sala_que_estamos
+	}
+	
+	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(game))
+		file.close()
+	else:
+		print("Erro ao salvar configurações.")
+
 
 func load_game():
-	var file = FileAccess.open("user://savegame.txt", FileAccess.READ)
-	Global.sala_que_estamos = file.get_as_text()
-	file.close()
+	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
+	if file:
+		var content_game = file.get_as_text()
+		file.close()
+		var game = JSON.parse_string(content_game)
+		if game:
+			Global.monologuecont = game.get("monologuecont", Global.monologuecont)
+			Global.puzzle1_complete = game.get("puzzle1_complete", Global.puzzle1_complete)
+			Global.puzzle2_complete = game.get("puzzle2_complete", Global.puzzle2_complete)
+			Global.sala_que_estamos = game.get("sala_que_estamos", Global.sala_que_estamos)
+		else:
+			print("Erro ao parsear configurações")
+	else:
+		print("Arquivo de configurações não encontrado ou erro ao abrir.")
+
 
 func save_settings():
 	# Criar um dicionário com os dados a serem salvos

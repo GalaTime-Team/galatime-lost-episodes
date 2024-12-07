@@ -51,28 +51,12 @@ const puzzle2_valores : Array = [
 	1 , 
 	0
 	]
-#####
-# Salvar as Configurações
-#####
 
-func save_settings():
-	var config = ConfigFile.new()
-	config.set_value("settings", "master_volume", master_volume)
-	config.set_value("settings", "music_volume", music_volume)
-	config.set_value("settings", "fullscreen", fullscreen)
-	config.save("user://settings.cfg")
-
-#####
-# Carregar as Configurações
-#####
-
-func load_settings():
-	var config = ConfigFile.new()
-	var err = config.load("user://settings.cfg")
-	if err == OK:
-		master_volume = config.get_value("settings", "master_volume", 0.5)
-		music_volume = config.get_value("settings", "music_volume", 0.5)
-		fullscreen = config.get_value("settings", "fullscreen", false)
+func new_game():
+	monologuecont = false
+	puzzle1_complete = false
+	puzzle2_complete = false
+	sala_que_estamos = "amarela"
 
 func cena_direcao(direcao : String) -> void:
 	var proxima_sala : String

@@ -28,6 +28,9 @@ var start_game = load("res://Interface/Play/parede_amarela.tscn")
 
 
 func _ready() -> void:
+	if FileAccess.file_exists("user://savegame.json"):
+		continue_button.show()
+		
 	handle_connecting_signal()
 	margin_container.modulate.a = 0.0
 	
@@ -40,9 +43,6 @@ func _ready() -> void:
 	tween.stop()
 	
 	entering_main_menu()
-	
-	if FileAccess.file_exists("user://savegame.txt"):
-		continue_button.show()
 
 #####
 # AUX
@@ -108,8 +108,10 @@ func leaving_warning_popup() -> void:
 	leave_button.grab_focus()
 
 func entering_main_menu() -> void:
+	var container = $MarginContainer/MenuContainer/HBoxContainer/VBoxContainer
 	await get_tree().create_timer(0.5).timeout
-	play_button.grab_focus()
+	var firstbutton = container.get_child(0)
+	firstbutton.grab_focus()
 
 #####
 # Back Signals
@@ -129,44 +131,13 @@ func _on_continue_pressed() -> void:
 	Global.mudar_sala(Global.sala_que_estamos)
 
 func _on_play_pressed() -> void:
+	Global.new_game()
 	remove_buttons_focus()
 	shield.show()
 	
 	# Som
 	menu_click.play()
 	
-	#Disabilitar os butões para não acessar durante o fade
-	play_button.mouse_entered.disconnect(_on_play_mouse_entered)
-	play_button.mouse_entered.disconnect(_on_play_pressed)
-	
-	settings_button.mouse_entered.disconnect(_on_settings_mouse_entered)
-	settings_button.mouse_entered.disconnect(_on_settings_pressed)
-	
-	credits_button.mouse_entered.disconnect(_on_credits_mouse_entered)
-	credits_button.mouse_entered.disconnect(_on_credits_pressed)
-	
-	leave_button.mouse_entered.disconnect(_on_leave_mouse_entered)
-	leave_button.mouse_entered.disconnect(_on_leave_pressed)
-	
-	var tween = self.create_tween()
-	# Hide Settings button
-	tween.tween_property(settings_button, "modulate:a", 0.0 ,0.5)
-	tween.tween_interval(1.0)
-
-	# Hide Credits button
-	tween.tween_property(credits_button,  "modulate:a", 0.0 ,0.5)
-	tween.tween_interval(1.0)
-
-	# Hide Leave button
-	tween.tween_property(leave_button,  "modulate:a", 0.0 ,0.5)
-	tween.tween_interval(1.0)
-
-	# Hide Play button
-	tween.tween_property(play_button,  "modulate:a", 0.0 ,0.5)
-	tween.tween_interval(1.0)
-
-	await tween.finished
-	tween.stop()
 	var _game: bool = get_tree().change_scene_to_packed(start_game)
 
 func _on_settings_pressed() -> void:

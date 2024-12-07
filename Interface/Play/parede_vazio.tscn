@@ -182,13 +182,6 @@ stream = ExtResource("21_1jmn3")
 volume_db = -12.0
 bus = &"Sfx"
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 174.0
-offset_right = 400.0
-offset_bottom = 272.0
-
 [connection signal="gui_input" from="Blocos de Ação/A_P_Vazio" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_vazio"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Exit_Sign" to="Blocos de Ação" method="_on_gui_input" binds= ["sinal_exit"]]
@@ -197,4 +190,3 @@ offset_bottom = 272.0
 [connection signal="pressed" from="Botões UI/Up_button" to="Botões UI" method="_on_pressed" binds= ["cima"]]
 [connection signal="pressed" from="Botões UI/Down_button" to="Botões UI" method="_on_pressed" binds= ["baixo"]]
 [connection signal="pressed" from="Botões UI/Settings_button" to="Botões UI" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
