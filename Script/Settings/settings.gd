@@ -13,6 +13,12 @@ extends Control
 @export var res_button: OptionButton
 @export var language_button: OptionButton
 
+# Botões
+@export_category("Audio")
+@export var master_value: HSlider
+@export var music_value: HSlider
+@export var sfx_value: HSlider
+
 # Language
 @onready var current_language = TranslationServer.get_locale()
 
@@ -50,6 +56,9 @@ signal back_setting_menu
 
 
 func _ready() -> void:
+	
+	SaveGame.load_settings()
+	
 	# Res items
 	add_window_mode_items()
 	add_res_mode_items()
@@ -64,11 +73,16 @@ func _process(_delta: float) -> void:
 	back_button_input()
 
 func load_global_values() -> void:
+	
 	res_button.select(Global.res_screen)
 	res_mode_choice(Global.res_screen)
 	
 	window_button.select(Global.fullscreen)
 	window_mode_choice(Global.fullscreen)
+	
+	master_value.value = Global.master_volume * 0.01
+	music_value.value = Global.music_volume * 0.01
+	sfx_value.value = Global.sfx_volume * 0.01
 	
 	language_button.select(Global.language)
 	language_choice(Global.language)
@@ -118,6 +132,15 @@ func window_mode_choice(index: int) -> void:
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
 #####
+# Volume
+#####
+
+func set_global_audio() -> void:
+	Global.master_volume = master_value.value * 100
+	Global.music_volume = music_value.value * 100
+	Global.sfx_volume = sfx_value.value * 100
+
+#####
 # Language
 #####
 
@@ -151,6 +174,10 @@ func language_choice(index : int) -> void:
 
 # PRESSED
 func _on_back_pressed() -> void:
+	set_global_audio()
+	
+	SaveGame.save_settings()
+	
 	remove_buttons_focus()
 	back_setting_menu.emit()
 	menu_click.play()

@@ -10,7 +10,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlru"]
 
-[node name="Settings" type="Control" node_paths=PackedStringArray("background", "margin_container", "settings", "back_button", "window_button", "res_button", "language_button", "menu_click", "menu_hover")]
+[node name="Settings" type="Control" node_paths=PackedStringArray("background", "margin_container", "settings", "back_button", "window_button", "res_button", "language_button", "master_value", "music_value", "sfx_value", "menu_click", "menu_hover")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +26,9 @@ back_button = NodePath("MarginContainer/Back")
 window_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button")
 res_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode/Res_button")
 language_button = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button")
+master_value = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val/HSlider")
+music_value = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val/HSlider")
+sfx_value = NodePath("MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val/HSlider")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
 
