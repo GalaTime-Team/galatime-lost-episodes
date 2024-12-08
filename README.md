@@ -5,10 +5,10 @@
 <h1 align="center"> GalaTime: Lost Episodes </h1>
 
 <p align="center">
-    <a href="https://godotengine.org" alt="Made with Godot">
-        <img src="https://img.shields.io/badge/Made%20with-Godot-478CBF?style=flat&logo=godot%20engine&logoColor=white" /></a>
-    <a href="https://github.com/GalaTime-Team/galatime-lost-episodes" alt="Latest Version">
-        <img src="https://img.shields.io/badge/version-V0.3.2-B984FF" /></a>
+	<a href="https://godotengine.org" alt="Made with Godot">
+		<img src="https://img.shields.io/badge/Made%20with-Godot-478CBF?style=flat&logo=godot%20engine&logoColor=white" /></a>
+	<a href="https://github.com/GalaTime-Team/galatime-lost-episodes" alt="Latest Version">
+		<img src="https://img.shields.io/badge/version-V0.3.3-B984FF" /></a>
 </p>
 
 
