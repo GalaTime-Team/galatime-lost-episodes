@@ -51,10 +51,11 @@ func _on_pressed(direcao: String) -> void:
 	Global.back_scene = true
 	
 	if direcao == "baixo":
-		print("heheheha")
-		Global.mudar_sala(Global.sala_que_estamos)
+		print("voltar")
+		# Mudar de Sala de volta para onde estavamos antes
 	else:
-		Global.cena_direcao(direcao)
+		print("mover")
+		# Mudar de Sala para uma das direções
 
 #########
 # Controlos

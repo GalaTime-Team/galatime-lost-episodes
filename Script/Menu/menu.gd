@@ -24,7 +24,7 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
-var start_game = load("res://Interface/Play/parede_amarela.tscn")
+var start_game = load("res://Interface/Play/cena_do_jogo.tscn")
 
 
 func _ready() -> void:
@@ -108,10 +108,11 @@ func leaving_warning_popup() -> void:
 	leave_button.grab_focus()
 
 func entering_main_menu() -> void:
-	var container = $MarginContainer/MenuContainer/HBoxContainer/VBoxContainer
 	await get_tree().create_timer(0.5).timeout
-	var firstbutton = container.get_child(0)
-	firstbutton.grab_focus()
+	if continue_button.visible:
+		continue_button.grab_focus()
+	else:
+		play_button.grab_focus()
 
 #####
 # Back Signals
@@ -128,7 +129,13 @@ func handle_connecting_signal() -> void:
 
 func _on_continue_pressed() -> void:
 	SaveGame.load_game()
-	Global.mudar_sala(Global.sala_que_estamos)
+	remove_buttons_focus()
+	shield.show()
+	
+	# Som
+	menu_click.play()
+	
+	get_tree().change_scene_to_packed(start_game)
 
 func _on_play_pressed() -> void:
 	Global.new_game()
@@ -138,7 +145,7 @@ func _on_play_pressed() -> void:
 	# Som
 	menu_click.play()
 	
-	var _game: bool = get_tree().change_scene_to_packed(start_game)
+	get_tree().change_scene_to_packed(start_game)
 
 func _on_settings_pressed() -> void:
 	# Som
