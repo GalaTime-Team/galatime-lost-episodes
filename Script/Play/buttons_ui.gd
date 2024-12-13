@@ -14,6 +14,8 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
+signal sinal_direcao(value)
+
 func _ready() -> void:
 	pass
 
@@ -52,9 +54,11 @@ func _on_pressed(direcao: String) -> void:
 	
 	if direcao == "baixo":
 		print("voltar")
+		emit_signal("sinal_direcao", direcao)
 		# Mudar de Sala de volta para onde estavamos antes
 	else:
 		print("mover")
+		emit_signal("sinal_direcao", direcao)
 		# Mudar de Sala para uma das direções
 
 #########

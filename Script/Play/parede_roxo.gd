@@ -5,7 +5,6 @@ extends Control
 
 func _ready() -> void:
 	handle_connecting_signal()
-	Global.sala_que_estamos = "roxo"
 	if Global.back_scene:
 		parede_roxo.modulate.a = 0.0
 		var tween = self.create_tween()

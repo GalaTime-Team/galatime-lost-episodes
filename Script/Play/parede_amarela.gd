@@ -17,7 +17,6 @@ func _ready() -> void:
 	if !Global.monologuecont:
 		on_intro_monologue()
 	handle_connecting_signal()
-	Global.sala_que_estamos = "amarela"
 
 	#fade para voltar para a sala amarela
 	if Global.back_scene:
