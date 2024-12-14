@@ -73,4 +73,8 @@ func load_settings():
 		else:
 			print("Erro ao parsear configurações")
 	else:
+		Global.master_volume = 50
+		Global.music_volume = 50
+		Global.sfx_volume = 50
+		Global.language = 0
 		print("Arquivo de configurações não encontrado ou erro ao abrir.")

@@ -24,9 +24,6 @@ signal out_pause_menu
 # AUX
 #####
 
-func initial_values():
-	panel_container.visible = false
-	panel_container.modulate.a = 0.0
 
 func remove_buttons_focus() -> void:
 	if pauseMenu.has_focus():
@@ -57,9 +54,7 @@ func fade(fades_out, fades_in) -> void:
 # Ready // Process
 #####
 
-func _ready() -> void:
-	initial_values()
-	
+func _ready() -> void:	
 	blur_animation.play("RESET")
 	
 	handle_connecting_signal()
@@ -70,9 +65,8 @@ func _ready() -> void:
 #####
 
 func open_pause_menu():
-	# Correr os valores iniciais de visão e visibilidade
-	initial_values()
-	panel_container.visible = true
+	panel_container.modulate.a = 0.0
+	panel_container.show()
 	
 	# Animação
 	var tween = self.create_tween()
@@ -81,12 +75,12 @@ func open_pause_menu():
 	await tween.finished
 	shield.hide()
 
-func resume_game():
+func resume_game_animation():
 	remove_buttons_focus()
 	shield.show()
 	
 	# Garantir Valores
-	panel_container.visible = true
+	panel_container.show()
 	panel_container.modulate.a = 1.0
 	
 	# Animação
@@ -95,7 +89,9 @@ func resume_game():
 	tween.tween_property(panel_container, "modulate:a", 0.0 ,0.2)
 	await tween.finished
 	
-	panel_container.visible = false
+	panel_container.hide()
+
+func resume_game():
 	out_pause_menu.emit()
 
 func options():
@@ -171,6 +167,9 @@ func _on_leave_pressed() -> void:
 	menu_click.play()
 	warning_popup.change_title("title_warning_restarting_game","description_warning")
 	warningpopup()
+
+func _on_texture_button_pressed() -> void:
+	resume_game()
 
 # Hover Sounds
 

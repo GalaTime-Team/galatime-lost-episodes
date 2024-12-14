@@ -8,7 +8,6 @@ extends Control
 
 @export_category("Controls")
 @export var pause_menu : PauseMenu
-@export var sala : Control
 
 @export_category("Sound")
 @export var menu_click: AudioStreamPlayer
@@ -17,7 +16,7 @@ extends Control
 signal sinal_direcao(value)
 
 func _ready() -> void:
-	pass
+	handling_signals()
 
 func _process(_delta: float) -> void:
 	direcao_pressionada()
@@ -25,12 +24,10 @@ func _process(_delta: float) -> void:
 
 func open_pause_menu() -> void:
 	if pause_menu.visible:
-		pause_menu.resume_game()
+		pause_menu.resume_game_animation()
+		pause_menu.set_process(false)
 		
-		var tween = self.create_tween()
-		tween.tween_interval(0.2)
-		await tween.finished
-		tween.stop()
+		await get_tree().create_timer(0.3).timeout
 		
 		pause_menu.hide()
 	elif !pause_menu.visible:
@@ -43,23 +40,15 @@ func _on_settings_button_pressed() -> void:
 	open_pause_menu()
 
 func _on_pressed(direcao: String) -> void:
-	sala.modulate.a = 1.0
-	
-	var tween = self.create_tween()
-	tween.tween_interval(0.2)
-	tween.tween_property(sala , "modulate:a" , 0.0 , 0.2)
-	await tween.finished
-	
-	Global.back_scene = true
-	
 	if direcao == "baixo":
-		print("voltar")
 		emit_signal("sinal_direcao", direcao)
 		# Mudar de Sala de volta para onde estavamos antes
 	else:
-		print("mover")
 		emit_signal("sinal_direcao", direcao)
 		# Mudar de Sala para uma das direções
+
+func handling_signals() -> void:
+	pause_menu.out_pause_menu.connect(open_pause_menu)
 
 #########
 # Controlos
@@ -82,7 +71,6 @@ func direcao_pressionada():
 func esc_pressionado():
 	if Input.is_action_just_pressed("escape"):
 		open_pause_menu()
-
 
 func _on_settings_button_mouse_entered() -> void:
 	menu_hover.play()

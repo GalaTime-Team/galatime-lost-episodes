@@ -1,29 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2240hci0ybkv"]
+[gd_scene load_steps=6 format=3 uid="uid://c2240hci0ybkv"]
 
-[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Buttons/Left/left_buttton.png" id="1_2wc2n"]
 [ext_resource type="Script" path="res://Script/Play/parede_ciano.gd" id="1_kjc76"]
 [ext_resource type="Texture2D" uid="uid://ypew13wupckn" path="res://Asset/Images/Rooms/ciano.png" id="2_qqpna"]
-[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/Buttons/Right/right_button.png" id="2_sq77e"]
 [ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_jlfia"]
-[ext_resource type="Script" path="res://Script/Play/buttons_ui.gd" id="3_nec17"]
-[ext_resource type="Texture2D" uid="uid://ci3uqohia53l0" path="res://Asset/Images/Buttons/Up/up_button.png" id="3_v01s3"]
-[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="4_tm3kh"]
-[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="5_gove6"]
-[ext_resource type="Texture2D" uid="uid://nvy7vswb4nlv" path="res://Asset/Images/Buttons/Left/left_buttton_pressed.png" id="5_jwpml"]
-[ext_resource type="Texture2D" uid="uid://nptenjqy6sec" path="res://Asset/Images/Buttons/Left/left_buttton_hover.png" id="6_rot7w"]
-[ext_resource type="Texture2D" uid="uid://b6eyqkdbrivjh" path="res://Asset/Images/Buttons/Right/right_button_pressed.png" id="8_shxok"]
-[ext_resource type="Texture2D" uid="uid://ce0yf13hjuy21" path="res://Asset/Images/Buttons/Right/right_button_hover.png" id="9_q8bmf"]
-[ext_resource type="Texture2D" uid="uid://d3vqtuhyq8im2" path="res://Asset/Images/Buttons/Up/up_button_pressed.png" id="11_qtn3r"]
-[ext_resource type="Texture2D" uid="uid://6lvaa1symvbp" path="res://Asset/Images/Buttons/Up/up_button_hover.png" id="12_pcaou"]
-[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="13_6r77r"]
-[ext_resource type="Texture2D" uid="uid://mnkr0it3uu7" path="res://Asset/Images/Buttons/Down/down_button_pressed.png" id="14_5ym1e"]
-[ext_resource type="Texture2D" uid="uid://dkg4xq1n4p871" path="res://Asset/Images/Buttons/Down/down_button_hover.png" id="15_m70hj"]
-[ext_resource type="Texture2D" uid="uid://bimjqy7ador4j" path="res://Asset/Images/Buttons/Settings/settings_button_pressed.png" id="17_vm806"]
-[ext_resource type="Texture2D" uid="uid://coetpa8lufxrr" path="res://Asset/Images/Buttons/Settings/settings_button_hover.png" id="18_4iu5j"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_twmwp"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_evhdb"]
 
-[node name="ParedeCiano" type="Control" node_paths=PackedStringArray("parede_ciano", "pause_menu")]
+[node name="ParedeCiano" type="Control" node_paths=PackedStringArray("parede_ciano")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjc76")
 parede_ciano = NodePath(".")
-pause_menu = NodePath("PauseMenu")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -77,92 +59,6 @@ offset_top = 399.0
 offset_right = 894.0
 offset_bottom = 589.0
 
-[node name="Botões UI" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button", "up_button", "down_button", "pause_menu", "sala", "menu_click", "menu_hover")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("3_nec17")
-left_button = NodePath("Left_button")
-right_button = NodePath("Right_button")
-up_button = NodePath("Up_button")
-down_button = NodePath("Down_button")
-pause_menu = NodePath("../PauseMenu")
-sala = NodePath("..")
-menu_click = NodePath("../s_menu_click")
-menu_hover = NodePath("../s_menu_hover")
-
-[node name="Left_button" type="TextureButton" parent="Botões UI"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 64.0
-grow_vertical = 2
-texture_normal = ExtResource("1_2wc2n")
-texture_pressed = ExtResource("5_jwpml")
-texture_hover = ExtResource("6_rot7w")
-stretch_mode = 3
-
-[node name="Right_button" type="TextureButton" parent="Botões UI"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -64.0
-grow_horizontal = 0
-grow_vertical = 2
-texture_normal = ExtResource("2_sq77e")
-texture_pressed = ExtResource("8_shxok")
-texture_hover = ExtResource("9_q8bmf")
-stretch_mode = 3
-
-[node name="Up_button" type="TextureButton" parent="Botões UI"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 64.0
-grow_horizontal = 2
-texture_normal = ExtResource("3_v01s3")
-texture_pressed = ExtResource("11_qtn3r")
-texture_hover = ExtResource("12_pcaou")
-stretch_mode = 3
-
-[node name="Down_button" type="TextureButton" parent="Botões UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -64.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("13_6r77r")
-texture_pressed = ExtResource("14_5ym1e")
-texture_hover = ExtResource("15_m70hj")
-stretch_mode = 3
-
-[node name="Settings_button" type="TextureButton" parent="Botões UI"]
-layout_mode = 0
-offset_left = 1787.0
-offset_top = 43.0
-offset_right = 1882.0
-offset_bottom = 140.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-texture_normal = ExtResource("5_gove6")
-texture_pressed = ExtResource("17_vm806")
-texture_hover = ExtResource("18_4iu5j")
-
-[node name="PauseMenu" parent="." instance=ExtResource("4_tm3kh")]
-visible = false
-layout_mode = 1
-size_flags_horizontal = 4
-
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_evhdb")
 bus = &"Sfx"
@@ -175,8 +71,3 @@ bus = &"Sfx"
 [connection signal="gui_input" from="Blocos de Ação/A_P_Ciano" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_ciano"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Botões UI/Left_button" to="Botões UI" method="_on_pressed" binds= ["esquerda"]]
-[connection signal="pressed" from="Botões UI/Right_button" to="Botões UI" method="_on_pressed" binds= ["direita"]]
-[connection signal="pressed" from="Botões UI/Up_button" to="Botões UI" method="_on_pressed" binds= ["cima"]]
-[connection signal="pressed" from="Botões UI/Down_button" to="Botões UI" method="_on_pressed" binds= ["baixo"]]
-[connection signal="pressed" from="Botões UI/Settings_button" to="Botões UI" method="_on_settings_button_pressed"]

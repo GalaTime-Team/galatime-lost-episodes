@@ -7,7 +7,6 @@ extends Control
 @export var parede_amarela : Control
 @export var sala: MarginContainer
 @export var intro_monologue: IntroMonologue
-@export var pause_menu: PauseMenu
 @export var tutorial: Tutorial
 #########
 # READY/PROCESS
@@ -17,15 +16,8 @@ func _ready() -> void:
 	if !Global.monologuecont:
 		on_intro_monologue()
 	handle_connecting_signal()
-
-	#fade para voltar para a sala amarela
-	if Global.back_scene:
-		parede_amarela.modulate.a = 0.0
-		var tween = self.create_tween()
-		tween.tween_interval(0.2)
-		tween.tween_property(parede_amarela , "modulate:a" , 1.0 , 0.2)
-		tween.tween_interval(0.2)
-		Global.back_scene = false
+	
+	parede_amarela.modulate.a = 1.0
 
 ########
 # Monologue
@@ -42,13 +34,6 @@ func on_intro_monologue() -> void:
 
 func handle_connecting_signal() -> void:
 	intro_monologue.back_dialog.connect(end_of_dialogue)
-	pause_menu.out_pause_menu.connect(on_back_pause_menu)
-#######
-# button pause_menu
-#######
-
-func on_back_pause_menu() -> void:
-	pause_menu.hide()
 
 #######
 # EO Dialogue

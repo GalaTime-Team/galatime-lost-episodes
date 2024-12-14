@@ -5,12 +5,6 @@ extends Control
 
 func _ready() -> void:
 	handle_connecting_signal()
-	if Global.back_scene:
-		sala.modulate.a = 0.0
-		var tween = self.create_tween()
-		tween.tween_interval(0.2)
-		tween.tween_property(sala , "modulate:a" , 1.0 , 0.2)
-		await tween.finished
 
 func _process(_delta: float) -> void:
 	testEsc()

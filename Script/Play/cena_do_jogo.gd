@@ -23,8 +23,8 @@ const change_room_dictionary : Dictionary = {
 }
 
 func _ready() -> void:
-	Global.sala_que_estamos = "amarela"
 	handling_signal()
+	parede_visivel(Global.sala_que_estamos)
 
 func parede_visivel(parede: String) -> void:
 	match parede:

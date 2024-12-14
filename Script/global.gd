@@ -21,18 +21,17 @@ var language: int = 0 # English
 # AUX
 #####
 var monologuecont: bool = false #Já apresentou o monologo?
-var back_scene: bool = false #Está a transitar?
 
 #########
 # Puzzles
 #########
-var puzzle1_complete: bool = false #Foi Compleot?
+var puzzle1_complete: bool = false #Foi Completo?
 const puzzle1_valores : Array = [
 	4 , 
 	5 , 
 	1
 	]
-var puzzle2_complete: bool = false #Foi Compleot?
+var puzzle2_complete: bool = false #Foi Completo?
 const puzzle2_valores : Array = [
 	6 , 
 	1 , 

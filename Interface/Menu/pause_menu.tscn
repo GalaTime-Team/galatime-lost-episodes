@@ -112,7 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -120,58 +120,62 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = -220.0
-offset_bottom = 4.0
+offset_left = -307.0
+offset_top = -163.5
+offset_right = 307.0
+offset_bottom = 163.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 theme_override_styles/panel = ExtResource("3_cywrt")
 
 [node name="Pause_Menu_Container" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 
 [node name="Title" type="Label" parent="PanelContainer/Pause_Menu_Container"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_sex7x")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 text = "title_menu"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="PanelContainer/Pause_Menu_Container"]
+[node name="Pause_Menu_Buttons" type="VBoxContainer" parent="PanelContainer/Pause_Menu_Container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_resume"
 flat = true
 
-[node name="Options" type="Button" parent="PanelContainer/Pause_Menu_Container"]
+[node name="Options" type="Button" parent="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_settings"
 flat = true
 
-[node name="Items" type="Button" parent="PanelContainer/Pause_Menu_Container"]
+[node name="Items" type="Button" parent="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l5rgf")
 text = "title_inventory"
 flat = true
 
-[node name="Leave" type="Button" parent="PanelContainer/Pause_Menu_Container"]
+[node name="Leave" type="Button" parent="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8fx")
 text = "button_menu_leave"
 flat = true
@@ -213,11 +217,11 @@ libraries = {
 }
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_mouse_entered"]
-[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Resume" to="." method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_mouse_entered"]
-[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Options" to="." method="_on_options_pressed"]
-[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Items" to="." method="_on_items_mouse_entered"]
-[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Items" to="." method="_on_items_pressed"]
-[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_mouse_entered"]
-[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Leave" to="." method="_on_leave_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Items" to="." method="_on_items_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Items" to="." method="_on_items_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Leave" to="." method="_on_leave_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/Pause_Menu_Container/Pause_Menu_Buttons/Leave" to="." method="_on_leave_pressed"]

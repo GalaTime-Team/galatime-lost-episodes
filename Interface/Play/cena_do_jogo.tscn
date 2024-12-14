@@ -26,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="19_bvb2b"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="20_eso77"]
 
-[node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI")]
+[node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI", "esquerda", "direita", "cima", "baixo")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +40,10 @@ parede_ciano = NodePath("Cenas/ParedeCiano")
 parede_roxo = NodePath("Cenas/ParedeRoxo")
 parede_vazio = NodePath("Cenas/ParedeVazio")
 botao_UI = NodePath("Botões UI")
+esquerda = NodePath("Botões UI/Left_button")
+direita = NodePath("Botões UI/Right_button")
+cima = NodePath("Botões UI/Up_button")
+baixo = NodePath("Botões UI/Down_button")
 
 [node name="Cenas" type="Control" parent="."]
 layout_mode = 1
@@ -51,6 +55,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ParedeAmarela" parent="Cenas" instance=ExtResource("2_egcot")]
+visible = false
 layout_mode = 1
 
 [node name="ParedeVermelha" parent="Cenas" instance=ExtResource("3_fg2ha")]
@@ -69,7 +74,7 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="Botões UI" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button", "up_button", "down_button", "pause_menu", "sala", "menu_click", "menu_hover")]
+[node name="Botões UI" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button", "up_button", "down_button", "pause_menu", "menu_click", "menu_hover")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,7 +88,6 @@ right_button = NodePath("Right_button")
 up_button = NodePath("Up_button")
 down_button = NodePath("Down_button")
 pause_menu = NodePath("../PauseMenu")
-sala = NodePath("../Cenas")
 menu_click = NodePath("../s_menu_click")
 menu_hover = NodePath("../s_menu_hover")
 
@@ -154,6 +158,11 @@ texture_hover = ExtResource("17_p4fck")
 visible = false
 layout_mode = 1
 size_flags_horizontal = 4
+
+[node name="Eventos" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_bvb2b")
