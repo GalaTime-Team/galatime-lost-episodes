@@ -1,83 +1,83 @@
 key,pt_PT,en,ja,ko
 button_menu_play,Novo Jogo,New Game,ニューゲーム,새로운 게임
 button_menu_continue,Continuar,Continue,続きから,계속하십시오
-button_menu_settings,Opções,Options,オプション,옵션들
-button_menu_credits,Créditos,Credits,クレジット
-button_menu_leave,Sair,Exit,出口
-button_menu_back,Voltar,Back,戻る
-button_menu_resume,Retomar,Resume,再開する
-title_menu,Menu,Menu,メニュー
-title_settings,Menu de Opções,Options Menu,オプション
-title_settings_screen_resolution,Resolução da Tela,Screen Resolution,画面解像度
-label_settings_window_mode,Modo da Janela,Window Mode,ウィンドウモード
-label_settings_resolution_mode,Resolução,Resolution Mode,解像度モード
-title_settings_volume,Volume,Volume,音量
-label_settings_master_volume,Geral,Master,マスター
-label_settings_music_volume,Música,Music,音楽
-label_settings_sound_effects,Efeitos Sonoros,Sound Effects,効果音
-title_settings_language,Idioma,Language,言語
-label_settings_language,Idioma Selecionado,Selected Language,選択された言語
-title_credits,Créditos,Credits,クレジット
-title_credits_gamedev,Desenvolvimento do Jogo,Game Development,ゲーム開発
-subtitle_credits_gamedev_main,Desenvolvedores Principais,Main Developers,"メイン開発者 "
+button_menu_settings,Opções,Options,オプション,옵션
+button_menu_credits,Créditos,Credits,クレジット,크레딧
+button_menu_leave,Sair,Exit,出口,종료
+button_menu_back,Voltar,Back,戻る,뒤로
+button_menu_resume,Retomar,Resume,再開する,계속
+title_menu,Menu,Menu,メニュー,메뉴
+title_settings,Menu de Opções,Options Menu,オプション,옵션 메뉴
+title_settings_screen_resolution,Resolução da Tela,Screen Resolution,画面解像度,화면 해상도
+label_settings_window_mode,Modo da Janela,Window Mode,ウィンドウモード,창 모드
+label_settings_resolution_mode,Resolução,Resolution Mode,解像度モード,화면 해상도
+title_settings_volume,Volume,Volume,音量,볼륨
+label_settings_master_volume,Geral,Master,マスター,전체
+label_settings_music_volume,Música,Music,音楽,음악
+label_settings_sound_effects,Efeitos Sonoros,Sound Effects,効果音,효과음
+title_settings_language,Idioma,Language,言語,언어
+label_settings_language,Idioma Selecionado,Selected Language,選択された言語,선택된 언어
+title_credits,Créditos,Credits,クレジット,크레딧
+title_credits_gamedev,Desenvolvimento do Jogo,Game Development,ゲーム開発,게임 개발
+subtitle_credits_gamedev_main,Desenvolvedores Principais,Main Developers,"メイン開発者 ",주요 개발자
 label_credits_gamedev_main,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
-subtitle_credits_gamedev_mechanics,Designers de Mecânicas de Jogo,Game Mechanics Designers,"ゲームメカニクスデザイナー "
+subtitle_credits_gamedev_mechanics,Designers de Mecânicas de Jogo,Game Mechanics Designers,"ゲームメカニクスデザイナー ",게임 메커닉 디자이너
 label_credits_gamedev_mechanics,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
-subtitle_credits_gamedev_dev,Programadores,Developers,"開発者 "
+subtitle_credits_gamedev_dev,Programadores,Developers,"開発者 ",프로그래머
 label_credits_gamedev_dev,"Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel"
-title_credits_design,Design & Arte,Design & Art,デザインとアート
-subtitle_credits_design_art,Direção de Arte,Art Director,アートディレクター
+title_credits_design,Design & Arte,Design & Art,デザインとアート,디자인 & 아트
+subtitle_credits_design_art,Direção de Arte,Art Director,アートディレクター,아트 디렉션
 label_credits_design_art,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
-subtitle_credits_design_scenario,Design de Cenários,Scenario Designer,シナリオデザイナー
+subtitle_credits_design_scenario,Design de Cenários,Scenario Designer,シナリオデザイナー,배경 디자인
 label_credits_design_scenario,"Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu"
-title_credits_music,Música & Som,Music & Sound,音楽とサウンド
-subtitle_credits_music_composer,Compositor,"Composer ","作曲家 "
+title_credits_music,Música & Som,Music & Sound,音楽とサウンド,음악 & 사운드
+subtitle_credits_music_composer,Compositor,"Composer ","作曲家 ",작곡가
 label_credits_music_composer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ),Sérgio Gabriel (니히우)
-subtitle_credits_music_producer,Produtor,"Producer ","プロデューサー "
+subtitle_credits_music_producer,Produtor,"Producer ","プロデューサー ",프로듀서
 label_credits_music_producer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ),Sérgio Gabriel (니히우)
-title_credits_narrative,Narrativa,Narrative,ナレーション
-subtitle_credits_narrative_screenwriter,Escritor,"Screenwriter ","脚本家 "
+title_credits_narrative,Narrativa,Narrative,ナレーション,서사
+subtitle_credits_narrative_screenwriter,Escritor,"Screenwriter ","脚本家 ",작가
 label_credits_narrative_screenwriter,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
-subtitle_credits_narrative_dialogues,Diálogos,"Dialogues ","セリフ "
+subtitle_credits_narrative_dialogues,Diálogos,"Dialogues ","セリフ ",대화
 label_credits_narrative_dialogues,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
-title_credits_tests,Testes & Feedback,Testing & Feedback,テストとフィードバック
-subtitle_credits_tests_testers,Testadores,Testers,"テスター "
-label_credits_tests_testers,"João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV"
-label_credits_license,"Jogo desenvolvido por GT Team, licenciado sob a licença Creative Commons Atribuição 4.0 Internacional (CC BY-NC 4.0).","Game developed by GT Team, licensed under the Creative Commons Attribution 4.0 International License (CC BY-NC 4.0).",このゲームは GT チームによって開発され、Creative Commons Attribution 4.0 International License (CC BY-NC 4.0) に基づいてライセンスされています。
-title_warning_leaving,Pretende sair do jogo?,Do you want to exit the game?,ゲームを終了しますか？
-description_warning,"Todo o progresso não salvo será perdido. ",All unsaved progress will be lost.,保存されていない進行状況は失われます。
-label_warning_leaving_yes,Sim,Yes,はい
-label_warning_leaving_no,Não,No,いいえ
-monologue_intro_otherworld_1,A noite tem uma forma de engolir tudo.,The night has a way of swallowing everything.,夜はすべてを飲み込むようだ。
-monologue_intro_otherworld_2,"Na sua plenitude, até o vento move-se...","In its stillness, even the wind moves...",静寂の中では、風さえも...
-monologue_intro_otherworld_3,lentamente.,slower.,ゆっくりと流れている。
-monologue_intro_otherworld_4,Tem algo...,"There’s something... ",何か...
-monologue_intro_otherworld_5,intemporal sobre ele.,timeless about it.,時間を超越したものがある。
-monologue_intro_otherworld_6,"Estrelas cintilam, distantes e indiferentes.","Stars flicker, distant and indifferent.",星がまたたく、遠くて無関心なように。
-monologue_intro_otherworld_7,O tipo de indiferença que te dá espaço para pensar.,The kind of indifference that gives you space to think.,その無関心さが、考える余地を与えてくれる。
-monologue_intro_otherworld_8,Para respirar.,To breathe.,息をつくための空間を。
-monologue_intro_otherworld_9,"É reconfortante, assim silencioso.","It’s comforting, that quiet.",その静けさは心地よい。
-monologue_intro_otherworld_10,"Aqui, nada espera qualquer coisa de mim.",Nothing expects anything from me here.,ここでは、何も私に期待していない。
-monologue_intro_otherworld_11,Nem a noite,Not the night,夜も
-monologue_intro_otherworld_11 -1,"Nem a noite, nem as estrelas...","Not the night, not the stars...",夜も、星も...
-monologue_intro_otherworld_12,...,...,...
-monologue_intro_otherworld_13,Mas algo parece errado...,But something feels off...,でも、何かがおかしい...
-monologue_intro_otherworld_14,O ar muda.,The air changes.,空気が変わった。
-monologue_intro_otherworld_15,Está mais quente.,It’s hotter.,熱くなっている。
-monologue_intro_otherworld_16,Consigo ouvir os estalos...,"I can hear the cracking... ",パチパチという音が聞こえる...
-monologue_intro_otherworld_17,"Na distância... um brilho. Suave no início, depois mais nítido.","In the distance... a glow. Soft at first, then sharper.",遠くで...光が見える。最初は柔らかく、だんだん鋭くなっていく。
-monologue_intro_otherworld_18,"E mesmo assim, não deveria estar lá.","And yet, it shouldn’t be there.",それでも、そこにあるはずがないのに。
-monologue_intro_otherworld_19,Aquela casa...,That house...,あの家...
-monologue_intro_otherworld_20,De quem é que é?,Whose is it again?,誰の家だっけ？
-monologue_intro_room_1,Espera-,Wait-,待って——
-monologue_intro_room_2,Eu-...,I-...,私...
-monologue_intro_room_3,...,...,...
-monologue_intro_room_4,Onde é que estou?,Where am I?,ここはどこだ？
-tutorial_intro_buttons_left,Botão Esquerdo,Left Mouse Button,マウスの左ボタン
-tutorial_intro_buttons_right,Botão Direito,Right Mouse Button,マウスの右ボタン
-tutorial_intro_buttons_info_left,Interagir com objetos,Interact with objects,オブジェクトを操作する
-tutorial_intro_buttons_info_right,Obter informação,Get information,情報を取得する
-tutorial_intro_confirm,Confirmar,Confirm,確認する
-title_inventory,Itens,Items,アイテム
-title_inventory_items_collected,Itens Coletados,Items Collected,収集アイテム
-title_warning_restarting_game,Deseja retornar ao menu?,Do you want to return to the menu?,メニューに戻りますか？
+title_credits_tests,Testes & Feedback,Testing & Feedback,テストとフィードバック,테스트 & 피드백
+subtitle_credits_tests_testers,Testadores,Testers,"テスター ",테스터
+label_credits_tests_testers,"João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV"
+label_credits_license,"Jogo desenvolvido por GT Team, licenciado sob a licença Creative Commons Atribuição 4.0 Internacional (CC BY-NC 4.0).","Game developed by GT Team, licensed under the Creative Commons Attribution 4.0 International License (CC BY-NC 4.0).",このゲームは GT チームによって開発され、Creative Commons Attribution 4.0 International License (CC BY-NC 4.0) に基づいてライセンスされています。,"GT Team 개발한 게임, Creative Commons 저작자표시 4.0 국제 라이선스(CC BY-NC 4.0) 하에 라이센스됨."
+title_warning_leaving,Pretende sair do jogo?,Do you want to exit the game?,ゲームを終了しますか？,게임을 종료하시겠습니까?
+description_warning,"Todo o progresso não salvo será perdido. ",All unsaved progress will be lost.,保存されていない進行状況は失われます。,저장되지 않은 모든 진행 상황이 사라집니다.
+label_warning_leaving_yes,Sim,Yes,はい,네
+label_warning_leaving_no,Não,No,いいえ,아니요
+monologue_intro_otherworld_1,A noite tem uma forma de engolir tudo.,The night has a way of swallowing everything.,夜はすべてを飲み込むようだ。,밤은 모든 것을 삼키는 방식이 있다.
+monologue_intro_otherworld_2,"Na sua plenitude, até o vento move-se...","In its stillness, even the wind moves...",静寂の中では、風さえも...,"그 완전함 속에서, 바람조차 움직인다..."
+monologue_intro_otherworld_3,lentamente.,slower.,ゆっくりと流れている。,천천히.
+monologue_intro_otherworld_4,Tem algo...,"There’s something... ",何か...,그것은...
+monologue_intro_otherworld_5,intemporal sobre ele.,timeless about it.,時間を超越したものがある。,시간을 초월하는 뭔가가 있다.
+monologue_intro_otherworld_6,"Estrelas cintilam, distantes e indiferentes.","Stars flicker, distant and indifferent.",星がまたたく、遠くて無関心なように。,"별들은 멀리서 반짝이며, 무관심하게 빛난다."
+monologue_intro_otherworld_7,O tipo de indiferença que te dá espaço para pensar.,The kind of indifference that gives you space to think.,その無関心さが、考える余地を与えてくれる。,그 무관심은 네가 생각할 공간을 준다.
+monologue_intro_otherworld_8,Para respirar.,To breathe.,息をつくための空間を。,숨 쉴 공간을.
+monologue_intro_otherworld_9,"É reconfortante, assim silencioso.","It’s comforting, that quiet.",その静けさは心地よい。,조용히 그렇게 위로가 된다.
+monologue_intro_otherworld_10,"Aqui, nada espera qualquer coisa de mim.",Nothing expects anything from me here.,ここでは、何も私に期待していない。,여기서는 아무것도 나에게 기대하지 않는다.
+monologue_intro_otherworld_11,Nem a noite,Not the night,夜も,"밤도,"
+monologue_intro_otherworld_11 -1,"Nem a noite, nem as estrelas...","Not the night, not the stars...",夜も、星も...,별들도...
+monologue_intro_otherworld_12,...,...,...,...
+monologue_intro_otherworld_13,Mas algo parece errado...,But something feels off...,でも、何かがおかしい...,하지만 뭔가 잘못된 것 같아...
+monologue_intro_otherworld_14,O ar muda.,The air changes.,空気が変わった。,공기가 변한다.
+monologue_intro_otherworld_15,Está mais quente.,It’s hotter.,熱くなっている。,더워졌다.
+monologue_intro_otherworld_16,Consigo ouvir os estalos...,"I can hear the cracking... ",パチパチという音が聞こえる...,소리가 들린다...
+monologue_intro_otherworld_17,"Na distância... um brilho. Suave no início, depois mais nítido.","In the distance... a glow. Soft at first, then sharper.",遠くで...光が見える。最初は柔らかく、だんだん鋭くなっていく。,멀리서... 빛이 보인다. 처음엔 희미하다가 점점 더 뚜렷해진다.
+monologue_intro_otherworld_18,"E mesmo assim, não deveria estar lá.","And yet, it shouldn’t be there.",それでも、そこにあるはずがないのに。,"그리고 그럼에도 불구하고, 그것은 거기에 있을 이유가 없다."
+monologue_intro_otherworld_19,Aquela casa...,That house...,あの家...,그 집...
+monologue_intro_otherworld_20,De quem é que é?,Whose is it again?,誰の家だっけ？,이건 누구의 집이지?
+monologue_intro_room_1,Espera-,Wait-,待って——,잠깐...
+monologue_intro_room_2,Eu-...,I-...,私...,나...
+monologue_intro_room_3,...,...,...,...
+monologue_intro_room_4,Onde é que estou?,Where am I?,ここはどこだ？,나는 어디에 있는 거지?
+tutorial_intro_buttons_left,Botão Esquerdo,Left Mouse Button,マウスの左ボタン,왼쪽 버튼
+tutorial_intro_buttons_right,Botão Direito,Right Mouse Button,マウスの右ボタン,오른쪽 버튼
+tutorial_intro_buttons_info_left,Interagir com objetos,Interact with objects,オブジェクトを操作する,객체와 상호작용
+tutorial_intro_buttons_info_right,Obter informação,Get information,情報を取得する,정보 얻기
+tutorial_intro_confirm,Confirmar,Confirm,確認する,확인
+title_inventory,Itens,Items,アイテム,아이템
+title_inventory_items_collected,Itens Coletados,Items Collected,収集アイテム,수집한 아이템
+title_warning_restarting_game,Deseja retornar ao menu?,Do you want to return to the menu?,メニューに戻りますか？,메뉴로 돌아가시겠습니까?
