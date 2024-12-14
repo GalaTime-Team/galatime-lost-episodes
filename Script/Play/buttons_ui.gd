@@ -19,8 +19,9 @@ func _ready() -> void:
 	handling_signals()
 
 func _process(_delta: float) -> void:
-	direcao_pressionada()
-	esc_pressionado()
+	if Global.monologuecont:
+		direcao_pressionada()
+		esc_pressionado()
 
 func open_pause_menu() -> void:
 	if pause_menu.visible:
@@ -55,17 +56,13 @@ func handling_signals() -> void:
 #########
 
 func direcao_pressionada():
-	if Input.is_action_just_pressed("esquerda"):
-		if left_button.visible:
+	if Input.is_action_just_pressed("esquerda") and left_button.visible:
 			_on_pressed("esquerda")
-	elif Input.is_action_just_pressed("direita"):
-		if right_button.visible:
+	elif Input.is_action_just_pressed("direita") and right_button.visible:
 			_on_pressed("direita")
-	elif Input.is_action_just_pressed("cima"):
-		if up_button.visible:
+	elif Input.is_action_just_pressed("cima") and up_button.visible:
 			_on_pressed("cima")
-	elif Input.is_action_just_pressed("afastar"):
-		if down_button.visible:
+	elif Input.is_action_just_pressed("afastar") and down_button.visible:
 			_on_pressed("baixo")
 
 func esc_pressionado():

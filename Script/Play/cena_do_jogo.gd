@@ -15,6 +15,10 @@ extends Control
 @export var cima: TextureButton
 @export var baixo: TextureButton
 
+@export_category("Eventos")
+@export var intro_monologue: IntroMonologue
+@export var tutorial: Tutorial
+
 const change_room_dictionary : Dictionary = {
 	"amarela" : ["vermelha" , "ciano"],
 	"vermelha" : ["roxo" , "amarela"],
@@ -23,8 +27,32 @@ const change_room_dictionary : Dictionary = {
 }
 
 func _ready() -> void:
+	if not Global.monologuecont:
+		on_intro_monologue()
 	handling_signal()
 	parede_visivel(Global.sala_que_estamos)
+	
+########
+# Monologue
+########
+
+func on_intro_monologue() -> void:
+	# Visualizar
+	intro_monologue.set_process(true)
+	intro_monologue.show()  # Ensure it's visible when starting
+
+func end_of_dialogue() -> void:
+	opening_eyes_animation()
+
+func opening_eyes_animation() -> void:
+	intro_monologue.modulate.a = 1.0
+	var tween = self.create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_property(intro_monologue, "modulate:a", 0.0, 1.5)
+	await tween.finished
+	intro_monologue.hide()
+	tutorial.fade_in()
+
 
 func parede_visivel(parede: String) -> void:
 	match parede:
@@ -58,6 +86,7 @@ func parede_esconder(parede: String) -> void:
 
 func handling_signal() -> void:
 	botao_UI.sinal_direcao.connect(mudar_sala)
+	intro_monologue.back_dialog.connect(end_of_dialogue)
 
 func mudar_sala(direcao: String) -> void:
 	match direcao:

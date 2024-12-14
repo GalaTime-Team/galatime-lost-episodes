@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bskk7jcy343dy"]
+[gd_scene load_steps=28 format=3 uid="uid://bskk7jcy343dy"]
 
 [ext_resource type="Script" path="res://Script/Play/cena_do_jogo.gd" id="1_f5iqy"]
 [ext_resource type="Script" path="res://Script/Play/buttons_ui.gd" id="2_6jm3x"]
@@ -25,8 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="18_rab8g"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="19_bvb2b"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="20_eso77"]
+[ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="24_42m31"]
+[ext_resource type="PackedScene" uid="uid://dkxppq23ra6tb" path="res://Interface/tutorial.tscn" id="25_0evab"]
 
-[node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI", "esquerda", "direita", "cima", "baixo")]
+[node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI", "esquerda", "direita", "cima", "baixo", "intro_monologue", "tutorial")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,6 +46,8 @@ esquerda = NodePath("Botões UI/Left_button")
 direita = NodePath("Botões UI/Right_button")
 cima = NodePath("Botões UI/Up_button")
 baixo = NodePath("Botões UI/Down_button")
+intro_monologue = NodePath("Eventos/IntroMonologue")
+tutorial = NodePath("Eventos/Tutorial")
 
 [node name="Cenas" type="Control" parent="."]
 layout_mode = 1
@@ -160,9 +164,21 @@ layout_mode = 1
 size_flags_horizontal = 4
 
 [node name="Eventos" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="IntroMonologue" parent="Eventos" instance=ExtResource("24_42m31")]
+visible = false
+layout_mode = 1
+
+[node name="Tutorial" parent="Eventos" instance=ExtResource("25_0evab")]
+visible = false
+layout_mode = 1
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_bvb2b")

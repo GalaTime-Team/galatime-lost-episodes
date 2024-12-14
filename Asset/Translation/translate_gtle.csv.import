@@ -6,10 +6,10 @@ uid="uid://dp78wgij08t8e"
 
 [deps]
 
-files=["res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation"]
+files=["res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.ko.translation"]
 
 source_file="res://Asset/Translation/translate_gtle.csv"
-dest_files=["res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation"]
+dest_files=["res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.ko.translation"]
 
 [params]
 

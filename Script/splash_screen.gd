@@ -15,6 +15,9 @@ extends Control
 func _ready() -> void:
 	fade()
 
+func _process(_delta: float) -> void:
+	controlo_skip_splash_screen()
+
 #######
 # fade
 #######
@@ -28,4 +31,14 @@ func fade() -> void:
 	tween.tween_property(splash_screen, "modulate:a", 1.0 , fade_out_time) #fazer transparecer a imgem
 	tween.tween_interval(out_time) #intervalos
 	await tween.finished
+	abrir_menu()
+
+func abrir_menu():
 	get_tree().change_scene_to_packed(load_scene)
+
+#############
+# Controlos #
+#############
+func controlo_skip_splash_screen():
+	if Input.is_action_just_pressed("ui_accept"):
+		abrir_menu()

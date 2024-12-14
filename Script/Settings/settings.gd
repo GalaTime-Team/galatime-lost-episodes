@@ -50,7 +50,8 @@ const WINDOW_MODE_ARRAY : Array[String] = [
 const LANGUAGE_ARRAY : Array[String] = [
 	"English",
 	"Português",
-	"日本語"
+	"日本語",
+	"한국어"
 ]
 signal back_setting_menu
 

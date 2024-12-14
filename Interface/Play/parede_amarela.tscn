@@ -1,14 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvt7jwu5k1gth"]
+[gd_scene load_steps=6 format=3 uid="uid://dvt7jwu5k1gth"]
 
 [ext_resource type="Script" path="res://Script/Play/parede_amarela.gd" id="1_ittwj"]
 [ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="2_0mjqf"]
-[ext_resource type="PackedScene" uid="uid://cq1unn8f3h8b7" path="res://Interface/intro_monologue.tscn" id="2_1v5dy"]
 [ext_resource type="Texture2D" uid="uid://dh7pei48pldue" path="res://Asset/Images/Rooms/amarela.png" id="2_7djhk"]
-[ext_resource type="PackedScene" uid="uid://dkxppq23ra6tb" path="res://Interface/tutorial.tscn" id="12_d1itp"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="23_ldprf"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="24_0sbyt"]
 
-[node name="ParedeAmarela" type="Control" node_paths=PackedStringArray("parede_amarela", "sala", "intro_monologue", "tutorial")]
+[node name="ParedeAmarela" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,10 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ittwj")
-parede_amarela = NodePath(".")
-sala = NodePath(".")
-intro_monologue = NodePath("IntroMonologue")
-tutorial = NodePath("Tutorial")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -52,14 +46,6 @@ offset_top = 144.0
 offset_right = 675.0
 offset_bottom = 963.0
 color = Color(1, 1, 1, 0)
-
-[node name="IntroMonologue" parent="." instance=ExtResource("2_1v5dy")]
-visible = false
-layout_mode = 1
-
-[node name="Tutorial" parent="." instance=ExtResource("12_d1itp")]
-visible = false
-layout_mode = 1
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_0sbyt")

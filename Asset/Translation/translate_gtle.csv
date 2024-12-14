@@ -1,7 +1,7 @@
-key,pt_PT,en,ja
-button_menu_play,Novo Jogo,New Game,ニューゲーム
-button_menu_continue,Continuar,Continue,続きから
-button_menu_settings,Opções,Options,オプション
+key,pt_PT,en,ja,ko
+button_menu_play,Novo Jogo,New Game,ニューゲーム,새로운 게임
+button_menu_continue,Continuar,Continue,続きから,계속하십시오
+button_menu_settings,Opções,Options,オプション,옵션들
 button_menu_credits,Créditos,Credits,クレジット
 button_menu_leave,Sair,Exit,出口
 button_menu_back,Voltar,Back,戻る
@@ -20,26 +20,26 @@ label_settings_language,Idioma Selecionado,Selected Language,選択された言�
 title_credits,Créditos,Credits,クレジット
 title_credits_gamedev,Desenvolvimento do Jogo,Game Development,ゲーム開発
 subtitle_credits_gamedev_main,Desenvolvedores Principais,Main Developers,"メイン開発者 "
-label_credits_gamedev_main,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
+label_credits_gamedev_main,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
 subtitle_credits_gamedev_mechanics,Designers de Mecânicas de Jogo,Game Mechanics Designers,"ゲームメカニクスデザイナー "
-label_credits_gamedev_mechanics,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
+label_credits_gamedev_mechanics,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
 subtitle_credits_gamedev_dev,Programadores,Developers,"開発者 "
-label_credits_gamedev_dev,"Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel"
+label_credits_gamedev_dev,"Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel","Artur Bazavlyak, Matheus Abreu, Sérgio Gabriel"
 title_credits_design,Design & Arte,Design & Art,デザインとアート
 subtitle_credits_design_art,Direção de Arte,Art Director,アートディレクター
-label_credits_design_art,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
+label_credits_design_art,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel,Sérgio Gabriel
 subtitle_credits_design_scenario,Design de Cenários,Scenario Designer,シナリオデザイナー
-label_credits_design_scenario,"Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu"
+label_credits_design_scenario,"Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu","Sérgio Gabriel, Matheus Abreu"
 title_credits_music,Música & Som,Music & Sound,音楽とサウンド
 subtitle_credits_music_composer,Compositor,"Composer ","作曲家 "
-label_credits_music_composer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ)
+label_credits_music_composer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ),Sérgio Gabriel (니히우)
 subtitle_credits_music_producer,Produtor,"Producer ","プロデューサー "
-label_credits_music_producer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ)
+label_credits_music_producer,Sérgio Gabriel (Nihhiu),Sérgio Gabriel (Nihhiu),Sérgio Gabriel (ニヒウ),Sérgio Gabriel (니히우)
 title_credits_narrative,Narrativa,Narrative,ナレーション
 subtitle_credits_narrative_screenwriter,Escritor,"Screenwriter ","脚本家 "
-label_credits_narrative_screenwriter,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
+label_credits_narrative_screenwriter,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
 subtitle_credits_narrative_dialogues,Diálogos,"Dialogues ","セリフ "
-label_credits_narrative_dialogues,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
+label_credits_narrative_dialogues,"Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak","Sérgio Gabriel, Artur Bazavlyak"
 title_credits_tests,Testes & Feedback,Testing & Feedback,テストとフィードバック
 subtitle_credits_tests_testers,Testadores,Testers,"テスター "
 label_credits_tests_testers,"João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV","João Maranhão, Gonçalo Fonte, Alaska, CCV"

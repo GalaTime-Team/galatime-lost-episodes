@@ -164,7 +164,7 @@ inventory={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.pt_PT.translation")
+locale/translations=PackedStringArray("res://Asset/Translation/translate_gtle.en.translation", "res://Asset/Translation/translate_gtle.ja.translation", "res://Asset/Translation/translate_gtle.pt_PT.translation", "res://Asset/Translation/translate_gtle.ko.translation")
 locale/test="en"
 
 [rendering]

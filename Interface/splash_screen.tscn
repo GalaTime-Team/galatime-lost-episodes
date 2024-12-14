@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Script/splash_screen.gd" id="1_uk6ju"]
 [ext_resource type="PackedScene" uid="uid://cjeyypwuli88j" path="res://Interface/Menu/menu.tscn" id="2_qwd8x"]
 
-[node name="Control2" type="Control" node_paths=PackedStringArray("splash_screen")]
+[node name="Splash_Screen" type="Control" node_paths=PackedStringArray("splash_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,9 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uk6ju")
 load_scene = ExtResource("2_qwd8x")
-splash_screen = NodePath("ColorRect/CR_on_logo")
+splash_screen = NodePath("CR_on_logo")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Cor_Fundo" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_vertical = 2
 color = Color(0.72549, 0.72549, 0.72549, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+[node name="CenterContainer" type="CenterContainer" parent="Cor_Fundo"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,11 +34,11 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/CenterContainer"]
+[node name="Logotipo" type="TextureRect" parent="Cor_Fundo/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("1_tw2xo")
 
-[node name="CR_on_logo" type="ColorRect" parent="ColorRect"]
+[node name="CR_on_logo" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

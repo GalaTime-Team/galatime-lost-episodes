@@ -22,6 +22,7 @@ func _on_button_pressed() -> void: #se for clicado no botão ele vai desaparecen
 	await tween.finished
 	tween.stop()
 	self.hide()
+	Global.monologuecont = true
 
 func fade_in() -> void: #func para ao acabr o intro monologo e entrar na sala aparece o tutorial com o fade
 	tutorial.modulate.a = 0.0
