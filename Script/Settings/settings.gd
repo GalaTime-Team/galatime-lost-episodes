@@ -168,6 +168,9 @@ func language_choice(index : int) -> void:
 		2: #日本語
 			TranslationServer.set_locale("ja")
 			current_language = "ja"
+		3: #한국어
+			TranslationServer.set_locale("ko")
+			current_language = "ko"
 
 #####
 # Back Button
