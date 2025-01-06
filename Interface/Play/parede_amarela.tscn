@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="23_ldprf"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="24_0sbyt"]
 
-[node name="ParedeAmarela" type="Control"]
+[node name="ParedeAmarela" type="Control" node_paths=PackedStringArray("item")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ittwj")
+item = NodePath("Blocos de Ação/Item")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -47,6 +48,13 @@ offset_right = 675.0
 offset_bottom = 963.0
 color = Color(1, 1, 1, 0)
 
+[node name="Item" type="Button" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 502.0
+offset_right = 1217.0
+offset_bottom = 591.0
+
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_0sbyt")
 bus = &"Sfx"
@@ -58,3 +66,4 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_amarela"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
+[connection signal="pressed" from="Blocos de Ação/Item" to="." method="_on_item_pressed"]

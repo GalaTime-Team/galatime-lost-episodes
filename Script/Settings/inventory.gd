@@ -4,6 +4,7 @@ extends Control
 @export var background: ColorRect
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
+@export var blcoDeAcao: blocoDeAcao
 
 signal back_inventory_menu
 
@@ -15,6 +16,8 @@ func _on_back_pressed() -> void:
 	back_inventory_menu.emit()
 	set_process(false)
 
-
 func _on_back_mouse_entered() -> void:
 	menu_hover.play()
+
+func handle_connecting_signal() -> void:
+	pass

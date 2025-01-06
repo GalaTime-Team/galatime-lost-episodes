@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://crihnhawawd20"]
+[gd_scene load_steps=8 format=3 uid="uid://crihnhawawd20"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4ten3"]
 [ext_resource type="Script" path="res://Script/Settings/inventory.gd" id="2_emxd4"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_oe77v"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_3r02v"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_8jqwh"]
+[ext_resource type="PackedScene" uid="uid://dvt7jwu5k1gth" path="res://Interface/Play/parede_amarela.tscn" id="6_tv0nq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
@@ -79,6 +80,10 @@ bus = &"Sfx"
 stream = ExtResource("5_8jqwh")
 volume_db = -12.0
 bus = &"Sfx"
+
+[node name="ParedeAmarela" parent="." instance=ExtResource("6_tv0nq")]
+visible = false
+layout_mode = 1
 
 [connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
