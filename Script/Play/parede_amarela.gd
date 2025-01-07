@@ -10,10 +10,12 @@ extends Control
 signal item_pressed
 
 func _ready() -> void:
-	pass
+	if Global.item_coletado:
+		item.hide()
 
 func _on_item_pressed() -> void:
 	item_pressed.emit()
 	item.hide()
+	Global.item_coletado = true
 	print("guardou")
 	set_process(false)

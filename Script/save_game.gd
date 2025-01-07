@@ -6,7 +6,8 @@ func save_game():
 		"monologuecont": Global.monologuecont,
 		"puzzle1_complete": Global.puzzle1_complete,
 		"puzzle2_complete": Global.puzzle2_complete,
-		"sala_que_estamos": Global.sala_que_estamos
+		"sala_que_estamos": Global.sala_que_estamos,
+		"item_coletado": Global.item_coletado
 	}
 	
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
@@ -28,6 +29,7 @@ func load_game():
 			Global.puzzle1_complete = game.get("puzzle1_complete", Global.puzzle1_complete)
 			Global.puzzle2_complete = game.get("puzzle2_complete", Global.puzzle2_complete)
 			Global.sala_que_estamos = game.get("sala_que_estamos", Global.sala_que_estamos)
+			Global.item_coletado = game.get("item_coletado", Global.item_coletado)
 		else:
 			print("Erro ao parsear configurações")
 	else:

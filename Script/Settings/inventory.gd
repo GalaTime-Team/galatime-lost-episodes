@@ -6,9 +6,15 @@ extends Control
 @export var menu_hover: AudioStreamPlayer
 @export var paredeAmarela : ParedeAmarela
 
+const itemColection: Dictionary = { 
+	"nome_item": "Chave", 
+	"descricao_item": "123" 
+}
+
 signal back_inventory_menu
 
 func _ready() -> void:
+	handle_connecting_signal()
 	set_process(false)
 
 func _on_back_pressed() -> void:
@@ -20,10 +26,8 @@ func _on_back_mouse_entered() -> void:
 	menu_hover.play()
 
 func existe_item() -> void:
-	var button = Button.new()
-	button.text = "item"
-	print("funfa ou nao?")
-	add_child(button)
+	print(itemColection["nome_item"])
+	print(itemColection["descricao_item"])
 	set_process(true)
 
 func handle_connecting_signal() -> void:

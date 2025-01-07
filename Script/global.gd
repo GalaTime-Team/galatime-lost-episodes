@@ -38,6 +38,11 @@ const puzzle2_valores : Array = [
 	0
 	]
 
+#########
+# item
+#########
+var item_coletado: bool = false
+
 func new_game():
 	monologuecont = false
 	puzzle1_complete = false

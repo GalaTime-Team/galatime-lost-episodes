@@ -54,7 +54,7 @@ func fade(fades_out, fades_in) -> void:
 # Ready // Process
 #####
 
-func _ready() -> void:	
+func _ready() -> void:
 	blur_animation.play("RESET")
 	
 	handle_connecting_signal()
