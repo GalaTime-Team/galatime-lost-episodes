@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "paredeAmarela")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ script = ExtResource("2_emxd4")
 background = NodePath("background")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
+paredeAmarela = NodePath("ParedeAmarela")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
