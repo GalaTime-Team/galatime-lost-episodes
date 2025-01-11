@@ -107,6 +107,8 @@ func options():
 func items():
 	inventory.set_process(true)
 	
+	inventory.listaritem()
+	
 	fade(panel_container, inventory)
 
 func warningpopup():

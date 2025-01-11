@@ -41,7 +41,10 @@ const puzzle2_valores : Array = [
 #########
 # item
 #########
-var item_coletado: bool = false
+var inventario : Dictionary
+
+func item_guardados(chave,nome,descricao):
+	inventario[chave] = {"nome" : nome , "descricao" : descricao}
 
 func new_game():
 	monologuecont = false
