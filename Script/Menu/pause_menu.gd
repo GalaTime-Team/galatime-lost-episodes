@@ -108,6 +108,8 @@ func items():
 	inventory.set_process(true)
 	
 	inventory.listaritem()
+	inventory.buscarChave()
+	inventory.listarItemCard()
 	
 	fade(panel_container, inventory)
 

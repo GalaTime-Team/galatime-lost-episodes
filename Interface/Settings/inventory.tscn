@@ -8,7 +8,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem", "itemCard")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ background = NodePath("background")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
 listadeitem = NodePath("MarginContainer/Conteudo/Inventario/Lista de Item")
+itemCard = NodePath("MarginContainer/Conteudo/Inventario/ItemCard")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -66,9 +67,12 @@ theme_override_constants/separation = 20
 [node name="Inventario" type="HBoxContainer" parent="MarginContainer/Conteudo"]
 layout_mode = 2
 
-[node name="Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
+[node name="ItemCard" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Proximo" type="Button" parent="MarginContainer/Conteudo/Inventario"]
+layout_mode = 2
 
 [node name="Lista de Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
