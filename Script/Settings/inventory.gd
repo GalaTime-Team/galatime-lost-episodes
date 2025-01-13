@@ -6,6 +6,10 @@ extends Control
 @export var menu_hover: AudioStreamPlayer
 @export var listadeitem : VBoxContainer
 @export var itemCard : VBoxContainer
+@export var Anterior : Button
+@export var Proximo : Button
+@export var scrolllista : VScrollBar
+@export var ItemImage : TextureRect
 
 var chavesArray : Array = []
 var interacao : int = 0
@@ -28,6 +32,11 @@ func listaritem() -> void:
 		var itemNome = Label.new()
 		itemNome.text = "Item: " + item.nome
 		listadeitem.add_child(itemNome)
+		
+		# Cria um Label para o descrição
+		var itemdescricao = Label.new()
+		itemdescricao.text = "Item: " + item.descricao
+		itemCard.add_child(itemdescricao)
 
 func _on_back_pressed() -> void:
 	menu_click.play()
@@ -52,16 +61,19 @@ func listarItemCard() -> void:
 	var item = Global.inventario[chavesArray[interacao]]
 	
 	# Cria um Label para o nome
-	var itemNome = Label.new()
-	itemNome.text = "Item: " + item.nome
-	itemCard.add_child(itemNome)
-	
-	# Cria um Label para o descrição
-	var itemdescricao = Label.new()
-	itemdescricao.text = "Item: " + item.descricao
-	itemCard.add_child(itemdescricao)
+	ItemImage = item.imagem
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
 		vbox.remove_child(child)
 		child.queue_free()
+
+################################
+#Voltar e ir para o próximo item
+################################
+
+func _on_anterior_pressed() -> void:
+	anteriorInteracao()
+
+func _on_proximo_pressed() -> void:
+	proximaInteracao()
