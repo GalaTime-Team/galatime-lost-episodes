@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Script/Play/buttonConfirm.gd" id="7_go0q6"]
 [ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="8_or2aw"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala")]
+[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala", "chave")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_e02fr")
 pause_menu = NodePath("CanvasLayer/PauseMenu")
 sala = NodePath(".")
+chave = NodePath("Chave")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -133,7 +134,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 
-[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo4" node_paths=PackedStringArray("b1", "b2", "b3", "puzzle_complet")]
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo4" node_paths=PackedStringArray("b1", "b2", "b3", "chave", "puzzle_complet")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Button_Confirmar"
@@ -141,11 +142,20 @@ script = ExtResource("7_go0q6")
 b1 = NodePath("../../VBox_codigo1/Button")
 b2 = NodePath("../../VBox_codigo2/Button")
 b3 = NodePath("../../VBox_codigo3/Button")
+chave = NodePath("../../../../../Chave")
 puzzle_complet = NodePath("../../../../../s_puzzle_complet")
 
 [node name="s_puzzle_complet" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_or2aw")
 bus = &"Sfx"
+
+[node name="Chave" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 875.0
+offset_top = 703.0
+offset_right = 1001.0
+offset_bottom = 752.0
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="down_button" to="down_button" method="_on_pressed"]
@@ -153,3 +163,4 @@ bus = &"Sfx"
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo2/Button" to="Control" method="_on_button2_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo3/Button" to="Control" method="_on_button3_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo4/Button" to="Control/PanelContainer/HBoxContainer/VBox_codigo4/Button" method="_on_pressed"]
+[connection signal="pressed" from="Chave" to="." method="_on_chave_pressed"]

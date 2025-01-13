@@ -39,9 +39,10 @@ const puzzle2_valores : Array = [
 	]
 
 #########
-# item
+# inventario e itens
 #########
 var inventario : Dictionary
+var chaveColetado : bool = false
 
 func item_guardados(chave,nome,descricao):
 	inventario[chave] = {"nome" : nome , "descricao" : descricao}

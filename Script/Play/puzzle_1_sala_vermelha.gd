@@ -2,15 +2,13 @@ extends Control
 
 @export var pause_menu : PauseMenu
 @export var sala : Control
+@export var chave : Button
 
 func _ready() -> void:
+	if Global.chaveColetado:
+		chave.hide()
+	set_process(false)
 	handle_connecting_signal()
-	if Global.back_scene:
-		sala.modulate.a = 0.0
-		var tween = self.create_tween()
-		tween.tween_interval(0.2)
-		tween.tween_property(sala , "modulate:a" , 1.0 , 0.2)
-		await tween.finished
 
 func _process(_delta: float) -> void:
 	testEsc()
@@ -37,3 +35,8 @@ func _on_texture_button_pressed() -> void:
 func testEsc():
 	if Input.is_action_just_pressed("escape"):
 		_on_texture_button_pressed()
+
+func _on_chave_pressed() -> void:
+	self.hide()
+	Global.chaveColetado = true
+	Global.item_guardados("item_1","item parede amarela","chave feita de metal mas com um pouco de ferrugem")

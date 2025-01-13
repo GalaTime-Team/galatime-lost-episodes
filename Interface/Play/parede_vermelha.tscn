@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://y1eent0c6lpn"]
+[gd_scene load_steps=8 format=3 uid="uid://y1eent0c6lpn"]
 
 [ext_resource type="Script" path="res://Script/Play/parede_vermelha.gd" id="1_p7nsk"]
 [ext_resource type="Texture2D" uid="uid://33abaxiafk1n" path="res://Asset/Images/Rooms/vermelha.png" id="2_g5q26"]
 [ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_8sfge"]
+[ext_resource type="PackedScene" uid="uid://bv5tlliig3k4j" path="res://Interface/Play/puzzle1-Sala_vermelha.tscn" id="7_urvro"]
 [ext_resource type="Script" path="res://Script/Play/button_resultado.gd" id="10_6u36w"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="22_ihhro"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="23_x0s6f"]
@@ -73,6 +74,10 @@ bus = &"Sfx"
 stream = ExtResource("22_ihhro")
 volume_db = -12.0
 bus = &"Sfx"
+
+[node name="puzzle1-Sala_vermelha" parent="." instance=ExtResource("7_urvro")]
+visible = false
+layout_mode = 1
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_vermelha"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]

@@ -8,5 +8,4 @@ func _ready() -> void:
 	pass
 
 func _on_button_pressed() -> void:
-	pass
-	# get_tree().change_scene_to_packed(puzzle2)
+	get_tree().change_scene_to_packed(puzzle2)

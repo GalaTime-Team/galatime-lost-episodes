@@ -68,7 +68,7 @@ func _ready() -> void:
 	
 	load_global_values()
 	
-	set_process(false) #processo feito para cosneguir voltar ao menu e ter as informações
+	set_process(false) #processo feito para conseguir voltar ao menu e ter as informações
 
 func _process(_delta: float) -> void:
 	back_button_input()
