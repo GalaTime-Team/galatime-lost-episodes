@@ -43,9 +43,9 @@ const puzzle2_valores : Array = [
 #########
 var inventario : Dictionary
 
-func item_guardados(chave,nome,descricao,imagem):
-	inventario[chave] = {"nome" : nome , "descricao" : descricao, "imagem" : imagem}
-
+func item_guardados(chave,nome,descricao,imagem_path):
+	inventario[chave] = {"nome" : nome , "descricao" : descricao, "imagem" : imagem_path}
+	
 func new_game():
 	monologuecont = false
 	puzzle1_complete = false

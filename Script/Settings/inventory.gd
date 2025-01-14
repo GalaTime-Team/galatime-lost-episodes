@@ -35,8 +35,8 @@ func listaritem() -> void:
 		
 		# Cria um Label para o descrição
 		var itemdescricao = Label.new()
-		itemdescricao.text = "Item: " + item.descricao
-		itemCard.add_child(itemdescricao)
+		itemdescricao.text = "Descrição: " + item.descricao
+		listadeitem.add_child(itemdescricao)
 
 func _on_back_pressed() -> void:
 	menu_click.play()
@@ -60,8 +60,15 @@ func listarItemCard() -> void:
 	
 	var item = Global.inventario[chavesArray[interacao]]
 	
-	# Cria um Label para o nome
-	ItemImage = item.imagem
+	var texture = load(item["imagem"])
+	if texture:
+		print("Textura carregada:", item["imagem"])
+		ItemImage.texture = texture
+	
+	else:
+		print("Erro: Não foi possível carregar a textura para o caminho:", item["imagem"])
+	
+
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
