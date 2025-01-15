@@ -2,5 +2,5 @@ extends Button
 
 
 func _ready() -> void:
-	if Global.puzzle1_complete == true:
+	if Global.puzzles["puzzle1"]["completo"]:
 		self.visible = true

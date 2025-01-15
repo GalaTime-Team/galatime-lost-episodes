@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://y1eent0c6lpn"]
+[gd_scene load_steps=7 format=3 uid="uid://y1eent0c6lpn"]
 
-[ext_resource type="Script" path="res://Script/Play/parede_vermelha.gd" id="1_p7nsk"]
+[ext_resource type="Script" path="res://Script/Play/Salas/parede_vermelha.gd" id="1_p7nsk"]
 [ext_resource type="Texture2D" uid="uid://33abaxiafk1n" path="res://Asset/Images/Rooms/vermelha.png" id="2_g5q26"]
-[ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_8sfge"]
-[ext_resource type="PackedScene" uid="uid://bv5tlliig3k4j" path="res://Interface/Play/puzzle1-Sala_vermelha.tscn" id="7_urvro"]
-[ext_resource type="Script" path="res://Script/Play/button_resultado.gd" id="10_6u36w"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_8sfge"]
+[ext_resource type="Script" path="res://Script/Play/Objetos/button_resultado.gd" id="10_6u36w"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="22_ihhro"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="23_x0s6f"]
 
-[node name="ParedeVermelha" type="Control" node_paths=PackedStringArray("parede_vermelha")]
+[node name="ParedeVermelha" type="Control" node_paths=PackedStringArray("parede_vermelha", "objetos_controler")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p7nsk")
 parede_vermelha = NodePath(".")
+objetos_controler = NodePath("Objetos")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -66,6 +66,15 @@ offset_right = 903.0
 offset_bottom = 374.0
 script = ExtResource("10_6u36w")
 
+[node name="Objetos" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_x0s6f")
 bus = &"Sfx"
@@ -75,10 +84,6 @@ stream = ExtResource("22_ihhro")
 volume_db = -12.0
 bus = &"Sfx"
 
-[node name="puzzle1-Sala_vermelha" parent="." instance=ExtResource("7_urvro")]
-visible = false
-layout_mode = 1
-
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_vermelha"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Button_Puzzle1" to="." method="_on_box_button_pressed"]
+[connection signal="pressed" from="Button_Puzzle1" to="." method="_on_box_button_pressed" binds= ["puzzle1"]]

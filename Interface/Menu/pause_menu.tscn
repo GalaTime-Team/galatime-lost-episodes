@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_2yy5q"]
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4w7gp"]
-[ext_resource type="Script" path="res://Script/Menu/pause_menu.gd" id="1_kg1ct"]
+[ext_resource type="Script" path="res://Script/Pause Game/pause_menu.gd" id="1_kg1ct"]
 [ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://Dialogue/VisualNovelTextbox/vn_textbox_default_panel.tres" id="3_cywrt"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="4_sex7x"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="6_7bnbr"]

@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt470qm1pwj78"]
+[gd_scene load_steps=5 format=3 uid="uid://dt470qm1pwj78"]
 
-[ext_resource type="Script" path="res://Script/Play/puzzle_2_sala_azul.gd" id="1_4mu7a"]
-[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="1_xfby6"]
-[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="2_wnpu7"]
-[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="3_howfc"]
-[ext_resource type="Script" path="res://Script/Play/down_button.gd" id="4_in8eg"]
-[ext_resource type="Script" path="res://Script/Play/Puzzle2.gd" id="6_8e4kf"]
+[ext_resource type="Script" path="res://Script/Play/Salas/Objetos/puzzle_2_sala_azul.gd" id="1_4mu7a"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/buttonPlus.gd" id="2_ufmtt"]
 [ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="7_cecyx"]
 [ext_resource type="Script" path="res://script/Play/confirmPuzzle2.gd" id="7_v3ime"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala")]
+[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala", "puzzle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,8 +13,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4mu7a")
-pause_menu = NodePath("CanvasLayer/PauseMenu")
+pause_menu = NodePath("")
 sala = NodePath(".")
+puzzle = NodePath("Control")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,47 +29,14 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0.67451, 0.831373, 0.839216, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_xfby6")]
-visible = false
-size_flags_horizontal = 4
-
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1787.0
-offset_top = 43.0
-offset_right = 1882.0
-offset_bottom = 140.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-texture_normal = ExtResource("2_wnpu7")
-
-[node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -54.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("3_howfc")
-stretch_mode = 3
-script = ExtResource("4_in8eg")
-sala = NodePath("..")
-
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("b1", "b2", "b3")]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1302.0
 offset_top = 229.0
 offset_right = 1302.0
 offset_bottom = 843.0
-script = ExtResource("6_8e4kf")
-b1 = NodePath("PanelContainer/HBoxContainer/VBox_codigo1/Button")
-b2 = NodePath("PanelContainer/HBoxContainer/VBox_codigo2/Button")
-b3 = NodePath("PanelContainer/HBoxContainer/VBox_codigo3/Button")
+script = ExtResource("2_ufmtt")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -147,8 +111,6 @@ puzzle_complet = NodePath("../../../../../s_puzzle_complet")
 stream = ExtResource("7_cecyx")
 bus = &"Sfx"
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="down_button" to="down_button" method="_on_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo1/Button" to="Control" method="_on_button1_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo2/Button" to="Control" method="_on_button2_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo3/Button" to="Control" method="_on_button3_pressed"]

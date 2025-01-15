@@ -6,7 +6,6 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	blur.play("RESET")
 	set_process(false)
@@ -24,7 +23,7 @@ func _on_button_pressed() -> void: #se for clicado no botão ele vai desaparecen
 	self.hide()
 	Global.monologuecont = true
 
-func fade_in() -> void: #func para ao acabr o intro monologo e entrar na sala aparece o tutorial com o fade
+func fade_in() -> void: #func para ao acabar o monologo e entrar na sala aparece o tutorial com o fade
 	tutorial.modulate.a = 0.0
 	blur.play("blur_on")
 	var tween = self.create_tween()

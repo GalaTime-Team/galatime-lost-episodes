@@ -20,18 +20,18 @@ extends Control
 @export var tutorial: Tutorial
 
 const change_room_dictionary : Dictionary = {
-	"amarela" : ["vermelha" , "ciano"],
-	"vermelha" : ["roxo" , "amarela"],
-	"ciano" : ["amarela" , "roxo"],
-	"roxo" : ["ciano" , "vermelha"]
+	"amarela" : {"esquerda": "vermelha" ,"direita": "ciano", "cima": "vazio"},
+	"vermelha" : {"esquerda": "roxo" ,"direita": "amarela", "cima": "vazio"},
+	"ciano" : {"esquerda": "amarela" ,"direita": "roxo", "cima": "vazio"},
+	"roxo" : {"esquerda": "ciano" ,"direita": "vermelha", "cima": "vazio"}
 }
 
 func _ready() -> void:
 	if not Global.monologuecont:
 		on_intro_monologue()
 	handling_signal()
-	parede_visivel(Global.sala_que_estamos)
-	
+	parede_visivel(Global.sala_que_estamos())
+
 ########
 # Monologue
 ########
@@ -53,6 +53,9 @@ func opening_eyes_animation() -> void:
 	intro_monologue.hide()
 	tutorial.fade_in()
 
+########
+# Transição
+########
 
 func parede_visivel(parede: String) -> void:
 	match parede:
@@ -81,45 +84,66 @@ func parede_esconder(parede: String) -> void:
 			parede_roxo.hide()
 		"vazio":
 			parede_vazio.hide()
-		_:
-			print("Error! Parede escondida")
 
 func handling_signal() -> void:
 	botao_UI.sinal_direcao.connect(mudar_sala)
 	intro_monologue.back_dialog.connect(end_of_dialogue)
+	parede_vermelha.alterar_UI.connect(botoes_visivel)
 
+# Recebe a direção do movimento
 func mudar_sala(direcao: String) -> void:
-	match direcao:
-		"esquerda":
-			parede_visivel(change_room_dictionary[Global.sala_que_estamos][0])
-			parede_esconder(Global.sala_que_estamos)
-			Global.sala_que_estamos = change_room_dictionary[Global.sala_que_estamos][0]
-		"direita":
-			parede_visivel(change_room_dictionary[Global.sala_que_estamos][1])
-			parede_esconder(Global.sala_que_estamos)
-			Global.sala_que_estamos = change_room_dictionary[Global.sala_que_estamos][1]
-		"cima":
-			parede_visivel("vazio")
-			parede_esconder(Global.sala_que_estamos)
-		"baixo":
-			parede_visivel(Global.sala_que_estamos)
-			parede_esconder("vazio")
-		_:
-			print("Error!")
+	if direcao == "baixo":
+		if Global.sala_que_estamos() in "vazio":
+			parede_esconder(Global.sala_que_estamos())
+			parede_visivel(Global.sala_antecedente())
+		else:
+			match Global.sala_antecedente():
+				"amarela":
+					pass
+				"vermelha":
+					parede_vermelha.remover_objeto()
+				"ciano":
+					pass
+				"roxo":
+					pass
+				_:
+					print("Erro, ")
+		Global.retroceder_sala()
+	else:
+		parede_visivel(change_room_dictionary[Global.sala_que_estamos()][direcao])
+		parede_esconder(Global.sala_que_estamos())
+		Global.adicionar_sala_ao_historico(change_room_dictionary[Global.sala_que_estamos()][direcao])
 	
-	botoes_visivel(direcao)
+	definir_visibilidade_botoes()
 
-func botoes_visivel(direcao: String) -> void:
-	match direcao:
-		"cima":
-			esquerda.hide()
-			direita.hide()
-			cima.hide()
-			
-			baixo.show()
-		"baixo":
-			esquerda.show()
-			direita.show()
-			cima.show()
-			
-			baixo.hide()
+func definir_visibilidade_botoes() -> void:
+	if Global.sala_que_estamos() in ["amarela", "vermelha", "ciano", "roxo"]:
+		botoes_visivel(["cima", "direita", "esquerda"])
+	else:
+		botoes_visivel(["baixo"])
+
+# Recebe as direções que se pode ir
+func botoes_visivel(direcao: Array) -> void:
+	# CIMA
+	if "cima" in direcao:
+		cima.show()
+	else:
+		cima.hide()
+	
+	# DIREITA
+	if "direita" in direcao:
+		direita.show()
+	else:
+		direita.hide()
+	
+	# BAIXO
+	if "baixo" in direcao:
+		baixo.show()
+	else:
+		baixo.hide()
+	
+	# ESQUERDA
+	if "esquerda" in direcao:
+		esquerda.show()
+	else:
+		esquerda.hide()

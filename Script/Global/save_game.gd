@@ -1,12 +1,16 @@
 extends Node
 
 func save_game():
+	var puzzles_completos = {}
+	
+	for puzzle_nome in Global.puzzles.keys():
+		puzzles_completos[puzzle_nome] = { "completo": Global.puzzles[puzzle_nome]["completo"] }
 	
 	var game = {
 		"monologuecont": Global.monologuecont,
-		"puzzle1_complete": Global.puzzle1_complete,
-		"puzzle2_complete": Global.puzzle2_complete,
-		"sala_que_estamos": Global.sala_que_estamos,
+		"puzzles_completos": puzzles_completos,
+		"historico_de_salas": Global.historico_de_salas,
+		"inventario": Global.inventario,
 	}
 	
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
@@ -25,9 +29,12 @@ func load_game():
 		var game = JSON.parse_string(content_game)
 		if game:
 			Global.monologuecont = game.get("monologuecont", Global.monologuecont)
-			Global.puzzle1_complete = game.get("puzzle1_complete", Global.puzzle1_complete)
-			Global.puzzle2_complete = game.get("puzzle2_complete", Global.puzzle2_complete)
-			Global.sala_que_estamos = game.get("sala_que_estamos", Global.sala_que_estamos)
+			Global.historico_de_salas = game.get("historico_de_salas", Global.historico_de_salas)
+			
+			var puzzles_completos = game.get("puzzles_completos", {})
+			sort_puzzles_completos(puzzles_completos)
+			
+			Global.inventario = game.get("inventario", Global.inventario)
 		else:
 			print("Erro ao parsear configurações")
 	else:
@@ -78,3 +85,8 @@ func load_settings():
 		Global.sfx_volume = 50
 		Global.language = 0
 		print("Arquivo de configurações não encontrado ou erro ao abrir.")
+
+func sort_puzzles_completos(puzzles_completos):
+	for puzzle_nome in puzzles_completos.keys():
+		if Global.puzzles.has(puzzle_nome):
+			Global.puzzles[puzzle_nome]["completo"] = puzzles_completos[puzzle_nome]

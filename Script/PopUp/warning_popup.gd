@@ -13,7 +13,7 @@ extends Control
 @export var menu_hover : AudioStreamPlayer
 @export var menu_click : AudioStreamPlayer
 
-signal option_selected(value)
+signal option_selected
 
 func _ready() -> void:
 	set_process(false)
@@ -41,7 +41,7 @@ func change_title(title: String, description: String):
 func _on_yes_pressed() -> void:
 	remove_buttons_focus()
 	menu_click.play()
-	emit_signal("option_selected", true)
+	option_selected.emit(true)
 	set_process(false)
 
 func _on_no_pressed() -> void:

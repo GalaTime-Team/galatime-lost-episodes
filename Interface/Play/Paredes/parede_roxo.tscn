@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://556ooh352num"]
 
-[ext_resource type="Script" path="res://Script/Play/parede_roxo.gd" id="1_ka46x"]
+[ext_resource type="Script" path="res://Script/Play/Salas/parede_roxo.gd" id="1_ka46x"]
 [ext_resource type="Texture2D" uid="uid://b2wx30hd4knkx" path="res://Asset/Images/Rooms/roxo.png" id="2_akmg3"]
-[ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_oa6rs"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_oa6rs"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_0mxt8"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_knemv"]
 

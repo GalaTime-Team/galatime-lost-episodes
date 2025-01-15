@@ -1,27 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv5tlliig3k4j"]
+[gd_scene load_steps=5 format=3 uid="uid://bv5tlliig3k4j"]
 
-[ext_resource type="Texture2D" uid="uid://c5iaoqhs7qxim" path="res://Asset/Images/Buttons/Down/down_button.png" id="1_8uxsv"]
-[ext_resource type="Script" path="res://Script/Play/puzzle_1_sala_vermelha.gd" id="1_e02fr"]
-[ext_resource type="PackedScene" uid="uid://bh0mxh6j84uyu" path="res://Interface/Menu/pause_menu.tscn" id="3_cgw0b"]
-[ext_resource type="Texture2D" uid="uid://cq3vkaqbwoc2d" path="res://Asset/Images/Buttons/Settings/settings_button.png" id="4_iahil"]
-[ext_resource type="Script" path="res://Script/Play/down_button.gd" id="5_0igre"]
-[ext_resource type="Script" path="res://Script/Play/buttonPlus.gd" id="6_5223y"]
-[ext_resource type="Script" path="res://Script/Play/buttonConfirm.gd" id="7_go0q6"]
-[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="8_or2aw"]
+[ext_resource type="Script" path="res://Script/Play/Salas/Objetos/puzzle_1_sala_vermelha.gd" id="1_jctpl"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/buttonPlus.gd" id="2_7raiw"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/buttonConfirm.gd" id="3_apfxu"]
+[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="4_ed54q"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala", "chave")]
+[node name="Control" type="Control" node_paths=PackedStringArray("b1", "b2", "b3", "sala", "chave")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e02fr")
-pause_menu = NodePath("CanvasLayer/PauseMenu")
+script = ExtResource("1_jctpl")
+b1 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo1/Button")
+b2 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo2/Button")
+b3 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo3/Button")
 sala = NodePath(".")
 chave = NodePath("Chave")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Background" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,39 +27,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="Background"]
 layout_mode = 2
 color = Color(0.764706, 0.427451, 0.407843, 1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_cgw0b")]
-visible = false
-size_flags_horizontal = 4
-
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1787.0
-offset_top = 43.0
-offset_right = 1882.0
-offset_bottom = 140.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-texture_normal = ExtResource("4_iahil")
-
-[node name="down_button" type="TextureButton" parent="." node_paths=PackedStringArray("sala")]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -54.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("1_8uxsv")
-stretch_mode = 3
-script = ExtResource("5_0igre")
-sala = NodePath("..")
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("b1", "b2", "b3")]
 layout_mode = 2
@@ -70,7 +38,7 @@ offset_left = 1302.0
 offset_top = 229.0
 offset_right = 1302.0
 offset_bottom = 843.0
-script = ExtResource("6_5223y")
+script = ExtResource("2_7raiw")
 b1 = NodePath("PanelContainer/HBoxContainer/VBox_codigo1/Button")
 b2 = NodePath("PanelContainer/HBoxContainer/VBox_codigo2/Button")
 b3 = NodePath("PanelContainer/HBoxContainer/VBox_codigo3/Button")
@@ -138,7 +106,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Button_Confirmar"
-script = ExtResource("7_go0q6")
+script = ExtResource("3_apfxu")
 b1 = NodePath("../../VBox_codigo1/Button")
 b2 = NodePath("../../VBox_codigo2/Button")
 b3 = NodePath("../../VBox_codigo3/Button")
@@ -146,7 +114,7 @@ chave = NodePath("../../../../../Chave")
 puzzle_complet = NodePath("../../../../../s_puzzle_complet")
 
 [node name="s_puzzle_complet" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_or2aw")
+stream = ExtResource("4_ed54q")
 bus = &"Sfx"
 
 [node name="Chave" type="Button" parent="."]
@@ -157,8 +125,6 @@ offset_top = 703.0
 offset_right = 1001.0
 offset_bottom = 752.0
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="down_button" to="down_button" method="_on_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo1/Button" to="Control" method="_on_button1_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo2/Button" to="Control" method="_on_button2_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo3/Button" to="Control" method="_on_button3_pressed"]

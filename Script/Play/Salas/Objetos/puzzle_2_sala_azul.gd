@@ -2,8 +2,11 @@ extends Control
 
 @export var pause_menu : PauseMenu
 @export var sala : Control
+@export var puzzle: Control
 
 func _ready() -> void:
+	if !Global.puzzle1_complete:
+		puzzle.b1.disabled = true
 	handle_connecting_signal()
 
 func _process(_delta: float) -> void:

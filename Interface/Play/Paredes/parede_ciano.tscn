@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2240hci0ybkv"]
 
-[ext_resource type="Script" path="res://Script/Play/parede_ciano.gd" id="1_kjc76"]
+[ext_resource type="Script" path="res://Script/Play/Salas/parede_ciano.gd" id="1_kjc76"]
 [ext_resource type="Texture2D" uid="uid://ypew13wupckn" path="res://Asset/Images/Rooms/ciano.png" id="2_qqpna"]
-[ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_jlfia"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_jlfia"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_twmwp"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_evhdb"]
 

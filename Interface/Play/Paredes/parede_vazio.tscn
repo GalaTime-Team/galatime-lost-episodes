@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://caqqxp0x3om3i"]
 
-[ext_resource type="Script" path="res://Script/Play/parede_vazio.gd" id="1_v14re"]
+[ext_resource type="Script" path="res://Script/Play/Salas/parede_vazio.gd" id="1_v14re"]
 [ext_resource type="Texture2D" uid="uid://cjmfgs1ilsdh7" path="res://Asset/Images/Rooms/vazio.png" id="2_bg8k0"]
-[ext_resource type="Script" path="res://Script/Play/clicar_box.gd" id="3_18ulh"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_18ulh"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_1jmn3"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_43lxm"]
 

@@ -48,18 +48,22 @@ func anteriorInteracao() -> void:
 
 func listarItemCard() -> void:
 	clear_vboxcontainer(itemCard)
-	
-	var item = Global.inventario[chavesArray[interacao]]
-	
-	# Cria um Label para o nome
-	var itemNome = Label.new()
-	itemNome.text = "Item: " + item.nome
-	itemCard.add_child(itemNome)
-	
-	# Cria um Label para o descrição
-	var itemdescricao = Label.new()
-	itemdescricao.text = "Item: " + item.descricao
-	itemCard.add_child(itemdescricao)
+	if not Global.inventario.is_empty():
+		var item = Global.inventario[chavesArray[interacao]]
+		
+		# Cria um Label para o nome
+		var itemNome = Label.new()
+		itemNome.text = "Item: " + item.nome
+		itemCard.add_child(itemNome)
+		
+		# Cria um Label para o descrição
+		var itemdescricao = Label.new()
+		itemdescricao.text = "Item: " + item.descricao
+		itemCard.add_child(itemdescricao)
+	else:
+		var itemNome = Label.new()
+		itemNome.text = "Nenhum Item Coletado"
+		itemCard.add_child(itemNome)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():

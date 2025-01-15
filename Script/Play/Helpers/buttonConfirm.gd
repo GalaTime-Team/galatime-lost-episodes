@@ -13,8 +13,8 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	if !Global.puzzle1_complete:
-		if b1.text == "4" and b2.text == "5" and b3.text == "1":
+	if not Global.puzzles["puzzle1"].completo:
+		if b1.text == Global.puzzles["puzzle1"].solucao[0] and b2.text == Global.puzzles["puzzle1"].solucao[1] and b3.text == Global.puzzles["puzzle1"].solucao[2]:
 			puzzle_complet.play()
-			Global.puzzle1_complete = true
+			Global.puzzles["puzzle1"].completo = true
 			chave.show()

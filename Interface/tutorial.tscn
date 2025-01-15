@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_088cl"]
 [ext_resource type="Shader" path="res://Script/pause_menu.gdshader" id="1_n7ogk"]
 [ext_resource type="Texture2D" uid="uid://b832v1v8hv0f" path="res://Asset/Images/left_click.png" id="2_i4ek2"]
-[ext_resource type="Script" path="res://Script/tutorial.gd" id="2_x2mqq"]
+[ext_resource type="Script" path="res://Script/PopUp/tutorial.gd" id="2_x2mqq"]
 [ext_resource type="Texture2D" uid="uid://c2gvfidwjy2bp" path="res://Asset/Images/right_click.png" id="3_y6pjv"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="6_huvnj"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="7_esy3x"]
