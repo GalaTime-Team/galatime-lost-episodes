@@ -177,14 +177,8 @@ func _on_texture_button_pressed() -> void:
 
 # Hover Sounds
 
-func _on_resume_mouse_entered() -> void:
-	menu_hover.play()
+func _on_mouse_entered() -> void:
+	self.grab_focus()
 
-func _on_options_mouse_entered() -> void:
-	menu_hover.play()
-
-func _on_items_mouse_entered() -> void:
-	menu_hover.play()
-
-func _on_leave_mouse_entered() -> void:
+func _on_focus_entered() -> void:
 	menu_hover.play()

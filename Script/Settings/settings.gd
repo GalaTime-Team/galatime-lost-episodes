@@ -189,7 +189,7 @@ func _on_back_pressed() -> void:
 
 # HOVER
 func _on_back_mouse_entered() -> void:
-	menu_hover.play()
+	grab_focus()
 
 ######
 # fade
@@ -215,3 +215,10 @@ func back_button_input() -> void:
 
 func entering_settings_menu() -> void:
 	window_button.grab_focus()
+
+######
+# Sounds
+######
+
+func _when_focus_entered() -> void:
+	menu_hover.play()

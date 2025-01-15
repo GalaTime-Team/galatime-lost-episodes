@@ -290,5 +290,5 @@ stream = ExtResource("6_e0jku")
 volume_db = -12.0
 bus = &"Sfx"
 
-[connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="focus_entered" from="MarginContainer/Back" to="." method="_on_back_focus_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

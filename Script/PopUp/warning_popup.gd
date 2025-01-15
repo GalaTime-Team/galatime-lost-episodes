@@ -55,10 +55,10 @@ func _on_no_pressed() -> void:
 ######
 
 func _on_yes_mouse_entered() -> void:
-	menu_hover.play()
+	grab_focus()
 
 func _on_no_mouse_entered() -> void:
-	menu_hover.play()
+	grab_focus()
 
 ######
 # Gamepad
@@ -70,3 +70,7 @@ func button_pressed():
 
 func entering_popup():
 	yes_button.grab_focus()
+
+
+func _on_focus_entered() -> void:
+	menu_hover.play()

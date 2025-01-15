@@ -30,7 +30,7 @@ var start_game = load("res://Interface/Play/cena_do_jogo.tscn")
 func _ready() -> void:
 	if FileAccess.file_exists("user://savegame.json"):
 		continue_button.show()
-		
+	
 	handle_connecting_signal()
 	margin_container.modulate.a = 0.0
 	
@@ -188,15 +188,20 @@ func _on_leave_pressed() -> void:
 #####
 # Hover Handeling
 #####
+func _on_continue_mouse_entered() -> void:
+	continue_button.grab_focus()
 
 func _on_play_mouse_entered() -> void:
-	menu_hover.play()
+	play_button.grab_focus()
 
 func _on_settings_mouse_entered() -> void:
-	menu_hover.play()
+	settings_button.grab_focus()
 
 func _on_credits_mouse_entered() -> void:
-	menu_hover.play()
+	credits_button.grab_focus()
 
 func _on_leave_mouse_entered() -> void:
+	leave_button.grab_focus()
+
+func _on_focus_entered() -> void:
 	menu_hover.play()

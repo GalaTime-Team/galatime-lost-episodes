@@ -26,12 +26,12 @@ func _on_back_pressed() -> void:
 	menu_click.play()
 	set_process(false)
 
-func _on_back_mouse_entered() -> void:
-	menu_hover.play()
-
 func back_button_input() -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_back_pressed()
 
 func entered_credits_menu():
 	back_button.grab_focus()
+
+func _on_back_focus_entered() -> void:
+	menu_hover.play()

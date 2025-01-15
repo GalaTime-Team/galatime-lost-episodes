@@ -367,11 +367,18 @@ stream = ExtResource("6_hx6oi")
 volume_db = -12.0
 bus = &"Sfx"
 
+[connection signal="focus_entered" from="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button" to="." method="_when_focus_entered"]
 [connection signal="item_selected" from="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/WindowMode/Window_button" to="." method="on_window_mode_selected"]
+[connection signal="focus_entered" from="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode/Res_button" to="." method="_when_focus_entered"]
 [connection signal="item_selected" from="MarginContainer/Conteudo/ScrollContainer/Settings/ScreenRes/ResolutionMode/Res_button" to="." method="on_res_mode_selected"]
 [connection signal="drag_ended" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val/HSlider" to="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume" method="_on_h_slider_drag_ended"]
+[connection signal="focus_entered" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MasterVolume/Audio_Val/HSlider" to="." method="_when_focus_entered"]
 [connection signal="drag_ended" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val/HSlider" to="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume" method="_on_h_slider_drag_ended"]
+[connection signal="focus_entered" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/MusicVolume/Audio_Val/HSlider" to="." method="_when_focus_entered"]
 [connection signal="drag_ended" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val/HSlider" to="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume" method="_on_h_slider_drag_ended"]
+[connection signal="focus_entered" from="MarginContainer/Conteudo/ScrollContainer/Settings/VolumeV/EffectsVolume/Audio_Val/HSlider" to="." method="_when_focus_entered"]
+[connection signal="focus_entered" from="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button" to="." method="_when_focus_entered"]
 [connection signal="item_selected" from="MarginContainer/Conteudo/ScrollContainer/Settings/LanguageV/Language/language_button" to="." method="on_language_select"]
+[connection signal="focus_entered" from="MarginContainer/Back" to="." method="_when_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

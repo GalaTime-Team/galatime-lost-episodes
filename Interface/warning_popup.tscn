@@ -120,7 +120,9 @@ stream = ExtResource("3_ar5nf")
 volume_db = -12.0
 bus = &"Sfx"
 
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/Options/Yes" to="." method="_on_focus_entered"]
 [connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/Options/Yes" to="." method="_on_yes_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Options/Yes" to="." method="_on_yes_pressed"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/Options/No" to="." method="_on_focus_entered"]
 [connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/Options/No" to="." method="_on_no_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Options/No" to="." method="_on_no_pressed"]
