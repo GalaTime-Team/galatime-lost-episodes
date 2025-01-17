@@ -88,7 +88,8 @@ func parede_esconder(parede: String) -> void:
 func handling_signal() -> void:
 	botao_UI.sinal_direcao.connect(mudar_sala)
 	intro_monologue.back_dialog.connect(end_of_dialogue)
-	parede_vermelha.alterar_UI.connect(botoes_visivel)
+	parede_vermelha.alterar_UI_paredeVermelha.connect(botoes_visivel)
+	parede_ciano.alterar_UI_paredeCiano.connect(botoes_visivel)
 
 # Recebe a direção do movimento
 func mudar_sala(direcao: String) -> void:
@@ -103,7 +104,7 @@ func mudar_sala(direcao: String) -> void:
 				"vermelha":
 					parede_vermelha.remover_objeto()
 				"ciano":
-					pass
+					parede_ciano.remover_objeto()
 				"roxo":
 					pass
 				_:

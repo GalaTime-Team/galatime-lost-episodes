@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="23_ldprf"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="24_0sbyt"]
 
-[node name="ParedeAmarela" type="Control" node_paths=PackedStringArray("item")]
+[node name="ParedeAmarela" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ittwj")
-item = NodePath("")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0

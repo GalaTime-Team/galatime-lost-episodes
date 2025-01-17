@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_twmwp"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_evhdb"]
 
-[node name="ParedeCiano" type="Control" node_paths=PackedStringArray("parede_ciano")]
+[node name="ParedeCiano" type="Control" node_paths=PackedStringArray("parede_ciano", "objetos_controler")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjc76")
 parede_ciano = NodePath(".")
+objetos_controler = NodePath("Objetos")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -58,6 +59,15 @@ offset_left = 467.0
 offset_top = 399.0
 offset_right = 894.0
 offset_bottom = 589.0
+
+[node name="Objetos" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_evhdb")

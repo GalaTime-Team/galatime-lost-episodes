@@ -1,4 +1,5 @@
 extends Control 
+
 @export var parede_vermelha : Control 
 @export var objetos_controler : Control
 
@@ -6,7 +7,7 @@ var objetos_cena_link: Dictionary = {
 	"puzzle1" : "puzzle1-Sala_vermelha"
 }
 
-signal alterar_UI
+signal alterar_UI_paredeVermelha
 
 func _ready() -> void: 
 	pass
@@ -28,10 +29,10 @@ func _on_box_button_pressed(objeto_carregado: String) -> void:
 	var cena_do_objeto = objetos_controler.get_child(0)
 	
 	# Altera o UI
-	alterar_UI.emit(["baixo"])
+	alterar_UI_paredeVermelha.emit(["baixo"])
 	
 	cena_do_objeto.set_process(true)
 
-func remover_objeto() -> void:	
+func remover_objeto() -> void:
 	if objetos_controler.get_child_count() > 0:
 		objetos_controler.get_child(0).queue_free()
