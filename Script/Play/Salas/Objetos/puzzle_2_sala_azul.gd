@@ -6,8 +6,11 @@ extends Control
 
 func _ready() -> void:
 	if !Global.puzzle1_complete:
+		
 		puzzle.b1.disabled = true
+		
 	handle_connecting_signal()
+	set_process(false)
 
 func _process(_delta: float) -> void:
 	testEsc()

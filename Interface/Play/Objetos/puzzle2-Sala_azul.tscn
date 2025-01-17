@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="7_cecyx"]
 [ext_resource type="Script" path="res://script/Play/confirmPuzzle2.gd" id="7_v3ime"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("pause_menu", "sala", "puzzle")]
+[node name="Control" type="Control" node_paths=PackedStringArray("sala", "puzzle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4mu7a")
-pause_menu = NodePath("")
 sala = NodePath(".")
 puzzle = NodePath("Control")
 
@@ -29,7 +28,7 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0.67451, 0.831373, 0.839216, 1)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("b1", "b2", "b3")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1302.0
@@ -37,6 +36,9 @@ offset_top = 229.0
 offset_right = 1302.0
 offset_bottom = 843.0
 script = ExtResource("2_ufmtt")
+b1 = NodePath("PanelContainer/HBoxContainer/VBox_codigo1/Button")
+b2 = NodePath("PanelContainer/HBoxContainer/VBox_codigo2/Button")
+b3 = NodePath("PanelContainer/HBoxContainer/VBox_codigo3/Button")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
