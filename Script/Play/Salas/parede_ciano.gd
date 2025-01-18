@@ -7,7 +7,7 @@ var objetos_cena_link: Dictionary = {
 	"puzzle2" : "puzzle2-Sala_azul"
 }
 
-signal alterar_UI_paredeCiano
+signal alterar_UI
 
 func _ready() -> void:
 	pass
@@ -23,13 +23,14 @@ func _on_button_pressed(objeto_carregado: String) -> void:
 		print("Erro ao acessar o Objeto na cena! Nome do Objeto: " + objeto_carregado + "Resultado do \"objeto_a_acessar\": ", objeto_a_acessar)
 		return
 	
+	#vai correr a cena
 	var instancia_objeto = objeto_a_acessar.instantiate()
-	objetos_controler.add_child(instancia_objeto)
+	objetos_controler.add_child(instancia_objeto) #depois vai colocalo como filho
 	
 	var cena_do_objeto = objetos_controler.get_child(0)
 	
 	# Altera o UI
-	alterar_UI_paredeCiano.emit(["baixo"])
+	alterar_UI.emit(["baixo"])
 	
 	cena_do_objeto.set_process(true)
 

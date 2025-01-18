@@ -7,7 +7,7 @@ var objetos_cena_link: Dictionary = {
 	"puzzle1" : "puzzle1-Sala_vermelha"
 }
 
-signal alterar_UI_paredeVermelha
+signal alterar_UI
 
 func _ready() -> void: 
 	pass
@@ -29,7 +29,7 @@ func _on_box_button_pressed(objeto_carregado: String) -> void:
 	var cena_do_objeto = objetos_controler.get_child(0)
 	
 	# Altera o UI
-	alterar_UI_paredeVermelha.emit(["baixo"])
+	alterar_UI.emit(["baixo"])
 	
 	cena_do_objeto.set_process(true)
 
