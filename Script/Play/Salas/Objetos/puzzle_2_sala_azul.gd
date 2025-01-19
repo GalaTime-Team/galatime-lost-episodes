@@ -1,15 +1,34 @@
 extends Control
 
-@export var pause_menu : PauseMenu
+@export var b1 : Button
+@export var b2 : Button
+@export var b3 : Button
 @export var sala : Control
-@export var puzzle: Control
+@export var papel : Button
 
 func _ready() -> void:
+	if Global.puzzles["puzzle2"].completo:
+		if "item_2" in Global.inventario:
+			papel.hide()
+		else:
+			papel.show()
+	
 	set_process(false)
 
 
-func on_back_pause_menu() -> void:
-	pause_menu.hide()
+func _on_papel_pressed() -> void:
+	papel.hide()
+	Global.item_guardados("item_2","item parede azul","Um papel que contem um mapa")
 
-func handle_connecting_signal() -> void:
-	pause_menu.out_pause_menu.connect(on_back_pause_menu)
+func _on_pressed() -> void:
+	if not Global.puzzles["puzzle1"].completo:
+		var int_introduzido = [b1.text, b2.text, b3.text]
+		if verificacao_da_solucao(int_introduzido):
+			Global.puzzles["puzzle1"].completo = true
+			papel.show()
+
+func verificacao_da_solucao(int_introduzido) -> bool:
+	for i in Global.puzzles["puzzle1"].solucao:
+		if int_introduzido[i] != Global.puzzles["puzzle1"].solucao[i]:
+			return false
+	return true

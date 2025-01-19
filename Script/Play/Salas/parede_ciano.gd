@@ -15,6 +15,7 @@ func _ready() -> void:
 func _on_button_pressed(objeto_carregado: String) -> void:
 	# Carrega o Objeto
 	var link_objeto_a_acessar = "res://Interface/Play/Objetos/" + objetos_cena_link[objeto_carregado] + ".tscn"
+	print(link_objeto_a_acessar)
 	var objeto_a_acessar = load(link_objeto_a_acessar) as PackedScene
 	
 	Global.adicionar_sala_ao_historico(objeto_carregado)
