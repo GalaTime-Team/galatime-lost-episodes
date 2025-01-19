@@ -117,6 +117,7 @@ stream = ExtResource("7_cecyx")
 bus = &"Sfx"
 
 [node name="Papel" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 897.0
 offset_top = 706.0
