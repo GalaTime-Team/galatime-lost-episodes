@@ -58,17 +58,13 @@ func anteriorInteracao() -> void:
 func listarItemCard() -> void:
 	clear_vboxcontainer(itemCard)
 	
-	var item = Global.inventario[chavesArray[interacao]]
+	var item = Global.dicionario_imagens["item_2"]
+	var converter_para_imagem : TextureRect
 	
-	var texture = load(item["imagem"])
-	if texture:
-		print("Textura carregada:", item["imagem"])
-		ItemImage.texture = texture
+	converter_para_imagem = item
 	
-	else:
-		print("Erro: Não foi possível carregar a textura para o caminho:", item["imagem"])
-	
-
+	ItemImage.texture = converter_para_imagem.Texture
+	print(converter_para_imagem)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():

@@ -43,8 +43,12 @@ const puzzle2_valores : Array = [
 #########
 var inventario : Dictionary
 
-func item_guardados(chave,nome,descricao,imagem_path):
-	inventario[chave] = {"nome" : nome , "descricao" : descricao, "imagem" : imagem_path}
+var dicionario_imagens : Dictionary = {
+	"item_2" : "res://Asset/Images/Inventario/chave_dourada.png"
+}
+
+func item_guardados(chave,nome,descricao):
+	inventario[chave] = {"nome" : nome , "descricao" : descricao}
 	
 func new_game():
 	monologuecont = false
