@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="7_cecyx"]
 [ext_resource type="Script" path="res://script/Play/confirmPuzzle2.gd" id="7_v3ime"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("b1", "b2", "b3", "sala")]
+[node name="Control" type="Control" node_paths=PackedStringArray("b1", "b2", "b3", "sala", "papel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ b1 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo1/Button")
 b2 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo2/Button")
 b3 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo3/Button")
 sala = NodePath(".")
+papel = NodePath("Papel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
