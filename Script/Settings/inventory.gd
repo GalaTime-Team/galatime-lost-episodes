@@ -55,15 +55,13 @@ func anteriorInteracao() -> void:
 		interacao -= 1
 
 func listarItemCard() -> void:
-	var caminho_imagem = Global.dicionario_imagens["item_1"]
-	var imagem_a_acessar = load(caminho_imagem) as Texture2D
-	
-	itemCard.add_child(imagem_a_acessar)
-	
-	print(caminho_imagem)
-	print(imagem_a_acessar)
-	
 	clear_vboxcontainer(itemCard)
+	
+	var caminho_imagem = Global.dicionario_imagens["item_1"]
+	var imagem_a_acessar = TextureRect.new()
+
+	imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+	itemCard.add_child(imagem_a_acessar)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
