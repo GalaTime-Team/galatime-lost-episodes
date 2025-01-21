@@ -6,6 +6,10 @@ extends Control
 @export var menu_hover: AudioStreamPlayer
 @export var listadeitem : VBoxContainer
 @export var itemCard : VBoxContainer
+@export var Anterior : Button
+@export var Proximo : Button
+@export var scrolllista : VScrollBar
+@export var ItemImage : TextureRect
 
 var chavesArray : Array = []
 var interacao : int = 0
@@ -20,14 +24,19 @@ func _on_back_mouse_entered() -> void:
 
 func listaritem() -> void:
 	clear_vboxcontainer(listadeitem)
-	
+
 	for chave in Global.inventario:
 		var item = Global.inventario[chave]
-		
-		# Cria um Label para o nome
+
+		### Cria um Label para o nome
 		var itemNome = Label.new()
 		itemNome.text = "Item: " + item.nome
 		listadeitem.add_child(itemNome)
+
+		### Cria um Label para o descrição
+		var itemdescricao = Label.new()
+		itemdescricao.text = "Descrição: " + item.descricao
+		listadeitem.add_child(itemdescricao)
 
 func _on_back_pressed() -> void:
 	menu_click.play()
@@ -48,24 +57,26 @@ func anteriorInteracao() -> void:
 
 func listarItemCard() -> void:
 	clear_vboxcontainer(itemCard)
-	if not Global.inventario.is_empty():
-		var item = Global.inventario[chavesArray[interacao]]
-		
-		# Cria um Label para o nome
-		var itemNome = Label.new()
-		itemNome.text = "Item: " + item.nome
-		itemCard.add_child(itemNome)
-		
-		# Cria um Label para o descrição
-		var itemdescricao = Label.new()
-		itemdescricao.text = "Item: " + item.descricao
-		itemCard.add_child(itemdescricao)
-	else:
-		var itemNome = Label.new()
-		itemNome.text = "Nenhum Item Coletado"
-		itemCard.add_child(itemNome)
+
+	var item = Global.dicionario_imagens["item_2"]
+	var converter_para_imagem : TextureRect
+
+	converter_para_imagem = item
+
+	ItemImage.texture = converter_para_imagem.Texture
+	print(converter_para_imagem)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
 		vbox.remove_child(child)
 		child.queue_free()
+
+################################
+#Voltar e ir para o próximo item
+################################
+
+func _on_anterior_pressed() -> void:
+	anteriorInteracao()
+
+func _on_proximo_pressed() -> void:
+	proximaInteracao()

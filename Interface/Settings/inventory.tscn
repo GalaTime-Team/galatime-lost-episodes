@@ -8,7 +8,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem", "itemCard")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem", "itemCard", "Anterior", "Proximo", "scrolllista", "ItemImage")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,10 @@ menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
 listadeitem = NodePath("MarginContainer/Conteudo/Inventario/Lista de Item")
 itemCard = NodePath("MarginContainer/Conteudo/Inventario/ItemCard")
+Anterior = NodePath("MarginContainer/Conteudo/Inventario/Anterior")
+Proximo = NodePath("MarginContainer/Conteudo/Inventario/Proximo")
+scrolllista = NodePath("MarginContainer/Conteudo/Inventario/Lista de Item/Scroll_Lista")
+ItemImage = NodePath("MarginContainer/Conteudo/Inventario/ItemCard/ItemImage")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -66,17 +70,42 @@ theme_override_constants/separation = 20
 
 [node name="Inventario" type="HBoxContainer" parent="MarginContainer/Conteudo"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Anterior" type="Button" parent="MarginContainer/Conteudo/Inventario"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/font_size = 100
+text = "<"
+flat = true
 
 [node name="ItemCard" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.57
+
+[node name="ItemImage" type="TextureRect" parent="MarginContainer/Conteudo/Inventario/ItemCard"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Proximo" type="Button" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/font_size = 100
+text = ">"
+flat = true
 
 [node name="Lista de Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Scroll_Lista" type="VScrollBar" parent="MarginContainer/Conteudo/Inventario/Lista de Item"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
 
 [node name="Back" type="Button" parent="MarginContainer"]
 layout_mode = 2
