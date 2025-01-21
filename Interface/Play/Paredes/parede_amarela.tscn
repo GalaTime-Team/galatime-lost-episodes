@@ -47,13 +47,6 @@ offset_right = 675.0
 offset_bottom = 963.0
 color = Color(1, 1, 1, 0)
 
-[node name="item2" type="Button" parent="Blocos de Ação"]
-layout_mode = 0
-offset_left = 860.0
-offset_top = 920.0
-offset_right = 1182.0
-offset_bottom = 987.0
-
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_0sbyt")
 bus = &"Sfx"
@@ -65,4 +58,3 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_amarela"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Blocos de Ação/item2" to="." method="_on_item_2_pressed"]

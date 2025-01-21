@@ -12,7 +12,6 @@ func _ready() -> void:
 			chave.hide()
 		else:
 			chave.show()
-	
 	set_process(false)
 
 func _on_chave_pressed() -> void:
