@@ -84,9 +84,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.57
 
-[node name="ItemImage" type="TextureRect" parent="MarginContainer/Conteudo/Inventario/ItemCard"]
-layout_mode = 2
-
 [node name="Proximo" type="Button" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3

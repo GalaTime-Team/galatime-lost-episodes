@@ -9,7 +9,6 @@ extends Control
 @export var Anterior : Button
 @export var Proximo : Button
 @export var scrolllista : VScrollBar
-@export var itemimage : TextureRect
 
 var chavesArray : Array = []
 var interacao : int = 0
@@ -57,14 +56,9 @@ func anteriorInteracao() -> void:
 
 func listarItemCard() -> void:
 	var caminho_imagem = Global.dicionario_imagens["item_1"]
+	var imagem_a_acessar = load(caminho_imagem) as Texture2D
 	
-	var imagem_a_acessar = Image.new()
-	imagem_a_acessar.load(caminho_imagem)
-	
-	var image_texture = ImageTexture.new()
-	image_texture.set_image(imagem_a_acessar)
-	
-	itemCard.add_child(itemimage)
+	itemCard.add_child(imagem_a_acessar)
 	
 	print(caminho_imagem)
 	print(imagem_a_acessar)
