@@ -23,9 +23,9 @@ func _on_back_mouse_entered() -> void:
 	menu_hover.play()
 
 func listaritem() -> void:
-	clear_vboxcontainer(listadeitem)
-
 	for chave in Global.inventario:
+		clear_vboxcontainer(listadeitem)
+
 		var item = Global.inventario[chave]
 
 		### Cria um Label para o nome
@@ -57,10 +57,13 @@ func anteriorInteracao() -> void:
 
 func listarItemCard() -> void:
 	clear_vboxcontainer(itemCard)
-	
+
 	for chave in Global.inventario:
+		clear_vboxcontainer(itemCard)
+
 		var caminho_imagem = Global.dicionario_imagens[chave]
 		var imagem_a_acessar = TextureRect.new()
+
 		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
 		itemCard.add_child(imagem_a_acessar)
 
