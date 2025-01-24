@@ -44,7 +44,8 @@ var puzzles: Dictionary = {
 var inventario : Dictionary 
 
 var dicionario_imagens : Dictionary = {
-	"item_1" : "res://Asset/Images/Inventario/chave_dourada.png"
+	"item_1" : "res://Asset/Images/Inventario/chave_dourada.png",
+	"item_2" : "res://Asset/Images/Inventario/papiro.png"
 }
 
 func item_guardados(chave,nome,descricao):

@@ -12,6 +12,7 @@ extends Control
 
 var chavesArray : Array = []
 var interacao : int = 0
+var chaves_inventario = ["item_1"]
 
 signal back_inventory_menu
 
@@ -57,11 +58,11 @@ func anteriorInteracao() -> void:
 func listarItemCard() -> void:
 	clear_vboxcontainer(itemCard)
 	
-	var caminho_imagem = Global.dicionario_imagens["item_1"]
-	var imagem_a_acessar = TextureRect.new()
-
-	imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
-	itemCard.add_child(imagem_a_acessar)
+	for chave in Global.inventario:
+		var caminho_imagem = Global.dicionario_imagens[chave]
+		var imagem_a_acessar = TextureRect.new()
+		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+		itemCard.add_child(imagem_a_acessar)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
