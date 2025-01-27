@@ -48,7 +48,7 @@ func buscarChave() -> void:
 		chavesArray.append(chave)
 
 func proximaInteracao() -> void:
-	if interacao < chavesArray.size():
+	if interacao < chavesArray.size() - 1:
 		interacao += 1
 
 func anteriorInteracao() -> void:
@@ -78,6 +78,8 @@ func clear_vboxcontainer(vbox):
 
 func _on_anterior_pressed() -> void:
 	anteriorInteracao()
+	listarItemCard()
 
 func _on_proximo_pressed() -> void:
 	proximaInteracao()
+	listarItemCard()
