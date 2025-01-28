@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://crihnhawawd20"]
+[gd_scene load_steps=11 format=3 uid="uid://crihnhawawd20"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4ten3"]
 [ext_resource type="Script" path="res://Script/Settings/inventory.gd" id="2_emxd4"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_oe77v"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_3r02v"]
+[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Buttons/Left/left_buttton.png" id="4_ie6n7"]
+[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/Buttons/Right/right_button.png" id="5_3whku"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_8jqwh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crkcf"]
@@ -77,11 +79,11 @@ size_flags_vertical = 3
 
 [node name="Anterior" type="Button" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 size_flags_stretch_ratio = 0.1
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_crkcf")
-text = "<"
+icon = ExtResource("4_ie6n7")
 flat = true
 
 [node name="ItemCard" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
@@ -91,11 +93,11 @@ size_flags_stretch_ratio = 0.57
 
 [node name="Proximo" type="Button" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.1
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_krxw6")
-text = ">"
+icon = ExtResource("5_3whku")
 flat = true
 
 [node name="Lista de Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
