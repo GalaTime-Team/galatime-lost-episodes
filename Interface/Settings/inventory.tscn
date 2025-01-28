@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://crihnhawawd20"]
+[gd_scene load_steps=9 format=3 uid="uid://crihnhawawd20"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4ten3"]
 [ext_resource type="Script" path="res://Script/Settings/inventory.gd" id="2_emxd4"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_oe77v"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_3r02v"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_8jqwh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crkcf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krxw6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
@@ -76,6 +80,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_crkcf")
 text = "<"
 flat = true
 
@@ -89,6 +94,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krxw6")
 text = ">"
 flat = true
 

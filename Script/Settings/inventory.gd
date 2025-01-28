@@ -12,7 +12,6 @@ extends Control
 
 var chavesArray : Array = []
 var interacao : int = 0
-var chaves_inventario = ["item_1"]
 
 signal back_inventory_menu
 
@@ -48,7 +47,7 @@ func buscarChave() -> void:
 		chavesArray.append(chave)
 
 func proximaInteracao() -> void:
-	if interacao < chavesArray.size() - 1:
+	if interacao < chavesArray.size():
 		interacao += 1
 
 func anteriorInteracao() -> void:
