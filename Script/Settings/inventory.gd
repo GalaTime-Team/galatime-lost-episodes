@@ -79,6 +79,7 @@ func _on_anterior_pressed() -> void:
 		
 		if chave_atual in Global.inventario: 
 			atualizar_imagem_item_card(chave_atual)
+			atualizar_texto_lista_item(chave_atual)
 
 func _on_proximo_pressed() -> void:
 	proximaInteracao()
@@ -87,6 +88,7 @@ func _on_proximo_pressed() -> void:
 		
 		if chave_atual in Global.inventario: 
 			atualizar_imagem_item_card(chave_atual)
+			atualizar_texto_lista_item(chave_atual)
 
 func atualizar_imagem_item_card(chave_atual):
 	var caminho_imagem = Global.dicionario_imagens[chave_atual]
@@ -95,3 +97,13 @@ func atualizar_imagem_item_card(chave_atual):
 	# Limpa o itemCard e adiciona a nova imagem
 	clear_vboxcontainer(itemCard)
 	itemCard.add_child(imagem_a_acessar)
+
+func atualizar_texto_lista_item(chave_atual):
+	var item = Global.inventario[chave_atual]
+	var itemNome = Label.new()
+	itemNome.text = "Item: " + item.nome
+	var itemdescricao = Label.new()
+	itemdescricao.text = "Descrição: " + item.descricao
+	clear_vboxcontainer(listadeitem)
+	listadeitem.add_child(itemNome)
+	listadeitem.add_child(itemdescricao)
