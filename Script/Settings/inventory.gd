@@ -56,15 +56,12 @@ func anteriorInteracao() -> void:
 
 func listarItemCard() -> void:
 	clear_vboxcontainer(itemCard)
-
-	for chave in Global.inventario:
-		clear_vboxcontainer(itemCard)
-
-		var caminho_imagem = Global.dicionario_imagens[chave]
-		var imagem_a_acessar = TextureRect.new()
-
-		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
-		itemCard.add_child(imagem_a_acessar)
+	# Assumindo que chavesArray[0] é o primeiro item
+	var chave_atual = chavesArray[0]
+	var caminho_imagem = Global.dicionario_imagens[chave_atual]
+	var imagem_a_acessar = TextureRect.new()
+	imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+	itemCard.add_child(imagem_a_acessar)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
@@ -77,8 +74,18 @@ func clear_vboxcontainer(vbox):
 
 func _on_anterior_pressed() -> void:
 	anteriorInteracao()
-	listarItemCard()
+	var chave_atual = chavesArray[interacao]
+	atualizar_imagem_item_card(chave_atual)
 
 func _on_proximo_pressed() -> void:
 	proximaInteracao()
-	listarItemCard()
+	var chave_atual = chavesArray[interacao]
+	atualizar_imagem_item_card(chave_atual)
+
+func atualizar_imagem_item_card(chave_atual):
+	var caminho_imagem = Global.dicionario_imagens[chave_atual]
+	var imagem_a_acessar = TextureRect.new()
+	imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+	# Limpa o itemCard e adiciona a nova imagem
+	clear_vboxcontainer(itemCard)
+	itemCard.add_child(imagem_a_acessar)
