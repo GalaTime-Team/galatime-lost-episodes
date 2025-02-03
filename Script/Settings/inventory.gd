@@ -74,13 +74,19 @@ func clear_vboxcontainer(vbox):
 
 func _on_anterior_pressed() -> void:
 	anteriorInteracao()
-	var chave_atual = chavesArray[interacao]
-	atualizar_imagem_item_card(chave_atual)
+	if interacao >= 0 and interacao < chavesArray.size():
+		var chave_atual = chavesArray[interacao]
+		
+		if chave_atual in Global.inventario: 
+			atualizar_imagem_item_card(chave_atual)
 
 func _on_proximo_pressed() -> void:
 	proximaInteracao()
-	var chave_atual = chavesArray[interacao]
-	atualizar_imagem_item_card(chave_atual)
+	if interacao >= 0 and interacao < chavesArray.size():
+		var chave_atual = chavesArray[interacao]
+		
+		if chave_atual in Global.inventario: 
+			atualizar_imagem_item_card(chave_atual)
 
 func atualizar_imagem_item_card(chave_atual):
 	var caminho_imagem = Global.dicionario_imagens[chave_atual]
