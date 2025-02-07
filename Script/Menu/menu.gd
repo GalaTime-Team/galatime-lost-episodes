@@ -27,6 +27,7 @@ extends Control
 var start_game = load("res://Interface/Play/cena_do_jogo.tscn")
 
 
+
 func _ready() -> void:
 	if FileAccess.file_exists("user://savegame.json"):
 		continue_button.show()
