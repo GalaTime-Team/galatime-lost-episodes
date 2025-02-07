@@ -1,6 +1,9 @@
 class_name CenaDoJogo
 extends Control
 
+@export_category("Audio")
+@export var BG_Jogo: AudioStreamPlayer
+
 @export_category("Paredes")
 @export var parede_amarela: Control
 @export var parede_vermelha: Control
@@ -44,6 +47,7 @@ func on_intro_monologue() -> void:
 func end_of_dialogue() -> void:
 	opening_eyes_animation()
 
+
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
 	var tween = self.create_tween()
@@ -52,6 +56,12 @@ func opening_eyes_animation() -> void:
 	await tween.finished
 	intro_monologue.hide()
 	tutorial.fade_in()
+	  # Parar qualquer execução anterior e ativar a permissão para tocar música
+	BG_Jogo.stop()
+	BG_Jogo.timer.stop()
+	BG_Jogo.is_music_allowed = true
+	# Tocar música de fundo após o monólogo
+	BG_Jogo.play_music()
 
 ########
 # Transição

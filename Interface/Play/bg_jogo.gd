@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 @export var timer: Timer 
-
+var is_music_allowed: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,13 +10,15 @@ func _ready() -> void:
 
 # Fução para dar play na música com delay aleatório
 func play_music():
-	play()
+	if is_music_allowed:
+		play()
 
 # Função para quando acaba o timer
 func _on_Timer_timeout():
 	play_music()
 
 func _on_finished() -> void:
-	var delay = randi() % 20 + 1  #delay aleatório entre as músicas
-	timer.wait_time = delay
-	timer.start()
+	if is_music_allowed:
+		var delay = randi() % 20 + 1  #delay aleatório entre as músicas
+		timer.wait_time = delay
+		timer.start()
