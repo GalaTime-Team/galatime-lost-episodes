@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fabea632s0wq"
+path="res://.godot/imported/Outside The Room.mp3-a29d98dd9df9ad500b6dc69921fd104c.mp3str"
+
+[deps]
+
+source_file="res://Asset/Audio/Music/Outside The Room.mp3"
+dest_files=["res://.godot/imported/Outside The Room.mp3-a29d98dd9df9ad500b6dc69921fd104c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
