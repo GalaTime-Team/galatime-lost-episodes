@@ -60,7 +60,6 @@ func opening_eyes_animation() -> void:
 	BG_Jogo.stop()
 	BG_Jogo.timer.stop()
 	BG_Jogo.is_music_allowed = true
-	# Tocar música de fundo após o monólogo
 	BG_Jogo.play_music()
 
 ########
