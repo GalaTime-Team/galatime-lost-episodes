@@ -25,7 +25,8 @@ func listaritem() -> void:
 	for chave in Global.inventario:
 		clear_vboxcontainer(listadeitem)
 
-		var item = Global.inventario[chave]
+		var item_atual = Global.inventario.keys()[0]
+		var item = Global.inventario[item_atual]
 
 		### Cria um Label para o nome
 		var itemNome = Label.new()
