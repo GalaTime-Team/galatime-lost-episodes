@@ -56,18 +56,22 @@ func anteriorInteracao() -> void:
 		interacao -= 1
 
 func listarItemCard() -> void:
-	clear_vboxcontainer(itemCard)
-	# Assumindo que chavesArray[0] é o primeiro item
-	var chave_atual = chavesArray[0]
-	var caminho_imagem = Global.dicionario_imagens[chave_atual]
-	var imagem_a_acessar = TextureRect.new()
-	imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
-	itemCard.add_child(imagem_a_acessar)
+	for chave in Global.inventario:
+		clear_vboxcontainer(itemCard)
+
+		var chave_atual = chavesArray[0]
+		var caminho_imagem = Global.dicionario_imagens[chave_atual]
+		var imagem_a_acessar = TextureRect.new()
+
+		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+		itemCard.add_child(imagem_a_acessar)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
 		vbox.remove_child(child)
 		child.queue_free()
+	for child2 in vbox.get_children():
+		print("ainda tem puta nesta mrd")
 
 ################################
 #Voltar e ir para o próximo item
