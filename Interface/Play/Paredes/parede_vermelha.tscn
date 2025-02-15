@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://y1eent0c6lpn"]
+[gd_scene load_steps=6 format=3 uid="uid://y1eent0c6lpn"]
 
 [ext_resource type="Script" path="res://Script/Play/Salas/parede_vermelha.gd" id="1_p7nsk"]
 [ext_resource type="Texture2D" uid="uid://33abaxiafk1n" path="res://Asset/Images/Rooms/vermelha.png" id="2_g5q26"]
 [ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_8sfge"]
-[ext_resource type="Script" path="res://Script/Play/Objetos/button_resultado.gd" id="10_6u36w"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="22_ihhro"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="23_x0s6f"]
 
@@ -56,15 +55,6 @@ offset_left = 1238.0
 offset_top = 297.0
 offset_right = 1568.0
 offset_bottom = 443.0
-
-[node name="Button_Resultado" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 627.0
-offset_top = 297.0
-offset_right = 903.0
-offset_bottom = 374.0
-script = ExtResource("10_6u36w")
 
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1

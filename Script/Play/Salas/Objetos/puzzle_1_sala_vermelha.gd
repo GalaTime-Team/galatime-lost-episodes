@@ -8,6 +8,9 @@ extends Control
 
 func _ready() -> void:
 	if Global.puzzles["puzzle1"].completo:
+		b1.text = Global.puzzles["puzzle1"].solucao[0]
+		b2.text = Global.puzzles["puzzle1"].solucao[1]
+		b3.text = Global.puzzles["puzzle1"].solucao[2]
 		if "item_1" in Global.inventario:
 			chave.hide()
 		else:
