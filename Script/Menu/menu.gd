@@ -30,7 +30,8 @@ var start_game = load("res://Interface/Play/cena_do_jogo.tscn")
 
 func _ready() -> void:
 	if FileAccess.file_exists("user://savegame.json"):
-		continue_button.show()
+		if Global.continuarConfirmar:
+			continue_button.show()
 	
 	handle_connecting_signal()
 	margin_container.modulate.a = 0.0
@@ -142,7 +143,7 @@ func _on_play_pressed() -> void:
 	Global.new_game()
 	remove_buttons_focus()
 	shield.show()
-	
+	Global.continuarConfirmar = false
 	# Som
 	menu_click.play()
 	

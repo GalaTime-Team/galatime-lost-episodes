@@ -22,7 +22,7 @@ var language: int = 0 # English
 # AUX
 #####
 var monologuecont: bool = false #Já apresentou o monologo?
-
+var continuarConfirmar: bool = false
 #########
 # Puzzles
 #########

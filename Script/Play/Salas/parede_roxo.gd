@@ -5,3 +5,4 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	SaveGame.save_game()
+	Global.continuarConfirmar = true
