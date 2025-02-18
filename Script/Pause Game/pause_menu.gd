@@ -110,6 +110,7 @@ func items():
 	inventory.listaritem()
 	inventory.buscarChave()
 	inventory.listarItemCard()
+	inventory.listar_todos_os_itens()
 	
 	fade(panel_container, inventory)
 

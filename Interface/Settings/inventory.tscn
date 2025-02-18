@@ -14,7 +14,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem", "itemCard", "Anterior", "Proximo", "scrolllista")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem", "itemCard", "todosOsItens", "Anterior", "Proximo", "scrolllista")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,11 +26,12 @@ script = ExtResource("2_emxd4")
 background = NodePath("background")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
-listadeitem = NodePath("MarginContainer/Conteudo/Inventario/Lista de Item")
-itemCard = NodePath("MarginContainer/Conteudo/Inventario/ItemCard")
+listadeitem = NodePath("MarginContainer/Conteudo/Inventario/Item/NomeDescricaoItem")
+itemCard = NodePath("MarginContainer/Conteudo/Inventario/Item/ItemCard")
+todosOsItens = NodePath("MarginContainer/Conteudo/Inventario/ListaItem")
 Anterior = NodePath("MarginContainer/Conteudo/Inventario/Anterior")
 Proximo = NodePath("MarginContainer/Conteudo/Inventario/Proximo")
-scrolllista = NodePath("MarginContainer/Conteudo/Inventario/Lista de Item/Scroll_Lista")
+scrolllista = NodePath("MarginContainer/Conteudo/Inventario/Scroll_Lista")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -86,10 +87,20 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_crkcf")
 icon = ExtResource("4_ie6n7")
 flat = true
 
-[node name="ItemCard" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
+[node name="Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.57
+theme_override_constants/separation = 0
+
+[node name="ItemCard" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario/Item"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NomeDescricaoItem" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario/Item"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Proximo" type="Button" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
@@ -100,11 +111,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_krxw6")
 icon = ExtResource("5_3whku")
 flat = true
 
-[node name="Lista de Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
+[node name="ListaItem" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Scroll_Lista" type="VScrollBar" parent="MarginContainer/Conteudo/Inventario/Lista de Item"]
+[node name="Scroll_Lista" type="VScrollBar" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 3

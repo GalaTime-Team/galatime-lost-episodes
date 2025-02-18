@@ -6,6 +6,7 @@ extends Control
 @export var menu_hover: AudioStreamPlayer
 @export var listadeitem : VBoxContainer
 @export var itemCard : VBoxContainer
+@export var todosOsItens : VBoxContainer
 @export var Anterior : Button
 @export var Proximo : Button
 @export var scrolllista : VScrollBar
@@ -36,6 +37,16 @@ func listaritem() -> void:
 		var itemdescricao = Label.new()
 		itemdescricao.text = "Descrição: " + item.descricao
 		listadeitem.add_child(itemdescricao)
+
+func listar_todos_os_itens() -> void:
+	clear_vboxcontainer(todosOsItens)
+
+	for itens in Global.inventario:
+		var item = Global.inventario[itens]
+		
+		var itemNome = Label.new()
+		itemNome.text = "Item: " + item.nome
+		todosOsItens.add_child(itemNome)
 
 func _on_back_pressed() -> void:
 	menu_click.play()
