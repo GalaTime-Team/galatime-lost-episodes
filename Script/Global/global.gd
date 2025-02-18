@@ -51,6 +51,12 @@ var dicionario_imagens : Dictionary = {
 func item_guardados(chave,nome,descricao):
 	inventario[chave] = {"nome" : nome , "descricao" : descricao}
 
+func buscar_imagem_por_chave(chave: String) -> String:
+		if chave in dicionario_imagens:
+			return dicionario_imagens[chave]
+		else:
+			return ""
+
 func new_game():
 	monologuecont = false
 	for key in puzzles:

@@ -10,7 +10,6 @@ extends Control
 @export var Proximo : Button
 @export var scrolllista : VScrollBar
 
-var chavesArray : Array = []
 var interacao : int = 0
 
 signal back_inventory_menu
@@ -45,26 +44,32 @@ func _on_back_pressed() -> void:
 
 func buscarChave() -> void:
 	for chave in Global.inventario:
-		chavesArray.append(chave)
+		Global.buscar_imagem_por_chave(chave)
+		print(chave)
 
 func proximaInteracao() -> void:
-	if interacao < chavesArray.size():
-		interacao += 1
+		if interacao < Global.inventario.size() - 1:
+			interacao += 1
+		else:
+			interacao = 0  # Volta para o primeiro item
 
 func anteriorInteracao() -> void:
-	if interacao >= 0:
-		interacao -= 1
+		if interacao > 0:
+			interacao -= 1
+		else:
+			interacao = Global.inventario.size() - 1  # Volta para o último item
 
 func listarItemCard() -> void:
 	for chave in Global.inventario:
 		clear_vboxcontainer(itemCard)
 
-		var chave_atual = chavesArray[0]
-		var caminho_imagem = Global.dicionario_imagens[chave_atual]
-		var imagem_a_acessar = TextureRect.new()
+		if Global.inventario.size() > 0:
+			var chave_atual = Global.inventario.keys()[interacao] # Busca o item atual
+			var caminho_imagem = Global.buscar_imagem_por_chave(chave_atual)
+			var imagem_a_acessar = TextureRect.new()
 
-		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
-		itemCard.add_child(imagem_a_acessar)
+			imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+			itemCard.add_child(imagem_a_acessar)
 
 func clear_vboxcontainer(vbox):
 	for child in vbox.get_children():
@@ -79,8 +84,8 @@ func clear_vboxcontainer(vbox):
 
 func _on_anterior_pressed() -> void:
 	anteriorInteracao()
-	if interacao >= 0 and interacao < chavesArray.size():
-		var chave_atual = chavesArray[interacao]
+	if interacao >= 0 and interacao < Global.inventario.size():
+		var chave_atual = Global.inventario.keys()[interacao]
 		
 		if chave_atual in Global.inventario: 
 			atualizar_imagem_item_card(chave_atual)
@@ -88,8 +93,8 @@ func _on_anterior_pressed() -> void:
 
 func _on_proximo_pressed() -> void:
 	proximaInteracao()
-	if interacao >= 0 and interacao < chavesArray.size():
-		var chave_atual = chavesArray[interacao]
+	if interacao >= 0 and interacao < Global.inventario.size():
+		var chave_atual = Global.inventario.keys()[interacao]
 		
 		if chave_atual in Global.inventario: 
 			atualizar_imagem_item_card(chave_atual)
