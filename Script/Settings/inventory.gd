@@ -44,8 +44,8 @@ func listar_todos_os_itens() -> void:
 	for itens in Global.inventario:
 		var item = Global.inventario[itens]
 		
-		var itemNome = Label.new()
-		itemNome.text = "Item: " + item.nome
+		var itemNome = Button.new()
+		itemNome.text = item.nome
 		todosOsItens.add_child(itemNome)
 
 func _on_back_pressed() -> void:
