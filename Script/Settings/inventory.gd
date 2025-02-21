@@ -41,12 +41,22 @@ func listaritem() -> void:
 func listar_todos_os_itens() -> void:
 	clear_vboxcontainer(todosOsItens)
 
+	var index = 0  # Variável para rastrear o índice
 	for itens in Global.inventario:
 		var item = Global.inventario[itens]
 		
 		var itemNome = Button.new()
 		itemNome.text = item.nome
+		itemNome.pressed.connect("_on_item_button_pressed", index)  # corrigir o erro
 		todosOsItens.add_child(itemNome)
+		index += 1
+
+func _on_item_button_pressed(index: int) -> void:
+	var chave_atual = "item_" + str(index)  # Cria a chave com o formato "item_" + index			
+	if chave_atual in Global.inventario:
+		# Atualiza o item no card com a imagem, nome e descrição
+		atualizar_imagem_item_card(chave_atual)
+		atualizar_texto_lista_item(chave_atual)
 
 func _on_back_pressed() -> void:
 	menu_click.play()
@@ -111,15 +121,16 @@ func _on_proximo_pressed() -> void:
 			atualizar_imagem_item_card(chave_atual)
 			atualizar_texto_lista_item(chave_atual)
 
-func atualizar_imagem_item_card(chave_atual):
+func atualizar_imagem_item_card(chave_atual: String) -> void:
 	var caminho_imagem = Global.dicionario_imagens[chave_atual]
-	var imagem_a_acessar = TextureRect.new()
-	imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
-	# Limpa o itemCard e adiciona a nova imagem
-	clear_vboxcontainer(itemCard)
-	itemCard.add_child(imagem_a_acessar)
+	if caminho_imagem != "":
+		var imagem_a_acessar = TextureRect.new()
+		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
+		# Limpa o itemCard e adiciona a nova imagem
+		clear_vboxcontainer(itemCard)
+		itemCard.add_child(imagem_a_acessar)
 
-func atualizar_texto_lista_item(chave_atual):
+func atualizar_texto_lista_item(chave_atual: String) -> void:
 	var item = Global.inventario[chave_atual]
 	var itemNome = Label.new()
 	itemNome.text = "Item: " + item.nome
