@@ -43,19 +43,8 @@ var puzzles: Dictionary = {
 #########
 var inventario : Dictionary 
 
-var dicionario_imagens : Dictionary = {
-	"item_1" : "res://Asset/Images/Inventario/chave_dourada.png",
-	"item_2" : "res://Asset/Images/Inventario/papiro.png"
-}
-
-func item_guardados(chave,nome,descricao):
-	inventario[chave] = {"nome" : nome , "descricao" : descricao}
-
-func buscar_imagem_por_chave(chave: String) -> String:
-		if chave in dicionario_imagens:
-			return dicionario_imagens[chave]
-		else:
-			return ""
+func item_guardados(chave,nome,descricao,imagem):
+	inventario[chave] = {"nome" : nome , "descricao" : descricao , "imagem" : imagem}
 
 func new_game():
 	monologuecont = false

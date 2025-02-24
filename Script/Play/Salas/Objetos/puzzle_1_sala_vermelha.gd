@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _on_chave_pressed() -> void:
 	chave.hide()
-	Global.item_guardados("item_1","item parede amarela","chave feita de metal mas com um pouco de ferrugem")
+	Global.item_guardados("item_1","item parede amarela","chave feita de metal mas com um pouco de ferrugem","res://Asset/Images/Inventario/chave_dourada.png")
 
 func _on_pressed() -> void:
 	if not Global.puzzles["puzzle1"].completo:

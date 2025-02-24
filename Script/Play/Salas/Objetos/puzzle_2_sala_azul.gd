@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _on_papel_pressed() -> void:
 	papel.hide()
-	Global.item_guardados("item_2","item parede azul","Um papel que contem um mapa")
+	Global.item_guardados("item_2","item parede azul","Um papel que contem um mapa","res://Asset/Images/Inventario/papiro.png")
 
 func _on_pressed() -> void:
 	if not Global.puzzles["puzzle1"].completo:

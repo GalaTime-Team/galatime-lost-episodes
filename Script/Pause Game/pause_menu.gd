@@ -106,11 +106,9 @@ func options():
 
 func items():
 	inventory.set_process(true)
-	
-	inventory.listaritem()
-	inventory.buscarChave()
-	inventory.listarItemCard()
-	inventory.listar_todos_os_itens()
+
+	inventory.listar_item_card()
+	inventory.listar_nome_itens()
 	
 	fade(panel_container, inventory)
 

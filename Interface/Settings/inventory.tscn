@@ -1,20 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://crihnhawawd20"]
+[gd_scene load_steps=7 format=3 uid="uid://crihnhawawd20"]
 
 [ext_resource type="Theme" uid="uid://brh3ucsekdb0s" path="res://default.tres" id="1_4ten3"]
 [ext_resource type="Script" path="res://Script/Settings/inventory.gd" id="2_emxd4"]
 [ext_resource type="FontFile" uid="uid://eesn17jmgi52" path="res://Asset/Fonts/forgotten futurist bd.otf" id="2_oe77v"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_3r02v"]
-[ext_resource type="Texture2D" uid="uid://c0kpgvr2ldbe5" path="res://Asset/Images/Buttons/Left/left_buttton.png" id="4_ie6n7"]
-[ext_resource type="Texture2D" uid="uid://c5i2tdf75ad4e" path="res://Asset/Images/Buttons/Right/right_button.png" id="5_3whku"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_8jqwh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crkcf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krxw6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68tmn"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "listadeitem", "itemCard", "todosOsItens", "Anterior", "Proximo", "scrolllista")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("background", "menu_click", "menu_hover", "itemCardNomeEdescricao", "itemCardImagem", "listaItem", "scrolllista")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,11 +20,9 @@ script = ExtResource("2_emxd4")
 background = NodePath("background")
 menu_click = NodePath("s_menu_click")
 menu_hover = NodePath("s_menu_hover")
-listadeitem = NodePath("MarginContainer/Conteudo/Inventario/Item/NomeDescricaoItem")
-itemCard = NodePath("MarginContainer/Conteudo/Inventario/Item/ItemCard")
-todosOsItens = NodePath("MarginContainer/Conteudo/Inventario/ListaItem")
-Anterior = NodePath("MarginContainer/Conteudo/Inventario/Anterior")
-Proximo = NodePath("MarginContainer/Conteudo/Inventario/Proximo")
+itemCardNomeEdescricao = NodePath("MarginContainer/Conteudo/Inventario/Item/NomeDescricaoItem")
+itemCardImagem = NodePath("MarginContainer/Conteudo/Inventario/Item/ItemImagem")
+listaItem = NodePath("MarginContainer/Conteudo/Inventario/ListaItem")
 scrolllista = NodePath("MarginContainer/Conteudo/Inventario/Scroll_Lista")
 
 [node name="background" type="ColorRect" parent="."]
@@ -78,21 +70,12 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Anterior" type="Button" parent="MarginContainer/Conteudo/Inventario"]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_stretch_ratio = 0.1
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_crkcf")
-icon = ExtResource("4_ie6n7")
-flat = true
-
 [node name="Item" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="ItemCard" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario/Item"]
+[node name="ItemImagem" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario/Item"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -101,15 +84,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Proximo" type="Button" parent="MarginContainer/Conteudo/Inventario"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_stretch_ratio = 0.1
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_krxw6")
-icon = ExtResource("5_3whku")
-flat = true
 
 [node name="ListaItem" type="VBoxContainer" parent="MarginContainer/Conteudo/Inventario"]
 layout_mode = 2
@@ -139,7 +113,5 @@ stream = ExtResource("5_8jqwh")
 volume_db = -12.0
 bus = &"Sfx"
 
-[connection signal="pressed" from="MarginContainer/Conteudo/Inventario/Anterior" to="." method="_on_anterior_pressed"]
-[connection signal="pressed" from="MarginContainer/Conteudo/Inventario/Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
