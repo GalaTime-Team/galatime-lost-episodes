@@ -1,10 +1,9 @@
 extends Control
 
-@export var parede_ciano : Control
 @export var objetos_controler : Control
 
 var objetos_cena_link: Dictionary = {
-	"Aproximar_gavetas" : "Aproximar_Gavetas_Sala_azul"
+	"puzzle1" : "puzzle1-Sala_azul"
 }
 
 signal alterar_UI
@@ -37,5 +36,5 @@ func remover_objeto() -> void:
 	if objetos_controler.get_child_count() > 0:
 		objetos_controler.get_child(0).queue_free()
 
-func _on_button_pressed(objeto_carregado: String) -> void:
+func _on_gaveta_cima_pressed(objeto_carregado: String) -> void:
 	carregar_objeto(objeto_carregado)

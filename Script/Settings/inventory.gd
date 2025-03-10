@@ -45,13 +45,19 @@ func listar_item_imagem(chave_atual: String) -> void:
 
 		itemCardImagem.add_child(imagem_a_acessar)
 
-func listar_item_card(chave_atual: String = Global.inventario.keys()[0]) -> void:
-	clear_vboxcontainer(itemCardImagem)
-	clear_vboxcontainer(itemCardNomeEdescricao)
-	
-	listar_item_imagem(chave_atual)
-	listar_item_nome(chave_atual)
-	listar_item_descricao(chave_atual)
+func listar_item_card(chave_atual: String = "") -> void:
+	if Global.inventario.size() > 0:
+		if chave_atual == "":
+			chave_atual = Global.inventario.keys()[0]
+			
+		clear_vboxcontainer(itemCardImagem)
+		clear_vboxcontainer(itemCardNomeEdescricao)
+
+		listar_item_imagem(chave_atual)
+		listar_item_nome(chave_atual)
+		listar_item_descricao(chave_atual)
+	else:
+		pass
 
 func listar_nome_itens() -> void:
 	clear_vboxcontainer(listaItem)

@@ -61,11 +61,18 @@ texture_normal = ExtResource("4_q3xsi")
 
 [node name="Trash" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
-offset_left = 787.0
+offset_left = 769.0
 offset_top = 811.0
-offset_right = 941.0
+offset_right = 921.0
 offset_bottom = 961.0
 texture_normal = ExtResource("4_xuwox")
+
+[node name="Banca" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 716.0
+offset_right = 1908.0
+offset_bottom = 979.0
 
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1
@@ -89,3 +96,4 @@ bus = &"Sfx"
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
 [connection signal="pressed" from="Blocos de Ação/PostIt" to="." method="_on_post_it_pressed" binds= ["Aproximar_PostIt"]]
 [connection signal="pressed" from="Blocos de Ação/Trash" to="." method="_on_trash_pressed" binds= ["Aproximar_trash"]]
+[connection signal="pressed" from="Blocos de Ação/Banca" to="." method="_on_banca_pressed" binds= ["Aproximar_banca"]]

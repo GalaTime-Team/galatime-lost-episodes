@@ -15,13 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -1731.0
 offset_top = -1673.0
 offset_right = 3896.0
 offset_bottom = 1224.0
 texture = ExtResource("1_f0x6m")
 
-[node name="Blocos de Ação" type="Control" parent="Background"]
+[node name="Blocos de Ação" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,12 +32,12 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_jfeof")
 
-[node name="TextureRect" type="TextureRect" parent="Background/Blocos de Ação"]
+[node name="TextureRect" type="TextureRect" parent="Blocos de Ação"]
 layout_mode = 0
-offset_left = 2316.0
-offset_top = 1963.0
-offset_right = 2997.0
-offset_bottom = 2663.0
+offset_left = 547.0
+offset_top = 311.0
+offset_right = 1228.0
+offset_bottom = 1011.0
 texture = ExtResource("3_lh0nc")
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]

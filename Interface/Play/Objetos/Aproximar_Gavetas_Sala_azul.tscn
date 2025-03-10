@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7dp3t62jfvs3"]
+
+[ext_resource type="Script" path="res://Interface/Play/Objetos/aproximar_gavetas_sala_azul.gd" id="1_c1uow"]
+[ext_resource type="Texture2D" uid="uid://ypew13wupckn" path="res://Asset/Images/Rooms/ciano.png" id="2_40taj"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_m3bes"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_5ds67"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_cnblt"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("objetos_controler")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c1uow")
+objetos_controler = NodePath("Objetos")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -1770.0
+offset_top = -1616.0
+offset_right = 3722.0
+offset_bottom = 1223.0
+texture = ExtResource("2_40taj")
+
+[node name="Blocos de Ação" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_m3bes")
+
+[node name="TextureRect" type="TextureRect" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 295.0
+offset_right = 1399.0
+offset_bottom = 1008.0
+
+[node name="Gaveta_cima" type="Button" parent="Blocos de Ação/TextureRect"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 62.0
+offset_right = 946.0
+offset_bottom = 217.0
+
+[node name="Objetos" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5ds67")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cnblt")
+volume_db = -12.0
+bus = &"Sfx"
+
+[connection signal="pressed" from="Blocos de Ação/TextureRect/Gaveta_cima" to="." method="_on_gaveta_cima_pressed" binds= ["puzzle1"]]
