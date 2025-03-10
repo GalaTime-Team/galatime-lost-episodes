@@ -1,25 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv5tlliig3k4j"]
+[gd_scene load_steps=5 format=3 uid="uid://dt470qm1pwj78"]
 
-[ext_resource type="Script" path="res://Script/Play/Salas/Objetos/puzzle_1_sala_vermelha.gd" id="1_jctpl"]
-[ext_resource type="Script" path="res://Script/Play/Helpers/buttonPlus.gd" id="2_7raiw"]
-[ext_resource type="Script" path="res://Script/Play/Helpers/buttonConfirm.gd" id="3_apfxu"]
-[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="4_ed54q"]
+[ext_resource type="Script" path="res://Script/Play/Salas/Objetos/puzzle_2_sala_azul.gd" id="1_32ulc"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/buttonPlus.gd" id="2_c01o6"]
+[ext_resource type="Script" path="res://script/Play/confirmPuzzle2.gd" id="3_oms0g"]
+[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="4_huh1k"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("b1", "b2", "b3", "sala", "chave")]
+[node name="Control" type="Control" node_paths=PackedStringArray("b1", "b2", "b3", "sala", "papel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jctpl")
+script = ExtResource("1_32ulc")
 b1 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo1/Button")
 b2 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo2/Button")
 b3 = NodePath("Control/PanelContainer/HBoxContainer/VBox_codigo3/Button")
 sala = NodePath(".")
-chave = NodePath("Chave")
+papel = NodePath("Papel")
 
-[node name="Background" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,18 +27,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
-color = Color(0.764706, 0.427451, 0.407843, 1)
+color = Color(0.67451, 0.831373, 0.839216, 1)
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("b1", "b2", "b3")]
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_left = 1302.0
 offset_top = 229.0
 offset_right = 1302.0
 offset_bottom = 843.0
-script = ExtResource("2_7raiw")
+script = ExtResource("2_c01o6")
 b1 = NodePath("PanelContainer/HBoxContainer/VBox_codigo1/Button")
 b2 = NodePath("PanelContainer/HBoxContainer/VBox_codigo2/Button")
 b3 = NodePath("PanelContainer/HBoxContainer/VBox_codigo3/Button")
@@ -102,31 +102,31 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 
-[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo4" node_paths=PackedStringArray("b1", "b2", "b3", "chave", "puzzle_complet")]
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer/VBox_codigo4" node_paths=PackedStringArray("b1", "b2", "b3", "papel", "puzzle_complet")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Button_Confirmar"
-script = ExtResource("3_apfxu")
+script = ExtResource("3_oms0g")
 b1 = NodePath("../../VBox_codigo1/Button")
 b2 = NodePath("../../VBox_codigo2/Button")
 b3 = NodePath("../../VBox_codigo3/Button")
-chave = NodePath("../../../../../Chave")
+papel = NodePath("../../../../../Papel")
 puzzle_complet = NodePath("../../../../../s_puzzle_complet")
 
 [node name="s_puzzle_complet" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ed54q")
+stream = ExtResource("4_huh1k")
 bus = &"Sfx"
 
-[node name="Chave" type="Button" parent="."]
+[node name="Papel" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 875.0
-offset_top = 703.0
-offset_right = 1001.0
-offset_bottom = 752.0
+offset_left = 897.0
+offset_top = 706.0
+offset_right = 1041.0
+offset_bottom = 786.0
 
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo1/Button" to="Control" method="_on_button1_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo2/Button" to="Control" method="_on_button2_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo3/Button" to="Control" method="_on_button3_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/HBoxContainer/VBox_codigo4/Button" to="Control/PanelContainer/HBoxContainer/VBox_codigo4/Button" method="_on_pressed"]
-[connection signal="pressed" from="Chave" to="." method="_on_chave_pressed"]
+[connection signal="pressed" from="Papel" to="." method="_on_papel_pressed"]

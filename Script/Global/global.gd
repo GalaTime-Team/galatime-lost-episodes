@@ -30,11 +30,7 @@ var continuarConfirmar: bool = false
 var puzzles: Dictionary = {
 	"puzzle1" : {
 		"completo": false,
-		"solucao": ["4","5","1"]
-		},
-	"puzzle2" : {
-		"completo": false, 
-		"solucao": ["6","1","0"]
+		"solucao": ["2","1","2"]
 		}
 }
 

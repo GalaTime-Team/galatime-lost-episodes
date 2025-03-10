@@ -7,7 +7,7 @@ extends Control
 @export var papel : Button
 
 func _ready() -> void:
-	if Global.puzzles["puzzle2"].completo:
+	if Global.puzzles["puzzle1"].completo:
 		if "item_2" in Global.inventario:
 			papel.hide()
 		else:
