@@ -51,10 +51,10 @@ color = Color(1, 1, 1, 0)
 
 [node name="Button_Puzzle1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1238.0
-offset_top = 297.0
-offset_right = 1568.0
-offset_bottom = 443.0
+offset_left = 1463.0
+offset_top = 825.0
+offset_right = 1793.0
+offset_bottom = 971.0
 
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1

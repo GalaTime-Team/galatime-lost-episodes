@@ -99,6 +99,7 @@ func handling_signal() -> void:
 	intro_monologue.back_dialog.connect(end_of_dialogue)
 	parede_vermelha.alterar_UI.connect(botoes_visivel)
 	parede_ciano.alterar_UI.connect(botoes_visivel)
+	parede_amarela.alterar_UI.connect(botoes_visivel)
 
 # Recebe a direção do movimento
 func mudar_sala(direcao: String) -> void:
@@ -109,7 +110,7 @@ func mudar_sala(direcao: String) -> void:
 		else:
 			match Global.sala_antecedente():
 				"amarela":
-					pass
+					parede_amarela.remover_objeto()
 				"vermelha":
 					parede_vermelha.remover_objeto()
 				"ciano":

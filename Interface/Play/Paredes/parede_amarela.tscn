@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvt7jwu5k1gth"]
+[gd_scene load_steps=7 format=3 uid="uid://dvt7jwu5k1gth"]
 
 [ext_resource type="Script" path="res://Script/Play/Salas/parede_amarela.gd" id="1_ittwj"]
 [ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="2_0mjqf"]
 [ext_resource type="Texture2D" uid="uid://dh7pei48pldue" path="res://Asset/Images/Rooms/amarela.png" id="2_7djhk"]
+[ext_resource type="Texture2D" uid="uid://bixauhefkkx1r" path="res://Asset/Images/Rooms/lixo.png" id="4_xuwox"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="23_ldprf"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="24_0sbyt"]
 
@@ -49,12 +50,20 @@ offset_right = 675.0
 offset_bottom = 963.0
 color = Color(1, 1, 1, 0)
 
-[node name="TextureButton" type="TextureButton" parent="Blocos de Ação"]
+[node name="PostIt" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
 offset_left = 254.0
 offset_top = 152.0
 offset_right = 316.0
 offset_bottom = 206.0
+
+[node name="Trash" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 811.0
+offset_right = 941.0
+offset_bottom = 961.0
+texture_normal = ExtResource("4_xuwox")
 
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1
@@ -76,4 +85,5 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_amarela"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Blocos de Ação/TextureButton" to="." method="_on_texture_button_pressed" binds= ["Aproximar"]]
+[connection signal="pressed" from="Blocos de Ação/PostIt" to="." method="_on_post_it_pressed" binds= ["Aproximar_PostIt"]]
+[connection signal="pressed" from="Blocos de Ação/Trash" to="." method="_on_trash_pressed" binds= ["Aproximar_trash"]]

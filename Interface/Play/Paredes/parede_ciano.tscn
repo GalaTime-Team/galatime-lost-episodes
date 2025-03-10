@@ -55,10 +55,10 @@ color = Color(1, 1, 1, 0)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 467.0
-offset_top = 399.0
-offset_right = 894.0
-offset_bottom = 589.0
+offset_left = 871.0
+offset_top = 800.0
+offset_right = 1137.0
+offset_bottom = 985.0
 
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1

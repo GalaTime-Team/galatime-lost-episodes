@@ -9,7 +9,8 @@ extends Control
 @export var objetos_controler : Control
 
 var objetos_cena_link: Dictionary = {
-	"Aproximar" : "Aproximar_PostIt_Sala_amarela"
+	"Aproximar_PostIt" : "Aproximar_PostIt_Sala_amarela",
+	"Aproximar_trash" : "Aproximar_trash_Sala_amarela"
 }
 
 signal alterar_UI
@@ -17,9 +18,9 @@ signal alterar_UI
 func _ready() -> void:
 	pass
 
-func _on_texture_button_pressed(objeto_carregado: String) -> void:
+func carregar_objeto(objeto_carregado: String) -> void:
 	# Carrega o Objeto
-	var link_objeto_a_acessar = "res://Interface/Play/Paredes/" + objetos_cena_link[objeto_carregado] + ".tscn"
+	var link_objeto_a_acessar = "res://Interface/Play/Objetos/" + objetos_cena_link[objeto_carregado] + ".tscn"
 	var objeto_a_acessar = load(link_objeto_a_acessar) as PackedScene
 	
 	Global.adicionar_sala_ao_historico(objeto_carregado)
@@ -41,3 +42,9 @@ func _on_texture_button_pressed(objeto_carregado: String) -> void:
 func remover_objeto() -> void:
 	if objetos_controler.get_child_count() > 0:
 		objetos_controler.get_child(0).queue_free()
+
+func _on_post_it_pressed(objeto_carregado: String) -> void:
+	carregar_objeto(objeto_carregado)
+
+func _on_trash_pressed(objeto_carregado: String) -> void:
+	carregar_objeto(objeto_carregado)
