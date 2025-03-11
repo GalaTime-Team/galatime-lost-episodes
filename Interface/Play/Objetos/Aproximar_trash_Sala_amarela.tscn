@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr1r0ka5wn7ql"]
+[gd_scene load_steps=5 format=3 uid="uid://dr1r0ka5wn7ql"]
 
 [ext_resource type="Texture2D" uid="uid://dh7pei48pldue" path="res://Asset/Images/Rooms/amarela.png" id="1_f0x6m"]
 [ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="2_jfeof"]
-[ext_resource type="Texture2D" uid="uid://bixauhefkkx1r" path="res://Asset/Images/Rooms/lixo.png" id="3_lh0nc"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="3_uu54b"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="4_c2wom"]
 
@@ -16,10 +15,10 @@ grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -1731.0
-offset_top = -1673.0
-offset_right = 3896.0
-offset_bottom = 1224.0
+offset_left = -1749.0
+offset_top = -2039.0
+offset_right = 4011.0
+offset_bottom = 1201.0
 texture = ExtResource("1_f0x6m")
 
 [node name="Blocos de Ação" type="Control" parent="."]
@@ -31,14 +30,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_jfeof")
-
-[node name="TextureRect" type="TextureRect" parent="Blocos de Ação"]
-layout_mode = 0
-offset_left = 547.0
-offset_top = 311.0
-offset_right = 1228.0
-offset_bottom = 1011.0
-texture = ExtResource("3_lh0nc")
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_uu54b")

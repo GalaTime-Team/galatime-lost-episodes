@@ -4,7 +4,7 @@ extends Control
 @export var objetos_controler : Control
 
 var objetos_cena_link: Dictionary = {
-	"Aproximar_gavetas" : "Aproximar_Gavetas_Sala_azul"
+	
 }
 
 signal alterar_UI

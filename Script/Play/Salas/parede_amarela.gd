@@ -11,7 +11,8 @@ extends Control
 var objetos_cena_link: Dictionary = {
 	"Aproximar_PostIt" : "Aproximar_PostIt_Sala_amarela",
 	"Aproximar_trash" : "Aproximar_trash_Sala_amarela",
-	"Aproximar_banca" : "Aproximar_Banca_Sala_amarela"
+	"Aproximar_banca" : "Aproximar_Banca_Sala_amarela",
+	"Puzzle1" : "puzzle1-Sala_amarela"
 }
 
 signal alterar_UI
@@ -51,4 +52,7 @@ func _on_trash_pressed(objeto_carregado: String) -> void:
 	carregar_objeto(objeto_carregado)
 
 func _on_banca_pressed(objeto_carregado: String) -> void:
+	carregar_objeto(objeto_carregado)
+
+func _on_gaveta_pressed(objeto_carregado: String) -> void:
 	carregar_objeto(objeto_carregado)

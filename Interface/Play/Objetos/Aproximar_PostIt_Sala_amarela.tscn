@@ -21,8 +21,8 @@ sala = NodePath(".")
 layout_mode = 0
 offset_left = -143.0
 offset_top = -93.0
-offset_right = 6318.0
-offset_bottom = 3332.0
+offset_right = 5617.0
+offset_bottom = 3147.0
 texture = ExtResource("2_udcr8")
 
 [node name="Blocos de Ação" type="Control" parent="."]
@@ -37,10 +37,10 @@ script = ExtResource("3_vkot0")
 
 [node name="TextureRect" type="TextureRect" parent="Blocos de Ação"]
 layout_mode = 0
-offset_left = 740.0
-offset_top = 413.0
-offset_right = 871.0
-offset_bottom = 538.0
+offset_left = 640.0
+offset_top = 356.0
+offset_right = 771.0
+offset_bottom = 481.0
 texture = ExtResource("4_6no77")
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
