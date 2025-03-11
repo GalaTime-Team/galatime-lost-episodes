@@ -12,6 +12,7 @@ var objetos_cena_link: Dictionary = {
 	"Aproximar_PostIt" : "Aproximar_PostIt_Sala_amarela",
 	"Aproximar_trash" : "Aproximar_trash_Sala_amarela",
 	"Aproximar_banca" : "Aproximar_Banca_Sala_amarela",
+	"Aproximar_cookie" : "Aproximar_Cookie_Sala_amarela",
 	"Puzzle1" : "puzzle1-Sala_amarela"
 }
 
@@ -55,4 +56,7 @@ func _on_banca_pressed(objeto_carregado: String) -> void:
 	carregar_objeto(objeto_carregado)
 
 func _on_gaveta_pressed(objeto_carregado: String) -> void:
+	carregar_objeto(objeto_carregado)
+
+func _on_cookie_pressed(objeto_carregado: String) -> void:
 	carregar_objeto(objeto_carregado)

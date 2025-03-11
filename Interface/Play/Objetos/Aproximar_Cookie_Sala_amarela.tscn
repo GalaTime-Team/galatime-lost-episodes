@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihv6c2rvmk6g"]
+
+[ext_resource type="Texture2D" uid="uid://dh7pei48pldue" path="res://Asset/Images/Rooms/amarela.png" id="1_gpmye"]
+[ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="2_ad17a"]
+[ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="3_nxd12"]
+[ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="4_e13h2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -2420.0
+offset_top = -1093.0
+offset_right = 3340.0
+offset_bottom = 2147.0
+texture = ExtResource("1_gpmye")
+
+[node name="Blocos de Ação" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_ad17a")
+
+[node name="s_menu_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nxd12")
+bus = &"Sfx"
+
+[node name="s_menu_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e13h2")
+volume_db = -12.0
+bus = &"Sfx"
