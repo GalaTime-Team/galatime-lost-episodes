@@ -19,7 +19,7 @@ extends Control
 @onready var splash_screen : PackedScene = load("res://Interface/splash_screen.tscn")
 
 signal out_pause_menu
-
+signal pause_music
 #####
 # AUX
 #####
@@ -74,6 +74,7 @@ func open_pause_menu():
 	tween.tween_property(panel_container, "modulate:a", 1.0 ,0.2)
 	await tween.finished
 	shield.hide()
+	pause_music.emit(true)
 
 func resume_game_animation():
 	remove_buttons_focus()
@@ -83,6 +84,7 @@ func resume_game_animation():
 	panel_container.show()
 	panel_container.modulate.a = 1.0
 	
+	pause_music.emit(false)
 	# Animação
 	var tween = self.create_tween()
 	blur_animation.play("blur_off")
@@ -90,6 +92,7 @@ func resume_game_animation():
 	await tween.finished
 	
 	panel_container.hide()
+	
 
 func resume_game():
 	out_pause_menu.emit()

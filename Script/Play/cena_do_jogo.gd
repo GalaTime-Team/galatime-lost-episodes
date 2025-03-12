@@ -3,6 +3,7 @@ extends Control
 
 @export_category("Audio")
 @export var BG_Jogo: AudioStreamPlayer
+@export var pause_menu: PauseMenu
 
 @export_category("Paredes")
 @export var parede_amarela: Control
@@ -32,8 +33,12 @@ const change_room_dictionary : Dictionary = {
 func _ready() -> void:
 	if not Global.monologuecont:
 		on_intro_monologue()
+	else:
+		play_bgmusic()
 	handling_signal()
 	parede_visivel(Global.sala_que_estamos())
+	
+	
 
 ########
 # Monologue
@@ -47,6 +52,12 @@ func on_intro_monologue() -> void:
 func end_of_dialogue() -> void:
 	opening_eyes_animation()
 
+func play_bgmusic() -> void:
+	if not BG_Jogo.playing:
+		BG_Jogo.play_music()
+
+func pause_bgmusic() -> void:
+	BG_Jogo.stop()
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
@@ -57,10 +68,8 @@ func opening_eyes_animation() -> void:
 	intro_monologue.hide()
 	tutorial.fade_in()
 	  # Parar qualquer execução anterior e ativar a permissão para tocar música
-	BG_Jogo.stop()
-	BG_Jogo.timer.stop()
-	BG_Jogo.is_music_allowed = true
-	BG_Jogo.play_music()
+	play_bgmusic()
+
 
 ########
 # Transição
@@ -100,6 +109,7 @@ func handling_signal() -> void:
 	parede_vermelha.alterar_UI.connect(botoes_visivel)
 	parede_ciano.alterar_UI.connect(botoes_visivel)
 	parede_amarela.alterar_UI.connect(botoes_visivel)
+	#pause_menu.pause_music.connect()
 
 # Recebe a direção do movimento
 func mudar_sala(direcao: String) -> void:

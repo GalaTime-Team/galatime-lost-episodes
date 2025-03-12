@@ -138,6 +138,8 @@ func _on_continue_pressed() -> void:
 	menu_click.play()
 	
 	get_tree().change_scene_to_packed(start_game)
+	
+	
 
 func _on_play_pressed() -> void:
 	Global.new_game()

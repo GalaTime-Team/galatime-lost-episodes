@@ -1,25 +1,50 @@
 extends AudioStreamPlayer
 
 @export var timer: Timer 
-var is_music_allowed: bool = false
+
+@export var music_player: AudioStreamPlayer
+
+
+var music_list : Array = [] # Lista de músicas
+var current_music_index : int = 0 # Índice da música atual
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.timeout.connect(_on_Timer_timeout)
-	self.finished.connect(_on_finished)
+	
+	music_list = [
+	preload("C:/Users/PC/OneDrive/Documents/GitHub/galatime-lost-episodes/Asset/Audio/Music/Outside The Room.mp3"),
+	preload("C:/Users/PC/OneDrive/Documents/GitHub/galatime-lost-episodes/Asset/Audio/Music/Lost Episode.mp3"),
+	preload("C:/Users/PC/OneDrive/Documents/GitHub/galatime-lost-episodes/Asset/Audio/Music/GalaTime Lost Episodes Theme.mp3")
+	]
+	music_player._on_music_finished.connect("finished",self)
+	timer.on_Timer_timeout.connect("timeout",self)
+	play_music()
+	
 
-# Fução para dar play na música com delay aleatório
+# Função chamada quando a música termina
+func _on_music_finished():
+# Troca para a próxima música na lista
+	play_music()
+
+# Função para tocar a próxima música
 func play_music():
-	if is_music_allowed:
-		play()
+	music_player.stream = music_list[current_music_index]
+	music_player.play()
+	print("Tocando: " + music_list[current_music_index].resource_path)
+	
+	# Aumenta o índice para a próxima música
+	current_music_index = (current_music_index + 1) % music_list.size()
+	
+	var delay = randi() % 20 + 1
+	timer.wait_time = delay  # Define o tempo de espera aleatório
+	timer.start()  # Inicia o timer
+
 
 # Função para quando acaba o timer
 func _on_Timer_timeout():
-	if is_music_allowed:
-		play_music()
+	play_music()
 
 func _on_finished() -> void:
-	if is_music_allowed:
-		var delay = randi() % 20 + 1
-		timer.wait_time = delay
-		timer.start()
+	var delay = randi() % 20 + 1
+	timer.wait_time = delay
+	timer.start()
