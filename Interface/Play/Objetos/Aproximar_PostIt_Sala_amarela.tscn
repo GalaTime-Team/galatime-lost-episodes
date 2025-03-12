@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7yx28ncv0oht"]
+[gd_scene load_steps=6 format=3 uid="uid://c7yx28ncv0oht"]
 
 [ext_resource type="Script" path="res://Interface/Play/Paredes/aproximar_post_it_sala_amarela.gd" id="1_nx0aq"]
-[ext_resource type="Texture2D" uid="uid://dh7pei48pldue" path="res://Asset/Images/Rooms/amarela.png" id="2_udcr8"]
+[ext_resource type="Texture2D" uid="uid://dntwqica326g2" path="res://Asset/Images/Rooms/post_it.png" id="2_qfgcb"]
 [ext_resource type="Script" path="res://Script/Play/Helpers/info_box.gd" id="3_vkot0"]
-[ext_resource type="Texture2D" uid="uid://e6cs6efa4sax" path="res://Asset/Images/Rooms/postit_beta.png" id="4_6no77"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="4_6pcpd"]
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="5_1jqd0"]
 
@@ -19,11 +18,9 @@ sala = NodePath(".")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -143.0
-offset_top = -93.0
-offset_right = 5617.0
-offset_bottom = 3147.0
-texture = ExtResource("2_udcr8")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_qfgcb")
 
 [node name="Blocos de Ação" type="Control" parent="."]
 layout_mode = 1
@@ -34,14 +31,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_vkot0")
-
-[node name="TextureRect" type="TextureRect" parent="Blocos de Ação"]
-layout_mode = 0
-offset_left = 640.0
-offset_top = 356.0
-offset_right = 771.0
-offset_bottom = 481.0
-texture = ExtResource("4_6no77")
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6pcpd")
