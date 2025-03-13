@@ -35,6 +35,18 @@ var puzzles: Dictionary = {
 }
 
 #########
+#link dos cenarios
+#########
+
+var objetos_cena_link: Dictionary = {
+	"Aproximar_PostIt" : "Aproximar_PostIt_Sala_amarela",
+	"Aproximar_trash" : "Aproximar_trash_Sala_amarela",
+	"Aproximar_banca" : "Aproximar_Banca_Sala_amarela",
+	"Aproximar_cookie" : "Aproximar_Cookie_Sala_amarela",
+	"Puzzle1" : "puzzle1-Sala_amarela"
+}
+
+#########
 # inventario e itens
 #########
 var inventario : Dictionary 
@@ -56,7 +68,10 @@ func adicionar_sala_ao_historico(nova_sala):
 		historico_de_salas.pop_front() # Remove o elemento mais antigo
 
 func sala_que_estamos() -> String:
-	return historico_de_salas[historico_de_salas.size() - 1]
+	for sala in historico_de_salas:
+		if sala in ["Puzzle1", "vermelha", "ciano", "roxo"]:
+			return historico_de_salas[historico_de_salas.size() - 1]
+	return "Nenhuma sala correspondente encontrada"
 
 func sala_antecedente() -> String:
 	return historico_de_salas[historico_de_salas.size() - 2]

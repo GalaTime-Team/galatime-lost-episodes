@@ -3,10 +3,6 @@ extends Control
 @export var parede_ciano : Control
 @export var objetos_controler : Control
 
-var objetos_cena_link: Dictionary = {
-	
-}
-
 signal alterar_UI
 
 func _ready() -> void:
@@ -14,7 +10,7 @@ func _ready() -> void:
 
 func carregar_objeto(objeto_carregado: String) -> void:
 	# Carrega o Objeto
-	var link_objeto_a_acessar = "res://Interface/Play/Objetos/" + objetos_cena_link[objeto_carregado] + ".tscn"
+	var link_objeto_a_acessar = "res://Interface/Play/Objetos/" + Global.objetos_cena_link[objeto_carregado] + ".tscn"
 	var objeto_a_acessar = load(link_objeto_a_acessar) as PackedScene
 	
 	Global.adicionar_sala_ao_historico(objeto_carregado)

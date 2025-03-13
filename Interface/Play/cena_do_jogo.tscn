@@ -193,12 +193,11 @@ stream = ExtResource("20_eso77")
 volume_db = -12.0
 bus = &"Sfx"
 
-[node name="BG_Jogo" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("timer", "music_player")]
+[node name="BG_Jogo" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("timer")]
 stream = ExtResource("28_ghsw3")
 bus = &"Music"
 script = ExtResource("29_7d86j")
 timer = NodePath("../Timer")
-music_player = NodePath(".")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

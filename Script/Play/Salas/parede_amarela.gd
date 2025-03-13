@@ -8,14 +8,6 @@ extends Control
 @export var parede_amarela : Control 
 @export var objetos_controler : Control
 
-var objetos_cena_link: Dictionary = {
-	"Aproximar_PostIt" : "Aproximar_PostIt_Sala_amarela",
-	"Aproximar_trash" : "Aproximar_trash_Sala_amarela",
-	"Aproximar_banca" : "Aproximar_Banca_Sala_amarela",
-	"Aproximar_cookie" : "Aproximar_Cookie_Sala_amarela",
-	"Puzzle1" : "puzzle1-Sala_amarela"
-}
-
 signal alterar_UI
 
 func _ready() -> void:
@@ -23,7 +15,7 @@ func _ready() -> void:
 
 func carregar_objeto(objeto_carregado: String) -> void:
 	# Carrega o Objeto
-	var link_objeto_a_acessar = "res://Interface/Play/Objetos/" + objetos_cena_link[objeto_carregado] + ".tscn"
+	var link_objeto_a_acessar = "res://Interface/Play/Objetos/" + Global.objetos_cena_link[objeto_carregado] + ".tscn"
 	var objeto_a_acessar = load(link_objeto_a_acessar) as PackedScene
 	
 	Global.adicionar_sala_ao_historico(objeto_carregado)

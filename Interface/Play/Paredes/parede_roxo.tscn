@@ -60,13 +60,5 @@ stream = ExtResource("21_0mxt8")
 volume_db = -12.0
 bus = &"Sfx"
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 205.0
-offset_top = 106.0
-offset_right = 493.0
-offset_bottom = 233.0
-
 [connection signal="gui_input" from="Blocos de Ação/A_P_Roxo" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_roxo"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
