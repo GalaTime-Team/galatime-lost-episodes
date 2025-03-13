@@ -69,7 +69,7 @@ func adicionar_sala_ao_historico(nova_sala):
 
 func sala_que_estamos() -> String:
 	for sala in historico_de_salas:
-		if sala in ["Puzzle1", "vermelha", "ciano", "roxo"]:
+		if sala not in ["amarela", "vermelha", "ciano", "roxo"]:
 			return historico_de_salas[historico_de_salas.size() - 1]
 	return "Nenhuma sala correspondente encontrada"
 
