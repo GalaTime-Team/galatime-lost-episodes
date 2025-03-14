@@ -19,7 +19,7 @@ extends Control
 @onready var splash_screen : PackedScene = load("res://Interface/splash_screen.tscn")
 
 signal out_pause_menu
-signal pause_music
+signal pause_music(should_pause)
 #####
 # AUX
 #####
@@ -92,7 +92,7 @@ func resume_game_animation():
 	await tween.finished
 	
 	panel_container.hide()
-	
+	pause_music.emit(false)
 
 func resume_game():
 	out_pause_menu.emit()

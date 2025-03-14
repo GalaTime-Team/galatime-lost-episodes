@@ -37,6 +37,7 @@ func _ready() -> void:
 		play_bgmusic()
 	handling_signal()
 	parede_visivel(Global.sala_que_estamos())
+	pause_menu.on_pause_music.connect("pause_music", self)
 
 
 
@@ -57,7 +58,14 @@ func play_bgmusic() -> void:
 		BG_Jogo.play_music()
 
 func pause_bgmusic() -> void:
-	BG_Jogo.stop()
+	if BG_Jogo.playing:
+		BG_Jogo.stop()
+
+func on_pause_music(should_pause: bool) -> void:
+	if should_pause:
+		pause_bgmusic()
+	else:
+		play_bgmusic()
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
