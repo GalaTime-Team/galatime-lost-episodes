@@ -37,7 +37,6 @@ func _ready() -> void:
 		play_bgmusic()
 	handling_signal()
 	parede_visivel(Global.sala_que_estamos())
-	print(Global.sala_que_estamos())
 
 
 

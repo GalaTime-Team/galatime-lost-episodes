@@ -27,7 +27,7 @@ func _on_pressed() -> void:
 		if verificacao_da_solucao(int_introduzido):
 			Global.puzzles["puzzle1"].completo = true
 			chave.show()
-			SaveGame.save_game()
+			#SaveGame.save_game()
 
 func verificacao_da_solucao(int_introduzido) -> bool:
 	for i in Global.puzzles["puzzle1"].solucao.size():

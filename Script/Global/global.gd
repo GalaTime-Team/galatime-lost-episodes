@@ -68,10 +68,10 @@ func adicionar_sala_ao_historico(nova_sala):
 		historico_de_salas.pop_front() # Remove o elemento mais antigo
 
 func sala_que_estamos() -> String:
-	for sala in historico_de_salas:
-		if sala not in ["amarela", "vermelha", "ciano", "roxo"]:
+	#for sala in historico_de_salas:
+		#if sala not in ["amarela", "vermelha", "ciano", "roxo"]:
 			return historico_de_salas[historico_de_salas.size() - 1]
-	return "Nenhuma sala correspondente encontrada"
+	#return "Nenhuma sala correspondente encontrada"
 
 func sala_antecedente() -> String:
 	return historico_de_salas[historico_de_salas.size() - 2]
