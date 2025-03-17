@@ -30,6 +30,14 @@ const change_room_dictionary : Dictionary = {
 	"roxo" : {"esquerda": "ciano" ,"direita": "vermelha", "cima": "vazio"}
 }
 
+var objetos_cena_link: Dictionary = {
+	"Aproximar_PostIt" : {"id_cena": "Aproximar_PostIt_Sala_amarela", "sala" : "amarela"},
+	"Aproximar_trash" : {"id_cena": "Aproximar_trash_Sala_amarela", "sala" : "amarela"},
+	"Aproximar_banca" : {"id_cena": "Aproximar_Banca_Sala_amarela", "sala" : "amarela"},
+	"Aproximar_cookie" : {"id_cena": "Aproximar_Cookie_Sala_amarela", "sala" : "amarela"},
+	"Puzzle1" : {"id_cena": "puzzle1-Sala_amarela", "sala" : "amarela"}
+}
+
 func _ready() -> void:
 	if not Global.monologuecont:
 		on_intro_monologue()
@@ -83,6 +91,12 @@ func opening_eyes_animation() -> void:
 # Transição
 ########
 
+func cena_visivel(cena: String) -> void:
+	if cena_tipo_sala(cena):
+		parede_visivel(cena)
+	else:
+		objeto_visivel(cena)
+
 func parede_visivel(parede: String) -> void:
 	match parede:
 		"amarela":
@@ -96,7 +110,27 @@ func parede_visivel(parede: String) -> void:
 		"vazio":
 			parede_vazio.show()
 		_:
-			print("Error! Parede visi'vel")
+			print("Error! Parede visivel")
+
+func objeto_visivel(objeto: String) -> void:
+	match objetos_cena_link[objeto]["sala"]:
+		"amarela":
+			parede_amarela.show()
+			parede_amarela.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+		"vermelha":
+			parede_vermelha.show()
+			parede_vermelha.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+		"ciano":
+			parede_ciano.show()
+			parede_ciano.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+		"roxo":
+			parede_roxo.show()
+			parede_roxo.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+		"vazio":
+			parede_vazio.show()
+			parede_vazio.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+		_:
+			print("Error! Objeto Visivel")
 
 func parede_esconder(parede: String) -> void:
 	match parede:
@@ -119,8 +153,14 @@ func handling_signal() -> void:
 	parede_amarela.alterar_UI.connect(botoes_visivel)
 	#pause_menu.pause_music.connect()
 
+func cena_tipo_sala(id: String) -> bool:
+	if id in change_room_dictionary:
+		return true
+	else:
+		return false
+
 # Recebe a direção do movimento
-func mudar_sala(direcao: String) -> void:
+func mudar_sala(direcao: String) -> void:	
 	if direcao == "baixo":
 		if Global.sala_que_estamos() in "vazio":
 			parede_esconder(Global.sala_que_estamos())
