@@ -39,6 +39,9 @@ var objetos_cena_link: Dictionary = {
 	"Puzzle1" : {"id_cena": "puzzle1-Sala_amarela", "sala" : "amarela"}
 }
 
+var pausado : bool = false
+var posicao : float = 0.0
+
 func _ready() -> void:
 	if not Global.monologuecont:
 		on_intro_monologue()
@@ -76,6 +79,7 @@ func handling_signal() -> void:
 
 func on_intro_monologue() -> void:
 	# Visualizar
+	pause_bgmusic()
 	intro_monologue.set_process(true)
 	intro_monologue.show()  # Ensure it's visible when starting
 
@@ -83,11 +87,16 @@ func end_of_dialogue() -> void:
 	opening_eyes_animation()
 
 func play_bgmusic() -> void:
-	BG_Jogo.play_music()
+	if pausado:
+		BG_Jogo.seek(posicao)
+		BG_Jogo.play_music()
+		pausado = false
 
 func pause_bgmusic() -> void:
 	if BG_Jogo.playing:
+		posicao = BG_Jogo.get_playback_position()
 		BG_Jogo.stop()
+		pausado = true
 
 func on_pause_music(should_pause: bool) -> void:
 	if should_pause:
