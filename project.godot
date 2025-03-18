@@ -31,6 +31,8 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"banca": "res://Dialogue/banca.dtl",
+"cookies": "res://Dialogue/cookies.dtl",
 "intromonologue": "res://Dialogue/intromonologue.dtl",
 "parede_amarela": "res://Dialogue/parede_amarela.dtl",
 "parede_ciano": "res://Dialogue/parede_ciano.dtl",
@@ -38,7 +40,9 @@ directories/dtl_directory={
 "parede_vazio": "res://Dialogue/parede_vazio.dtl",
 "parede_vermelha": "res://Dialogue/parede_vermelha.dtl",
 "porta": "res://Dialogue/porta.dtl",
-"sinal_exit": "res://Dialogue/sinal_exit.dtl"
+"post_it": "res://Dialogue/post_it.dtl",
+"sinal_exit": "res://Dialogue/sinal_exit.dtl",
+"trash": "res://Dialogue/trash.dtl"
 }
 layout/style_list=["res://Dialogue/DialogoTemplate.tres"]
 layout/default_style="res://Dialogue/DialogoTemplate.tres"

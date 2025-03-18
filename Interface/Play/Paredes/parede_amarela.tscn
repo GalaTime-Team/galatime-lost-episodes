@@ -51,24 +51,24 @@ color = Color(1, 1, 1, 0)
 
 [node name="Trash" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
-offset_left = 769.0
-offset_top = 769.0
-offset_right = 955.0
-offset_bottom = 1014.0
+offset_left = 776.0
+offset_top = 773.0
+offset_right = 953.0
+offset_bottom = 1007.0
 
 [node name="Banca" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
 offset_left = 964.0
-offset_top = 606.0
+offset_top = 573.0
 offset_right = 1607.0
 offset_bottom = 1013.0
 
 [node name="PostIt" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
-offset_left = 214.0
-offset_top = 235.0
-offset_right = 299.0
-offset_bottom = 326.0
+offset_left = 212.0
+offset_top = 242.0
+offset_right = 290.0
+offset_bottom = 314.0
 
 [node name="Gaveta" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
@@ -79,9 +79,9 @@ offset_bottom = 788.0
 
 [node name="Cookie" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
-offset_left = 1011.0
+offset_left = 1020.0
 offset_top = 441.0
-offset_right = 1133.0
+offset_right = 1124.0
 offset_bottom = 600.0
 
 [node name="Objetos" type="Control" parent="."]
@@ -104,8 +104,12 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_amarela"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
+[connection signal="gui_input" from="Blocos de Ação/Trash" to="Blocos de Ação" method="_on_gui_input" binds= ["trash"]]
 [connection signal="pressed" from="Blocos de Ação/Trash" to="." method="_on_trash_pressed" binds= ["Aproximar_trash"]]
+[connection signal="gui_input" from="Blocos de Ação/Banca" to="Blocos de Ação" method="_on_gui_input" binds= ["banca"]]
 [connection signal="pressed" from="Blocos de Ação/Banca" to="." method="_on_banca_pressed" binds= ["Aproximar_banca"]]
+[connection signal="gui_input" from="Blocos de Ação/PostIt" to="Blocos de Ação" method="_on_gui_input" binds= ["post_it"]]
 [connection signal="pressed" from="Blocos de Ação/PostIt" to="." method="_on_post_it_pressed" binds= ["Aproximar_PostIt"]]
 [connection signal="pressed" from="Blocos de Ação/Gaveta" to="." method="_on_gaveta_pressed" binds= ["Puzzle1"]]
+[connection signal="gui_input" from="Blocos de Ação/Cookie" to="Blocos de Ação" method="_on_gui_input" binds= ["cookies"]]
 [connection signal="pressed" from="Blocos de Ação/Cookie" to="." method="_on_cookie_pressed" binds= ["Aproximar_cookie"]]
