@@ -20,6 +20,7 @@ func _ready() -> void:
 func _on_chave_pressed() -> void:
 	chave.hide()
 	Global.item_guardados("item_1","item parede amarela","chave feita de metal mas com um pouco de ferrugem","res://Asset/Images/Inventario/chave_dourada.png")
+	SaveGame.save_game()
 
 func _on_pressed() -> void:
 	if not Global.puzzles["puzzle1"].completo:
@@ -27,7 +28,6 @@ func _on_pressed() -> void:
 		if verificacao_da_solucao(int_introduzido):
 			Global.puzzles["puzzle1"].completo = true
 			chave.show()
-			SaveGame.save_game()
 
 func verificacao_da_solucao(int_introduzido) -> bool:
 	for i in Global.puzzles["puzzle1"].solucao.size():
