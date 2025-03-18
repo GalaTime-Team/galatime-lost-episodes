@@ -13,7 +13,7 @@ extends Control
 @export var menu_click: AudioStreamPlayer
 @export var menu_hover: AudioStreamPlayer
 
-signal sinal_direcao(value)
+signal sinal_direcao
 
 func _ready() -> void:
 	handling_signals()
@@ -41,12 +41,7 @@ func _on_settings_button_pressed() -> void:
 	open_pause_menu()
 
 func _on_pressed(direcao: String) -> void:
-	if direcao == "baixo":
-		emit_signal("sinal_direcao", direcao)
-		# Mudar de Sala de volta para onde estavamos antes
-	else:
-		emit_signal("sinal_direcao", direcao)
-		# Mudar de Sala para uma das direções
+	sinal_direcao.emit("", direcao)
 
 func handling_signals() -> void:
 	pause_menu.out_pause_menu.connect(open_pause_menu)

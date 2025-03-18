@@ -49,13 +49,6 @@ offset_right = 675.0
 offset_bottom = 963.0
 color = Color(1, 1, 1, 0)
 
-[node name="Button_Puzzle1" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1463.0
-offset_top = 825.0
-offset_right = 1793.0
-offset_bottom = 971.0
-
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -76,4 +69,3 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Amarela" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_vermelha"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Button_Puzzle1" to="." method="_on_box_button_pressed" binds= ["puzzle"]]

@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://er5tuxmt7cgf" path="res://Asset/Audio/Effects/Menu_Hover_Sound.mp3" id="21_0mxt8"]
 [ext_resource type="AudioStream" uid="uid://dumxnki43scgh" path="res://Asset/Audio/Effects/Menu_Click_Sound.mp3" id="22_knemv"]
 
-[node name="ParedeRoxo" type="Control"]
+[node name="ParedeRoxo" type="Control" node_paths=PackedStringArray("parede_ciano", "objetos_controler")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ka46x")
+parede_ciano = NodePath(".")
+objetos_controler = NodePath("Blocos de Ação")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -60,13 +62,5 @@ stream = ExtResource("21_0mxt8")
 volume_db = -12.0
 bus = &"Sfx"
 
-[node name="Buton_save" type="Button" parent="."]
-layout_mode = 0
-offset_left = 143.0
-offset_top = 92.0
-offset_right = 328.0
-offset_bottom = 181.0
-
 [connection signal="gui_input" from="Blocos de Ação/A_P_Roxo" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_roxo"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Buton_save" to="." method="_on_buton_save_pressed"]

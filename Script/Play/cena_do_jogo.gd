@@ -27,7 +27,8 @@ const change_room_dictionary : Dictionary = {
 	"amarela" : {"esquerda": "vermelha" ,"direita": "ciano", "cima": "vazio"},
 	"vermelha" : {"esquerda": "roxo" ,"direita": "amarela", "cima": "vazio"},
 	"ciano" : {"esquerda": "amarela" ,"direita": "roxo", "cima": "vazio"},
-	"roxo" : {"esquerda": "ciano" ,"direita": "vermelha", "cima": "vazio"}
+	"roxo" : {"esquerda": "ciano" ,"direita": "vermelha", "cima": "vazio"},
+	"vazio" : {"esquerda": "" ,"direita": "", "cima": ""}
 }
 
 var objetos_cena_link: Dictionary = {
@@ -43,10 +44,30 @@ func _ready() -> void:
 		on_intro_monologue()
 	else:
 		play_bgmusic()
-	handling_signal()
-	parede_visivel(Global.sala_que_estamos())
 	
+	handling_signal()
+	cena_visivel(Global.sala_que_estamos(), true)
 
+########
+# Handling Signal
+########
+
+func handling_signal() -> void:
+	botao_UI.sinal_direcao.connect(mudar_sala)
+	intro_monologue.back_dialog.connect(end_of_dialogue)
+	
+	# alterar UI
+	parede_amarela.alterar_UI.connect(botoes_visivel)
+	parede_vermelha.alterar_UI.connect(botoes_visivel)
+	parede_ciano.alterar_UI.connect(botoes_visivel)
+	parede_roxo.alterar_UI.connect(botoes_visivel)
+	pause_menu.pause_music.connect(on_pause_music)
+	
+	# mudar de sala
+	parede_amarela.alterar_objeto.connect(mudar_sala)
+	parede_vermelha.alterar_objeto.connect(mudar_sala)
+	parede_ciano.alterar_objeto.connect(mudar_sala)
+	parede_roxo.alterar_objeto.connect(mudar_sala)
 
 
 ########
@@ -62,11 +83,17 @@ func end_of_dialogue() -> void:
 	opening_eyes_animation()
 
 func play_bgmusic() -> void:
-	if not BG_Jogo.playing:
-		BG_Jogo.play_music()
+	BG_Jogo.play_music()
 
+func pause_bgmusic() -> void:
+	if BG_Jogo.playing:
+		BG_Jogo.stop()
 
-
+func on_pause_music(should_pause: bool) -> void:
+	if should_pause:
+		pause_bgmusic()
+	else:
+		play_bgmusic()
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
@@ -84,67 +111,78 @@ func opening_eyes_animation() -> void:
 # Transição
 ########
 
-func cena_visivel(cena: String) -> void:
+func cena_visivel(cena: String, show: bool) -> void:
 	if cena_tipo_sala(cena):
-		parede_visivel(cena)
+		parede_visivel(cena, show)
 	else:
-		objeto_visivel(cena)
+		objeto_visivel(cena, show)
 
-func parede_visivel(parede: String) -> void:
+func parede_visivel(parede: String, show: bool) -> void:
 	match parede:
 		"amarela":
-			parede_amarela.show()
+			if show:
+				parede_amarela.show()
+			else:
+				parede_amarela.hide()
 		"vermelha":
-			parede_vermelha.show()
+			if show:
+				parede_vermelha.show()
+			else:
+				parede_vermelha.hide()
 		"ciano":
-			parede_ciano.show()
+			if show:
+				parede_ciano.show()
+			else:
+				parede_ciano.hide()
 		"roxo":
-			parede_roxo.show()
+			if show:
+				parede_roxo.show()
+			else:
+				parede_roxo.hide()
 		"vazio":
-			parede_vazio.show()
+			if show:
+				parede_vazio.show()
+			else:
+				parede_vazio.hide()
 		_:
 			print("Error! Parede visivel")
 
-func objeto_visivel(objeto: String) -> void:
+func objeto_visivel(objeto: String, show: bool) -> void:
+	parede_visivel(objetos_cena_link[objeto]["sala"], true)
+	
 	match objetos_cena_link[objeto]["sala"]:
 		"amarela":
-			parede_amarela.show()
-			parede_amarela.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+			if show:
+				parede_amarela.carregar_objeto(objetos_cena_link[objeto]["id_cena"], objeto)
+			else:
+				parede_amarela.remover_objeto(objeto)
+			
 		"vermelha":
-			parede_vermelha.show()
-			parede_vermelha.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+			if show:
+				parede_vermelha.carregar_objeto(objetos_cena_link[objeto]["id_cena"], objeto)
+			else:
+				parede_vermelha.remover_objeto(objeto)
+			
 		"ciano":
-			parede_ciano.show()
-			parede_ciano.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+			if show:
+				parede_ciano.carregar_objeto(objetos_cena_link[objeto]["id_cena"], objeto)
+			else:
+				parede_ciano.remover_objeto(objeto)
+			
 		"roxo":
-			parede_roxo.show()
-			parede_roxo.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+			if show:
+				parede_roxo.carregar_objeto(objetos_cena_link[objeto]["id_cena"], objeto)
+			else:
+				parede_roxo.remover_objeto(objeto)
+			
 		"vazio":
-			parede_vazio.show()
-			parede_vazio.carregar_objeto(objetos_cena_link[objeto]["id_cena"])
+			if show:
+				parede_vazio.carregar_objeto(objetos_cena_link[objeto]["id_cena"], objeto)
+			else:
+				parede_vazio.remover_objeto(objeto)
+			
 		_:
 			print("Error! Objeto Visivel")
-
-func parede_esconder(parede: String) -> void:
-	match parede:
-		"amarela":
-			parede_amarela.hide()
-		"vermelha":
-			parede_vermelha.hide()
-		"ciano":
-			parede_ciano.hide()
-		"roxo":
-			parede_roxo.hide()
-		"vazio":
-			parede_vazio.hide()
-
-func handling_signal() -> void:
-	botao_UI.sinal_direcao.connect(mudar_sala)
-	intro_monologue.back_dialog.connect(end_of_dialogue)
-	parede_vermelha.alterar_UI.connect(botoes_visivel)
-	parede_ciano.alterar_UI.connect(botoes_visivel)
-	parede_amarela.alterar_UI.connect(botoes_visivel)
-	#pause_menu.pause_music.connect()
 
 func cena_tipo_sala(id: String) -> bool:
 	if id in change_room_dictionary:
@@ -153,28 +191,18 @@ func cena_tipo_sala(id: String) -> bool:
 		return false
 
 # Recebe a direção do movimento
-func mudar_sala(direcao: String) -> void:	
+func mudar_sala(objeto: String, direcao: String) -> void:	
 	if direcao == "baixo":
-		if Global.sala_que_estamos() in "vazio":
-			parede_esconder(Global.sala_que_estamos())
-			parede_visivel(Global.sala_antecedente())
-		else:
-			match Global.sala_antecedente():
-				"amarela":
-					parede_amarela.remover_objeto()
-				"vermelha":
-					parede_vermelha.remover_objeto()
-				"ciano":
-					parede_ciano.remover_objeto()
-				"roxo":
-					pass
-				_:
-					print("Erro, ")
+		cena_visivel(Global.sala_que_estamos(), false)
 		Global.retroceder_sala()
-	else:
-		parede_visivel(change_room_dictionary[Global.sala_que_estamos()][direcao])
-		parede_esconder(Global.sala_que_estamos())
+		cena_visivel(Global.sala_que_estamos(), true)
+	elif direcao in ["direita", "esquerda", "cima"]:
+		cena_visivel(change_room_dictionary[Global.sala_que_estamos()][direcao], true)
+		cena_visivel(Global.sala_que_estamos(), false)
 		Global.adicionar_sala_ao_historico(change_room_dictionary[Global.sala_que_estamos()][direcao])
+	elif direcao == "clicar":
+		cena_visivel(objeto, true)
+		Global.adicionar_sala_ao_historico(objeto)
 	
 	definir_visibilidade_botoes()
 

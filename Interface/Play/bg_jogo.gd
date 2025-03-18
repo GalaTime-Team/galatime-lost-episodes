@@ -28,6 +28,7 @@ func _on_music_finished():
 
 # Função para tocar a próxima música
 func play_music():
+	play()
 	#music_player.stream = music_list[current_music_index]
 	#music_player.play()
 	#print("Tocando: " + music_list[current_music_index].resource_path)
