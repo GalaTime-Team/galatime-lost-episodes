@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://tycgvywdb2ai"]
 
-[ext_resource type="Texture2D" uid="uid://dly44tglnnqas" path="res://Asset/Images/Rooms/estante.png" id="1_g4v8b"]
+[ext_resource type="Texture2D" uid="uid://n8bc7bdm4bu5" path="res://Asset/Images/Rooms/Estante_1.png" id="1_wvy7f"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1920.0
+layout_mode = 0
+offset_right = 3840.0
 offset_bottom = 1080.0
-texture = ExtResource("1_g4v8b")
+texture = ExtResource("1_wvy7f")

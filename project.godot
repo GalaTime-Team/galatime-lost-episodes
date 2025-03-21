@@ -33,7 +33,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "banca": "res://Dialogue/banca.dtl",
 "cookies": "res://Dialogue/cookies.dtl",
+"estante": "res://Dialogue/estante.dtl",
 "intromonologue": "res://Dialogue/intromonologue.dtl",
+"painel": "res://Dialogue/painel.dtl",
 "parede_amarela": "res://Dialogue/parede_amarela.dtl",
 "parede_ciano": "res://Dialogue/parede_ciano.dtl",
 "parede_roxo": "res://Dialogue/parede_roxo.dtl",

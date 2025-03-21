@@ -53,12 +53,45 @@ offset_bottom = 961.0
 grow_horizontal = 0
 color = Color(1, 1, 1, 0)
 
+[node name="A_Estante" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 125.0
+offset_right = 693.0
+offset_bottom = 1015.0
+color = Color(1, 1, 1, 0)
+
 [node name="Painel_de_cortica" type="TextureButton" parent="Blocos de Ação"]
 layout_mode = 0
 offset_left = 716.0
 offset_top = 269.0
 offset_right = 1212.0
 offset_bottom = 598.0
+
+[node name="Estante_de_livros_1" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 137.0
+offset_right = 388.0
+offset_bottom = 307.0
+
+[node name="Estante_de_livros_2" type="TextureButton" parent="Blocos de Ação"]
+offset_left = 390.0
+offset_top = 136.0
+offset_right = 686.0
+offset_bottom = 306.0
+
+[node name="Estante_de_livros_3" type="TextureButton" parent="Blocos de Ação"]
+offset_left = 87.0
+offset_top = 312.0
+offset_right = 383.0
+offset_bottom = 482.0
+
+[node name="Estante_de_livros_4" type="TextureButton" parent="Blocos de Ação"]
+offset_left = 388.0
+offset_top = 312.0
+offset_right = 684.0
+offset_bottom = 482.0
 
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1
@@ -68,13 +101,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Estante_de_livros" type="TextureButton" parent="Objetos"]
-layout_mode = 0
-offset_left = 92.0
-offset_top = 137.0
-offset_right = 682.0
-offset_bottom = 307.0
 
 [node name="s_menu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_knemv")
@@ -87,5 +113,10 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Roxo" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_roxo"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
+[connection signal="gui_input" from="Blocos de Ação/A_Estante" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
+[connection signal="gui_input" from="Blocos de Ação/Painel_de_cortica" to="Blocos de Ação" method="_on_gui_input" binds= ["painel"]]
 [connection signal="pressed" from="Blocos de Ação/Painel_de_cortica" to="." method="_on_painel_de_cortica_pressed" binds= ["Aproximar_Cortica"]]
-[connection signal="pressed" from="Objetos/Estante_de_livros" to="." method="_on_estante_de_livros_pressed" binds= ["Aproximar_Estante"]]
+[connection signal="pressed" from="Blocos de Ação/Estante_de_livros_1" to="." method="_on_estante_de_livros_pressed" binds= ["Aproximar_Estante_1"]]
+[connection signal="pressed" from="Blocos de Ação/Estante_de_livros_2" to="." method="_on_estante_de_livros_2_pressed" binds= ["Aproximar_Estante_2"]]
+[connection signal="pressed" from="Blocos de Ação/Estante_de_livros_3" to="." method="_on_estante_de_livros_3_pressed" binds= ["Aproximar_Estante_3"]]
+[connection signal="pressed" from="Blocos de Ação/Estante_de_livros_4" to="." method="_on_estante_de_livros_4_pressed" binds= ["Aproximar_Estante_4"]]

@@ -36,7 +36,10 @@ var objetos_cena_link: Dictionary = {
 	"Aproximar_trash" : {"id_cena": "Aproximar_trash_Sala_amarela", "sala" : "amarela"},
 	"Aproximar_banca" : {"id_cena": "Aproximar_Banca_Sala_amarela", "sala" : "amarela"},
 	"Aproximar_cookie" : {"id_cena": "Aproximar_Cookie_Sala_amarela", "sala" : "amarela"},
-	"Aproximar_Estante" : {"id_cena": "Aproximar_Estante_Sala_roxo", "sala" : "roxo"},
+	"Aproximar_Estante_1" : {"id_cena": "Aproximar_Estante_1_Sala_roxo", "sala" : "roxo"},
+	"Aproximar_Estante_2" : {"id_cena": "Aproximar_Estante_2_Sala_roxo", "sala" : "roxo"},
+	"Aproximar_Estante_3" : {"id_cena": "Aproximar_Estante_3_Sala_roxo", "sala" : "roxo"},
+	"Aproximar_Estante_4" : {"id_cena": "Aproximar_Estante_4_Sala_roxo", "sala" : "roxo"},
 	"Aproximar_Cortica" : {"id_cena": "Aproximar_Painel_Cortica_Sala_roxo", "sala" : "roxo"},
 	"Puzzle1" : {"id_cena": "puzzle1-Sala_amarela", "sala" : "amarela"}
 }
