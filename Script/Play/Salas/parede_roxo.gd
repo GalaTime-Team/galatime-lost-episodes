@@ -38,3 +38,9 @@ func remover_objeto(objeto_carregado: String) -> void:
 			if child.name == objeto_carregado:
 				child.queue_free()
 				break
+
+func _on_estante_de_livros_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
+
+func _on_painel_de_cortica_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)

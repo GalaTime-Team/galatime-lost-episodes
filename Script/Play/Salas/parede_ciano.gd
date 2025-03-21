@@ -38,6 +38,3 @@ func remover_objeto(objeto_carregado: String) -> void:
 			if child.name == objeto_carregado:
 				child.queue_free()
 				break
-
-func _on_button_pressed(objeto_carregado: String) -> void:
-	envia_sinal(objeto_carregado)

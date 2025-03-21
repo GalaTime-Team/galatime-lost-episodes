@@ -36,6 +36,8 @@ var objetos_cena_link: Dictionary = {
 	"Aproximar_trash" : {"id_cena": "Aproximar_trash_Sala_amarela", "sala" : "amarela"},
 	"Aproximar_banca" : {"id_cena": "Aproximar_Banca_Sala_amarela", "sala" : "amarela"},
 	"Aproximar_cookie" : {"id_cena": "Aproximar_Cookie_Sala_amarela", "sala" : "amarela"},
+	"Aproximar_Estante" : {"id_cena": "Aproximar_Estante_Sala_roxo", "sala" : "roxo"},
+	"Aproximar_Cortica" : {"id_cena": "Aproximar_Painel_Cortica_Sala_roxo", "sala" : "roxo"},
 	"Puzzle1" : {"id_cena": "puzzle1-Sala_amarela", "sala" : "amarela"}
 }
 
@@ -158,7 +160,7 @@ func parede_visivel(parede: String, show: bool) -> void:
 
 func objeto_visivel(objeto: String, show: bool) -> void:
 	parede_visivel(objetos_cena_link[objeto]["sala"], true)
-	
+
 	match objetos_cena_link[objeto]["sala"]:
 		"amarela":
 			if show:
@@ -200,7 +202,7 @@ func cena_tipo_sala(id: String) -> bool:
 		return false
 
 # Recebe a direção do movimento
-func mudar_sala(objeto: String, direcao: String) -> void:	
+func mudar_sala(objeto: String, direcao: String) -> void:
 	if direcao == "baixo":
 		cena_visivel(Global.sala_que_estamos(), false)
 		Global.retroceder_sala()

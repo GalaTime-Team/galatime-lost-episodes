@@ -53,13 +53,6 @@ offset_bottom = 961.0
 grow_horizontal = 0
 color = Color(1, 1, 1, 0)
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 871.0
-offset_top = 800.0
-offset_right = 1137.0
-offset_bottom = 985.0
-
 [node name="Objetos" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -80,4 +73,3 @@ bus = &"Sfx"
 
 [connection signal="gui_input" from="Blocos de Ação/A_P_Ciano" to="Blocos de Ação" method="_on_gui_input" binds= ["parede_ciano"]]
 [connection signal="gui_input" from="Blocos de Ação/A_Porta" to="Blocos de Ação" method="_on_gui_input" binds= ["porta"]]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed" binds= ["Aproximar_gavetas"]]
