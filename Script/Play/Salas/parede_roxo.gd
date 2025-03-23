@@ -53,3 +53,21 @@ func _on_estante_de_livros_3_pressed(objeto_carregado: String) -> void:
 
 func _on_estante_de_livros_4_pressed(objeto_carregado: String) -> void:
 	envia_sinal(objeto_carregado)
+
+func _on_estante_de_livros_5_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
+
+func _on_estante_de_livros_6_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
+
+func _on_estante_de_livros_7_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
+
+func _on_estante_de_livros_8_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
+
+func _on_estante_de_livros_9_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
+
+func _on_estante_de_livros_10_pressed(objeto_carregado: String) -> void:
+	envia_sinal(objeto_carregado)
