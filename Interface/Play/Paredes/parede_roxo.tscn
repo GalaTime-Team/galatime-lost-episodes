@@ -97,36 +97,42 @@ offset_right = 684.0
 offset_bottom = 482.0
 
 [node name="Estante_de_livros_5" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
 offset_left = 92.0
 offset_top = 485.0
 offset_right = 388.0
 offset_bottom = 655.0
 
 [node name="Estante_de_livros_6" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 483.0
 offset_right = 686.0
 offset_bottom = 653.0
 
 [node name="Estante_de_livros_7" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
 offset_left = 98.0
 offset_top = 660.0
 offset_right = 394.0
 offset_bottom = 830.0
 
 [node name="Estante_de_livros_8" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
 offset_left = 383.0
 offset_top = 660.0
 offset_right = 679.0
 offset_bottom = 830.0
 
 [node name="Estante_de_livros_9" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 835.0
 offset_right = 387.0
 offset_bottom = 1005.0
 
 [node name="Estante_de_livros_10" type="TextureButton" parent="Blocos de Ação"]
+layout_mode = 0
 offset_left = 392.0
 offset_top = 833.0
 offset_right = 688.0
@@ -155,13 +161,23 @@ bus = &"Sfx"
 [connection signal="gui_input" from="Blocos de Ação/A_Estante" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="gui_input" from="Blocos de Ação/Painel_de_cortica" to="Blocos de Ação" method="_on_gui_input" binds= ["painel"]]
 [connection signal="pressed" from="Blocos de Ação/Painel_de_cortica" to="." method="_on_painel_de_cortica_pressed" binds= ["Aproximar_Cortica"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_1" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_1" to="." method="_on_estante_de_livros_pressed" binds= ["Aproximar_Estante_1"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_2" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_2" to="." method="_on_estante_de_livros_2_pressed" binds= ["Aproximar_Estante_2"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_3" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_3" to="." method="_on_estante_de_livros_3_pressed" binds= ["Aproximar_Estante_3"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_4" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_4" to="." method="_on_estante_de_livros_4_pressed" binds= ["Aproximar_Estante_4"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_5" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_5" to="." method="_on_estante_de_livros_5_pressed" binds= ["Aproximar_Estante_5"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_6" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_6" to="." method="_on_estante_de_livros_6_pressed" binds= ["Aproximar_Estante_6"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_7" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_7" to="." method="_on_estante_de_livros_7_pressed" binds= ["Aproximar_Estante_7"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_8" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_8" to="." method="_on_estante_de_livros_8_pressed" binds= ["Aproximar_Estante_8"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_9" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_9" to="." method="_on_estante_de_livros_9_pressed" binds= ["Aproximar_Estante_9"]]
+[connection signal="gui_input" from="Blocos de Ação/Estante_de_livros_10" to="Blocos de Ação" method="_on_gui_input" binds= ["estante"]]
 [connection signal="pressed" from="Blocos de Ação/Estante_de_livros_10" to="." method="_on_estante_de_livros_10_pressed" binds= ["Aproximar_Estante_10"]]
