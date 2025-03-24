@@ -22,6 +22,7 @@ extends Control
 @export_category("Eventos")
 @export var intro_monologue: IntroMonologue
 @export var tutorial: Tutorial
+@export var timer: Timer
 
 const change_room_dictionary : Dictionary = {
 	"amarela" : {"esquerda": "vermelha" ,"direita": "ciano", "cima": "vazio"},
@@ -103,7 +104,8 @@ func play_bgmusic() -> void:
 		BG_Jogo.play(posicao)
 		pausado = false
 	else:
-		BG_Jogo.play_music()
+		BG_Jogo.seek(posicao)
+		BG_Jogo.play(posicao)
 	print(posicao)
 
 
@@ -117,7 +119,15 @@ func on_pause_music(should_pause: bool) -> void:
 	if should_pause:
 		pause_bgmusic()
 	else:
-		play_bgmusic()
+		BG_Jogo.play(posicao)
+
+func _on_bg_jogo_finished() -> void:
+	var delay = randi() % 20 + 1
+	timer.wait_time = delay
+	timer.start()
+
+func _on_Timer_timeout():
+	BG_Jogo.play()
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0

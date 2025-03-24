@@ -30,7 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://fabea632s0wq" path="res://Asset/Audio/Music/Outside The Room.mp3" id="28_ghsw3"]
 [ext_resource type="Script" path="res://Interface/Play/bg_jogo.gd" id="29_7d86j"]
 
-[node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("BG_Jogo", "pause_menu", "parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI", "esquerda", "direita", "cima", "baixo", "intro_monologue", "tutorial")]
+[node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("BG_Jogo", "pause_menu", "parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI", "esquerda", "direita", "cima", "baixo", "intro_monologue", "tutorial", "timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,6 +52,7 @@ cima = NodePath("Botões UI/Up_button")
 baixo = NodePath("Botões UI/Down_button")
 intro_monologue = NodePath("Eventos/IntroMonologue")
 tutorial = NodePath("Eventos/Tutorial")
+timer = NodePath("Timer")
 
 [node name="Cenas" type="Control" parent="."]
 layout_mode = 1
