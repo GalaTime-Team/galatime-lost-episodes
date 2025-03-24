@@ -100,8 +100,12 @@ func end_of_dialogue() -> void:
 func play_bgmusic() -> void:
 	if pausado:
 		BG_Jogo.seek(posicao)
-		BG_Jogo.play_music()
+		BG_Jogo.play(posicao)
 		pausado = false
+	else:
+		BG_Jogo.play_music()
+	print(posicao)
+
 
 func pause_bgmusic() -> void:
 	if BG_Jogo.playing:
