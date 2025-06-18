@@ -3,6 +3,7 @@ extends Control
 
 @export_category("Audio")
 @export var BG_Jogo: AudioStreamPlayer
+@export var musicas: Array[AudioStream] = []
 @export var pause_menu: PauseMenu
 
 @export_category("Paredes")
@@ -53,18 +54,19 @@ var objetos_cena_link: Dictionary = {
 
 var pausado : bool = false
 var posicao : float = 0.0
+var music_index := 0
 
 func _ready() -> void:
 	if not Global.monologuecont:
 		on_intro_monologue()
 	else:
-		BG_Jogo.play()
-	
-	timer.timeout.connect(_on_Timer_timeout)
-	BG_Jogo.finished.connect(_on_bg_jogo_finished)
+		play_bgmusic()
 	
 	handling_signal()
 	cena_visivel(Global.sala_que_estamos(), true)
+	
+	timer.timeout.connect(_on_Timer_timeout)
+	BG_Jogo.finished.connect(_on_bg_jogo_finished)
 
 ########
 # Handling Signal
@@ -107,8 +109,9 @@ func play_bgmusic() -> void:
 		BG_Jogo.play(posicao)
 		pausado = false
 	else:
-		BG_Jogo.seek(posicao)
-		BG_Jogo.play(posicao)
+		BG_Jogo.stream = musicas[music_index]
+		BG_Jogo.seek(0)
+		BG_Jogo.play()
 	print(posicao)
 
 
@@ -133,8 +136,13 @@ func _on_bg_jogo_finished() -> void:
 
 func _on_Timer_timeout():
 	if not pausado:
-		print("Tocando música após delay")
-		BG_Jogo.play()
+		music_index = (music_index + 1) % musicas.size()
+		BG_Jogo.stream = musicas[music_index]
+		
+	if not BG_Jogo.finished.is_connected(_on_bg_jogo_finished):
+		BG_Jogo.finished.connect(_on_bg_jogo_finished)
+	
+	BG_Jogo.play()
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0

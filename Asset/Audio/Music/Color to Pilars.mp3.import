@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bevfsuhyiv24i"
+path="res://.godot/imported/Color to Pilars.mp3-1a40317fe2d0e2ed45f9b8b0d83ce390.mp3str"
+
+[deps]
+
+source_file="res://Asset/Audio/Music/Color to Pilars.mp3"
+dest_files=["res://.godot/imported/Color to Pilars.mp3-1a40317fe2d0e2ed45f9b8b0d83ce390.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
