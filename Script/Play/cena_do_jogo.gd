@@ -55,6 +55,7 @@ var objetos_cena_link: Dictionary = {
 var pausado : bool = false
 var posicao : float = 0.0
 var music_index := 0
+var waiting_for_music := false
 
 func _ready() -> void:
 	if not Global.monologuecont:
@@ -126,13 +127,19 @@ func on_pause_music(should_pause: bool) -> void:
 	if should_pause:
 		pause_bgmusic()
 	else:
-		BG_Jogo.play(posicao)
+		if waiting_for_music:
+			timer.start()
+		else:
+			BG_Jogo.play(posicao)
+			pausado = false
 
 func _on_bg_jogo_finished() -> void:
 	if not pausado:
 		var delay = randi() % 20 + 1
 		timer.wait_time = delay
 		timer.start()
+		posicao = 0.0
+		waiting_for_music = true
 
 func _on_Timer_timeout():
 	if not pausado:
@@ -143,6 +150,7 @@ func _on_Timer_timeout():
 		BG_Jogo.finished.connect(_on_bg_jogo_finished)
 	
 	BG_Jogo.play()
+	waiting_for_music = false
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
