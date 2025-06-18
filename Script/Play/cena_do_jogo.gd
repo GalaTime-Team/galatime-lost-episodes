@@ -58,7 +58,10 @@ func _ready() -> void:
 	if not Global.monologuecont:
 		on_intro_monologue()
 	else:
-		play_bgmusic()
+		BG_Jogo.play()
+	
+	timer.timeout.connect(_on_Timer_timeout)
+	BG_Jogo.finished.connect(_on_bg_jogo_finished)
 	
 	handling_signal()
 	cena_visivel(Global.sala_que_estamos(), true)
@@ -110,6 +113,7 @@ func play_bgmusic() -> void:
 
 
 func pause_bgmusic() -> void:
+	print("Música terminou")
 	if BG_Jogo.playing:
 		posicao = BG_Jogo.get_playback_position()
 		BG_Jogo.stop()
@@ -122,12 +126,15 @@ func on_pause_music(should_pause: bool) -> void:
 		BG_Jogo.play(posicao)
 
 func _on_bg_jogo_finished() -> void:
-	var delay = randi() % 20 + 1
-	timer.wait_time = delay
-	timer.start()
+	if not pausado:
+		var delay = randi() % 20 + 1
+		timer.wait_time = delay
+		timer.start()
 
 func _on_Timer_timeout():
-	BG_Jogo.play()
+	if not pausado:
+		print("Tocando música após delay")
+		BG_Jogo.play()
 
 func opening_eyes_animation() -> void:
 	intro_monologue.modulate.a = 1.0
