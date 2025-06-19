@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hjteyya6jf23"]
+[gd_scene load_steps=3 format=3 uid="uid://hjteyya6jf23"]
 
 [ext_resource type="Texture2D" uid="uid://cr33y0oeik5ga" path="res://Asset/Images/Rooms/Painel_cortica.png" id="1_enqls"]
+[ext_resource type="Script" path="res://Interface/Play/Objetos/aproximar_painel_cortica_sala_roxo.gd" id="1_qrftg"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,9 +10,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qrftg")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_enqls")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 185.0
+offset_right = 1344.0
+offset_bottom = 863.0
+
+[node name="Vetor1" type="VBoxContainer" parent="Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Caixa1" type="HBoxContainer" parent="Background/HBoxContainer/Vetor1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Caixa2" type="HBoxContainer" parent="Background/HBoxContainer/Vetor1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Caixa3" type="HBoxContainer" parent="Background/HBoxContainer/Vetor1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Vetor2" type="VBoxContainer" parent="Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Caixa4" type="HBoxContainer" parent="Background/HBoxContainer/Vetor2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Caixa5" type="HBoxContainer" parent="Background/HBoxContainer/Vetor2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Caixa6" type="HBoxContainer" parent="Background/HBoxContainer/Vetor2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Vetor3" type="VBoxContainer" parent="Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Caixa7" type="HBoxContainer" parent="Background/HBoxContainer/Vetor3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Caixa8" type="HBoxContainer" parent="Background/HBoxContainer/Vetor3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Caixa9" type="HBoxContainer" parent="Background/HBoxContainer/Vetor3"]
+layout_mode = 2
+size_flags_vertical = 3
