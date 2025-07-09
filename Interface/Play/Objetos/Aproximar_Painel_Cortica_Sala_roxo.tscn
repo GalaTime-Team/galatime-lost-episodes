@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://hjteyya6jf23"]
+[gd_scene load_steps=13 format=3 uid="uid://hjteyya6jf23"]
 
 [ext_resource type="Texture2D" uid="uid://cr33y0oeik5ga" path="res://Asset/Images/Rooms/Painel_cortica.png" id="1_enqls"]
 [ext_resource type="Script" path="res://Interface/Play/Objetos/aproximar_painel_cortica_sala_roxo.gd" id="1_qrftg"]
+[ext_resource type="Texture2D" uid="uid://bhdl7jc0m4iwb" path="res://Asset/Images/pedako1.png" id="3_gx0fo"]
+[ext_resource type="Texture2D" uid="uid://cywsmkg7xo7v" path="res://Asset/Images/pedako4.png" id="4_asbxo"]
+[ext_resource type="Texture2D" uid="uid://ciwocgyvwwukh" path="res://Asset/Images/pedako7.png" id="5_1d2xh"]
+[ext_resource type="Texture2D" uid="uid://fjdu5tt5tdbu" path="res://Asset/Images/pedako2.png" id="6_o2w5j"]
+[ext_resource type="Texture2D" uid="uid://dxpf2ymf3b7yn" path="res://Asset/Images/pedako5.png" id="7_o3htd"]
+[ext_resource type="Texture2D" uid="uid://dmes8eipmww88" path="res://Asset/Images/pedako8.png" id="8_b5wbg"]
+[ext_resource type="Texture2D" uid="uid://baoqg53www88p" path="res://Asset/Images/pedako3.png" id="9_41wiu"]
+[ext_resource type="Texture2D" uid="uid://tjpy341aj4xv" path="res://Asset/Images/pedako6.png" id="10_ms5n1"]
+[ext_resource type="Texture2D" uid="uid://bkrbyd665nv2g" path="res://Asset/Images/pedako9.png" id="11_pthl0"]
+[ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="12_0itg3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -33,13 +43,33 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="parte do puzzle 1" type="TextureButton" parent="Background/HBoxContainer/Vetor1/Caixa1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("3_gx0fo")
+stretch_mode = 5
+
 [node name="Caixa2" type="HBoxContainer" parent="Background/HBoxContainer/Vetor1"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="parte do puzzle 4" type="TextureButton" parent="Background/HBoxContainer/Vetor1/Caixa2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("4_asbxo")
+stretch_mode = 5
+
 [node name="Caixa3" type="HBoxContainer" parent="Background/HBoxContainer/Vetor1"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="parte do puzzle 7" type="TextureButton" parent="Background/HBoxContainer/Vetor1/Caixa3"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("5_1d2xh")
 
 [node name="Vetor2" type="VBoxContainer" parent="Background/HBoxContainer"]
 layout_mode = 2
@@ -49,13 +79,31 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="parte do puzzle 2" type="TextureButton" parent="Background/HBoxContainer/Vetor2/Caixa4"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("6_o2w5j")
+
 [node name="Caixa5" type="HBoxContainer" parent="Background/HBoxContainer/Vetor2"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="parte do puzzle 5" type="TextureButton" parent="Background/HBoxContainer/Vetor2/Caixa5"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("7_o3htd")
+
 [node name="Caixa6" type="HBoxContainer" parent="Background/HBoxContainer/Vetor2"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="parte do puzzle 8" type="TextureButton" parent="Background/HBoxContainer/Vetor2/Caixa6"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("8_b5wbg")
 
 [node name="Vetor3" type="VBoxContainer" parent="Background/HBoxContainer"]
 layout_mode = 2
@@ -65,10 +113,66 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="parte do puzzle 3" type="TextureButton" parent="Background/HBoxContainer/Vetor3/Caixa7"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("9_41wiu")
+
 [node name="Caixa8" type="HBoxContainer" parent="Background/HBoxContainer/Vetor3"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="parte do puzzle 6" type="TextureButton" parent="Background/HBoxContainer/Vetor3/Caixa8"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("10_ms5n1")
+
 [node name="Caixa9" type="HBoxContainer" parent="Background/HBoxContainer/Vetor3"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="parte do puzzle 9" type="TextureButton" parent="Background/HBoxContainer/Vetor3/Caixa9"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("11_pthl0")
+
+[node name="Confirmar" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 403.0
+offset_top = -224.0
+offset_right = 558.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Button"
+
+[node name="Item(exemplo)" type="Button" parent="Background"]
+visible = false
+layout_mode = 0
+offset_left = 1451.0
+offset_top = 589.0
+offset_right = 1567.0
+offset_bottom = 671.0
+text = "Item"
+
+[node name="Concluido_som" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0itg3")
+
+[connection signal="pressed" from="Background/HBoxContainer/Vetor1/Caixa1/parte do puzzle 1" to="." method="_on_parte_do_puzzle_1_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor1/Caixa2/parte do puzzle 4" to="." method="_on_parte_do_puzzle_4_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor1/Caixa3/parte do puzzle 7" to="." method="_on_parte_do_puzzle_7_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor2/Caixa4/parte do puzzle 2" to="." method="_on_parte_do_puzzle_2_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor2/Caixa5/parte do puzzle 5" to="." method="_on_parte_do_puzzle_5_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor2/Caixa6/parte do puzzle 8" to="." method="_on_parte_do_puzzle_8_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor3/Caixa7/parte do puzzle 3" to="." method="_on_parte_do_puzzle_3_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor3/Caixa8/parte do puzzle 6" to="." method="_on_parte_do_puzzle_6_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/Vetor3/Caixa9/parte do puzzle 9" to="." method="_on_parte_do_puzzle_9_pressed"]
+[connection signal="pressed" from="Background/Confirmar" to="." method="_on_button_pressed"]
