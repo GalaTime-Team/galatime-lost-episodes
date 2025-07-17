@@ -12,6 +12,10 @@ extends Control
 @onready var concluido = $Concluido_som
 @onready var item = $"Background/Item(exemplo)"
 
+var angulos = []
+
+var posicao = []
+
 var angulo1 = 0
 var angulo2 = 0
 var angulo3 = 0
@@ -30,91 +34,94 @@ var posicao6 = 0
 var posicao7 = 0
 var posicao8 = 0
 var posicao9 = 0
-#porfavor nao fazer castração nuclear em uma pessoa cujo o nome é esse -> Artur Bazavlyak
+#porfavor fazer castração nuclear em uma pessoa cujo o nome é esse -> Artur Bazavlyak
 
 func _ready() -> void:
+	for i in range(9):
+		angulos.append(0)
+		posicao.append(0)
 	pass
 
 func _on_parte_do_puzzle_1_pressed() -> void:
-	angulo1 = (angulo1 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle1(angulo1)
+	angulos[0] = (angulos[0] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle1(angulos[0])
 	pedako1.texture_normal = nova_textura
-	posicao1 += 1
-	if posicao1 == 4:
-		posicao1 = 0
-	print(posicao1)
+	posicao[0] += 1
+	if posicao[0] == 4:
+		posicao[0] = 0
+	print(posicao[0])
 
 func _on_parte_do_puzzle_2_pressed() -> void:
-	angulo2 = (angulo2 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle2(angulo2)
+	angulos[1] = (angulos[1] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle2(angulos[1])
 	pedako2.texture_normal = nova_textura
-	posicao2 += 1
-	if posicao2 == 4:
-		posicao2 = 0
-	print(posicao2)
+	posicao[1] += 1
+	if posicao[1] == 4:
+		posicao[1] = 0
+	print(posicao[1])
 
 func _on_parte_do_puzzle_3_pressed() -> void:
-	angulo3 = (angulo3 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle3(angulo3)
+	angulos[2] = (angulos[2] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle3(angulos[2])
 	pedako3.texture_normal = nova_textura
-	posicao3 += 1
-	if posicao3 == 4:
-		posicao3 = 0
-	print(posicao3)
+	posicao[2] += 1
+	if posicao[2] == 4:
+		posicao[2] = 0
+	print(posicao[2])
 
 func _on_parte_do_puzzle_4_pressed() -> void:
-	angulo4 = (angulo4 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle4(angulo4)
+	angulos[3] = (angulos[3] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle4(angulos[3])
 	pedako4.texture_normal = nova_textura
-	posicao4 += 1
-	if posicao4 == 4:
-		posicao4 = 0
-	print(posicao4)
+	posicao[3] += 1
+	if posicao[3] == 4:
+		posicao[3] = 0
+	print(posicao[3])
 
 func _on_parte_do_puzzle_5_pressed() -> void:
-	angulo5 = (angulo5 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle5(angulo5)
+	angulos[4] = (angulos[4] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle5(angulos[4])
 	pedako5.texture_normal = nova_textura
-	posicao5 += 1
-	if posicao5 == 4:
-		posicao5 = 0
-	print(posicao5)
+	posicao[4] += 1
+	if posicao[4] == 4:
+		posicao[4] = 0
+	print(posicao[4])
 
 func _on_parte_do_puzzle_6_pressed() -> void:
-	angulo6 = (angulo6 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle6(angulo6)
+	angulos[5] = (angulos[5] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle6(angulos[5])
 	pedako6.texture_normal = nova_textura
-	posicao6 += 1
-	if posicao6 == 4:
-		posicao6 = 0
-	print(posicao6)
+	posicao[5] += 1
+	if posicao[5] == 4:
+		posicao[5] = 0
+	print(posicao[5])
 
 func _on_parte_do_puzzle_7_pressed() -> void:
-	angulo7 = (angulo7 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle7(angulo7)
+	angulos[6] = (angulos[6] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle7(angulos[6])
 	pedako7.texture_normal = nova_textura
-	posicao7 += 1
-	if posicao7 == 4:
-		posicao7 = 0
-	print(posicao7)
+	posicao[6] += 1
+	if posicao[6] == 4:
+		posicao[6] = 0
+	print(posicao[6])
 
 func _on_parte_do_puzzle_8_pressed() -> void:
-	angulo8 = (angulo8 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle8(angulo8)
+	angulos[7] = (angulos[7] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle8(angulos[7])
 	pedako8.texture_normal = nova_textura
-	posicao8 += 1
-	if posicao8 == 4:
-		posicao8 = 0
-	print(posicao8)
+	posicao[7] += 1
+	if posicao[7] == 4:
+		posicao[7] = 0
+	print(posicao[7])
 
 func _on_parte_do_puzzle_9_pressed() -> void:
-	angulo9 = (angulo9 + 90) % 360
-	var nova_textura = carregar_textura_do_angulo_puzzle9(angulo9)
+	angulos[8] = (angulos[8] + 90) % 360
+	var nova_textura = carregar_textura_do_angulo_puzzle9(angulos[8])
 	pedako9.texture_normal = nova_textura
-	posicao9 += 1
-	if posicao9 == 4:
-		posicao9 = 0
-	print(posicao9)
+	posicao[8] += 1
+	if posicao[8] == 4:
+		posicao[8] = 0
+	print(posicao[8])
 
 func carregar_textura_do_angulo_puzzle1(graus: int) -> Texture2D:
 	match graus:
