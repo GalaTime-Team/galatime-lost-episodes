@@ -21,7 +21,40 @@ func _ready() -> void:
 	for i in range(9):
 		angulos.append(0)
 		posicao.append(0)
-	pass
+
+	# Se o puzzle foi concluído anteriormente, carrega os ângulos salvos
+	if Global.puzzles["puzzle2"].completo:
+		para_de_girar()
+		var solu = Global.puzzles["puzzle2"].solucao
+
+		# Para cada pedaço, define o ângulo e atualiza a textura
+		angulos[0] = solu[0]
+		pedako1.texture_normal = carregar_textura_do_angulo_puzzle1(solu[0])
+		
+
+		angulos[1] = solu[1]
+		pedako2.texture_normal = carregar_textura_do_angulo_puzzle2(solu[1])
+
+		angulos[2] = solu[2]
+		pedako3.texture_normal = carregar_textura_do_angulo_puzzle3(solu[2])
+
+		angulos[3] = solu[3]
+		pedako4.texture_normal = carregar_textura_do_angulo_puzzle4(solu[3])
+
+		angulos[4] = solu[4]
+		pedako5.texture_normal = carregar_textura_do_angulo_puzzle5(solu[4])
+
+		angulos[5] = solu[5]
+		pedako6.texture_normal = carregar_textura_do_angulo_puzzle6(solu[5])
+
+		angulos[6] = solu[6]
+		pedako7.texture_normal = carregar_textura_do_angulo_puzzle7(solu[6])
+
+		angulos[7] = solu[7]
+		pedako8.texture_normal = carregar_textura_do_angulo_puzzle8(solu[7])
+
+		angulos[8] = solu[8]
+		pedako9.texture_normal = carregar_textura_do_angulo_puzzle9(solu[8])
 
 func _on_parte_do_puzzle_1_pressed() -> void:
 	angulos[0] = (angulos[0] + 90) % 360
@@ -222,6 +255,27 @@ func carregar_textura_do_angulo_puzzle9(graus: int) -> Texture2D:
 			return null
 
 func _on_button_pressed() -> void:
-	if posicao[0] == 2 && posicao[1] == 3 && posicao[2] == 1 && posicao[3] == 3 && posicao[4] == 2 && posicao[5] == 2 && posicao[6] == 3 && posicao[7] == 2 && posicao[8] == 3:
+	var solucao = [180, 270, 90, 270, 180, 180, 270, 180, 270]
+	var resolvido = true
+	for i in range(9):
+		if angulos[i] != solucao[i]:
+			resolvido = false
+			break
+	if resolvido:
 		concluido.play()
 		item.show()
+		Global.puzzles["puzzle2"].completo = true
+		Global.puzzles["puzzle2"].solucao = angulos.duplicate()
+		SaveGame.save_game()
+		para_de_girar()
+
+func para_de_girar() -> void:
+	pedako1.disabled = true
+	pedako2.disabled = true
+	pedako3.disabled = true
+	pedako4.disabled = true
+	pedako5.disabled = true
+	pedako6.disabled = true
+	pedako7.disabled = true
+	pedako8.disabled = true
+	pedako9.disabled = true

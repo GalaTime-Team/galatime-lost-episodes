@@ -31,7 +31,11 @@ var puzzles: Dictionary = {
 	"puzzle1" : {
 		"completo": false,
 		"solucao": ["2","1","2"]
-		}
+		},
+	"puzzle2" : {
+		"completo": false,
+		"solucao": [180,270,90,270,180,180,270,180,270]
+	}
 }
 
 #########
