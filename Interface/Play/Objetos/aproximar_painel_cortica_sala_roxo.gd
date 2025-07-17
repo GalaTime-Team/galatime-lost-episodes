@@ -16,25 +16,6 @@ var angulos = []
 
 var posicao = []
 
-var angulo1 = 0
-var angulo2 = 0
-var angulo3 = 0
-var angulo4 = 0
-var angulo5 = 0
-var angulo6 = 0
-var angulo7 = 0
-var angulo8 = 0
-var angulo9 = 0
-var posicao1 = 0
-var posicao2 = 0
-var posicao3 = 0
-var posicao4 = 0
-var posicao5 = 0
-var posicao6 = 0
-var posicao7 = 0
-var posicao8 = 0
-var posicao9 = 0
-#porfavor fazer castração nuclear em uma pessoa cujo o nome é esse -> Artur Bazavlyak
 
 func _ready() -> void:
 	for i in range(9):
@@ -241,6 +222,6 @@ func carregar_textura_do_angulo_puzzle9(graus: int) -> Texture2D:
 			return null
 
 func _on_button_pressed() -> void:
-	if posicao1 == 2 && posicao2 == 3 && posicao3 == 1 && posicao4 == 3 && posicao5 == 2 && posicao6 == 2 && posicao7 == 3 && posicao8 == 2 && posicao9 == 3:
+	if posicao[0] == 2 && posicao[1] == 3 && posicao[2] == 1 && posicao[3] == 3 && posicao[4] == 2 && posicao[5] == 2 && posicao[6] == 3 && posicao[7] == 2 && posicao[8] == 3:
 		concluido.play()
 		item.show()
