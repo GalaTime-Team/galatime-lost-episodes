@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://Interface/Play/bg_jogo.gd" id="29_7d86j"]
 
 [node name="CenaDoJogo" type="Control" node_paths=PackedStringArray("BG_Jogo", "pause_menu", "parede_amarela", "parede_vermelha", "parede_ciano", "parede_roxo", "parede_vazio", "botao_UI", "esquerda", "direita", "cima", "baixo", "intro_monologue", "tutorial", "timer")]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,6 +90,7 @@ visible = false
 layout_mode = 1
 
 [node name="Botões UI" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button", "up_button", "down_button", "pause_menu", "menu_click", "menu_hover")]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

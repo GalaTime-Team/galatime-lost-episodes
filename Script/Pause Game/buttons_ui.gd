@@ -14,11 +14,12 @@ extends Control
 @export var menu_hover: AudioStreamPlayer
 
 signal sinal_direcao
+var pausado : bool = false
 
 func _ready() -> void:
 	handling_signals()
 
-func _process(_delta: float) -> void:
+func _process(_delta: float) -> void:	
 	if Global.monologuecont:
 		direcao_pressionada()
 		esc_pressionado()
@@ -27,7 +28,8 @@ func open_pause_menu() -> void:
 	if pause_menu.visible:
 		pause_menu.resume_game_animation()
 		pause_menu.set_process(false)
-		
+		pausado = false
+	
 		await get_tree().create_timer(0.3).timeout
 		
 		pause_menu.hide()
@@ -35,6 +37,7 @@ func open_pause_menu() -> void:
 		pause_menu.set_process(true)
 		pause_menu.show()
 		pause_menu.open_pause_menu()
+		pausado = true
 
 func _on_settings_button_pressed() -> void:
 	menu_click.play()
@@ -45,19 +48,23 @@ func _on_pressed(direcao: String) -> void:
 
 func handling_signals() -> void:
 	pause_menu.out_pause_menu.connect(open_pause_menu)
+	
 
 #########
 # Controlos
 #########
 
 func direcao_pressionada():
-	if Input.is_action_just_pressed("esquerda") and left_button.visible:
+	if get_tree().paused:
+		return
+	
+	if Input.is_action_just_pressed("esquerda") and left_button.visible and pausado == false:
 			_on_pressed("esquerda")
-	elif Input.is_action_just_pressed("direita") and right_button.visible:
+	elif Input.is_action_just_pressed("direita") and right_button.visible and pausado == false:
 			_on_pressed("direita")
-	elif Input.is_action_just_pressed("cima") and up_button.visible:
+	elif Input.is_action_just_pressed("cima") and up_button.visible and pausado == false:
 			_on_pressed("cima")
-	elif Input.is_action_just_pressed("afastar") and down_button.visible:
+	elif Input.is_action_just_pressed("afastar") and down_button.visible and pausado == false:
 			_on_pressed("baixo")
 
 func esc_pressionado():

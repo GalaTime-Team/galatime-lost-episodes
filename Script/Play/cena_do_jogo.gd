@@ -249,6 +249,8 @@ func cena_tipo_sala(id: String) -> bool:
 
 # Recebe a direção do movimento
 func mudar_sala(objeto: String, direcao: String) -> void:
+	if get_tree().paused:
+		return
 	if direcao == "baixo":
 		cena_visivel(Global.sala_que_estamos(), false)
 		Global.retroceder_sala()
