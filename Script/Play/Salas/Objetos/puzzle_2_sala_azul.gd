@@ -5,6 +5,7 @@ extends Control
 @export var b3 : Button
 @export var sala : Control
 @export var chave : TextureButton
+@export var music_completion : AudioStreamPlayer
 
 func _ready() -> void:
 	if Global.puzzles["puzzle1"].completo:
@@ -27,6 +28,7 @@ func _on_pressed() -> void:
 		var int_introduzido = [b1.text, b2.text, b3.text]
 		if verificacao_da_solucao(int_introduzido):
 			Global.puzzles["puzzle1"].completo = true
+			music_completion.play()
 			chave.show()
 
 func verificacao_da_solucao(int_introduzido) -> bool:

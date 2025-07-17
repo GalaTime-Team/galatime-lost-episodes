@@ -33,6 +33,14 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_0mjqf")
 
+[node name="Lock" type="ColorRect" parent="Blocos de Ação"]
+layout_mode = 0
+offset_left = 1075.0
+offset_top = 693.0
+offset_right = 1187.0
+offset_bottom = 800.0
+color = Color(1, 1, 1, 0)
+
 [node name="A_P_Amarela" type="ColorRect" parent="Blocos de Ação"]
 layout_mode = 0
 offset_left = 34.0
