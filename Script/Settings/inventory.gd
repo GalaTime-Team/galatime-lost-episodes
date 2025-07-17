@@ -40,9 +40,11 @@ func listar_item_imagem(chave_atual: String) -> void:
 	if Global.inventario.size() > 0:
 		var caminho_imagem = Global.inventario[chave_atual].imagem
 		var imagem_a_acessar = TextureRect.new()
-
 		imagem_a_acessar.texture = load(caminho_imagem) as Texture2D
-
+		imagem_a_acessar.stretch_mode = TextureRect.STRETCH_KEEP
+		imagem_a_acessar.custom_minimum_size = imagem_a_acessar.texture.get_size()
+		imagem_a_acessar.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		imagem_a_acessar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		itemCardImagem.add_child(imagem_a_acessar)
 
 func listar_item_card(chave_atual: String = "") -> void:
