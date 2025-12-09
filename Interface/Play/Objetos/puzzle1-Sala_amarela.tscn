@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Script/Play/Helpers/buttonPlus.gd" id="2_7tki5"]
 [ext_resource type="Texture2D" uid="uid://cpgi8fxko55i1" path="res://Asset/Images/Rooms/Gaveta.png" id="2_8cn5a"]
 [ext_resource type="AudioStream" uid="uid://da10t0s8wj6ea" path="res://Asset/Audio/Effects/Puzzle_Success.mp3" id="4_8pb34"]
-[ext_resource type="Texture2D" uid="uid://cuubgwxulgcgs" path="res://Asset/Images/Inventario/chave_dourada.png" id="5_trgih"]
+[ext_resource type="Texture2D" uid="uid://bhdl7jc0m4iwb" path="res://Asset/Images/pedako1.png" id="5_8qopa"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("b1", "b2", "b3", "sala", "chave", "music_completion")]
 layout_mode = 3
@@ -109,7 +109,7 @@ offset_left = 1322.0
 offset_top = 765.0
 offset_right = 1528.0
 offset_bottom = 850.0
-texture_normal = ExtResource("5_trgih")
+texture_normal = ExtResource("5_8qopa")
 
 [connection signal="pressed" from="Control/VBox_codigo4/Button" to="." method="_on_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/VBox_codigo1/Button" to="Control" method="_on_button1_pressed"]

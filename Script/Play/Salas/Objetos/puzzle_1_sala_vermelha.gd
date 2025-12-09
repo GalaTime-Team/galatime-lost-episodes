@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _on_chave_pressed() -> void:
 	chave.hide()
-	Global.item_guardados("item_1","item parede amarela","chave feita de metal mas com um pouco de ferrugem","res://Asset/Images/Inventario/chave_dourada.png")
+	Global.item_guardados("item_1","item parede amarela","Peça da parede de cortiça","res://Asset/Images/pedako1.png")

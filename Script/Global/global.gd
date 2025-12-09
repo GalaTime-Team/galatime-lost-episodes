@@ -46,6 +46,12 @@ var inventario : Dictionary
 func item_guardados(chave,nome,descricao,imagem):
 	inventario[chave] = {"nome" : nome , "descricao" : descricao , "imagem" : imagem}
 
+func remover_item(chave):
+	inventario.erase(chave)
+
+#############
+# novo jogo
+#############
 func new_game():
 	monologuecont = false
 	for key in puzzles:

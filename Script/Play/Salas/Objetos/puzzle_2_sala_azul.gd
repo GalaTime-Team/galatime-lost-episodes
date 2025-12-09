@@ -14,13 +14,11 @@ func _ready() -> void:
 		b3.text = Global.puzzles["puzzle1"].solucao[2]
 		if "item_1" in Global.inventario:
 			chave.hide()
-		else:
-			chave.show()
 	set_process(false)
 
 func _on_chave_pressed() -> void:
 	chave.hide()
-	Global.item_guardados("item_1","item parede amarela","chave feita de metal mas com um pouco de ferrugem","res://Asset/Images/Inventario/chave_dourada.png")
+	Global.item_guardados("item_1","item parede roxa","Pedaço da parede de cortiça","res://Asset/Images/pedako1.png")
 	SaveGame.save_game()
 
 func _on_pressed() -> void:

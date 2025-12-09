@@ -11,16 +11,21 @@ extends Control
 @onready var pedako9 = $"Background/HBoxContainer/Vetor3/Caixa9/parte do puzzle 9"
 @onready var concluido = $Concluido_som
 @onready var item = $"Background/Item(exemplo)"
+@onready var colocar = $Background/Colocar
 
 var angulos = []
 
 var posicao = []
 
-
 func _ready() -> void:
 	for i in range(9):
 		angulos.append(0)
 		posicao.append(0)
+	if "item_1" in Global.inventario:
+		colocar.show()
+	if Global.puzzles["puzzle2"].completo == true:
+		pedako1.visible = true
+	
 
 	# Se o puzzle foi concluído anteriormente, carrega os ângulos salvos
 	if Global.puzzles["puzzle2"].completo:
@@ -254,6 +259,7 @@ func carregar_textura_do_angulo_puzzle9(graus: int) -> Texture2D:
 		_:
 			return null
 
+
 func _on_button_pressed() -> void:
 	var solucao = [180, 270, 90, 270, 180, 180, 270, 180, 270]
 	var resolvido = true
@@ -268,6 +274,7 @@ func _on_button_pressed() -> void:
 		Global.puzzles["puzzle2"].solucao = angulos.duplicate()
 		SaveGame.save_game()
 		para_de_girar()
+		Global.remover_item("item_1")
 
 func para_de_girar() -> void:
 	pedako1.disabled = true
@@ -279,3 +286,8 @@ func para_de_girar() -> void:
 	pedako7.disabled = true
 	pedako8.disabled = true
 	pedako9.disabled = true
+
+func _on_colocar_pressed() -> void:
+	pedako1.visible = true
+	colocar.hide()
+	
