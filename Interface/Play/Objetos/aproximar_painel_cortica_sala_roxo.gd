@@ -23,7 +23,7 @@ func _ready() -> void:
 		posicao.append(0)
 	if "item_1" in Global.inventario:
 		colocar.show()
-	if Global.puzzles["puzzle2"].completo == true:
+	if Global.puzzles["puzzle2"].completo:
 		pedako1.visible = true
 	
 
@@ -272,9 +272,9 @@ func _on_button_pressed() -> void:
 		item.show()
 		Global.puzzles["puzzle2"].completo = true
 		Global.puzzles["puzzle2"].solucao = angulos.duplicate()
+		Global.remover_item("item_1")
 		SaveGame.save_game()
 		para_de_girar()
-		Global.remover_item("item_1")
 
 func para_de_girar() -> void:
 	pedako1.disabled = true
