@@ -35,6 +35,9 @@ var puzzles: Dictionary = {
 	"puzzle2" : {
 		"completo": false,
 		"solucao": [180,270,90,270,180,180,270,180,270]
+	},
+	"puzzle3" : {
+		"completo": false,
 	}
 }
 
@@ -46,8 +49,11 @@ var inventario : Dictionary
 func item_guardados(chave,nome,descricao,imagem):
 	inventario[chave] = {"nome" : nome , "descricao" : descricao , "imagem" : imagem}
 
-func remover_item(chave):
+func remover_item(chave,nome,descricao,imagem):
 	inventario.erase(chave)
+	inventario.erase(nome)
+	inventario.erase(descricao)
+	inventario.erase(imagem)
 
 #############
 # novo jogo
